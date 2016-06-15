@@ -1,5 +1,5 @@
 {
-  "name": "w4p/packege",
+  "name": "w4p/package",
   "type": "project",
   "config": {
     "preferred-install": "dist"
@@ -14,7 +14,7 @@
     "php": ">=5.5",
     "composer/installers": "~1.0.12",
     "vlucas/phpdotenv": "^2.0.1",
-    "johnpbloch/wordpress": "4.5.0",
+    "johnpbloch/wordpress": ">4.5",
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "wpackagist-plugin/wordpress-seo": "*",
@@ -22,7 +22,7 @@
   },
   "extra": {
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
       "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
       "wp-content/themes/{$name}/": ["type:wordpress-theme"]
     },
