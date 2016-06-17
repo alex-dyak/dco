@@ -59,22 +59,17 @@ function w4ptheme_scripts_styles() {
 	}
 
 	// Load Stylesheets.
-	wp_enqueue_style( 'w4ptheme-reset', get_template_directory_uri() . '/reset.css' );
-	wp_enqueue_style( 'w4ptheme-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'w4ptheme-style', get_template_directory_uri() . '/css/application.css');
 
-	// Load IE Stylesheet.
-	wp_enqueue_style( 'w4ptheme-ie', get_template_directory_uri() . '/css/ie.css', array( 'w4ptheme-style' ), '20130213' );
-	$wp_styles->add_data( 'w4ptheme-ie', 'conditional', 'lt IE 9' );
+	// Jquery
+	wp_enqueue_script( 'w4ptheme-jquery', get_template_directory_uri() . '/js/vendor/jquery-1.12.4.min.js', array(), null, true );
 
 	// Modernizr.
 	// This is an un-minified, complete version of Modernizr. Before you move to production, you should generate a custom build that only has the detects you need.
-	wp_enqueue_script( 'w4ptheme-modernizr', get_template_directory_uri() . '/js/modernizr-2.8.0.dev.js', array( 'jquery' ), null, true );
-
-	// Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files.
-	wp_enqueue_script( 'w4ptheme-prefixfree', get_template_directory_uri() . '/js/prefixfree.min.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'w4ptheme-modernizr', get_template_directory_uri() . '/js/vendor/modernizr-2.8.0.dev.js', array( 'w4ptheme-jquery' ), null, true );
 
 	// This is where we put our custom JS functions.
-	wp_enqueue_script( 'w4ptheme-custom', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'w4ptheme-application', get_template_directory_uri() . '/js/custom/applications.js', array( 'w4ptheme-jquery' ), null, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'w4ptheme_scripts_styles' );
@@ -112,22 +107,6 @@ function w4ptheme_wp_title( $title, $sep ) {
 }
 
 add_filter( 'wp_title', 'w4ptheme_wp_title', 10, 2 );
-
-
-if ( ! function_exists( 'core_mods' ) ) {
-	/**
-	 * Load jQuery.
-	 */
-	function core_mods() {
-		if ( ! is_admin() ) {
-			wp_deregister_script( 'jquery' );
-			wp_register_script( 'jquery', ('http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'), false );
-			wp_enqueue_script( 'jquery' );
-		}
-	}
-
-	add_action( 'wp_enqueue_scripts', 'core_mods' );
-}
 
 // Custom Menu.
 register_nav_menu( 'primary', __( 'Navigation Menu', 'w4ptheme' ) );
