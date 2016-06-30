@@ -43,6 +43,7 @@ function w4ptheme_setup() {
 	);
 	register_nav_menu( 'primary', __( 'Navigation Menu', 'w4ptheme' ) );
 	add_theme_support( 'post-thumbnails' );
+  add_theme_support( 'title-tag' );
 }
 
 add_action( 'after_setup_theme', 'w4ptheme_setup' );
