@@ -76,6 +76,7 @@ wp-content/uploads/*
 # WordPress
 wp
 .htaccess
+!static-html/.htaccess
 
 # WP-CLI
 db-sync
