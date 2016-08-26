@@ -76,6 +76,7 @@ wp-content/uploads/*
 # WordPress
 wp
 .htaccess
+!static-html/.htaccess
 
 # WP-CLI
 db-sync
@@ -96,3 +97,6 @@ node_modules
 # Vagrant
 bin
 .vagrant
+
+#bower
+bower_components
