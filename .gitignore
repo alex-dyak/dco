@@ -74,7 +74,7 @@ wp-content/uploads/*
 !wp-content/uploads/.gitkeep
 
 # WordPress
-wp
+/wp/*
 .htaccess
 !static-html/.htaccess
 
@@ -91,6 +91,9 @@ sql-dump-*.sql
 vendor/*
 !vendor/.gitkeep
 
+# composer
+composer.lock
+
 # Node Package Manager
 node_modules
 
@@ -100,3 +103,4 @@ bin
 
 #bower
 bower_components
+
