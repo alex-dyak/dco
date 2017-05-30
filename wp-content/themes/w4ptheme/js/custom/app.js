@@ -1,5 +1,5 @@
-(function () {
-  jQuery(function($) {
+(function ($) {
+  $(function() {
 
     var $select = $('select');
 
@@ -9,7 +9,5 @@
       });
     }
 
-    $(document).foundation();
-
   });
-})();
+})(jQuery);
