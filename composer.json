@@ -19,6 +19,7 @@
     "roots/wp-password-bcrypt": "1.0.0",
     "wpackagist-plugin/wordpress-seo": "*",
     "wpackagist-plugin/types": ">2.0",
+    "wpackagist-plugin/jquery-updater": ">=3.2.1",
     "wpackagist-plugin/wordfence": "6.3.9"
   },
   "extra": {
