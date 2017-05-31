@@ -46,32 +46,37 @@
 
 <body <?php body_class(); ?>>
 
-<div id="wrapper">
+<div id="wrapper" class="wrapper">
 
-	<header id="header" role="banner">
-		<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-			   title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
-			   rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+	<header id="header" class="siteHeader">
+        <div class="siteHeader-logo">
+            <?php
+            if ( get_header_image() && ! display_header_text() ) : /* If there's a header image but no header text. */ { ?>
+                <a href="<?php echo esc_url( home_url() ); ?>"
+                   title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home" class="logo"><img
+                        class="header-image" src="<?php header_image(); ?>"
+                        width="<?php echo esc_attr( get_custom_header()->width ); ?>"
+                        height="<?php echo esc_attr( get_custom_header()->height ); ?>"
+                        alt=""/></a>
+            <?php } elseif ( get_header_image() ) : /* If there's a header image. */ { ?>
+                <img class="header-image" src="<?php header_image(); ?>"
+                     width="<?php echo absint( get_custom_header()->width ); ?>"
+                     height="<?php echo absint( get_custom_header()->height ); ?>"
+                     alt=""/>
+            <?php } endif; /* End check for header image. */ ?>
+        </div>
+        <div class="siteHeader-menu">
+            <button type="button" class="js-menu menuBtn">
+                <span>menu</span>
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
 
-		<div class="description"><?php bloginfo( 'description' ); ?></div>
-
-		<?php
-		if ( get_header_image() && ! display_header_text() ) : /* If there's a header image but no header text. */ { ?>
-			<a href="<?php echo esc_url( home_url() ); ?>"
-			   title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home"><img
-					class="header-image" src="<?php header_image(); ?>"
-					width="<?php echo esc_attr( get_custom_header()->width ); ?>"
-					height="<?php echo esc_attr( get_custom_header()->height ); ?>"
-					alt=""/></a>
-		<?php } elseif ( get_header_image() ) : /* If there's a header image. */ { ?>
-			<img class="header-image" src="<?php header_image(); ?>"
-				 width="<?php echo absint( get_custom_header()->width ); ?>"
-				 height="<?php echo absint( get_custom_header()->height ); ?>"
-				 alt=""/>
-		<?php } endif; /* End check for header image. */ ?>
 	</header>
 
-	<nav id="nav" role="navigation">
-		<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-	</nav>
+    <div class="overviewMenu">
+        <nav id="nav" role="navigation">
+            <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+        </nav>
+    </div>
 
