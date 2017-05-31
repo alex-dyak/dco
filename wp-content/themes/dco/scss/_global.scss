@@ -25,6 +25,16 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.wrapper {
+    width: 100%;
+    padding: 21px 21px 0;
+}
+
+.container {
+    width: 100%;
+    padding: 0 21px;
+}
+
 img {
     max-width: 100%;
     height: auto;
