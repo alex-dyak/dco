@@ -1,3 +1,42 @@
 //Colours should always only appear in this colours.scss
+// $test: rgba( $black, .7 ) => use when need apply alpha (color opacity)
+
 $black: #000;
 $white: #fff;
+
+$blue: #49b0e3;
+$blue--dark: #081f40;
+$blue--light: #8ab8d2;
+
+$yellow: #f29d23;
+$yellow--dark: #f36425;
+
+$orange: #f05524;
+$orange--light: #f05128;
+$orange--dark: #e84a25;
+
+$red: #e02926;
+
+$green: #9ac23c;
+$green--dark: #7a9f3e;
+$green--light: #becc32;
+
+
+$gray-ship: #404041;
+
+$tundora: #4a4849;
+$tundora--most: #4b484a;
+
+$hurricane: #877875;
+
+$nevada: #696a6c;
+$silver-rust: #c6bcb6;
+
+$bombay: #b5b7b9;
+$bombay--most: #a9a9aa;
+
+$swirl: #d7d2c5;
+$swirl--most: #d0cac2;
+
+$scorpion: #5c595a;
+$westar: #e0dfdc;

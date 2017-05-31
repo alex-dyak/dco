@@ -1,0 +1,62 @@
+/**
+ * @file
+ * Include new font-face
+ */
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../fonts/SourceSansPro-Regular.eot');
+  src: url('../fonts/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/SourceSansPro-Regular.woff2') format('woff2'),
+  url('../fonts/SourceSansPro-Regular.woff') format('woff'),
+  url('../fonts/SourceSansPro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro Semibold';
+  src: url('../fonts/SourceSansPro-Semibold.eot');
+  src: url('../fonts/SourceSansPro-Semibold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/SourceSansPro-Semibold.woff2') format('woff2'),
+  url('../fonts/SourceSansPro-Semibold.woff') format('woff'),
+  url('../fonts/SourceSansPro-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Heavy';
+  src: url('../fonts/33DA95_0_0.eot');
+  src: url('../fonts/33DA95_0_0.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/33DA95_0_0.woff2') format('woff2'),
+  url('../fonts/33DA95_0_0.woff') format('woff'),
+  url('../fonts/33DA95_0_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Book';
+  src: url('../fonts/33DA9A_0_0.eot');
+  src: url('../fonts/33DA9A_0_0.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/33DA9A_0_0.woff2') format('woff2'),
+  url('../fonts/33DA9A_0_0.woff') format('woff'),
+  url('../fonts/33DA9A_0_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+$BodoniURW-Light: 'bodoni-urw', 'Times New Roman', serif;
+$FuturaPT: 'futura-pt', Arial, sans-serif;
+$FuturaPT-Bold: 'futura-pt-bold', Arial, sans-serif;
+$ProximaNova: 'proxima-nova', Arial, sans-serif; //font-weight: 700 - bold, 800 - extrabold, 600 - semibold, 400 - regular
+
+$SourceSansPro-regular: 'Source Sans Pro', Arial, sans-serif;
+$SourceSansPro-semibold: 'Source Sans Pro Semibold', Arial, sans-serif;
+
+$Avenir-heavy: 'Avenir Heavy', Arial, sans-serif;
+$Avenir-book: 'Avenir Book', Arial, sans-serif;
+
