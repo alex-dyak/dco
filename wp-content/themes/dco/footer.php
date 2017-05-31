@@ -25,6 +25,58 @@
 					}
 					?>
 				</small>
+
+				<!-- Socials icons -->
+				<?php
+				if ( isset( get_option( 'w4p_social_profiles' )['twitter'][1] ) ) {
+					$twitter_link = get_option( 'w4p_social_profiles' )['twitter'][1];
+				} else {
+					$twitter_link = '';
+				}
+				if ( isset( get_option( 'w4p_social_profiles' )['linkedin'][1] ) ) {
+					$linkedin_link = get_option( 'w4p_social_profiles' )['linkedin'][1];
+				} else {
+					$linkedin_link = '';
+				}
+				if ( isset( get_option( 'w4p_social_profiles' )['facebook'][1] ) ) {
+					$facebook_link = get_option( 'w4p_social_profiles' )['facebook'][1];
+				} else {
+					$facebook_link = '';
+				}
+				?>
+				<div class="footer-social">
+					<?php if ( $facebook_link ) : ?>
+						<a href="<?php echo $facebook_link; ?>" class="socialLink socialLink--in"
+						   target="_blank" title="Follow us on Facebook">
+							<span>
+								<svg class="svgIcon svgFacebook">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook"></use>
+								</svg>
+							</span>
+						</a>
+					<?php endif; ?>
+					<?php if ( $linkedin_link ) : ?>
+						<a href="<?php echo $linkedin_link; ?>" class="socialLink socialLink--in"
+						   target="_blank" title="Follow us on LinkedIn">
+							<span>
+								<svg class="svgIcon svgLinkedin">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin"></use>
+								</svg>
+							</span>
+						</a>
+					<?php endif; ?>
+					<?php if ( $twitter_link ) : ?>
+						<a href="<?php echo $twitter_link; ?>" class="socialLink socialLink--tw"
+						   target="_blank" title="Follow us on Twitter">
+							<span>
+								<svg class="svgIcon svgTwitter">
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use>
+								</svg>
+							</span>
+						</a>
+					<?php endif; ?>
+				</div>
+
 			</footer>
 
 		</div>
