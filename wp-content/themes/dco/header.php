@@ -95,6 +95,14 @@
 					<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 				</div>
 			</nav>
+			<!-- Logo in popup -->
+			<span class="loginPopup-logo">
+				<img
+					src="<?php header_image(); ?>"
+					width="<?php echo esc_attr( get_custom_header()->width ); ?>"
+					height="<?php echo esc_attr( get_custom_header()->height ); ?>"
+					alt=""/>
+			</span>
 			<!-- Socials icons -->
 			<div class="loginPopup-socials">
 				<?php if ( $facebook_link ) : ?>
