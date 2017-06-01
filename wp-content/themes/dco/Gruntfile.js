@@ -64,89 +64,21 @@ module.exports = function (grunt) {
     watch: {
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['sass', 'postcss', 'copy:styles']
+        tasks: ['sass', 'postcss']
       },
       jsVendor: {
         files: 'js/vendor/**/*.js',
-        tasks: ['uglify:vendor', 'copy:js']
+        tasks: ['uglify:vendor']
       },
       jsCustom: {
         files: 'js/custom/**/*.js',
-        tasks: ['uglify:custom', 'copy:js']
+        tasks: ['uglify:custom']
       },
       system: {
-        files: ['Gruntfile.js', 'package.json'],
-        tasks: ['copy:system']
-      }
-    },
-
-    copy: {
-      options: {
-        expand: true
-      },
-      styles: {
-        files: [
-          {
-            src: [
-              'css/**',
-              'scss/**'
-            ],
-            dest: '../wp-content/themes/dco/'
-          }
-        ]
-      },
-      js: {
-        files: [
-          {
-            src: [
-              'js/**'
-            ],
-            dest: '../wp-content/themes/dco/'
-          }
-        ]
-      },
-      media: {
-        files: [
-          {
-            src: [
-              'images/**',
-              'favicons/**'
-            ],
-            dest: '../wp-content/themes/dco/'
-          }
-        ]
-      },
-      system: {
-        files: [
-          {
-            src: [
-              'Gruntfile.js',
-              'package.json',
-              'bower.json'
-            ],
-            dest: '../wp-content/themes/dco/'
-          }
-        ]
-      },
-      build: {
-        files: [
-          {
-            expand: true,
-            src: [
-              'css/**',
-              'js/**',
-              'images/**',
-              'favicons/**',
-              'fonts/**',
-              'scss/**',
-              'Gruntfile.js',
-              'package.json'
-            ],
-            dest: '../wp-content/themes/dco/'
-          }
-        ]
+        files: ['Gruntfile.js', 'package.json']
       }
     }
+
   });
 
   grunt.loadNpmTasks('grunt-sass');
@@ -154,11 +86,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('default', ['sass', 'postcss', 'imagemin', 'uglify']);
-
-  // task 'wpbuild' for copy all needed files to wp theme.
-  grunt.registerTask('wpbuild', ['copy:build']);
 
 };
