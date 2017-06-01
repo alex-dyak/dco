@@ -161,26 +161,33 @@
 
 
                   <?php
-                  if( is_front_page() ) {
-                    $args = array(
-                      'posts_per_page' => 3,
-                      'orderby'        => 'post_date',
-                      'order'          => 'DESC',
-                      'post_type'      => 'post',
-                      'post_status'    => 'publish',
-                    );
-                    $query = new WP_Query( $args );
-                    if ( $query->have_posts() ) {
-                      while ( $query->have_posts() ) {
-                        $query->the_post();
-                        $date = get_the_date( 'm.d.y' );
-                        ?>
-                          <p><?php echo $date; ?></p>
-                          <p><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></p>
-                        <?php
-                      }
-                    }
-                    wp_reset_postdata();
+                  if ( is_front_page() ) {
+	                  $args = array(
+		                  'posts_per_page' => 3,
+		                  'orderby'        => 'post_date',
+		                  'order'          => 'DESC',
+		                  'post_type'      => 'post',
+		                  'post_status'    => 'publish',
+	                  );
+	                  $query = new WP_Query( $args );
+	                  if ( $query->have_posts() ) {
+		                  while ( $query->have_posts() ) {
+			                  $query->the_post();
+			                  $date = get_the_date( 'm.d.y' );
+			                  if ( get_field( 'external_link' ) ) {
+				                  $link = get_field( 'external_link' );
+			                  } else {
+				                  $link = get_the_permalink();
+			                  }
+			                  ?>
+			                  <a href="<?php echo $link; ?>">
+				                  <p><?php echo $date; ?></p>
+				                  <p><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></p>
+			                  </a>
+		                  <?php
+		                  }
+	                  }
+	                  wp_reset_postdata();
                   }
                   ?>
                 </div>
