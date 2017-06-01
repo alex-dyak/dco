@@ -1,0 +1,40 @@
+// Media rangers, taken from foundation Media Queries
+// Use these media queries with the variables specified below.
+// http://foundation.zurb.com/docs/media-queries.html
+//
+// @media #{$small-up} { }
+// @media #{$small-only} { }
+//
+// @media #{$medium-up} { }
+// @media #{$medium-only} { }
+// etc...
+
+$mobilesmall-range: (0em, 30em); /* 0, 480px */
+$mobile-range: (30.062em, 48em); /* 481px, 768px */
+$tablet-range: (48.063em, 62em); /* 769px, 992px */
+$desktop-range: (62.063em, 75em); /* 993px, 1200px */
+$desktoplarge-range: (75.063em, 99999999em); /* 1201px */
+
+$screen: "only screen";
+
+$landscape: "#{$screen} and (orientation: landscape)";
+$portrait: "#{$screen} and (orientation: portrait)";
+
+$mobilesmall-up: $screen !default;
+$mobilesmall-only: "#{$screen} and (max-width: #{upper-bound($mobilesmall-range)})";
+
+$mobile-down: "#{$screen} and (max-width:#{upper-bound($mobile-range)})";
+$mobile-up: "#{$screen} and (min-width:#{lower-bound($mobile-range)})";
+$mobile-only: "#{$screen} and (min-width:#{lower-bound($mobile-range)}) and (max-width:#{upper-bound($mobile-range)})";
+
+$tablet-down: "#{$screen} and (max-width:#{upper-bound($tablet-range)})";
+$tablet-up: "#{$screen} and (min-width:#{lower-bound($tablet-range)})";
+$tablet-only: "#{$screen} and (min-width:#{lower-bound($tablet-range)}) and (max-width:#{upper-bound($tablet-range)})";
+
+$desktop-down: "#{$screen} and (max-width:#{lower-bound($desktop-range)})";
+$desktop-up: "#{$screen} and (min-width:#{lower-bound($desktop-range)})";
+$desktop-only: "#{$screen} and (min-width:#{lower-bound($desktop-range)}) and (max-width:#{upper-bound($desktop-range)})";
+
+$desktoplarge-down: "#{$screen} and (max-width:#{lower-bound($desktoplarge-range)})";
+$desktoplarge-up: "#{$screen} and (min-width:#{lower-bound($desktoplarge-range)})";
+$desktoplarge-only: "#{$screen} and (min-width:#{lower-bound($desktoplarge-range)}) and (max-width:#{upper-bound($desktoplarge-range)})";

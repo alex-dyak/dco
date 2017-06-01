@@ -64,6 +64,9 @@ function dco_scripts_styles() {
 
 	// This is where we put our custom JS functions.
 	wp_enqueue_script( 'dco-application', get_template_directory_uri() . '/js/app.min.js', array( 'jquery' ), null, true );
+
+    wp_enqueue_script( 'typekit', 'https://use.typekit.net/zfh5oso.js', array(), null, false );
+    wp_add_inline_script( 'typekit', 'try{Typekit.load({ async: true });}catch(e){}' );
 }
 
 add_action( 'wp_enqueue_scripts', 'dco_scripts_styles' );
@@ -131,3 +134,7 @@ require_once( get_template_directory() . '/inc/filters.php' );
 
 // Custom shortcodes.
 require_once( get_template_directory() . '/inc/shortcodes.php' );
+
+if( function_exists( 'acf_add_options_page' ) ) {
+	acf_add_options_page();
+}

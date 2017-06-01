@@ -104,3 +104,5 @@ bin
 #bower
 bower_components
 
+# wordfence
+wp-content/wflogs/*
