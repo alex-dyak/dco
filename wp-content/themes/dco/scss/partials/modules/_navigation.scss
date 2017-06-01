@@ -59,38 +59,77 @@ $linksFont: $FuturaPT;
   }
 
   &-logo {
-    width: 50%;
-    margin-left: 50%;
-    padding-left: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 27px;
     > .logo {
       display: block;
-      width: 81px;
+      width: 95px;
       height: auto;
+      margin: 0 auto;
       img {
         display: block;
         height: auto;
+
+      }
+    }
+  }
+
+  &--home {
+    .overviewMenu {
+      &-logo {
+        width: 50%;
+        margin-left: 50%;
+        padding-left: 32px;
+        margin-bottom: 30px;
+        > .logo {
+          width: 81px;
+          margin: 0;
+        }
+      }
+    }
+
+    .menuBox {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      &-left {
+        flex: 1 0;
+        border-right: 1px solid $mainElementsColor;
+        padding-right: 32px;
+        padding-top: 7px;
+      }
+      &-right {
+        display: block;
+        flex: 1 0;
+        padding-left: 32px;
+        padding-top: 7px;
+      }
+    }
+
+    .siteSocials {
+      justify-content: flex-end;
+    }
+
+    .siteNavigation {
+      ul {
+        text-align: right;
+        > li {
+          margin-bottom: 48px;
+          &:before {
+            display: none;
+          }
+          &:last-child {
+            margin-bottom: 30px;
+          }
+        }
       }
     }
   }
 }
 
 .menuBox {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  &-left {
-    flex: 1 0;
-    border-right: 1px solid $mainElementsColor;
-    padding-right: 32px;
-    padding-top: 7px;
-  }
   &-right {
-    flex: 1 0;
-    padding-left: 32px;
-    padding-top: 7px;
+    display: none;
   }
-
 }
 
 .siteNavigation {
@@ -98,14 +137,19 @@ $linksFont: $FuturaPT;
     list-style: none;
     margin: 0;
     padding: 0;
-    text-align: right;
+    text-align: center;
     font-family: $linksFont;
     font-size: 1.688rem;
     text-transform: uppercase;
     > li {
-      margin-bottom: 48px;
-      &:last-child {
-        margin-bottom: 30px;
+      margin-bottom: 27px;
+      &:before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 3px;
+        margin: 0 auto 27px;
+        background: $mainElementsColor;
       }
       > a {
         color: $contentColor;

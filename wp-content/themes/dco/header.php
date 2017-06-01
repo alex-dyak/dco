@@ -97,65 +97,64 @@ if ( is_front_page() ) {
                                 alt=""/>
                     </a>
                 </div>
-            <div class="menuBox">
-                <div class="menuBox-left">
-                    <nav id="nav" class="siteNavigation" role="navigation">
-                      <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-                    </nav>
 
-                    <!-- Socials icons -->
-                    <div class="loginPopup-socials">
-	                    <?php
-	                    if ( get_field('social_network', 'option') ) {
-		                    $social_links = get_field('social_network', 'option');
-		                    foreach ( $social_links as $social_link ) { ?>
-			                    <a href="<?php echo $social_link['social_link']; ?>" class="socialLink socialLink--in"
-			                       target="_blank" title="Follow us on Facebook">
-				                    <i class="fa fa-<?php echo $social_link['social_icon']; ?>" aria-hidden="true"></i>
-			                    </a>
-		                    <?php
-		                    }
-	                    } ?>
-                    </div>
-                </div>
+                <div class="menuBox">
+                    <div class="menuBox-left">
+                        <nav id="nav" class="siteNavigation" role="navigation">
+                          <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+                        </nav>
 
-                <div class="menuBox-right">
-                    <div class="newsList">
-                      <?php
-                      if ( is_front_page() ) {
-                        $args = array(
-                          'posts_per_page' => 3,
-                          'orderby'        => 'post_date',
-                          'order'          => 'DESC',
-                          'post_type'      => 'post',
-                          'post_status'    => 'publish',
-                        );
-                        $query = new WP_Query( $args );
-                        if ( $query->have_posts() ) {
-                          while ( $query->have_posts() ) {
-                            $query->the_post();
-                            $date = get_the_date( 'm.d.y' );
-                            if ( get_field( 'external_link' ) ) {
-                              $link = get_field( 'external_link' );
-                            } else {
-                              $link = get_the_permalink();
-                            }
-                            ?>
-                              <a href="<?php echo $link; ?>" class="newsList-box">
-                                  <span class="newsList-box-date"><?php echo $date; ?></span>
-                                  <span class="newsList-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
-                              </a>
+                        <!-- Socials icons -->
+                        <div class="siteSocials">
                             <?php
+                            if ( get_field('social_network', 'option') ) {
+                                $social_links = get_field('social_network', 'option');
+                                foreach ( $social_links as $social_link ) { ?>
+                                    <a href="<?php echo $social_link['social_link']; ?>" target="_blank">
+                                        <i class="fa fa-<?php echo $social_link['social_icon']; ?>" aria-hidden="true"></i>
+                                    </a>
+                                <?php
+                                }
+                            } ?>
+                        </div>
+                    </div>
+
+                    <div class="menuBox-right">
+                        <div class="newsList">
+                          <?php
+                          if ( is_front_page() ) {
+                            $args = array(
+                              'posts_per_page' => 3,
+                              'orderby'        => 'post_date',
+                              'order'          => 'DESC',
+                              'post_type'      => 'post',
+                              'post_status'    => 'publish',
+                            );
+                            $query = new WP_Query( $args );
+                            if ( $query->have_posts() ) {
+                              while ( $query->have_posts() ) {
+                                $query->the_post();
+                                $date = get_the_date( 'm.d.y' );
+                                if ( get_field( 'external_link' ) ) {
+                                  $link = get_field( 'external_link' );
+                                } else {
+                                  $link = get_the_permalink();
+                                }
+                                ?>
+                                  <a href="<?php echo $link; ?>" class="newsList-box">
+                                      <span class="newsList-box-date"><?php echo $date; ?></span>
+                                      <span class="newsList-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
+                                  </a>
+                                <?php
+                              }
+                            }
+                            wp_reset_postdata();
                           }
-                        }
-                        wp_reset_postdata();
-                      }
-                      ?>
+                          ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
         </div>
 
     </div>
