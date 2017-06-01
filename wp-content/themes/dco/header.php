@@ -66,7 +66,12 @@
 	} else {
 		$facebook_link = '';
 	}
-	?>
+
+    $homePage = "";
+    if( is_front_page() ) {
+        $homePage = 'overviewMenu--home ';
+    };
+    ?>
 
 	<header id="header" class="siteHeader">
         <div class="siteHeader-logo">
@@ -74,12 +79,12 @@
             if ( get_header_image() && ! display_header_text() ) : /* If there's a header image but no header text. */ { ?>
                 <a href="<?php echo esc_url( home_url() ); ?>"
                    title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home" class="logo"><img
-                        class="header-image" src="<?php header_image(); ?>"
+                        src="<?php header_image(); ?>"
                         width="<?php echo esc_attr( get_custom_header()->width ); ?>"
                         height="<?php echo esc_attr( get_custom_header()->height ); ?>"
                         alt=""/></a>
             <?php } elseif ( get_header_image() ) : /* If there's a header image. */ { ?>
-                <img class="header-image" src="<?php header_image(); ?>"
+                <img src="<?php header_image(); ?>"
                      width="<?php echo absint( get_custom_header()->width ); ?>"
                      height="<?php echo absint( get_custom_header()->height ); ?>"
                      alt=""/>
@@ -87,83 +92,102 @@
 
         </div>
         <div class="siteHeader-menu">
-            <button type="button" class="js-menu menuBtn">
-                <span>menu</span>
+            <button type="button" class="menuBtn js-menuTrigger">
+                <span><?php _e('menu'); ?></span>
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
         </div>
 
 	</header>
 
-    <div class="overviewMenu">
-        <nav id="nav" role="navigation">
-            <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-        </nav>
 
-        <!-- Logo in popup -->
-        <span class="loginPopup-logo">
-				<img
-                        src="<?php header_image(); ?>"
-                        width="<?php echo esc_attr( get_custom_header()->width ); ?>"
-                        height="<?php echo esc_attr( get_custom_header()->height ); ?>"
-                        alt=""/>
-			</span>
-        <!-- Socials icons -->
-        <div class="loginPopup-socials">
-          <?php if ( $facebook_link ) : ?>
-              <a href="<?php echo $facebook_link; ?>" class="socialLink socialLink--in"
-                 target="_blank" title="Follow us on Facebook">
+    <div class="overviewMenu <?php echo $homePage; ?>js-menu ">
+        <button type="button" class="overviewMenu-close js-closeMenu"></button>
+
+        <div class="overviewMenu-inner">
+            <div class="overviewMenu-inner-center">
+                <div class="overviewMenu-logo">
+                    <a href="<?php echo esc_url( home_url() ); ?>"
+                       title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home" class="logo">
+                        <img
+                                src="<?php header_image(); ?>"
+                                width="<?php echo esc_attr( get_custom_header()->width ); ?>"
+                                height="<?php echo esc_attr( get_custom_header()->height ); ?>"
+                                alt=""/>
+                    </a>
+                </div>
+            <div class="menuBox">
+                <div class="menuBox-left">
+                    <nav id="nav" class="siteNavigation" role="navigation">
+                      <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+                    </nav>
+
+                    <!-- Socials icons -->
+                    <div class="loginPopup-socials">
+                      <?php if ( $facebook_link ) : ?>
+                          <a href="<?php echo $facebook_link; ?>" class="socialLink socialLink--in"
+                             target="_blank" title="Follow us on Facebook">
 						<span>
 							<svg class="svgIcon svgFacebook">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook"></use>
 							</svg>
 						</span>
-              </a>
-          <?php endif; ?>
-          <?php if ( $linkedin_link ) : ?>
-              <a href="<?php echo $linkedin_link; ?>" class="socialLink socialLink--in"
-                 target="_blank" title="Follow us on LinkedIn">
+                          </a>
+                      <?php endif; ?>
+                      <?php if ( $linkedin_link ) : ?>
+                          <a href="<?php echo $linkedin_link; ?>" class="socialLink socialLink--in"
+                             target="_blank" title="Follow us on LinkedIn">
 						<span>
 							<svg class="svgIcon svgLinkedin">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin"></use>
 							</svg>
 						</span>
-              </a>
-          <?php endif; ?>
-          <?php if ( $twitter_link ) : ?>
-              <a href="<?php echo $twitter_link; ?>" class="socialLink socialLink--tw"
-                 target="_blank" title="Follow us on Twitter">
+                          </a>
+                      <?php endif; ?>
+                      <?php if ( $twitter_link ) : ?>
+                          <a href="<?php echo $twitter_link; ?>" class="socialLink socialLink--tw"
+                             target="_blank" title="Follow us on Twitter">
 						<span>
 							<svg class="svgIcon svgTwitter">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use>
 							</svg>
 						</span>
-              </a>
-          <?php endif; ?>
+                          </a>
+                      <?php endif; ?>
+                    </div>
+                </div>
+
+                <div class="menuBox-right">
+
+
+                  <?php
+                  if( is_front_page() ) {
+                    $args = array(
+                      'posts_per_page' => 3,
+                      'orderby'        => 'post_date',
+                      'order'          => 'DESC',
+                      'post_type'      => 'post',
+                      'post_status'    => 'publish',
+                    );
+                    $query = new WP_Query( $args );
+                    if ( $query->have_posts() ) {
+                      while ( $query->have_posts() ) {
+                        $query->the_post();
+                        $date = get_the_date( 'm.d.y' );
+                        ?>
+                          <p><?php echo $date; ?></p>
+                          <p><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></p>
+                        <?php
+                      }
+                    }
+                    wp_reset_postdata();
+                  }
+                  ?>
+                </div>
+            </div>
         </div>
 
-      <?php
-      if( is_front_page() ) {
-        $args = array(
-          'posts_per_page' => 3,
-          'orderby'        => 'post_date',
-          'order'          => 'DESC',
-          'post_type'      => 'post',
-          'post_status'    => 'publish',
-        );
-        $query = new WP_Query( $args );
-        if ( $query->have_posts() ) {
-          while ( $query->have_posts() ) {
-            $query->the_post();
-            $date = get_the_date( 'm.d.y' );
-            ?>
-              <p><?php echo $date; ?></p>
-              <p><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></p>
-            <?php
-          }
-        }
-        wp_reset_postdata();
-      }
-      ?>
+        </div>
+
     </div>
 
