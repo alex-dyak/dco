@@ -17,13 +17,21 @@
 				<p><a href="#top"><?php _e( 'RETURN TO TOP', 'dco' ); ?></a></p>
 				<!-- Copyright -->
 				<small>
-					<?php
-					if ( $copyright = get_option( 'w4p_copyright' ) ) {
-						echo esc_html( $copyright ) . ' <a href="mailto:' . get_option( 'info_email_address' ) . '">' . get_option( 'info_email_address' ) . '</a>';
-					} else {
-						echo sprintf( esc_html__( 'Copyright © %d. %s. All Rights Reserved.', 'dco' ), date( 'Y' ), get_bloginfo( 'name' ) );
-					}
-					?>
+					<?php if ( get_field( 'footer_logo', 'option' ) ) : ?>
+						<div class="footer-logo"><img src="<?php echo get_field( 'footer_logo', 'option' ); ?>"/></div>
+					<?php endif; ?>
+					<?php if ( get_field( 'copyright_1_part', 'option' ) ) : ?>
+						<div class="footer-copyright_1_part"><?php echo get_field( 'copyright_1_part', 'option' ); ?></div>
+					<?php endif; ?>
+					<?php if ( get_field( 'copyright_2_part', 'option' ) ) : ?>
+						<div class="footer-copyright_2_part"><?php echo get_field( 'copyright_2_part', 'option' ); ?></div>
+					<?php endif; ?>
+					<?php if ( get_field( 'copyright_3_part', 'option' ) ) : ?>
+						<div class="footer-copyright_3_part"><?php echo get_field( 'copyright_3_part', 'option' ); ?></div>
+					<?php endif; ?>
+					<?php if ( get_field( 'copyright_email', 'option' ) ) : ?>
+						<div class="footer-copyright_email"><?php echo get_field( 'copyright_email', 'option' ); ?></div>
+					<?php endif; ?>
 				</small>
 
 				<!-- Socials icons -->
