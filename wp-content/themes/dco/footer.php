@@ -10,44 +10,68 @@
  */
 
 ?>
-			<footer id="footer" class="source-org vcard copyright" role="contentinfo">
-				<!-- Mail to Button -->
-				<p><a href="mailto:<?php echo get_option( 'info_email_address' ); ?>" class="btn connect"><?php _e( 'D&CONNECT', 'dco' ); ?></a></p>
-				<!-- Return to top link -->
-				<p><a href="#top"><?php _e( 'RETURN TO TOP', 'dco' ); ?></a></p>
-				<!-- Copyright -->
-				<small>
-					<?php if ( get_field( 'footer_logo', 'option' ) ) : ?>
-						<div class="footer-logo"><img src="<?php echo get_field( 'footer_logo', 'option' ); ?>"/></div>
-					<?php endif; ?>
-					<?php if ( get_field( 'copyright_1_part', 'option' ) ) : ?>
-						<div class="footer-copyright_1_part"><?php echo get_field( 'copyright_1_part', 'option' ); ?></div>
-					<?php endif; ?>
-					<?php if ( get_field( 'copyright_2_part', 'option' ) ) : ?>
-						<div class="footer-copyright_2_part"><?php echo get_field( 'copyright_2_part', 'option' ); ?></div>
-					<?php endif; ?>
-					<?php if ( get_field( 'copyright_3_part', 'option' ) ) : ?>
-						<div class="footer-copyright_3_part"><?php echo get_field( 'copyright_3_part', 'option' ); ?></div>
-					<?php endif; ?>
-					<?php if ( get_field( 'copyright_email', 'option' ) ) : ?>
-						<div class="footer-copyright_email"><?php echo get_field( 'copyright_email', 'option' ); ?></div>
-					<?php endif; ?>
-				</small>
 
-				<!-- Socials icons -->
-				<div class="siteSocials">
-					<?php
-					if ( get_field('social_network', 'option') ) {
-						$social_links = get_field('social_network', 'option');
-						foreach ( $social_links as $social_link ) { ?>
-							<a href="<?php echo $social_link['social_link']; ?>" target="_blank">
-								<i class="fa fa-<?php echo $social_link['social_icon']; ?>" aria-hidden="true"></i>
-							</a>
-						<?php
-						}
-					} ?>
-				</div>
+            <?php
+                $homePageFooter = "";
+                if ( is_front_page() ) {
+                    $homePageFooter = 'siteFooter--home ';
+                };
+            ?>
 
+			<footer id="footer" class="siteFooter <?php echo $homePageFooter; ?>" role="contentinfo">
+                <div class="siteFooter-inner">
+                    <div class="siteFooter-preFooter">
+                        <div class="siteFooter-preFooter-body">
+                            <div class="footerConnect">
+                                <a href="mailto:<?php echo get_option( 'info_email_address' ); ?>" class="btn btn--blue btn--connect"><?php echo sprintf( '<span>%s</span><span>%s</span><span>%s</span>', __( 'D', 'text_domain' ), __( '&CO', 'text_domain') , __( 'NNECT', 'text_domain' )  ); ?></a>
+                            </div>
+                            <div class="footerDescription"><?php echo get_field( 'footer_description', 'option' ); ?></div>
+                        </div>
+                        <div class="footerGoTop">
+                            <button type="button" class="goTop js-goTop"><?php _e( 'RETURN TO TOP', 'dco' ); ?></button>
+                        </div>
+                    </div>
+
+                    <div class="siteFooter-body">
+                      <?php if ( get_field( 'footer_logo', 'option' ) ) : ?>
+                          <div class="siteFooter-body-logo">
+                              <a href="<?php echo esc_url( home_url() ); ?>">
+                                <img src="<?php echo get_field( 'footer_logo', 'option' ); ?>"/>
+                              </a>
+                          </div>
+                      <?php endif; ?>
+
+                        <div class="siteFooter-body-copyright">
+                            <ul>
+                              <?php if ( get_field( 'copyright_1_part', 'option' ) ) : ?>
+                                  <li><?php echo get_field( 'copyright_1_part', 'option' ); ?></li>
+                              <?php endif; ?>
+                              <?php if ( get_field( 'copyright_2_part', 'option' ) ) : ?>
+                                  <li><?php echo get_field( 'copyright_2_part', 'option' ); ?></li>
+                              <?php endif; ?>
+                              <?php if ( get_field( 'copyright_3_part', 'option' ) ) : ?>
+                                  <li><?php echo get_field( 'copyright_3_part', 'option' ); ?></li>
+                              <?php endif; ?>
+                              <?php if ( get_field( 'copyright_email', 'option' ) ) : ?>
+                                  <li><a href="mailto:<?php echo get_field( 'copyright_email', 'option' ); ?>"><?php echo get_field( 'copyright_email', 'option' ); ?></a></li>
+                              <?php endif; ?>
+                            </ul>
+                        </div>
+
+                        <div class="siteFooter-body-socials siteSocials">
+                          <?php
+                          if ( get_field('social_network', 'option') ) {
+                            $social_links = get_field('social_network', 'option');
+                            foreach ( $social_links as $social_link ) { ?>
+                                <a href="<?php echo $social_link['social_link']; ?>" target="_blank">
+                                    <i class="fa fa-<?php echo $social_link['social_icon']; ?>" aria-hidden="true"></i>
+                                </a>
+                              <?php
+                            }
+                          } ?>
+                        </div>
+                    </div>
+                </div>
 			</footer>
 
 		</div>
