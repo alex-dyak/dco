@@ -26,11 +26,13 @@ $counter = 0;
 		}
 		?>
 		<?php if( get_field( 'landing_image' ) ) : ?>
-			<div class="landing-title-<?php echo $class; ?>"><?php the_title(); ?></div>
-			<div class="image-landing" style="background-color: <?php echo $project_color; ?>">
-				<img src="<?php echo get_field( 'landing_image' ); ?>"/>
-			</div>
-			<?php endif; ?>
+			<a href="<?php the_permalink(); ?>">
+				<div class="landing-title-<?php echo $class; ?>"><?php the_title(); ?></div>
+				<div class="image-landing" style="background-color: <?php echo $project_color; ?>">
+					<img src="<?php echo get_field( 'landing_image' ); ?>"/>
+				</div>
+			</a>
+		<?php endif; ?>
 
 	<?php endwhile;
 endif; ?>
