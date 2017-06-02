@@ -26,6 +26,17 @@
 }
 
 @font-face {
+  font-family: 'Source Sans Pro Light';
+  src: url('../fonts/SourceSansPro-Light.eot');
+  src: url('../fonts/SourceSansPro-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/SourceSansPro-Light.woff2') format('woff2'),
+  url('../fonts/SourceSansPro-Light.woff') format('woff'),
+  url('../fonts/SourceSansPro-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Avenir Heavy';
   src: url('../fonts/33DA95_0_0.eot');
   src: url('../fonts/33DA95_0_0.eot?#iefix') format('embedded-opentype'),
@@ -50,13 +61,13 @@
 
 
 $BodoniURW-Light: 'bodoni-urw', 'Times New Roman', serif;
-$FuturaPT: 'futura-pt', Arial, sans-serif;
+$FuturaPT: 'futura-pt', Arial, sans-serif; // font-weight: 400 - regular, 500 - medium
 $FuturaPT-Bold: 'futura-pt-bold', Arial, sans-serif;
 $ProximaNova: 'proxima-nova', Arial, sans-serif; //font-weight: 700 - bold, 800 - extrabold, 600 - semibold, 400 - regular
 
 $SourceSansPro-regular: 'Source Sans Pro', Arial, sans-serif;
 $SourceSansPro-semibold: 'Source Sans Pro Semibold', Arial, sans-serif;
+$SourceSansPro-light: 'Source Sans Pro Light', Arial, sans-serif;
 
 $Avenir-heavy: 'Avenir Heavy', Arial, sans-serif;
 $Avenir-book: 'Avenir Book', Arial, sans-serif;
-
