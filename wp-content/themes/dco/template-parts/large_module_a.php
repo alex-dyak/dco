@@ -38,13 +38,19 @@ if ( ! empty ( $image ) ):
 	$full_img_desktop_large  = $image['sizes']['full_img_desktop_large'];
 	?>
 
-	<div class="image-large-module-a">
-		<div class="quote_title-<?php echo $class_tilte; ?>" style="color: <?php echo $title_color; ?>">
-			<?php echo $quote_title; ?>
-		</div>
-		<div class="quote_body-<?php echo $class_body; ?>" style="background: <?php echo $background_color; ?>">
-			<?php echo $quote_body; ?>
-		</div>
+	<div class="imageLargeModuleA">
+        <?php if ($quote_title) : ?>
+            <div class="quote_title-<?php echo $class_tilte; ?>" style="color: <?php echo $title_color; ?>">
+                <?php echo $quote_title; ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($quote_body) : ?>
+            <div class="quote_body-<?php echo $class_body; ?>" style="background: <?php echo $background_color; ?>">
+                <?php echo $quote_body; ?>
+            </div>
+        <?php endif; ?>
+
 		<img src="<?php echo $url; ?>" srcset="
             <?php echo $full_img_mobile_small; ?> 480w,
             <?php echo $full_img_mobile_large; ?> 768w,

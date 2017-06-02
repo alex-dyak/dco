@@ -15,23 +15,30 @@ a {
 }
 
 h1 {
-  margin: 0 0 27px;
-  font-size: $fontSize-largest;
-  font-weight: $fontWeight-extraLight;
-  line-height: $lineHeight-stightest;
+  margin: 0 0 20px;
+  font-family: $ProximaNova;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  text-transform: uppercase;
 }
 h2 {
-  margin: 1.25em 0 .75em 0;
-  font-size: $fontSize-larger;
-  font-weight: $fontWeight-bold;
-  line-height: $lineHeight-tightest;
+  margin: 0 0 10px;
+  font-family: $FuturaPT-Bold;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  text-transform: uppercase;
 }
 h3 {
-  margin: 0 0 .75em;
-  font-size: $fontSize-large;
-  font-weight: $fontWeight-bold;
-  line-height: $lineHeight-tighter;
+  margin: 0 0 10px;
+  font-family: $ProximaNova;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  text-transform: uppercase;
 }
+
+
 blockquote {
   margin: 1em 0;
   padding-left: 20px;
