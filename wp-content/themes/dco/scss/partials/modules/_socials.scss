@@ -1,0 +1,28 @@
+/* variables for this module */
+$socialsBg: $blue--light;
+$socialsBg--hover: $nevada;
+$socialsColor: $white;
+/*===========================*/
+
+.siteSocials {
+  display: flex;
+  justify-content: center;
+  a {
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin-left: 20px;
+    border-radius: 100%;
+    background: $socialsBg;
+    font-size: 16px;
+    color: $socialsColor;
+    text-align: center;
+    transition: all .3s;
+    &:hover {
+      background: $socialsBg--hover;
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

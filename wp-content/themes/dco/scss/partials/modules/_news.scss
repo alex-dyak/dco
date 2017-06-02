@@ -1,0 +1,41 @@
+/* variables for this module */
+$descriptionColor: $nevada;
+$descriptionColor--hover: $blue--dark;
+$dateColor: $blue--light;
+$dateColor--hover: $blue--dark;
+$dateFont: $Avenir-heavy;
+$descriptionFont: $SourceSansPro-light;
+
+/*===========================*/
+
+.newsList {
+  &-box {
+    display: block;
+    margin-bottom: 27px;
+    font-family: $descriptionFont;
+    font-size: 0.875rem;
+    line-height: 1.3;
+    color: $descriptionColor;
+    transition: all .3s;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:hover {
+      color: $descriptionColor--hover;
+      text-decoration: none;
+      .newsList-box-date {
+        color: $dateColor--hover;
+      }
+    }
+    &-date {
+      display: block;
+      margin-bottom: 3px;
+      font-family: $dateFont;
+      color: $dateColor;
+      transition: all .3s;
+    }
+    &-description {
+      display: block;
+    }
+  }
+}

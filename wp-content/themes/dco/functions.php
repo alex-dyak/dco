@@ -140,3 +140,7 @@ require_once( get_template_directory() . '/inc/filters.php' );
 
 // Custom shortcodes.
 require_once( get_template_directory() . '/inc/shortcodes.php' );
+
+if( function_exists( 'acf_add_options_page' ) ) {
+	acf_add_options_page();
+}
