@@ -149,3 +149,18 @@ require_once( get_template_directory() . '/inc/shortcodes.php' );
 if( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page();
 }
+
+function dco_locate_template ( $template_name, $args = array() ) {
+	$template_dir = dirname( __FILE__ ) .'/template-parts/';
+	$located = '';
+	$file = $template_dir . $template_name . '.php';
+	if ( file_exists( $file) ) {
+		$located = $file;
+	}
+
+	if( $located ){
+		if( is_array($args) ) extract($args);
+		include($located);
+	}
+	return $located;
+}
