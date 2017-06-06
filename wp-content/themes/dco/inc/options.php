@@ -86,11 +86,12 @@ class dcoSettingsPage {
 	 */
 	public function __construct() {
 		$this->social = array(
-			'facebook' => __( 'Facebook', 'dco' ),
-			'twitter' => __( 'Twitter', 'dco' ),
-			'googleplus' => __( 'Google+', 'dco' ),
-			'instagram' => __( 'Instagram', 'dco' ),
-			'linkedin' => __( 'LinkedIn', 'dco' ),
+			'facebook'           => __( 'Facebook', 'dco' ),
+			'twitter'            => __( 'Twitter', 'dco' ),
+			'googleplus'         => __( 'Google+', 'dco' ),
+			'instagram'          => __( 'Instagram', 'dco' ),
+			'linkedin'           => __( 'LinkedIn', 'dco' ),
+			'info_email_address' => __( 'Info Email', 'dco' ),
 		);
 		add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'page_init' ) );
@@ -118,8 +119,10 @@ class dcoSettingsPage {
 		$this->options = array( 'w4p_social_profiles' => get_option( 'w4p_social_profiles' ) );
 
 		$this->options['w4p_contacts_address'] = get_option( 'w4p_contacts_address' );
-		$this->options['w4p_contacts_phones'] = get_option( 'w4p_contacts_phones' );
-		$this->options['w4p_contacts_skype'] = get_option( 'w4p_contacts_skype' );
+		$this->options['w4p_contacts_phones']  = get_option( 'w4p_contacts_phones' );
+		$this->options['w4p_contacts_skype']   = get_option( 'w4p_contacts_skype' );
+
+		$this->options['info_email_address'] = get_option( 'info_email_address' );
 
 		$this->options['w4p_copyright'] = get_option( 'w4p_copyright' ); ?>
 		<div class="wrap">
@@ -165,6 +168,11 @@ class dcoSettingsPage {
 			array( $this, 'sanitize_copyright' ) /* Sanitize */
 		);
 
+		register_setting(
+			'w4p_options_group', /* Option group */
+			'info_email_address' /* Option name */
+		);
+
 		add_settings_section(
 			'setting_section_id', /* ID */
 			__( 'W4P Theme Options', 'dco' ), /* Title */
@@ -195,7 +203,33 @@ class dcoSettingsPage {
 			'theme_options',
 			'setting_section_id'
 		);
+
+		add_settings_field(
+			'info_email',
+			__( 'Info Email', 'dco' ),
+			array( $this, 'info_email_callback' ),
+			'theme_options',
+			'setting_section_id'
+		);
 	}
+
+	/**
+	 * Get the info email.
+	 */
+	public function info_email_callback() {
+		?>
+		<div class="w4p-info-email-wrapper">
+			<label for="info_email_address" class="w4p-option-label"><?php esc_html_e( 'Email:', 'dco' ); ?></label>
+			<input
+				type="text"
+				id="info_email_address"
+				name="info_email_address"
+				value="<?php echo ! empty( $this->options['info_email_address'] ) ? esc_attr( $this->options['info_email_address'] ) : '' ?>"
+				placeholder="<?php esc_html_e( 'mail@example.com', 'dco' ); ?>"
+				/>
+			<hr>
+		</div>
+	<?php }
 
 	/**
 	 * 	/**
