@@ -21,7 +21,8 @@
     "wpackagist-plugin/types": ">2.0",
     "wpackagist-plugin/jquery-updater": ">=3.2.1",
     "wpackagist-plugin/wordfence": ">=6.3.9",
-    "wpackagist-plugin/svg-support": ">=2.2.3"
+    "wpackagist-plugin/svg-support": ">=2.2.3",
+    "wpackagist-plugin/advanced-custom-fields-widget-area-field": "1.0.0"
   },
   "extra": {
     "installer-paths": {
