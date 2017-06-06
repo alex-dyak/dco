@@ -44,6 +44,17 @@ function dco_setup() {
 	register_nav_menu( 'primary', __( 'Navigation Menu', 'dco' ) );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'title-tag' );
+
+	if ( function_exists( 'add_image_size' ) ) {
+		add_image_size( 'mobile_img', 280, 280, true );
+        add_image_size( 'full_img_mobile_small', 480, '', TRUE );
+        add_image_size( 'full_img_mobile_large', 768, '', TRUE );
+        add_image_size( 'full_img_tablet', 992, '', TRUE );
+        add_image_size( 'full_img_desktop_small', 1200, '', TRUE );
+        add_image_size( 'full_img_desktop_medium', 1620, '', TRUE );
+		add_image_size( 'full_img_desktop_large', 1920, '', TRUE );
+	}
+
 }
 
 add_action( 'after_setup_theme', 'dco_setup' );
