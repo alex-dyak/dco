@@ -39,15 +39,17 @@ if ( ! empty ( $image ) ):
 	?>
 
 	<div class="imageLargeModuleA">
-        <?php if ($quote_title) : ?>
-            <div class="quote_title-<?php echo $class_tilte; ?>" style="color: <?php echo $title_color; ?>">
-                <?php echo $quote_title; ?>
-            </div>
-        <?php endif; ?>
+        <?php if ($quote_title || $quote_body) : ?>
+            <div class="imageLargeModuleA-quote position-<?php echo $class_tilte; ?>" style="background: <?php echo $background_color; ?>">
+                <?php if ($quote_title) : ?>
+                    <div class="imageLargeModuleA-quote-title"><?php echo $quote_title; ?></div>
+                <?php endif; ?>
 
-        <?php if ($quote_body) : ?>
-            <div class="quote_body-<?php echo $class_body; ?>" style="background: <?php echo $background_color; ?>">
-                <?php echo $quote_body; ?>
+                <?php if ($quote_body) : ?>
+                    <div class="imageLargeModuleA-quote-body">
+                        <?php echo $quote_body; ?>
+                    </div>
+                <?php endif; ?>
             </div>
         <?php endif; ?>
 
