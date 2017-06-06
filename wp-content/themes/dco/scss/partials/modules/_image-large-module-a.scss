@@ -1,5 +1,40 @@
 .imageLargeModuleA {
+  position: relative;
+  &-quote {
+    padding: 33px 15px;
+    color: $white;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-family: $SourceSansPro-semibold;
+    @media #{$tablet-up} {
+      position: absolute;
+      width: 33.33%;
+      padding: 31px 16px;
+    }
+    @media #{$desktop-up} {
+      padding: 47px 25px;
+    }
+
+    &.position-top_right {
+      @media #{$tablet-up} {
+        right: 8.33%;
+        top: 0;
+        transform: translateY(-50%);
+      }
+    }
+
+    &-title {
+      font-family: $ProximaNova;
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+  }
   img {
+    display: block;
     width: 100%;
   }
 }
+
