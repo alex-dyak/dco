@@ -39,6 +39,14 @@ body {
     padding: 0 21px;
 }
 
+.container-medium {
+    width: 100%;
+    margin: 0 auto;
+    @media #{$tablet-up} {
+        width: 83.33%;
+    }
+}
+
 img {
     max-width: 100%;
     height: auto;
