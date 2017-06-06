@@ -21,8 +21,8 @@ $counter = 0;
 		} else {
 			$class = 'right';
 		}
-		if ( get_field( 'project_color' ) ) {
-			$project_color = get_field( 'project_color' );
+		if ( get_field( 'background_color' ) ) {
+			$project_color = get_field( 'background_color' );
 		}
 		?>
 		<?php if( get_field( 'landing_image' ) ) : ?>
