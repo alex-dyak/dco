@@ -11,6 +11,7 @@ get_header(); ?>
 		<article class="post" id="post-<?php the_ID(); ?>">
 
 			<?php
+			// Display banner.
 			$banners = array();
 			$counter = 0;
 			if ( have_rows( 'page_banner' ) ) {
@@ -24,9 +25,9 @@ get_header(); ?>
 			// Get random element from $banners
 			$banner = array_rand( $banners );
 
-			if ( $banners[ $banners ] ) {
-				$title = $banners[ $banners ]['title'];
-				$image = $banners[ $banners ]['image'];
+			if ( $banners[ $banner ] ) {
+				$title = $banners[ $banner ]['title'][0];
+				$image = $banners[ $banner ]['image'][0];
 
 			if ( ! empty ( $image ) ):
 				$url                     = $image['url'];
@@ -39,12 +40,6 @@ get_header(); ?>
 				?>
 
 				<div class="imageClientPage">
-					<?php if ($quote_title) : ?>
-						<div class="quote_title-<?php echo $class_tilte; ?>" style="color: <?php echo $title_color; ?>">
-							<?php echo $quote_title; ?>
-						</div>
-					<?php endif; ?>
-
 					<img src="<?php echo $url; ?>" srcset="
 			            <?php echo $full_img_mobile_small; ?> 480w,
 			            <?php echo $full_img_mobile_large; ?> 768w,
@@ -52,10 +47,14 @@ get_header(); ?>
 			            <?php echo $full_img_desktop_small; ?> 1200w,
 			            <?php echo $full_img_desktop_medium; ?> 1620w,
 			            <?php echo $full_img_desktop_large; ?> 1920w">
+					<?php if ($title) : ?>
+						<div class="client_title">
+							<?php echo $title; ?>
+						</div>
+					<?php endif; ?>
 				</div>
 
 			<?php endif;
-
 			}
 			?>
 
