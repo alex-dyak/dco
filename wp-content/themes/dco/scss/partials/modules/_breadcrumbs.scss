@@ -1,0 +1,24 @@
+/* variables for this module */
+$breadcrumbsFontFamily: $ProximaNova;
+$breadcrumbsFontSize: 1rem;
+$breadcrumbsColor: $westar;
+$breadcrumbsBackgroundColor: $white;
+/*===========================*/
+.anchor-menu {
+    @media #{$mobile-down} {
+        display: none;
+    }
+    position: relative;
+    padding: 5px 80px;
+    font-size: $breadcrumbsFontSize;
+    color: $breadcrumbsColor;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: $breadcrumbsBackgroundColor;
+    @media #{$tablet-up} {
+        margin: 0 -21px;
+    }
+    a {
+        color: $breadcrumbsColor;
+    }
+}
