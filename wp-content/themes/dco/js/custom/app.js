@@ -1,8 +1,11 @@
 (function ($) {
   $(function() {
+    var profileSlider = $('.js-profile-slider'),
+        profileSliderSpeed = profileSlider.data('speed');
+    profileSliderSpeed = profileSliderSpeed % 1 == 0 ? profileSliderSpeed : 3000;
     $('.js-profile-slider').slick({
       autoplay: true,
-      autoplaySpeed: 6000,
+      autoplaySpeed: profileSliderSpeed,
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
