@@ -43,9 +43,19 @@ if ( function_exists( 'register_sidebar' ) ) {
 			'after_title'   => '</h3>',
 		) );
 
+		register_sidebar( array(
+			'name'          => __( 'Client Filter Area', 'dco' ),
+			'id'            => 'client-filter-area',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h1 class="widget-title">',
+			'after_title'   => '</h1>',
+		) );
+
 		register_widget( 'W4P_Contacts_Widget' );
 		register_widget( 'W4P_Social_Profiles_Widget' );
 		register_widget( 'W4P_Anchor_Menu_Widget' );
+		register_widget( 'W4P_Client_Filter_Widget' );
 
 	}
 	add_action( 'widgets_init', 'dco_widgets_init' );
@@ -326,3 +336,54 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
 	}
 } /* End class W4P_Anchor_Menu_Widget. */
 
+
+/**
+ * W4P Client Filter Widget Class
+ */
+class W4P_Client_Filter_Widget extends WP_Widget {
+
+	function __construct() {
+		parent::__construct( false, $name = __( '[W4P] Client Filter', 'dco' ) );
+	}
+
+	/** @see WP_Widget::widget -- do not rename this */
+	function widget( $args, $instance ) {
+		extract( $args );
+		$title  = apply_filters( 'widget_title', $instance['title'] ); /* The widget title. */
+		$items	= $instance['items'];
+		echo $before_widget;
+		if ( $title ) {
+			echo $before_title . $title . $after_title;
+		}
+
+		dco_locate_template( 'widgets/client-list' );
+
+		echo $after_widget;
+	}
+
+	/** @see WP_Widget::update -- do not rename this */
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title'] = strip_tags( $new_instance['title'] );
+
+		return $instance;
+	}
+
+	/** @see WP_Widget::form -- do not rename this */
+	function form( $instance ) {
+		// Set up some default widget settings.
+		$defaults = array( 'title' => __( 'Client List', 'dco' ), 'items' => array() );
+		$instance = wp_parse_args( (array) $instance, $defaults );
+
+		// Get widget fields values.
+		if ( ! empty( $instance ) ) {
+			$title 	= esc_attr( $instance['title'] );
+		}
+		?>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+			<input id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		</p>
+	<?php }
+
+} /* End class W4P_Client_Filter_Widget. */
