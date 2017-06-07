@@ -1,4 +1,7 @@
 <?php
+
+$title_color = get_field( 'title_color' );
+
 $image = get_sub_field( 'image' );
 if ( ! empty ( $image ) ):
 	$url                     = $image['url'];
@@ -21,7 +24,7 @@ if ( ! empty ( $image ) ):
 <?php endif; ?>
 
 <?php if ( get_sub_field( 'header' ) ): ?>
-	<h2 class="header-small-module-a">
+	<h2 class="header-small-module-a" style="color: <?php echo $title_color; ?>">
 		<?php echo the_sub_field( 'header' ); ?>
 	</h2>
 <?php endif; ?>
