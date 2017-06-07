@@ -74,7 +74,8 @@ function dco_scripts_styles() {
 	wp_enqueue_style( 'dco-style', get_template_directory_uri() . '/css/application.css');
 
 	// This is where we put our custom JS functions.
-	wp_enqueue_script( 'dco-application', get_template_directory_uri() . '/js/app.min.js', array( 'jquery' ), null, true );
+    wp_enqueue_script( 'dco-vendor', get_template_directory_uri() . '/js/vendor.min.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'dco-application', get_template_directory_uri() . '/js/app.min.js', array( 'jquery', 'dco-vendor' ), null, true );
 
     wp_enqueue_script( 'typekit', 'https://use.typekit.net/zfh5oso.js', array(), null, false );
     wp_add_inline_script( 'typekit', 'try{Typekit.load({ async: true });}catch(e){}' );
