@@ -1,5 +1,6 @@
 <?php
 /**
+ * Template Name: Page - Client
  * The template for displaying Client page
  */
 
