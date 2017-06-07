@@ -40,7 +40,7 @@ if ( $terms ) : ?>
 				'numberposts'        => - 1,
 				'business-direction' => $term->slug,
 				'orderby'            => 'date',
-				'order'              => 'DESC',
+				'order'              => 'ASC',
 				'post_type'          => 'client',
 			);
 			$posts = get_posts( $args );
