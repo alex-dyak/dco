@@ -1,0 +1,32 @@
+.imageSmallModuleA {
+  @media #{$tablet-up} {
+    padding: 40px 0 45px;
+    display: flex;
+    align-items: flex-start;
+  }
+  &-image {
+    @media #{$tablet-up} {
+      padding-right: 1%;
+      flex: 1 0 50%;
+    }
+    @media #{$desktop-up} {
+      flex: 1;
+    }
+    img {
+      width: 100%;
+      @media #{$tablet-up} {
+        width: auto;
+      }
+    }
+  }
+  &-body {
+    padding: 27px 15px 23px;
+    @media #{$tablet-up} {
+      flex: 1 0 50%;
+      padding: 0 0 0 1%;
+    }
+    @media #{$desktop-up} {
+      flex: 1;
+    }
+  }
+}

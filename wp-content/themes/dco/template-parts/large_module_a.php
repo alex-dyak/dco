@@ -9,23 +9,23 @@ $title_color      = get_field( 'title_color' );
 
 switch ( $select ) {
 	case 'none':
-		$class_tilte = 'none';
+		$class_title = 'none';
 		$class_body  = 'none';
 		break;
 	case 'top_right':
-		$class_tilte = 'top_right';
+		$class_title = 'top_right';
 		$class_body  = 'top_right';
 		break;
 	case 'middle_left':
-		$class_tilte = 'middle_left';
+		$class_title = 'middle_left';
 		$class_body  = 'middle_left';
 		break;
 	case 'bottom_right':
-		$class_tilte = 'bottom_right';
+		$class_title = 'bottom_right';
 		$class_body  = 'bottom_right';
 		break;
 	default:
-		$class_tilte = '';
+		$class_title = '';
 		$class_body  = '';
 }
 if ( ! empty ( $image ) ):
@@ -40,9 +40,10 @@ if ( ! empty ( $image ) ):
 
 	<div class="imageLargeModuleA">
         <?php if ($quote_title || $quote_body) : ?>
-            <div class="imageLargeModuleA-quote position-<?php echo $class_tilte; ?>" style="background: <?php echo $background_color; ?>">
+            <div class="imageLargeModuleA-quote position-<?php echo $class_title; ?>" style="background: <?php echo $background_color; ?>">
                 <?php if ($quote_title) : ?>
-                    <div class="imageLargeModuleA-quote-title"><?php echo $quote_title; ?></div>
+                    <div class="imageLargeModuleA-quote-title"
+                      <?php if($class_title == "middle_left"): ?>style="color: <?php echo $title_color; ?>"<?php endif; ?>><?php echo $quote_title; ?></div>
                 <?php endif; ?>
 
                 <?php if ($quote_body) : ?>
