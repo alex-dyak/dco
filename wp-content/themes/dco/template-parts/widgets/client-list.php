@@ -21,9 +21,7 @@ if ( $terms ) : ?>
 			?>
 			<li class="category-item">
 				<a href="#" class="item-link <?php echo $class; ?>" value="<?php echo $term->slug; ?>">
-					<p>
-						<?php echo $term->name; ?>
-					</p>
+					<?php echo $term->name; ?>
 				</a>
 			</li>
 		<?php endforeach; ?>
@@ -62,7 +60,9 @@ if ( $terms ) : ?>
 				$data_category = 'all, ' . implode(", ", $terms_name);
 				?>
 				<a class="client-item <?php echo $class; ?>" href="#" data-category='<?php echo $data_category; ?>'>
-					<?php echo $post->post_title; ?>
+					<p>
+						<?php echo $post->post_title; ?>
+					</p>
 				</a>
 			<?php
 			}
