@@ -1,12 +1,31 @@
 <?php
-$terms = get_terms('clients-category');
+$terms = get_terms( 'clients-category' );
+$clients_category_terms_name = array();
+
+foreach ( $terms as $term ) {
+	$clients_category_terms_name[] = $term->slug;
+}
+$rand_key      = array_rand( $clients_category_terms_name );
+$rand_category = $clients_category_terms_name[$rand_key];
+$class = '';
+
 if ( $terms ) : ?>
 	<ul id="category-list" class="category-list">
-		<a href="#"><li class="category-item" value="all"><?php _e( 'All', 'dco' ); ?></li></a>
-		<?php foreach ( $terms as $term ) : ?>
-			<a href="#">
-				<li value="<?php echo $term->slug; ?>" class="category-item"><?php echo $term->name; ?></li>
-			</a>
+		<li class="category-item"><a href="#" value="all"><?php _e( 'All', 'dco' ); ?></a></li>
+		<?php foreach ( $terms as $term ) :
+			if ( $term->slug == $rand_category ) {
+				$class = 'selected-category';
+			} else {
+				$class = '';
+			}
+			?>
+			<li class="category-item">
+				<a href="#" class="item-link <?php echo $class; ?>" value="<?php echo $term->slug; ?>">
+					<p>
+						<?php echo $term->name; ?>
+					</p>
+				</a>
+			</li>
 		<?php endforeach; ?>
 	</ul>
 <?php endif; ?>
@@ -35,12 +54,15 @@ if ( $terms ) : ?>
 				foreach ( $term_list as $term ) {
 					$terms_name[] = $term->slug;
 				}
+				if ( in_array( $rand_category, $terms_name ) ) {
+					$class = 'selected-list';
+				} else {
+					$class = '';
+				}
 				$data_category = 'all, ' . implode(", ", $terms_name);
 				?>
-				<a class="client-item" href="#" data-category='<?php echo $data_category; ?>'>
-					<p>
-						<?php echo $post->post_title; ?>
-					</p>
+				<a class="client-item <?php echo $class; ?>" href="#" data-category='<?php echo $data_category; ?>'>
+					<?php echo $post->post_title; ?>
 				</a>
 			<?php
 			}

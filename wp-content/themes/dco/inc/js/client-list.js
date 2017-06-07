@@ -1,22 +1,24 @@
 //Filter Clients
-$('li.category-item').click(function() {
+$('li.category-item > a').click(function(e) {
+  e.preventDefault();
+  $(this).parent().siblings().find('a').removeClass('selected-category');
+  $(this).addClass('selected-category');
   var filter = $(this).attr('value');
   filterList(filter);
 });
 
-//News filter function
+//Clients filter function
 function filterList(value) {
   var list = $(".business-direction-list .client-item");
-  $(list).css("color", "gray");
+  $(list).removeClass("selected-list");
   if (value == "all") {
     $(".business-direction-list").find("a").each(function (i) {
-      $(this).css("color", "green");
+      $(this).addClass("selected-list");
     });
   } else {
-    //Notice this *=" <- This means that if the data-category contains multiple options, it will find them
-    //Ex: data-category="Cat1, Cat2"
+    //Notice this *=" <- This means that if the data-category contains multiple options
     $(".business-direction-list").find("a[data-category*=" + value + "]").each(function (i) {
-      $(this).css("color", "green");
+      $(this).addClass("selected-list");
     });
   }
 }

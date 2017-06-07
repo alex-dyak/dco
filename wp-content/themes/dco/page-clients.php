@@ -58,7 +58,7 @@ get_header(); ?>
 			?>
 
 			<?php if ( get_field( 'filter_area' ) ) : ?>
-				<?php echo $a = get_field( 'filter_area' ); ?>
+				<?php echo get_field( 'filter_area' ); ?>
 			<?php endif; ?>
 
 		</article>
