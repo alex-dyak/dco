@@ -1,6 +1,6 @@
 <?php $title_color = get_field( 'title_color' ); ?>
 
-<div class="imageSmallModuleA container-medium">
+<div class="imageSmallModuleA container">
     <?php $image = get_sub_field( 'image' );
     if ( ! empty ( $image ) ):
         $url                     = $image['url'];
