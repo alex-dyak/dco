@@ -44,6 +44,10 @@ get_header(); ?>
 
 							get_template_part( 'template-parts/small_module_a' );
 
+                        elseif( get_row_layout() == 'success_module' ):
+
+                          get_template_part( 'template-parts/success_module' );
+
 						endif;
 
 					endwhile;
