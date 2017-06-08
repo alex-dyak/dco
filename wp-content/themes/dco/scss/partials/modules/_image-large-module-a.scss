@@ -74,11 +74,18 @@
       margin-bottom: 15px;
     }
   }
-  img {
-    display: block;
-    width: 100%;
-    @media #{$tablet-up} {
-      display: none;
+
+  &-image {
+    img {
+      display: block;
+      width: 100%;
+    }
+    &--parallax {
+      img {
+        @media #{$tablet-up} {
+          display: none;
+        }
+      }
     }
   }
 
