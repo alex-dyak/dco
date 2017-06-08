@@ -1,6 +1,6 @@
 <?php $title_color = get_field( 'title_color' ); ?>
 
-<div class="successModule container-medium">
+<div class="successModule container">
 
   <?php if ( get_sub_field( 'header' ) && get_sub_field( 'body' )): ?>
     <div class="successModule-body">

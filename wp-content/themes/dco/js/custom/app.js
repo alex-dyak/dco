@@ -11,5 +11,7 @@
       arrows: false,
       fade: true
     });
+
+      $('.parallax-window').parallax();
   });
 })(jQuery);
