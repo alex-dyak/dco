@@ -1,4 +1,4 @@
-<div class="projectDescription container-medium">
+<div class="projectDescription container">
 	<div class="projectDescription-header">
 		<?php if ( get_sub_field( 'header' ) ): ?>
 			<h1 class="projectDescription-header-title"><?php echo the_sub_field( 'header' ); ?></h1>

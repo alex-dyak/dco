@@ -5,7 +5,8 @@
   }
   &-body {
     @media #{$tablet-up} {
-      width: 50%;
+      width: 60%;
+      padding-right: 30px;
     }
   }
   a {
