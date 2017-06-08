@@ -44,7 +44,7 @@
 
 						get_template_part( 'template-parts/profile/content-approach_items_list_block' );
 
-					endif;
+			endif;
 
 				endwhile;
 

@@ -1,0 +1,113 @@
+/* variables for this module */
+$profileSliderMobileHeight: 365px;
+$profileSliderDesktopHeight: 509px;
+$profileTitleFontFamily: $ProximaNova;
+$profileTitleFontWeight: 600;
+$profileMobileTitleFontSize: 1.5rem;
+$profileDesktopTitleFontSize: 2.5rem;
+$profileTitleLineHeight: 1.2;
+$profileBlockColor: $orange--light;
+$profileAmpersandFontFamily: $BodoniURW-Light;
+$profileAmpersandFontSize: 59.375rem;
+$profileAmpersandLineHeight: 1;
+$profileAmpersandColor: rgba(225, 226, 227, 0.40);
+$profileBackgroundColor: $white;
+/*===========================*/
+
+.profile {
+    position: relative;
+    padding: 31px 15px 12px;
+    background: $profileBackgroundColor;
+    @media #{$mobile-up} {
+        padding: 50px 80px 29px;
+    }
+    @media #{$tablet-up} {
+        margin: 0 -21px;
+    }
+    &-slider-holder {
+        //TODO approve or remove parallax styles
+        /*overflow: hidden; // parallax styles
+        height: $profileSliderMobileHeight;
+        @media #{$mobile-up} {
+            height: $profileSliderDesktopHeight;
+        }*/
+    }
+    &-slider {
+        display: none;
+        &.slick-initialized {
+            display: block;
+            //TODO approve or remove parallax styles
+            /*position: fixed;
+            top: 54px;
+            left: 0;
+            width: 100%;
+            @media #{$mobile-up} {
+                top: 54px;
+            }
+            @media #{$tablet-up} {
+                top: 21px;
+            }*/
+        }
+        .slick-slide {
+            height: $profileSliderMobileHeight;
+            @media #{$mobile-up} {
+                height: $profileSliderDesktopHeight;
+            }
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            min-height: 100%;
+            min-width: 100%;
+            max-width: none;
+            width: auto;
+            transform: translateX(-50%);
+        }
+    }
+    h1 {
+        font: normal #{$landingTitleFontWeight} #{$landingTitleFontSize}/#{$landingTitleLineHeight} #{$landingTitleFontFamily};
+        text-transform: uppercase;
+        margin: 0 0 19px;
+        @media #{$mobile-up} {
+            font-size: $profileDesktopTitleFontSize;
+            margin: 0 0 15px;
+        }
+    }
+    p{
+        margin: 0 0 21px;
+    }
+    &-main {
+        position: relative;
+        z-index: 1;
+        @media #{$mobile-up} {
+            display: flex;
+        }
+        &:after {
+            position: absolute;
+            top: -263px;
+            right:-226px;
+            font: #{$profileAmpersandFontSize}/#{$profileAmpersandLineHeight} #{$profileAmpersandFontFamily};
+            color: $profileAmpersandColor;
+            content: '&';
+            z-index: -1;
+            @media #{$mobile-up} {
+                top: -527px;
+                right: -26px;
+            }
+        }
+    }
+    &-content {
+        @media #{$mobile-up} {
+            width: 70%;
+            padding: 0 15px 0 0;
+        }
+    }
+    &-sidebar {
+        @media #{$mobile-up} {
+            width: 30%;
+            padding: 0 0 0 15px;
+        }
+        color: $profileBlockColor;
+    }
+}

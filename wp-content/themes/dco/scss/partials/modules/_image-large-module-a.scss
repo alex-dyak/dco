@@ -1,25 +1,67 @@
 .imageLargeModuleA {
   position: relative;
   &-quote {
-    padding: 33px 15px;
-    color: $white;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    font-family: $SourceSansPro-semibold;
     @media #{$tablet-up} {
       position: absolute;
-      width: 33.33%;
-      padding: 31px 16px;
+      left: 50%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transform: translateX(-50%);
+      max-width: 740px;
     }
     @media #{$desktop-up} {
-      padding: 47px 25px;
+      max-width: 970px;
     }
-
-    &.position-top_right {
+    &-inner {
+      padding: 33px 15px;
+      color: $white;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      font-family: $SourceSansPro-semibold;
       @media #{$tablet-up} {
-        right: 8.33%;
-        top: 0;
-        transform: translateY(-50%);
+        position: absolute;
+        width: 40%;
+        padding: 31px 16px;
+      }
+      @media #{$desktop-up} {
+        padding: 47px 25px;
+      }
+
+      &.position-top_right {
+        @media #{$tablet-up} {
+          right: 0;
+          top: 0;
+          transform: translateY(-50%);
+        }
+      }
+
+      &.position-middle_left {
+        color: $white;
+        @media #{$tablet-up} {
+          background: rgba( $white, .95) !important;
+          color: $gray-ship;
+          width: 40%;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        @media #{$desktop-up} {
+          transform: translateY(-70%);
+        }
+        .imageLargeModuleA-quote-title {
+          @media #{$mobile-down} {
+            color: $white !important;
+          }
+        }
+      }
+
+      &.position-bottom_right {
+        @media #{$tablet-up} {
+          right: 0;
+          bottom: 0;
+          transform: translateY(50%);
+        }
       }
     }
 
@@ -35,6 +77,16 @@
   img {
     display: block;
     width: 100%;
+    @media #{$tablet-up} {
+      display: none;
+    }
+  }
+
+  .parallaxImg {
+    display: none;
+    @media #{$tablet-up} {
+      display: block;
+    }
   }
 }
 

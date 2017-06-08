@@ -9,57 +9,54 @@ $title_color      = get_field( 'title_color' );
 
 switch ( $select ) {
 	case 'none':
-		$class_tilte = 'none';
+		$class_title = 'none';
 		$class_body  = 'none';
 		break;
 	case 'top_right':
-		$class_tilte = 'top_right';
+		$class_title = 'top_right';
 		$class_body  = 'top_right';
 		break;
 	case 'middle_left':
-		$class_tilte = 'middle_left';
+		$class_title = 'middle_left';
 		$class_body  = 'middle_left';
 		break;
 	case 'bottom_right':
-		$class_tilte = 'bottom_right';
+		$class_title = 'bottom_right';
 		$class_body  = 'bottom_right';
 		break;
 	default:
-		$class_tilte = '';
+		$class_title = '';
 		$class_body  = '';
 }
 if ( ! empty ( $image ) ):
-	$url                     = $image['url'];
-	$full_img_mobile_small   = $image['sizes']['full_img_mobile_small'];
-	$full_img_mobile_large   = $image['sizes']['full_img_mobile_large'];
-	$full_img_tablet         = $image['sizes']['full_img_tablet'];
-	$full_img_desktop_small  = $image['sizes']['full_img_desktop_small'];
-	$full_img_desktop_medium = $image['sizes']['full_img_desktop_medium'];
-	$full_img_desktop_large  = $image['sizes']['full_img_desktop_large'];
+        $url                     = $image['url'];
+        $full_img_mobile_small   = $image['sizes']['full_img_mobile_small'];
+        $full_img_mobile_large   = $image['sizes']['full_img_mobile_large'];
+        $full_img_tablet         = $image['sizes']['full_img_tablet'];
 	?>
 
 	<div class="imageLargeModuleA">
         <?php if ($quote_title || $quote_body) : ?>
-            <div class="imageLargeModuleA-quote position-<?php echo $class_tilte; ?>" style="background: <?php echo $background_color; ?>">
-                <?php if ($quote_title) : ?>
-                    <div class="imageLargeModuleA-quote-title"><?php echo $quote_title; ?></div>
-                <?php endif; ?>
+            <div class="imageLargeModuleA-quote">
+                <div class="imageLargeModuleA-quote-inner position-<?php echo $class_title; ?>" style="background: <?php echo $background_color; ?>">
+                    <?php if ($quote_title) : ?>
+                        <div class="imageLargeModuleA-quote-title"
+                          <?php if($class_title == "middle_left"): ?>style="color: <?php echo $title_color; ?>"<?php endif; ?>><?php echo $quote_title; ?></div>
+                    <?php endif; ?>
 
-                <?php if ($quote_body) : ?>
-                    <div class="imageLargeModuleA-quote-body">
-                        <?php echo $quote_body; ?>
-                    </div>
-                <?php endif; ?>
+                    <?php if ($quote_body) : ?>
+                        <div class="imageLargeModuleA-quote-body">
+                            <?php echo $quote_body; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
         <?php endif; ?>
-
-		<img src="<?php echo $url; ?>" srcset="
+        <div class="parallaxImg" data-parallax="scroll" data-image-src="<?php echo $url; ?>"></div>
+        <img src="<?php echo $url; ?>" srcset="
             <?php echo $full_img_mobile_small; ?> 480w,
             <?php echo $full_img_mobile_large; ?> 768w,
-            <?php echo $full_img_tablet; ?> 992w,
-            <?php echo $full_img_desktop_small; ?> 1200w,
-            <?php echo $full_img_desktop_medium; ?> 1620w,
-            <?php echo $full_img_desktop_large; ?> 1920w">
+            <?php echo $full_img_tablet; ?> 992w">
 	</div>
 
 <?php endif; ?>

@@ -1,0 +1,15 @@
+.successModule {
+  padding: 30px 15px;
+  @media #{$tablet-up} {
+    padding: 40px 0;
+  }
+  &-body {
+    @media #{$tablet-up} {
+      width: 60%;
+      padding-right: 30px;
+    }
+  }
+  a {
+    font-family: $SourceSansPro-semibold;
+  }
+}
