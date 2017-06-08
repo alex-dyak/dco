@@ -13,5 +13,12 @@
     });
 
       $('.parallax-window').parallax();
+
+      $('.js-moduleSlider').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true
+      })
   });
 })(jQuery);

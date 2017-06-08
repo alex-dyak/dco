@@ -1,19 +1,16 @@
 <?php $title_color = get_field( 'title_color' ); ?>
 
-<div class="imageSmallModuleB container-medium">
+<div class="imageSmallModuleB container">
 	<?php $images = get_sub_field( 'slider_image' );
 	if( $images ): ?>
-	<div class="imageSmallModuleB-image">
-		<ul>
+	<div class="imageSmallModuleB-slider">
+		<div class="moduleSlider js-moduleSlider">
 			<?php foreach( $images as $image ): ?>
-				<li>
-					<a href="<?php echo $image['url']; ?>">
-						<img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
-					</a>
-					<p><?php echo $image['caption']; ?></p>
-				</li>
+				<div>
+                    <img src="<?php echo $image['sizes']['full_img_mobile_small']; ?>" alt="<?php echo $image['alt']; ?>" />
+				</div>
 			<?php endforeach; ?>
-		</ul>
+		</div>
 	</div>
 	<?php endif; ?>
 
