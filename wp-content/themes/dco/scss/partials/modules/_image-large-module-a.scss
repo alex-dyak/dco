@@ -23,6 +23,35 @@
       }
     }
 
+    &.position-middle_left {
+      color: $white;
+      @media #{$tablet-up} {
+        background: rgba( $white, .95) !important;
+        color: $gray-ship;
+        width: 30%;
+        left: 8.33%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      @media #{$desktop-up} {
+        width: 30%;
+        transform: translateY(-70%);
+      }
+      .imageLargeModuleA-quote-title {
+        @media #{$mobile-down} {
+          color: $white !important;
+        }
+      }
+    }
+
+    &.position-bottom_right {
+      @media #{$tablet-up} {
+        right: 8.33%;
+        bottom: 0;
+        transform: translateY(50%);
+      }
+    }
+
     &-title {
       font-family: $ProximaNova;
       font-weight: 700;
