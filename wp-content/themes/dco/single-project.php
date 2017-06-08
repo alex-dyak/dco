@@ -25,35 +25,35 @@ get_header(); ?>
 
 						if ( get_row_layout() == 'large_module_a' ):
 
-							get_template_part( 'template-parts/large_module_a' );
+							get_template_part( 'template-parts/projects/large_module_a' );
 
 						elseif ( get_row_layout() == 'progect_description' ):
 
-							get_template_part( 'template-parts/progect_description' );
+							get_template_part( 'template-parts/projects/progect_description' );
 
 						elseif ( get_row_layout() == 'small_module_a' ):
 
-							get_template_part( 'template-parts/small_module_a' );
+							get_template_part( 'template-parts/projects/small_module_a' );
 
 						elseif ( get_row_layout() == 'small_module_a_turned' ):
 
-							get_template_part( 'template-parts/small_module_a_turned' );
+							get_template_part( 'template-parts/projects/small_module_a_turned' );
 
 						elseif ( get_row_layout() == 'large_module_b' ):
 
-							get_template_part( 'template-parts/large_module_b' );
+							get_template_part( 'template-parts/projects/large_module_b' );
 
 						elseif ( get_row_layout() == 'large_module_b_quote_turned' ):
 
-							get_template_part( 'template-parts/large_module_b_quote_turned' );
+							get_template_part( 'template-parts/projects/large_module_b_quote_turned' );
 
 						elseif ( get_row_layout() == 'small_module_b' ):
 
-							get_template_part( 'template-parts/small_module_b' );
+							get_template_part( 'template-parts/projects/small_module_b' );
 
 						elseif ( get_row_layout() == 'success_module' ):
 
-							get_template_part( 'template-parts/success_module' );
+							get_template_part( 'template-parts/projects/success_module' );
 
 						endif;
 
