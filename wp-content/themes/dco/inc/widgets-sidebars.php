@@ -43,6 +43,15 @@ if ( function_exists( 'register_sidebar' ) ) {
 			'after_title'   => '</h3>',
 		) );
 
+		register_sidebar( array(
+			'name'          => __( 'Profile Team Area', 'dco' ),
+			'id'            => 'profile-team-area',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		) );
+
 		register_widget( 'W4P_Contacts_Widget' );
 		register_widget( 'W4P_Social_Profiles_Widget' );
 		register_widget( 'W4P_Anchor_Menu_Widget' );

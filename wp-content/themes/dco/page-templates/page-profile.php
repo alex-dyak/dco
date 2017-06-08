@@ -44,9 +44,6 @@
 
 						get_template_part( 'template-parts/profile/content-approach_items_list_block' );
 
-						the_widget( 'W4P_Team_Widget', 'title=Team' );
-
-
 			endif;
 
 				endwhile;

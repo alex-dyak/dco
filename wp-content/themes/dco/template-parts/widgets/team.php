@@ -27,6 +27,16 @@
 				<?php echo $member['photo']; ?>
 			<?php endif; ?>
 
+			<?php if ( ! empty( $member['name'] ) ): ?>
+				<?php echo implode( ' ', $member['name'] ) ?>
+			<?php endif; ?>
+
+			<span>
+				<?php if ( ! empty( $member['position'] ) ): ?>
+					<?php echo $member['position']; ?>
+				<?php endif; ?>
+			</span>
+
 			<?php if ( ! empty( $member['description'] ) ): ?>
 				<?php echo $member['description']; ?>
 			<?php endif; ?>
