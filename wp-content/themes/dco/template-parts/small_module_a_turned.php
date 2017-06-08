@@ -1,14 +1,6 @@
 <?php $title_color = get_field( 'title_color' ); ?>
 
-<div class="imageSmallModuleA container-medium">
-	<?php $image = get_sub_field( 'image' );
-	if ( ! empty ( $image ) ):
-		$url = $image['url'];
-		?>
-		<div class="imageSmallModuleA-image">
-			<img src="<?php echo $url; ?>">
-		</div>
-	<?php endif; ?>
+<div class="imageSmallModuleATurned container-medium">
 
 	<?php if ( get_sub_field( 'header' ) && get_sub_field( 'body' ) ): ?>
 		<div class="imageSmallModuleA-body">
@@ -21,6 +13,15 @@
 					<?php echo the_sub_field( 'body' ); ?>
 				</div>
 			<?php endif; ?>
+		</div>
+	<?php endif; ?>
+
+	<?php $image = get_sub_field( 'image' );
+	if ( ! empty ( $image ) ):
+		$url = $image['url'];
+		?>
+		<div class="imageSmallModuleA-image">
+			<img src="<?php echo $url; ?>">
 		</div>
 	<?php endif; ?>
 
