@@ -20,7 +20,7 @@ get_header(); ?>
 
 				// check if the flexible content field has rows of data
 				if ( have_rows( 'progect_blocks' ) ): // loop through the rows of data
-				{
+
 					while ( have_rows( 'progect_blocks' ) ) : the_row();
 
 						if ( get_row_layout() == 'large_module_a' ):
@@ -55,10 +55,13 @@ get_header(); ?>
 
 							get_template_part( 'template-parts/projects/success_module' );
 
+						elseif ( get_row_layout() == 'stats' ):
+
+							get_template_part( 'template-parts/projects/stats_columns' );
+
 						endif;
 
 					endwhile;
-				}
 
 				endif;
 
