@@ -39,6 +39,18 @@ get_header(); ?>
 
 							get_template_part( 'template-parts/projects/small_module_a_turned' );
 
+						elseif ( get_row_layout() == 'small_module_a_text' ):
+
+							get_template_part( 'template-parts/projects/small_module_a_text' );
+
+						elseif ( get_row_layout() == 'small_module_a_two_images' ):
+
+							get_template_part( 'template-parts/projects/small_module_a_two_images' );
+
+						elseif ( get_row_layout() == 'small_module_a_stat' ):
+
+							get_template_part( 'template-parts/projects/small_module_a_stat' );
+
 						elseif ( get_row_layout() == 'large_module_b' ):
 
 							get_template_part( 'template-parts/projects/large_module_b' );
