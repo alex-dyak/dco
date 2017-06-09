@@ -23,6 +23,27 @@
 		?>
 		<div class="imageSmallModuleA-image">
 			<img src="<?php echo $url; ?>">
+
+			<?php if ( have_rows( 'beside_image_text' ) ): ?>
+				<div class="imageText container">
+					<?php while ( have_rows( 'beside_image_text' ) ) : the_row();
+						if ( get_sub_field( 'text_color' ) ) {
+							$text_color = get_sub_field( 'text_color' );
+						} else {
+							$text_color = '';
+						}
+						?>
+						<div class="imageText item">
+							<?php if ( get_sub_field( 'text' ) ): ?>
+								<div class="imageText-text" style="color: <?php echo $text_color; ?>">
+									<?php echo the_sub_field( 'text' ); ?>
+								</div>
+							<?php endif; ?>
+						</div>
+					<?php endwhile; ?>
+				</div>
+			<?php endif; ?>
+
 		</div>
 	<?php endif; ?>
 

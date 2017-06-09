@@ -1,32 +1,39 @@
-<?php if ( have_rows( 'stats_column' ) ): ?>
+<?php if ( get_sub_field( 'stat_content' ) ): ?>
+	<div class="StatsModule four-column container">
+<?php else: ?>
+	<div class="StatsModule three-column container">
+<?php endif; ?>
 
-	<div class="StatsColumn container">
+		<?php if ( have_rows( 'stats_column' ) ): ?>
 
-		<?php while ( have_rows( 'stats_column' ) ) : the_row();
+			<?php while ( have_rows( 'stats_column' ) ) : the_row();
+				if ( get_sub_field( 'amount_color' ) ) {
+					$amount_color = get_sub_field( 'amount_color' );
+				} else {
+					$amount_color = '';
+				}
+				?>
+				<div class="StatsModule item">
+					<?php if ( get_sub_field( 'stat_amount' ) ): ?>
+						<div class="statColumns-stat-amount" style="color: <?php echo $amount_color; ?>">
+							<?php the_sub_field( 'stat_amount' ); ?>
+						</div>
+					<?php endif; ?>
 
-			if ( get_sub_field( 'amount_color' ) ) {
-				$amount_color = get_sub_field( 'amount_color' );
-			} else {
-				$amount_color = '';
-			}
-			?>
+					<?php if ( get_sub_field( 'stat_description' ) ): ?>
+						<div class="StatsModule-stat-description">
+							<?php the_sub_field( 'stat_description' ); ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			<?php endwhile; ?>
 
-			<div class="StatsColumn item">
-				<?php if ( get_sub_field( 'stat_amount' ) ): ?>
-					<div class="statColumns-stat-amount" style="color: <?php echo $amount_color; ?>">
-						<?php echo the_sub_field( 'stat_amount' ); ?>
-					</div>
-				<?php endif; ?>
+		<?php endif; ?>
 
-				<?php if ( get_sub_field( 'stat_description' ) ): ?>
-					<div class="statColumns-stat-description">
-						<?php echo the_sub_field( 'stat_description' ); ?>
-					</div>
-				<?php endif; ?>
+		<?php if ( get_sub_field( 'stat_content' ) ): ?>
+			<div class="StatsModule content">
+				<?php the_sub_field( 'stat_content' ); ?>
 			</div>
-
-		<?php endwhile; ?>
+		<?php endif; ?>
 
 	</div>
-
-<?php endif; ?>
