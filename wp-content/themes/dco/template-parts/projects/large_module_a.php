@@ -3,6 +3,7 @@ $image       = get_sub_field( 'image' );
 $select      = get_sub_field( 'select_place' );
 $quote_title = get_sub_field( 'pullquote_title' );
 $quote_body  = get_sub_field( 'pullquote_body' );
+$apply_parallax = get_sub_field('apply_parallax');
 
 $background_color = get_field( 'background_color' );
 $title_color      = get_field( 'title_color' );
@@ -33,6 +34,9 @@ if ( ! empty ( $image ) ):
         $full_img_mobile_small   = $image['sizes']['full_img_mobile_small'];
         $full_img_mobile_large   = $image['sizes']['full_img_mobile_large'];
         $full_img_tablet         = $image['sizes']['full_img_tablet'];
+      $full_img_desktop_small  = $image['sizes']['full_img_desktop_small'];
+      $full_img_desktop_medium = $image['sizes']['full_img_desktop_medium'];
+      $full_img_desktop_large  = $image['sizes']['full_img_desktop_large'];
 	?>
 
 	<div class="imageLargeModuleA">
@@ -52,11 +56,26 @@ if ( ! empty ( $image ) ):
                 </div>
             </div>
         <?php endif; ?>
-        <div class="parallaxImg" data-parallax="scroll" data-image-src="<?php echo $url; ?>"></div>
-        <img src="<?php echo $url; ?>" srcset="
-            <?php echo $full_img_mobile_small; ?> 480w,
-            <?php echo $full_img_mobile_large; ?> 768w,
-            <?php echo $full_img_tablet; ?> 992w">
+
+        <?php if($apply_parallax): ?>
+          <div class="imageLargeModuleA-image imageLargeModuleA-image--parallax">
+            <div class="parallaxImg" data-parallax="scroll" data-image-src="<?php echo $url; ?>"></div>
+            <img src="<?php echo $url; ?>" srcset="
+                <?php echo $full_img_mobile_small; ?> 480w,
+                <?php echo $full_img_mobile_large; ?> 768w,
+                <?php echo $full_img_tablet; ?> 992w">
+          </div>
+        <?php else: ?>
+            <div class="imageLargeModuleA-image">
+                <img src="<?php echo $url; ?>" srcset="
+                    <?php echo $full_img_mobile_small; ?> 480w,
+                    <?php echo $full_img_mobile_large; ?> 768w,
+                    <?php echo $full_img_tablet; ?> 992w,
+                    <?php echo $full_img_desktop_small; ?> 1200w,
+                    <?php echo $full_img_desktop_medium; ?> 1620w,
+                    <?php echo $full_img_desktop_large; ?> 1920w">
+            </div>
+        <?php endif; ?>
 	</div>
 
 <?php endif; ?>
