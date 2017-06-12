@@ -53,6 +53,7 @@ function dco_setup() {
         add_image_size( 'full_img_desktop_small', 1200, '', TRUE );
         add_image_size( 'full_img_desktop_medium', 1620, '', TRUE );
 		add_image_size( 'full_img_desktop_large', 1920, '', TRUE );
+        add_image_size( 'module_slider', 470, 290, TRUE );
 	}
 
 }

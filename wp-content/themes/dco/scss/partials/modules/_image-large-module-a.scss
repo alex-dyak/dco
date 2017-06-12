@@ -76,11 +76,16 @@
   }
 
   &-image {
+    margin-bottom: 30px;
+    @media #{$tablet-up} {
+      margin-bottom: 0;
+    }
     img {
       display: block;
       width: 100%;
     }
     &--parallax {
+      margin-bottom: 0;
       img {
         @media #{$tablet-up} {
           display: none;

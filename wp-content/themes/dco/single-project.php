@@ -35,10 +35,6 @@ get_header(); ?>
 
 							get_template_part( 'template-parts/projects/small_module_a' );
 
-						elseif ( get_row_layout() == 'small_module_a_turned' ):
-
-							get_template_part( 'template-parts/projects/small_module_a_turned' );
-
 						elseif ( get_row_layout() == 'small_module_a_text' ):
 
 							get_template_part( 'template-parts/projects/small_module_a_text' );
