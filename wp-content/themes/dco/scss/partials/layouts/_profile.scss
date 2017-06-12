@@ -161,23 +161,43 @@ $profileBackgroundColor: $white;
     position: relative;
     color: $white;
     padding: 23px 15px 35px;
-    @media #{$mobilesmall-up} {
-        padding-bottom: 52px;
-    }
-    @media #{$mobilesmall-up} {
+    overflow: hidden;
+    @media #{$mobile-up} {
         padding-top: 61px;
-        padding-bottom: 45px;
+        padding-bottom: 65px;
     }
+
+    .container {
+        @media #{$mobile-up} {
+            display: flex;
+        }
+    }
+
+    .col1 {
+        @media #{$mobile-up} {
+            width: calc(33.33% - 20px);
+        }
+    }
+    .col2 {
+        @media #{$mobile-up} {
+            width: calc(33.33% + 40px);
+            padding: 0 20px;
+        }
+    }
+
+    .approach-item {
+        padding: 0 0 33px;
+        &:not(:last-child){
+            @media #{$mobile-up} {
+                padding: 0 0 26px;
+            }
+        }
+    }
+
     h3 {
         font-weight: 800;
         color: $blue--light;
         margin-bottom: 0;
-        &:not(:first-child) {
-            margin-top: 33px;
-            @media #{$mobilesmall-up} {
-                margin-top: 26px;
-            }
-        }
     }
     p {
         margin: 0;
