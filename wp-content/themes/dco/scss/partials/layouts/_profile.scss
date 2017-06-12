@@ -18,11 +18,16 @@ $profileBackgroundColor: $white;
     position: relative;
     padding: 31px 15px 12px;
     background: $profileBackgroundColor;
+    @media #{$mobilesmall-only} {
+        overflow: hidden;
+    }
     @media #{$mobile-up} {
-        padding: 50px 80px 29px;
+        padding-top: 50px;
+        padding-bottom: 29px;
     }
     @media #{$tablet-up} {
-        margin: 0 -21px;
+        padding-left: 0;
+        padding-right: 0;
     }
     &-slider-holder {
         //TODO approve or remove parallax styles
@@ -111,3 +116,99 @@ $profileBackgroundColor: $white;
         color: $profileBlockColor;
     }
 }
+
+.approach-block {
+    position: relative;
+    color: $white;
+    padding: 23px 15px 11px;
+    overflow: hidden;
+    @media #{$mobilesmall-up} {
+        padding-top: 64px;
+    }
+    h2 {
+        font-family: $ProximaNova;
+        font-weight: 600;
+        color: $bombay--most;
+        margin: 0 0 7px;
+        @media #{$mobilesmall-up} {
+            font-size: 2.5rem;
+            margin-bottom: 21px;
+        }
+    }
+    h3 {
+        font-weight: 800;
+        color: $blue--light;
+        margin: 0 0 18px;
+        @media #{$mobilesmall-up} {
+            margin-bottom: 0;
+        }
+    }
+    .graph {
+        margin: -20px 0 39px;
+
+    }
+    > img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
+.approach-items {
+    position: relative;
+    color: $white;
+    padding: 23px 15px 35px;
+    overflow: hidden;
+    @media #{$mobile-up} {
+        padding-top: 61px;
+        padding-bottom: 65px;
+    }
+
+    .container {
+        @media #{$mobile-up} {
+            display: flex;
+        }
+    }
+
+    .col1 {
+        @media #{$mobile-up} {
+            width: calc(33.33% - 20px);
+        }
+    }
+    .col2 {
+        @media #{$mobile-up} {
+            width: calc(33.33% + 40px);
+            padding: 0 20px;
+        }
+    }
+
+    .approach-item {
+        padding: 0 0 33px;
+        &:not(:last-child){
+            @media #{$mobile-up} {
+                padding: 0 0 26px;
+            }
+        }
+    }
+
+    h3 {
+        font-weight: 800;
+        color: $blue--light;
+        margin-bottom: 0;
+    }
+    p {
+        margin: 0;
+    }
+    > img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+

@@ -5,7 +5,7 @@
 ?>
 <?php if ( ! empty( $menu ) && is_array( $menu ) ) : ?>
 
-	<ul class="anchor-menu u-list--plain u-list--inline">
+	<ul class="anchor-menu container u-list--plain u-list--inline">
 
 		<?php $lastItem = end( $menu ); ?>
 		<?php foreach ( $menu as $slug => $item ) : ?>
