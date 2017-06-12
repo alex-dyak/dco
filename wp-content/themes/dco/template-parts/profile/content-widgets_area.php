@@ -1,1 +1,1 @@
-<?php the_field( 'widgets' ); ?>
+<?php the_sub_field( 'widgets' ); ?>
