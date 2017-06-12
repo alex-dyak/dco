@@ -1,5 +1,6 @@
 <?php
 /**
+ * Template Name: Page - Client
  * The template for displaying Client page
  */
 
@@ -57,52 +58,8 @@ get_header(); ?>
 			}
 			?>
 
-			<?php if ( get_field( 'client_list_title' ) ) : ?>
-				<h1 class="client-list-title"><?php the_field( 'client_list_title' ); ?></h1>
-			<?php endif; ?>
-
-			<?php
-			$terms = get_terms('clients-category');
-			if ( $terms ) : ?>
-				<ul class="category-list">
-					<a href="#"><li><?php _e( 'All', 'dco' ); ?></li></a>
-				<?php foreach ( $terms as $term ) : ?>
-					<a href="#"><li><?php echo $term->name; ?></li></a>
-				<?php endforeach; ?>
-				</ul>
-			<?php endif; ?>
-
-			<?php
-			$terms = get_terms( 'business-direction' );
-			if ( $terms ) : ?>
-				<ul class="business-direction-list">
-					<?php foreach ( $terms as $term ) : ?>
-						<li><?php echo $term->name; ?></li>
-						<?php
-						// Get Business direction items.
-						$args = array(
-							'numberposts'        => - 1,
-							'business-direction' => $term->slug,
-							'orderby'            => 'date',
-							'order'              => 'DESC',
-							'post_type'          => 'client',
-						);
-						$posts = get_posts( $args );
-
-						foreach($posts as $post){
-							setup_postdata($post);
-							?>
-							<a href="#">
-								<p>
-									<?php echo $post->post_title; ?>
-								</p>
-							</a>
-							<?php
-						}
-						wp_reset_postdata();
-						?>
-					<?php endforeach; ?>
-				</ul>
+			<?php if ( get_field( 'filter_area' ) ) : ?>
+				<?php echo get_field( 'filter_area' ); ?>
 			<?php endif; ?>
 
 		</article>

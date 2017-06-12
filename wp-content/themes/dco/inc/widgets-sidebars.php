@@ -44,6 +44,14 @@ if ( function_exists( 'register_sidebar' ) ) {
 		) );
 
 		register_sidebar( array(
+			'name'          => __( 'Client Filter Area', 'dco' ),
+			'id'            => 'client-filter-area',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h1 class="widget-title">',
+			'after_title'   => '</h1>',
+		) );
+		register_sidebar( array(
 			'name'          => __( 'Profile Team Area', 'dco' ),
 			'id'            => 'profile-team-area',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -64,9 +72,9 @@ if ( function_exists( 'register_sidebar' ) ) {
 		register_widget( 'W4P_Contacts_Widget' );
 		register_widget( 'W4P_Social_Profiles_Widget' );
 		register_widget( 'W4P_Anchor_Menu_Widget' );
+		register_widget( 'W4P_Client_Filter_Widget' );
 		register_widget( 'W4P_Team_Widget' );
 		register_widget( 'W4P_Home_Page_Grid_Widget' );
-
 	}
 	add_action( 'widgets_init', 'dco_widgets_init' );
 }
@@ -331,7 +339,7 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
 		$group = get_field_objects( get_the_ID() );
 		$menu  = array();
 		foreach ( $group as $fields ) {
-			if ( ! empty( $fields['value'] ) ) {
+			if ( ! empty( $fields['value'] ) && is_array( $fields['value'] ) ) {
 				foreach ( $fields['value'] as $key => $field ) {
 					if ( $field['acf_fc_layout'] == 'anchor_section' ) {
 						if ( ! empty( $field['anchor_title'] ) && ! empty( $field['anchor_hash'] ) ) {
@@ -350,22 +358,86 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
  * W4P Team Widget Class
  */
 class W4P_Team_Widget extends WP_Widget {
-
 	function __construct() {
 		parent::__construct( false, $name = __( '[W4P] Team', 'dco' ) );
+	}
+	/** @see WP_Widget::widget -- do not rename this */
+	function widget( $args, $instance ) {
+		extract( $args );
+		$title  = apply_filters( 'widget_title', $instance['title'] ); /* The widget title. */
+		echo $before_widget;
+		if ( $title ) { echo $before_title . $title . $after_title; }
+		$members = $this->get_team_members();
+		dco_locate_template( 'widgets/team', array( 'members' => $members ) );
+		echo $after_widget;
+	}
+	/** @see WP_Widget::update -- do not rename this */
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title'] = strip_tags( $new_instance['title'] );
+		return $instance;
+	}
+	/** @see WP_Widget::form -- do not rename this */
+	function form( $instance ) {
+		// Set up some default widget settings.
+		$defaults = array( 'title' => __( 'Team', 'dco' ) );
+		$instance = wp_parse_args( (array) $instance, $defaults );
+		// Get widget fields values.
+		if ( ! empty( $instance ) ) {
+			$title     = esc_attr( $instance['title'] );
+		}
+		?>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+			<input id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		</p>
+	<?php }
+	function get_team_members(){
+		$members = new WP_Query( array(
+			'posts_per_page'   => -1,
+			'post_type'        => 'team',
+			'meta_key'         => 'member_surname',
+			'orderby'          => 'meta_value',
+			'order'            => 'ASC',
+		) );
+		$data = array();
+		if( $members->have_posts() ):
+			while ( $members->have_posts() ) : $members->the_post();
+				$member_id = get_the_ID();
+				$data[$member_id]['name'][] = get_field( 'member_surname',  $member_id);
+				$data[$member_id]['name'][] = get_field( 'member_name', $member_id );
+				$data[$member_id]['position'] = get_field( 'position', $member_id );
+				$data[$member_id]['description'] = get_the_content();
+				$big_photo_id = get_field( 'big_photo', $member_id );
+				$data[$member_id]['photo'] = wp_get_attachment_image( $big_photo_id, 'full' );
+				$data[$member_id]['photo_preview'] = get_the_post_thumbnail( $member_id, 'full');
+			endwhile;
+			wp_reset_postdata();
+		endif;
+		return $data;
+	}
+} /* End class W4P_Team_Widget. */
+
+/**
+ * W4P Client Filter Widget Class
+ */
+class W4P_Client_Filter_Widget extends WP_Widget {
+
+	function __construct() {
+		parent::__construct( false, $name = __( '[W4P] Client Filter', 'dco' ) );
 	}
 
 	/** @see WP_Widget::widget -- do not rename this */
 	function widget( $args, $instance ) {
 		extract( $args );
 		$title  = apply_filters( 'widget_title', $instance['title'] ); /* The widget title. */
-
+		$items	= $instance['items'];
 		echo $before_widget;
+		if ( $title ) {
+			echo $before_title . $title . $after_title;
+		}
 
-		if ( $title ) { echo $before_title . $title . $after_title; }
-
-		$members = $this->get_team_members();
-		dco_locate_template( 'widgets/team', array( 'members' => $members ) );
+		dco_locate_template( 'widgets/client-list' );
 
 		echo $after_widget;
 	}
@@ -381,7 +453,7 @@ class W4P_Team_Widget extends WP_Widget {
 	/** @see WP_Widget::form -- do not rename this */
 	function form( $instance ) {
 		// Set up some default widget settings.
-		$defaults = array( 'title' => __( 'Team', 'dco' ) );
+		$defaults = array( 'title' => __( 'Client List', 'dco' ), 'items' => array() );
 		$instance = wp_parse_args( (array) $instance, $defaults );
 
 		// Get widget fields values.
@@ -393,39 +465,9 @@ class W4P_Team_Widget extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
 			<input id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 		</p>
-
 	<?php }
 
-	function get_team_members(){
-		$members = new WP_Query( array(
-			'posts_per_page'   => -1,
-			'post_type'        => 'team',
-			'meta_key'         => 'member_surname',
-			'orderby'          => 'meta_value',
-			'order'            => 'ASC',
-		) );
-
-		$data = array();
-		if( $members->have_posts() ):
-			while ( $members->have_posts() ) : $members->the_post();
-				$member_id = get_the_ID();
-				$data[$member_id]['name'][] = get_field( 'member_surname',  $member_id);
-				$data[$member_id]['name'][] = get_field( 'member_name', $member_id );
-				$data[$member_id]['position'] = get_field( 'position', $member_id );
-				$data[$member_id]['description'] = get_the_content();
-
-				$big_photo_id = get_field( 'big_photo', $member_id );
-				$data[$member_id]['photo'] = wp_get_attachment_image( $big_photo_id, 'full' );
-				$data[$member_id]['photo_preview'] = get_the_post_thumbnail( $member_id, 'full');
-
-			endwhile;
-			wp_reset_postdata();
-		endif;
-
-
-		return $data;
-	}
-} /* End class W4P_Team_Widget. */
+} /* End class W4P_Client_Filter_Widget. */
 
 /**
  * W4P Home Page Grid Widget Class
@@ -472,8 +514,6 @@ class W4P_Home_Page_Grid_Widget extends WP_Widget {
 		}
 		//wp_reset_postdata();
 
-
-
 		if ( have_rows( 'homepage_grid' ) ) {
 			while ( have_rows( 'homepage_grid' ) ) {
 				the_row();
@@ -482,8 +522,6 @@ class W4P_Home_Page_Grid_Widget extends WP_Widget {
 				}
 			}
 		}
-
-
 
 		echo $after_widget;
 	}
