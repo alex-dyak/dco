@@ -14,8 +14,8 @@ get_header(); ?>
 
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
-			<?php if ( is_active_sidebar( 'home-page-grid-area' ) ) : ?>
-					<?php dynamic_sidebar( 'home-page-grid-area' ); ?>
+			<?php if ( is_active_sidebar( 'homepage-grid-area' ) ) : ?>
+					<?php dynamic_sidebar( 'homepage-grid-area' ); ?>
 			<?php endif; ?>
 
 		</article>

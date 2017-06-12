@@ -61,8 +61,8 @@ if ( function_exists( 'register_sidebar' ) ) {
 		) );
 
 		register_sidebar( array(
-			'name'          => __( 'Home Page Grid Area', 'dco' ),
-			'id'            => 'home-page-grid-area',
+			'name'          => __( 'Homepage Grid Area', 'dco' ),
+			'id'            => 'homepage-grid-area',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -74,7 +74,7 @@ if ( function_exists( 'register_sidebar' ) ) {
 		register_widget( 'W4P_Anchor_Menu_Widget' );
 		register_widget( 'W4P_Client_Filter_Widget' );
 		register_widget( 'W4P_Team_Widget' );
-		register_widget( 'W4P_Home_Page_Grid_Widget' );
+		register_widget( 'W4P_Homepage_Grid_Widget' );
 	}
 	add_action( 'widgets_init', 'dco_widgets_init' );
 }
@@ -431,7 +431,6 @@ class W4P_Client_Filter_Widget extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract( $args );
 		$title  = apply_filters( 'widget_title', $instance['title'] ); /* The widget title. */
-		$items	= $instance['items'];
 		echo $before_widget;
 		if ( $title ) {
 			echo $before_title . $title . $after_title;
@@ -470,12 +469,12 @@ class W4P_Client_Filter_Widget extends WP_Widget {
 } /* End class W4P_Client_Filter_Widget. */
 
 /**
- * W4P Home Page Grid Widget Class
+ * W4P Homepage Grid Widget Class
  */
-class W4P_Home_Page_Grid_Widget extends WP_Widget {
+class W4P_Homepage_Grid_Widget extends WP_Widget {
 
 	function __construct() {
-		parent::__construct( false, $name = __( '[W4P] Home Page Grid', 'dco' ) );
+		parent::__construct( false, $name = __( '[W4P] Homepage Grid', 'dco' ) );
 	}
 
 	/** @see WP_Widget::widget -- do not rename this */
@@ -505,20 +504,38 @@ class W4P_Home_Page_Grid_Widget extends WP_Widget {
 				$query->the_post();
 				$date = get_the_date( 'm.d.y' );
 				?>
-				<a href="<?php the_permalink(); ?>" class="newsList-box">
-					<span class="newsList-box-date"><?php echo $date; ?></span>
-					<span class="newsList-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
+				<a href="<?php the_permalink(); ?>" class="news-box">
+					<span class="news-box-date"><?php echo $date; ?></span>
+					<span class="news-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
 				</a>
 			<?php
 			}
 		}
-		//wp_reset_postdata();
+		wp_reset_postdata();
 
 		if ( have_rows( 'homepage_grid' ) ) {
 			while ( have_rows( 'homepage_grid' ) ) {
 				the_row();
 				if ( get_row_layout() == 'two_story_image' ) {
-					get_template_part( 'template-parts/widgets/two_story_image' );
+
+					get_template_part( 'template-parts/widgets/home-page-grid/two_story_image' );
+
+				} elseif ( get_row_layout() == 'join_our_team' ) {
+
+					get_template_part( 'template-parts/widgets/home-page-grid/join_our_team' );
+
+				} elseif ( get_row_layout() == 'reed_h_image' ) {
+
+					get_template_part( 'template-parts/widgets/home-page-grid/reed_h_image' );
+
+				} elseif ( get_row_layout() == 'forest_image' ) {
+
+					get_template_part( 'template-parts/widgets/home-page-grid/forest_image' );
+
+				} elseif ( get_row_layout() == 'projects_block' ) {
+
+					get_template_part( 'template-parts/widgets/home-page-grid/projects_block' );
+
 				}
 			}
 		}
@@ -530,6 +547,7 @@ class W4P_Home_Page_Grid_Widget extends WP_Widget {
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
+		$instance['homepage_grid'] = get_field( 'homepage_grid', 'widget_' . $this->id );
 
 		return $instance;
 	}
