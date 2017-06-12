@@ -24,6 +24,10 @@
 
 						get_template_part( 'template-parts/profile/content-banner-slider' );
 
+					elseif ( get_row_layout() == 'widgets_area' ):
+
+						get_template_part( 'template-parts/profile/content-widgets_area' );
+
 					elseif ( get_row_layout() == 'content_block' ):
 
 						get_template_part( 'template-parts/profile/content-profile' );
@@ -36,11 +40,11 @@
 
 						get_template_part( 'template-parts/profile/content-anchor_section' );
 
-					elseif ( get_row_layout() == 'widgets_area' ):
+					elseif ( get_row_layout() == 'approach_items_list_block' ):
 
-						get_template_part( 'template-parts/profile/content-widgets_area' );
+						get_template_part( 'template-parts/profile/content-approach_items_list_block' );
 
-					endif;
+			endif;
 
 				endwhile;
 
@@ -51,8 +55,6 @@
 			<?php edit_post_link( __( 'Edit this entry', 'dco' ), '<p>', '</p>' ); ?>
 
 		</article>
-
-		<?php comments_template(); ?>
 
 	<?php endwhile;
 endif; ?>

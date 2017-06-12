@@ -1,0 +1,14 @@
+.imageSmallModuleB {
+  display: flex;
+  align-items: flex-start;
+  padding: 40px 0;
+  &-slider {
+    padding-right: 15px;
+    flex: 1 0 50%;
+    width: 50%;
+  }
+  &-body {
+    padding-left: 15px;
+    flex: 1 0 50%;
+  }
+}

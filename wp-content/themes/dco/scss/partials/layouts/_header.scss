@@ -16,6 +16,7 @@ $menuBtnColor--hover: $gray-ship;
   background: $bgMenu;
   display: flex;
   justify-content: space-between;
+  z-index: 10;
   @media #{$tablet-up} {
     height: 21px;
     padding: 5px 21px;

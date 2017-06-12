@@ -36,7 +36,21 @@ body {
 
 .container {
     width: 100%;
-    padding: 0 21px;
+    margin: 0 auto;
+    @media #{$tablet-up} {
+        max-width: 740px;
+    }
+    @media #{$desktop-up} {
+        max-width: 970px;
+    }
+}
+
+.container-medium {
+    width: 100%;
+    margin: 0 auto;
+    @media #{$tablet-up} {
+        width: 83.33%;
+    }
 }
 
 img {
@@ -44,11 +58,6 @@ img {
     height: auto;
 }
 
-.caption,
-.wp-caption .wp-caption-text,
-.gallery-caption {
-    font-style: italic;
-    font-size: $fontSize-small;
-    color: $black;
+.parallaxImg  {
+    min-height: 509px;
 }
-
