@@ -321,7 +321,7 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
 		$group = get_field_objects( get_the_ID() );
 		$menu  = array();
 		foreach ( $group as $fields ) {
-			if ( ! empty( $fields['value'] ) ) {
+			if ( ! empty( $fields['value'] ) && is_array( $fields['value'] ) ) {
 				foreach ( $fields['value'] as $key => $field ) {
 					if ( $field['acf_fc_layout'] == 'anchor_section' ) {
 						if ( ! empty( $field['anchor_title'] ) && ! empty( $field['anchor_hash'] ) ) {
