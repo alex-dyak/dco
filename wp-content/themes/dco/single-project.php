@@ -20,7 +20,7 @@ get_header(); ?>
 
 				// check if the flexible content field has rows of data
 				if ( have_rows( 'progect_blocks' ) ): // loop through the rows of data
-				{
+
 					while ( have_rows( 'progect_blocks' ) ) : the_row();
 
 						if ( get_row_layout() == 'large_module_a' ):
@@ -39,6 +39,18 @@ get_header(); ?>
 
 							get_template_part( 'template-parts/projects/small_module_a_turned' );
 
+						elseif ( get_row_layout() == 'small_module_a_text' ):
+
+							get_template_part( 'template-parts/projects/small_module_a_text' );
+
+						elseif ( get_row_layout() == 'small_module_a_two_images' ):
+
+							get_template_part( 'template-parts/projects/small_module_a_two_images' );
+
+						elseif ( get_row_layout() == 'small_module_a_stat' ):
+
+							get_template_part( 'template-parts/projects/small_module_a_stat' );
+
 						elseif ( get_row_layout() == 'large_module_b' ):
 
 							get_template_part( 'template-parts/projects/large_module_b' );
@@ -51,14 +63,21 @@ get_header(); ?>
 
 							get_template_part( 'template-parts/projects/small_module_b' );
 
+						elseif ( get_row_layout() == 'small_module_c' ):
+
+							get_template_part( 'template-parts/projects/small_module_c' );
+
 						elseif ( get_row_layout() == 'success_module' ):
 
 							get_template_part( 'template-parts/projects/success_module' );
 
+						elseif ( get_row_layout() == 'stats' ):
+
+							get_template_part( 'template-parts/projects/stats_columns' );
+
 						endif;
 
 					endwhile;
-				}
 
 				endif;
 
