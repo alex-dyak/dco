@@ -52,10 +52,20 @@ if ( function_exists( 'register_sidebar' ) ) {
 			'after_title'   => '</h3>',
 		) );
 
+		register_sidebar( array(
+			'name'          => __( 'Home Page Grid Area', 'dco' ),
+			'id'            => 'home-page-grid-area',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		) );
+
 		register_widget( 'W4P_Contacts_Widget' );
 		register_widget( 'W4P_Social_Profiles_Widget' );
 		register_widget( 'W4P_Anchor_Menu_Widget' );
 		register_widget( 'W4P_Team_Widget' );
+		register_widget( 'W4P_Home_Page_Grid_Widget' );
 
 	}
 	add_action( 'widgets_init', 'dco_widgets_init' );
@@ -416,3 +426,92 @@ class W4P_Team_Widget extends WP_Widget {
 		return $data;
 	}
 } /* End class W4P_Team_Widget. */
+
+/**
+ * W4P Home Page Grid Widget Class
+ */
+class W4P_Home_Page_Grid_Widget extends WP_Widget {
+
+	function __construct() {
+		parent::__construct( false, $name = __( '[W4P] Home Page Grid', 'dco' ) );
+	}
+
+	/** @see WP_Widget::widget -- do not rename this */
+	function widget( $args, $instance ) {
+		extract( $args );
+		$title = apply_filters( 'widget_title',
+			$instance['title'] ); /* The widget title. */
+
+
+		echo $before_widget;
+
+		if ( $title ) {
+			echo $before_title . $title . $after_title;
+		}
+
+		$args = array(
+			'posts_per_page'   => 1,
+			'orderby'          => 'post_date',
+			'order'            => 'DESC',
+			'post_type'        => 'post',
+			'post_status'      => 'publish',
+		);
+
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$date = get_the_date( 'm.d.y' );
+				?>
+				<a href="<?php the_permalink(); ?>" class="newsList-box">
+					<span class="newsList-box-date"><?php echo $date; ?></span>
+					<span class="newsList-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
+				</a>
+			<?php
+			}
+		}
+		//wp_reset_postdata();
+
+
+
+		if ( have_rows( 'homepage_grid' ) ) {
+			while ( have_rows( 'homepage_grid' ) ) {
+				the_row();
+				if ( get_row_layout() == 'two_story_image' ) {
+					get_template_part( 'template-parts/widgets/two_story_image' );
+				}
+			}
+		}
+
+
+
+		echo $after_widget;
+	}
+
+	/** @see WP_Widget::update -- do not rename this */
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title'] = strip_tags( $new_instance['title'] );
+
+		return $instance;
+	}
+
+	/** @see WP_Widget::form -- do not rename this */
+	function form( $instance ) {
+		// Set up some default widget settings.
+		$defaults = array( 'title' => __( 'Home Page Grid', 'dco' ) );
+		$instance = wp_parse_args( (array) $instance, $defaults );
+
+		// Get widget fields values.
+		if ( ! empty( $instance ) ) {
+			$title 	= esc_attr( $instance['title'] );
+		}
+		?>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+			<input id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		</p>
+
+	<?php }
+
+} /* End class W4P_Home_Page_Grid_Widget. */
