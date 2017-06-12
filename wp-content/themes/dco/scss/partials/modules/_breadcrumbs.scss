@@ -9,15 +9,12 @@ $breadcrumbsBackgroundColor: $white;
         display: none;
     }
     position: relative;
-    padding: 5px 80px;
+    padding: 5px 0;
     font-size: $breadcrumbsFontSize;
     color: $breadcrumbsColor;
     letter-spacing: 1px;
     text-transform: uppercase;
     background: $breadcrumbsBackgroundColor;
-    @media #{$tablet-up} {
-        margin: 0 -21px;
-    }
     a {
         color: $breadcrumbsColor;
     }
