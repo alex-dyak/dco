@@ -63,6 +63,10 @@ get_header(); ?>
 
 							get_template_part( 'template-parts/projects/small_module_b' );
 
+						elseif ( get_row_layout() == 'small_module_c' ):
+
+							get_template_part( 'template-parts/projects/small_module_c' );
+
 						elseif ( get_row_layout() == 'success_module' ):
 
 							get_template_part( 'template-parts/projects/success_module' );
