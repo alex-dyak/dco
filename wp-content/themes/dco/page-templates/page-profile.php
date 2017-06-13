@@ -24,6 +24,10 @@
 
 						get_template_part( 'template-parts/profile/content-banner-slider' );
 
+					elseif ( get_row_layout() == 'careers' ):
+
+						get_template_part( 'template-parts/profile/content-careers' );
+
 					elseif ( get_row_layout() == 'widgets_area' ):
 
 						get_template_part( 'template-parts/profile/content-widgets_area' );
@@ -44,11 +48,14 @@
 
 						get_template_part( 'template-parts/profile/content-approach_items_list_block' );
 
-			endif;
+
+					endif;
 
 				endwhile;
 
 			endif;
+
+			the_field('test_field');
 
 			?>
 

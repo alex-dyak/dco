@@ -1,13 +1,17 @@
 <?php $title_color = get_field( 'title_color' ); ?>
+<?php
+// Slider speed value. Could be changed from admin panel.
+$speed = get_sub_field( 'slider_speed' ) ? get_sub_field( 'slider_speed' ) : 6000;
+?>
 
 <div class="imageSmallModuleB container">
 	<?php $images = get_sub_field( 'slider_image' );
 	if( $images ): ?>
 	<div class="imageSmallModuleB-slider">
-		<div class="moduleSlider js-moduleSlider">
+		<div class="moduleSlider js-moduleSlider" data-speed="<?php echo $speed; ?>">
 			<?php foreach( $images as $image ): ?>
 				<div>
-                    <img src="<?php echo $image['sizes']['full_img_mobile_small']; ?>" alt="<?php echo $image['alt']; ?>" />
+                    <img src="<?php echo $image['sizes']['module_slider']; ?>" alt="<?php echo $image['alt']; ?>" />
 				</div>
 			<?php endforeach; ?>
 		</div>

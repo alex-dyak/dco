@@ -1,14 +1,73 @@
+/* variables for this module */
+$dotsColor: $swirl;
+$dotsColor--active: $scorpion;
+
+/*===========================*/
+
+
 .imageSmallModuleB {
   display: flex;
-  align-items: flex-start;
-  padding: 40px 0;
+  flex-direction: column-reverse;
+  padding: 27px 0 33px;
+  @media #{$tablet-up} {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 40px 0;
+  }
   &-slider {
-    padding-right: 15px;
-    flex: 1 0 50%;
-    width: 50%;
+    @media #{$tablet-up} {
+      padding-right: 15px;
+      flex: 1 0 50%;
+      width: 50%;
+    }
+    img {
+      width: 100%;
+    }
   }
   &-body {
-    padding-left: 15px;
-    flex: 1 0 50%;
+    padding: 0 15px 33px;
+    @media #{$tablet-up} {
+      padding: 0 0 0 15px;
+      flex: 1 0 50%;
+    }
+  }
+}
+
+.moduleSlider {
+  position: relative;
+  .slick-slide {
+    outline: 0;
+  }
+  .slick-dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @media #{$tablet-up} {
+      bottom: 28px;
+    }
+    > li {
+      padding: 0 11px;
+      &.slick-active {
+        > button {
+          background: $dotsColor--active;
+        }
+      }
+      > button {
+        text-indent: -9999px;
+        background: transparent;
+        padding: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: $dotsColor;
+        border: 0;
+        outline: 0;
+      }
+    }
   }
 }
