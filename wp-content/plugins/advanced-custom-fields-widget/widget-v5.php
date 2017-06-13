@@ -62,11 +62,6 @@ if ( ! class_exists( 'acf_5_field_widget' ) ) {
 			// create Field HTML
 			echo sprintf( '<select id="%d" class="%s" name="%s">', esc_attr( $field['id'] ), esc_attr( $field['class'] ), esc_attr( $field['name'] ) );
 
-			// null
-//			if ( $field['allow_null'] ) {
-//				echo '<option value="null">' . _x( '- Select - ', 'ACF Widget Area Null Select Option', 'acf_widget' ) . '</option>';
-//			}
-
 			global $wp_widget_factory;
 			$i = 0;
 
