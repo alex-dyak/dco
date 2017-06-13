@@ -1,4 +1,20 @@
-.imageLargeModuleA {
+.videoBox {
+  position: relative;
+  overflow: hidden;
+  &-poster {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  video {
+    display: block;
+  }
+}
+
+.videoLargeModuleB {
   position: relative;
   &-quote {
     @media #{$tablet-up} {
@@ -9,6 +25,7 @@
       height: 100%;
       transform: translateX(-50%);
       max-width: 740px;
+      z-index: 1;
     }
     @media #{$desktop-up} {
       max-width: 970px;
@@ -16,8 +33,8 @@
     &-inner {
       padding: 33px 15px;
       color: $white;
-      font-size: 1rem;
-      line-height: 1.5rem;
+      font-size: 1.75rem;
+      line-height: 2.1rem;
       font-family: $SourceSansPro-semibold;
       @media #{$tablet-up} {
         position: absolute;
@@ -39,7 +56,7 @@
       &.position-middle_left {
         color: $white;
         @media #{$tablet-up} {
-          background: rgba( $white, .95) !important;
+          background: rgba($white, .95) !important;
           color: $gray-ship;
           width: 40%;
           left: 0;
@@ -73,31 +90,15 @@
       text-transform: uppercase;
       margin-bottom: 15px;
     }
-  }
 
-  &-image {
-    margin-bottom: 30px;
-    @media #{$tablet-up} {
-      margin-bottom: 0;
-    }
-    img {
-      display: block;
-      width: 100%;
-    }
-    &--parallax {
-      margin-bottom: 0;
-      img {
-        @media #{$tablet-up} {
-          display: none;
-        }
-      }
-    }
-  }
-
-  .parallaxImg {
-    display: none;
-    @media #{$tablet-up} {
-      display: block;
+    &-author {
+      color: $gray-ship;
+      font-family: $ProximaNova;
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      text-transform: uppercase;
+      padding-top: 20px;
     }
   }
 }
