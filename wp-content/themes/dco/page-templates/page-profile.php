@@ -32,6 +32,10 @@
 
 						get_template_part( 'template-parts/profile/content-widgets_area' );
 
+					elseif ( get_row_layout() == 'widget' ):
+
+						get_template_part( 'template-parts/profile/content-widget' );
+
 					elseif ( get_row_layout() == 'content_block' ):
 
 						get_template_part( 'template-parts/profile/content-profile' );
@@ -54,9 +58,6 @@
 				endwhile;
 
 			endif;
-
-			the_field('test_field');
-
 			?>
 
 			<?php edit_post_link( __( 'Edit this entry', 'dco' ), '<p>', '</p>' ); ?>
@@ -65,7 +66,5 @@
 
 	<?php endwhile;
 endif; ?>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
