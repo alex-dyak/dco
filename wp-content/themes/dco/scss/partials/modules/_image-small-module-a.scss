@@ -14,6 +14,7 @@
     }
     img {
       width: 100%;
+      display: block;
     }
   }
   &-body {
@@ -24,6 +25,33 @@
     }
     @media #{$desktop-up} {
       flex: 1;
+    }
+  }
+
+  &--reverse {
+    display: flex;
+    flex-direction: column-reverse;
+    @media #{$tablet-up} {
+      flex-direction: row-reverse;
+    }
+    .imageSmallModuleA-image {
+      @media #{$tablet-up} {
+        padding-right: 0;
+        padding-left: 15px;
+        flex: 1 0 50%;
+      }
+      @media #{$desktop-up} {
+        flex: 1;
+      }
+    }
+    .imageSmallModuleA-body {
+      @media #{$tablet-up} {
+        flex: 1 0 50%;
+        padding: 0 15px 0 0;
+      }
+      @media #{$desktop-up} {
+        flex: 1;
+      }
     }
   }
 }

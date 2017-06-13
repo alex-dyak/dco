@@ -1,4 +1,4 @@
-<div class="profile">
+<div class="profile container">
     <!-- Title of profile content block-->
     <h1><?php the_sub_field('title'); ?></h1>
     <div class="profile-main">

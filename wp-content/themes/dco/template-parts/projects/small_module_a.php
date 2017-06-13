@@ -1,6 +1,15 @@
 <?php $title_color = get_field( 'title_color' ); ?>
+<?php $blocks_revert = get_sub_field( 'blocks_reverse' );
+    if( $blocks_revert ) {
+        $block_revert_class = "imageSmallModuleA--reverse ";
+    }
+    else {
+      $block_revert_class = "";
+    }
+?>
 
-<div class="imageSmallModuleA container">
+
+<div class="imageSmallModuleA <?php echo $block_revert_class; ?>container">
 	<?php $image = get_sub_field( 'image' );
 	if ( ! empty ( $image ) ):
 		$url = $image['url'];
