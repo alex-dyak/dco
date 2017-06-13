@@ -19,7 +19,7 @@ if ( ! class_exists( 'acf_5_field_widget' ) ) {
 			/**
 			 * Name of field
 			 */
-			$this->name = 'widget';
+			$this->name = 'cacf_cf7';
 
 			/**
 			 *  label visible when selecting a field type
@@ -106,16 +106,21 @@ if ( ! class_exists( 'acf_5_field_widget' ) ) {
 
 				$widget   = new $value;
 				$settings = $widget->get_settings();
+				$instances = $params = array();
 
 				if ( ! empty( $settings ) && is_array( $settings ) ) {
 					foreach ( array_values( $settings ) as $args ) {
-						foreach ( $args as $argument => $arg_value ) {
-							$instances[] = $argument . '=' . $arg_value;
+						if( ! empty($args) ){
+							foreach ( $args as $argument => $arg_value ) {
+								$instances[] = $argument . '=' . $arg_value;
+							}
 						}
 					}
+
+					$params = implode( ',', $instances );
 				}
 
-				$params = implode( ',', $instances );
+
 
 				the_widget( $value, $params );
 			}
