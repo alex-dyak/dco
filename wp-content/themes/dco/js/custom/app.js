@@ -25,5 +25,12 @@
           arrows: false,
           dots: true
       })
+
+
+      $('.js-videoBox').videoPlayer({
+          'poster': $('.js-videoPoster'),
+          'video': $('.js-video video'),
+          'positionStart': 0.9
+      });
   });
 })(jQuery);
