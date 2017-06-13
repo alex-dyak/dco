@@ -1,0 +1,105 @@
+<?php
+/*
+Plugin Name: Custom ACF: Contact Form 7 Field
+*/
+
+
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// Check if class exists, only run code if it does not
+if ( ! class_exists( 'cacf_field_cf7_plugin' ) ) {
+
+	class cacf_field_cf7_plugin {
+		/*
+		*  Construct
+		*
+		*  @since: 1.0.0
+		*/
+
+		function __construct() {
+
+			/**
+			 * Setup some base variables for the plugin
+			 */
+			$this->basename       = plugin_basename( __FILE__ );
+			$this->directory_path = plugin_dir_path( __FILE__ );
+			$this->directory_url  = plugins_url( dirname( $this->basename ) );
+
+			/**
+			 * Load Textdomain
+			 */
+			load_plugin_textdomain( 'acf_cf7', false, dirname( $this->basename ) . '/languages' );
+
+			/**
+			 * Make sure we have our requirements, and disable the plugin if we do not have them.
+			 */
+			add_action( 'admin_notices', array( $this, 'maybe_disable_plugin' ) );
+
+			/**
+			 * Add action for version 5
+			 */
+			add_action( 'acf/include_field_types', array( $this, 'include_field_type' ) );
+
+		}
+
+		/**
+		 * Check that all plugin requirements are met
+		 *
+		 * @since  1.0.0
+		 *
+		 * @return bool
+		 */
+		public static function meets_requirements() {
+			/**
+			 * If the main acf class doesn't exist, our plugin won't work.
+			 */
+			if ( ! class_exists( 'acf' ) ) {
+				return false;
+			}
+
+			/**
+			 * We have met all requirements
+			 */
+			return true;
+		}
+
+		/**
+		 * Check if the plugin meets requirements and disable it if they are not present.
+		 *
+		 * @since 1.0.0
+		 */
+		public function maybe_disable_plugin() {
+
+			if ( ! $this->meets_requirements() ) {
+				// Display our error
+				echo '<div id="message" class="error">';
+				echo '<p>' . sprintf( __( 'ACF CF7 is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'acf_widget_area' ), admin_url( 'plugins.php' ) ) . '</p>';
+				echo '</div>';
+
+				// Deactivate our plugin
+				deactivate_plugins( $this->basename );
+			}
+
+		}
+
+		/**
+		 * Include field type for ACF v5
+		 *
+		 * @param $version
+		 */
+		function include_field_type( $version ) {
+
+			include_once( $this->directory_path . '/cacf_cf7-v5.php' );
+
+		}
+
+	}
+
+	new cacf_field_cf7_plugin();
+
+}
+
+
