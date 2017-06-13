@@ -552,7 +552,6 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
-		$instance['homepage_grid'] = get_field( 'homepage_grid', 'widget_' . $this->id );
 
 		return $instance;
 	}
