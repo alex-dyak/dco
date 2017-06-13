@@ -356,7 +356,7 @@ class W4P_Team_Widget extends WP_Widget {
 		extract( $args );
 		$title  = apply_filters( 'widget_title', $instance['title'] ); /* The widget title. */
 		echo $before_widget;
-		if ( $title ) { echo $before_title . $title . $after_title; }
+		/*if ( $title ) { echo $before_title . $title . $after_title; }*/
 		$members = $this->get_team_members();
 		dco_locate_template( 'widgets/team', array( 'members' => $members ) );
 		echo $after_widget;
