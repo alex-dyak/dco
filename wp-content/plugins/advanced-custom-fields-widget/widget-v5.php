@@ -104,13 +104,13 @@ if ( ! class_exists( 'acf_5_field_widget' ) ) {
 
 			if ( class_exists( $value ) ) {
 
-				$widget   = new $value;
-				$settings = $widget->get_settings();
+				$widget    = new $value;
+				$settings  = $widget->get_settings();
 				$instances = $params = array();
 
 				if ( ! empty( $settings ) && is_array( $settings ) ) {
 					foreach ( array_values( $settings ) as $args ) {
-						if( ! empty($args) ){
+						if ( ! empty( $args ) ) {
 							foreach ( $args as $argument => $arg_value ) {
 								$instances[] = $argument . '=' . $arg_value;
 							}
@@ -119,7 +119,6 @@ if ( ! class_exists( 'acf_5_field_widget' ) ) {
 
 					$params = implode( ',', $instances );
 				}
-
 
 
 				the_widget( $value, $params );

@@ -358,21 +358,109 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
 	}
 
 	function get_page_achors() {
-//		$group = get_field_objects( get_the_ID() );
+		$post_id = get_the_ID();
+		$group = $this->dco_get_field_objects( get_the_ID() );
+
 		$menu  = array();
-//		foreach ( $group as $fields ) {
-//			if ( ! empty( $fields['value'] ) && is_array( $fields['value'] ) ) {
-//				foreach ( $fields['value'] as $key => $field ) {
-//					if ( $field['acf_fc_layout'] == 'anchor_section' ) {
-//						if ( ! empty( $field['anchor_title'] ) && ! empty( $field['anchor_hash'] ) ) {
-//							$menu[ $field['anchor_hash'] ] = $field['anchor_title'];
-//						}
-//					}
-//				}
-//			}
-//		}
+		foreach ( $group as $fields ) {
+			if ( ! empty( $fields['value'] ) && is_array( $fields['value'] ) ) {
+				foreach ( $fields['value'] as $key => $field ) {
+					if ( $field['acf_fc_layout'] == 'anchor_section' ) {
+						$field_values = array_values($field);
+						if ( ! empty( $field_values[1] ) && ! empty( $field_values[2] ) ) {
+							$menu[ $field_values[2] ] = $field_values[1];
+						}
+					}
+				}
+			}
+		}
 
 		return $menu;
+	}
+
+
+	function dco_get_field_objects( $post_id = false, $format_value = true, $load_value = true ) {
+
+		// global
+		global $wpdb;
+
+
+		// filter post_id
+		$post_id = acf_get_valid_post_id( $post_id );
+
+
+		// vars
+		$meta = array();
+		$fields = array();
+
+
+		// get field_names
+		if( ! is_numeric($post_id) )
+			return;
+
+		$meta = get_post_meta( $post_id );
+
+		// bail early if no meta
+		if( empty($meta) ) {
+
+			return false;
+
+		}
+
+
+		// populate vars
+		foreach( $meta as $k => $v ) {
+
+			// Hopefuly improve efficiency: bail early if $k does start with an '_'
+			if( $k[0] === '_' ) {
+
+				continue;
+
+			}
+
+			// does a field key exist for this value?
+			if( !array_key_exists("_{$k}", $meta) ) {
+
+				continue;
+
+			}
+
+			// get field
+			$field_key = $meta["_{$k}"][0];
+			$field = acf_get_field( $field_key );
+
+
+			// bail early if not a parent field
+			if( !$field || acf_is_sub_field($field) ) {
+
+				continue;
+
+			}
+
+
+			// load value
+			if( $load_value ) {
+
+				$field['value'] = acf_get_value( $post_id, $field );
+
+			}
+
+			// append to $value
+			$fields[ $field['name'] ] = $field;
+
+		}
+
+
+		// no value
+		if( empty($fields) ) {
+
+			return false;
+
+		}
+
+
+		// return
+		return $fields;
 	}
 } /* End class W4P_Anchor_Menu_Widget. */
 
@@ -396,6 +484,32 @@ class W4P_Team_Widget extends WP_Widget {
 		$members = $this->get_team_members();
 		dco_locate_template( 'widgets/team', array( 'members' => $members ) );
 		echo $after_widget;
+	}
+
+	function get_team_members() {
+		$members = new WP_Query( array(
+			'posts_per_page' => - 1,
+			'post_type'      => 'team',
+			'meta_key'       => 'member_surname',
+			'orderby'        => 'meta_value',
+			'order'          => 'ASC',
+		) );
+		$data    = array();
+		if ( $members->have_posts() ):
+			while ( $members->have_posts() ) : $members->the_post();
+				$member_id                           = get_the_ID();
+				$data[ $member_id ]['name'][]        = get_field( 'member_surname', $member_id );
+				$data[ $member_id ]['name'][]        = get_field( 'member_name', $member_id );
+				$data[ $member_id ]['position']      = get_field( 'position', $member_id );
+				$data[ $member_id ]['description']   = get_the_content();
+				$big_photo_id                        = get_field( 'big_photo', $member_id );
+				$data[ $member_id ]['photo']         = wp_get_attachment_image( $big_photo_id, 'full' );
+				$data[ $member_id ]['photo_preview'] = get_the_post_thumbnail( $member_id, 'full' );
+			endwhile;
+			wp_reset_postdata();
+		endif;
+
+		return $data;
 	}
 
 	/** @see WP_Widget::update -- do not rename this */
@@ -424,32 +538,6 @@ class W4P_Team_Widget extends WP_Widget {
 			       value="<?php echo esc_attr( $title ); ?>"/>
 		</p>
 	<?php }
-
-	function get_team_members() {
-		$members = new WP_Query( array(
-			'posts_per_page' => - 1,
-			'post_type'      => 'team',
-			'meta_key'       => 'member_surname',
-			'orderby'        => 'meta_value',
-			'order'          => 'ASC',
-		) );
-		$data    = array();
-		if ( $members->have_posts() ):
-			while ( $members->have_posts() ) : $members->the_post();
-				$member_id                           = get_the_ID();
-				$data[ $member_id ]['name'][]        = get_field( 'member_surname', $member_id );
-				$data[ $member_id ]['name'][]        = get_field( 'member_name', $member_id );
-				$data[ $member_id ]['position']      = get_field( 'position', $member_id );
-				$data[ $member_id ]['description']   = get_the_content();
-				$big_photo_id                        = get_field( 'big_photo', $member_id );
-				$data[ $member_id ]['photo']         = wp_get_attachment_image( $big_photo_id, 'full' );
-				$data[ $member_id ]['photo_preview'] = get_the_post_thumbnail( $member_id, 'full' );
-			endwhile;
-			wp_reset_postdata();
-		endif;
-
-		return $data;
-	}
 } /* End class W4P_Team_Widget. */
 
 /**
