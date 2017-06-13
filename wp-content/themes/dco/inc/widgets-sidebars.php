@@ -503,8 +503,13 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 			while ( $query->have_posts() ) {
 				$query->the_post();
 				$date = get_the_date( 'm.d.y' );
+				if ( get_field( 'external_link' ) ) {
+					$link = get_field( 'external_link' );
+				} else {
+					$link = get_the_permalink();
+				}
 				?>
-				<a href="<?php the_permalink(); ?>" class="news-box">
+				<a href="<?php echo $link; ?>" class="news-box">
 					<span class="news-box-date"><?php echo $date; ?></span>
 					<span class="news-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
 				</a>
