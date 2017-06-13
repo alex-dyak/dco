@@ -1,5 +1,5 @@
 <div class="reedHimage container">
-	<?php $image = get_sub_field( 'image' );
+	<?php $image = get_sub_field( 'reed_h_image' );
 	if ( ! empty ( $image ) ):
 	$url = $image['url'];
 	?>
