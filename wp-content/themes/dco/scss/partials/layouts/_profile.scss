@@ -10,8 +10,33 @@ $profileBlockColor: $orange--light;
 $profileAmpersandFontFamily: $BodoniURW-Light;
 $profileAmpersandFontSize: 59.375rem;
 $profileAmpersandLineHeight: 1;
-$profileAmpersandColor: rgba(225, 226, 227, 0.40);
+$profileAmpersandColor: rgba(225, 226, 227, .40);
 $profileBackgroundColor: $white;
+/* approach block */
+$profileApproachColor: $white;
+$profileApproachTitleFontFamily: $ProximaNova;
+$profileApproachTitleColor: $bombay--most;
+$profileApproachTitleFontWeight: 600;
+$profileApproachSubTitleColor: $blue--light;
+$profileApproachSubTitleFontWeight: 800;
+$profileApproachItemTitleColor: $blue--light;
+$profileApproachItemFontWeight: 800;
+/* team block */
+$profileTeamTitleFontSize: 1.3125rem;
+$profileTeamTitleLineHeight: 1.57rem;
+$profileTeamTitleFontWeight: 600;
+$profileTeamTitleColor: $westar;
+$profileTeamTitleBackgroundColor: $orange--light;
+$profileTeamBackgroundColor: rgba(75, 72, 73, .40);
+$profileTeamColor: $white;
+$profileTeamMemberNameFontFamily: $FuturaPT-Bold;
+$profileTeamMemberNameFontSize: 1.125rem;
+$profileTeamMemberNameLineHeight: 1rem;
+$profileTeamMemberTitleFontFamily: $SourceSansPro-regular;
+$profileTeamMemberTitleFontSize: 0.8125rem;
+$profileTeamMemberTitleLineHeight: .04rem;
+$profileTeamMemberOverlayColor: rgba(255,255,255,0.85);
+
 /*===========================*/
 
 .profile {
@@ -119,16 +144,16 @@ $profileBackgroundColor: $white;
 
 .approach-block {
     position: relative;
-    color: $white;
+    color: $profileApproachColor;
     padding: 23px 15px 11px;
     overflow: hidden;
     @media #{$mobilesmall-up} {
         padding-top: 64px;
     }
     h2 {
-        font-family: $ProximaNova;
-        font-weight: 600;
-        color: $bombay--most;
+        font-family: $profileApproachTitleFontFamily;
+        font-weight: $profileApproachTitleFontWeight;
+        color: $profileApproachTitleColor;
         margin: 0 0 7px;
         @media #{$mobilesmall-up} {
             font-size: 2.5rem;
@@ -136,8 +161,8 @@ $profileBackgroundColor: $white;
         }
     }
     h3 {
-        font-weight: 800;
-        color: $blue--light;
+        font-weight: $profileApproachSubTitleFontWeight;
+        color: $profileApproachSubTitleColor;
         margin: 0 0 18px;
         @media #{$mobilesmall-up} {
             margin-bottom: 0;
@@ -159,7 +184,7 @@ $profileBackgroundColor: $white;
 
 .approach-items {
     position: relative;
-    color: $white;
+    color: $profileApproachColor;
     padding: 23px 15px 35px;
     overflow: hidden;
     @media #{$mobile-up} {
@@ -195,8 +220,8 @@ $profileBackgroundColor: $white;
     }
 
     h3 {
-        font-weight: 800;
-        color: $blue--light;
+        font-weight: $profileApproachItemFontWeight;
+        color: $profileApproachItemTitleColor;
         margin-bottom: 0;
     }
     p {
@@ -212,3 +237,160 @@ $profileBackgroundColor: $white;
     }
 }
 
+.team-holder {
+    @media #{$mobile-up} {
+        padding: 64px 42px 50px;
+    }
+    @media #{$tablet-up} {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .widget-title {
+        font-size: $profileTeamTitleFontSize;
+        line-height: $profileTeamTitleLineHeight;
+        font-weight: $profileTeamTitleFontWeight;
+        color: $profileTeamTitleColor;
+        background: $profileTeamTitleBackgroundColor;
+        text-align: center;
+        margin: 0;
+        padding: 18px 10px;
+    }
+}
+.team-block {
+    &:after {
+        clear: both;
+        display: block;
+        content: '';
+    }
+    .member-modal {
+        display: none;
+    }
+    .team-member {
+        position: relative;
+        color: $profileTeamColor;
+        @media #{$mobile-up} {
+            width: 50%;
+            height: 179px;
+            overflow: hidden;
+            float: left;
+            transition: width 0.3s;
+        }
+        @media #{$tablet-up} {
+            width: 33.3333%;
+        }
+        img {
+            width: 100%;
+            display: block;
+
+        }
+        &.cloned {
+            width: 100%;
+            height: auto;
+            > img,
+            .team-member-holder {
+                display: none;
+            }
+            .member-modal {
+                display: block;
+            }
+        }
+        &.active {
+            width: 0;
+        }
+    }
+    .name {
+        display: block;
+        font-size: $profileTeamMemberNameFontSize;
+        font-family: $profileTeamMemberNameFontFamily;
+        line-height: $profileTeamMemberNameLineHeight;
+        text-transform: uppercase;
+    }
+    .title {
+        display: block;
+        font-size: $profileTeamMemberTitleFontSize;
+        font-family: $profileTeamMemberTitleFontFamily;
+        line-height: $profileTeamMemberTitleLineHeight;
+    }
+    .team-member-holder {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $profileTeamBackgroundColor;
+        min-height: 61px;
+        padding: 12px 16px 5px;
+        .dots {
+            position: absolute;
+            top: 50%;
+            right: 21px;
+            transform: translateY(-50%);
+            background: $profileTeamColor;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            &:before,
+            &:after {
+                position: absolute;
+                top: 0;
+                left: 6px;
+                background: $profileTeamColor;
+                width: 3px;
+                height: 3px;
+                border-radius: 50%;
+                content: '';
+            }
+            &:after {
+                left: auto;
+                right: 6px;
+            }
+        }
+    }
+    .member-modal-holder {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        bottom: 60px;
+        width: 35%;
+        background: $profileTeamBackgroundColor;
+        overflow: auto;
+        padding: 30px;
+    }
+    .member-modal {
+        position: relative;
+        z-index: 5;
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            text-indent: -9999px;
+            overflow: hidden;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            &:before,
+            &:after {
+                position: absolute;
+                top: 11px;
+                right: -4px;
+                width: 30px;
+                height: 1px;
+                content: '';
+                background: $profileTeamColor;
+                transform: rotate(45deg);
+            }
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: $profileTeamMemberOverlayColor;
+            content: '';
+            z-index: -1;
+        }
+    }
+}
