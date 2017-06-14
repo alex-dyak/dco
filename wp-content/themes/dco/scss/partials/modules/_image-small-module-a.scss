@@ -54,4 +54,24 @@
       }
     }
   }
+
+  &--images {
+    padding: 15px 0;
+    @media #{$tablet-up} {
+      padding: 40px 0 20px;
+    }
+    .imageSmallModuleA-image {
+      @media #{$tablet-up} {
+        padding-right: 15px;
+      }
+      + .imageSmallModuleA-image {
+        padding-top: 15px;
+        @media #{$tablet-up} {
+          padding-left: 15px;
+          padding-right: 0;
+          padding-top: 0;
+        }
+      }
+    }
+  }
 }
