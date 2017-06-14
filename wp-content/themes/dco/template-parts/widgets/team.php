@@ -12,14 +12,14 @@
 					<div class="team-member-holder">
 						<?php if ( ! empty( $member['name'] ) ): ?>
 							<span class="name">
-							<?php echo implode( ' ', $member['name'] ) ?>
-						</span>
+								<?php echo implode( ' ', $member['name'] ) ?>
+							</span>
 						<?php endif; ?>
 
 						<?php if ( ! empty( $member['position'] ) ): ?>
 							<span class="position">
-						<?php echo $member['position']; ?>
-						</span>
+								<?php echo $member['position']; ?>
+							</span>
 						<?php endif; ?>
 						<div class="dots"></div>
 					</div>
@@ -30,25 +30,30 @@
 
 					<!-- Member modal block -->
 					<div class="member-modal">
+						<div class="member-modal-holder">
+							<?php if ( ! empty( $member['name'] ) ): ?>
+								<span class="name">
+								<?php echo implode( ' ', $member['name'] ) ?>
+							</span>
+							<?php endif; ?>
+
+							<?php if ( ! empty( $member['position'] ) ): ?>
+								<span class="position">
+								<?php echo $member['position']; ?>
+							</span>
+							<?php endif; ?>
+
+							<?php if ( ! empty( $member['description'] ) ): ?>
+								<?php echo $member['description']; ?>
+							<?php endif; ?>
+						</div>
 
 						<?php if ( ! empty( $member['photo'] ) ): ?>
 							<?php echo $member['photo']; ?>
 						<?php endif; ?>
 
-						<?php if ( ! empty( $member['name'] ) ): ?>
-							<?php echo implode( ' ', $member['name'] ) ?>
-						<?php endif; ?>
-
-						<span>
-						<?php if ( ! empty( $member['position'] ) ): ?>
-							<?php echo $member['position']; ?>
-						<?php endif; ?>
-					</span>
-
-						<?php if ( ! empty( $member['description'] ) ): ?>
-							<?php echo $member['description']; ?>
-						<?php endif; ?>
-
+						<span class="close">Close</span>
+						<div class="overlay"></div>
 					</div>
 					<!-- End Member modal block -->
 
