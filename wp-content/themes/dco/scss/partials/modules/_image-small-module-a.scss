@@ -26,6 +26,50 @@
     @media #{$desktop-up} {
       flex: 1;
     }
+    a {
+      font-family: $SourceSansPro-semibold;
+      display: inline-block;
+      padding: 10px 0;
+    }
+  }
+
+  &-box {
+    padding-top: 20px;
+    @media #{$tablet-up} {
+      padding-right: 15px;
+      flex: 1 0 50%;
+    }
+    @media #{$desktop-up} {
+      flex: 1;
+    }
+    &-inner {
+      display: flex;
+      align-items: center;
+    }
+    &-img {
+      flex: 0 0 150px;
+      img {
+        width: 100%;
+        max-width: 150px;
+        display: block;
+      }
+    }
+    &-text {
+      padding-left: 10px;
+      flex: 1 0;
+      font-family: $ProximaNova;
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+      @media #{$tablet-up} {
+        font-size: 1.7rem;
+        line-height: 2rem;
+      }
+      span {
+        display: block;
+        padding: 3px 0;
+      }
+    }
   }
 
   &--reverse {
@@ -48,6 +92,16 @@
       @media #{$tablet-up} {
         flex: 1 0 50%;
         padding: 0 15px 0 0;
+      }
+      @media #{$desktop-up} {
+        flex: 1;
+      }
+    }
+    .imageSmallModuleA-box {
+      @media #{$tablet-up} {
+        padding-right: 0;
+        padding-left: 15px;
+        flex: 1 0 50%;
       }
       @media #{$desktop-up} {
         flex: 1;
