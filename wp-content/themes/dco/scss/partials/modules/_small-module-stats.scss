@@ -1,0 +1,47 @@
+.smallModuleStats {
+  padding: 27px 15px 20px;
+  @media #{$tablet-up} {
+    padding: 15px 0 30px;
+    display: flex;
+    align-items: flex-start;
+  }
+  &-stats {
+    font-family: $ProximaNova;
+    font-weight: 600;
+    font-size: 1.9rem;
+    line-height: 2.25rem;
+    padding: 10px 0 0;
+    @media #{$tablet-up} {
+      padding: 20px 0 0 15px;
+      flex: 1 0 50%;
+      font-size: 2.9rem;
+      line-height: 3.25rem;
+    }
+    @media #{$desktop-up} {
+      flex: 1;
+    }
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  &-body {
+    padding: 0 0 13px;
+    @media #{$tablet-up} {
+      flex: 1 0 50%;
+      padding: 0 15px 0 0;
+    }
+    @media #{$desktop-up} {
+      flex: 1;
+    }
+  }
+}
+
+.smallModuleStatsImage {
+  padding-bottom: 15px;
+  img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}

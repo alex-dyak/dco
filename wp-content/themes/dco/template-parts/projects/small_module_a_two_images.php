@@ -1,4 +1,4 @@
-<div class="imageSmallModuleA container">
+<div class="imageSmallModuleA imageSmallModuleA--images container">
 	<?php if ( have_rows( 'images' ) ): ?>
 		<?php while ( have_rows( 'images' ) ) : the_row();
 			$image = get_sub_field( 'image' );
