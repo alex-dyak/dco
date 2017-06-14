@@ -9,9 +9,6 @@
             desktoplarge: window.matchMedia("only screen and (min-width: 75.063em)")
         };
 
-        console.log(matchMedia.mobile);
-        console.log(matchMedia.mobilesmall);
-
         function statSlider() {
             var $slider = $('.js-statSlider');
             $slider.each(function(){
