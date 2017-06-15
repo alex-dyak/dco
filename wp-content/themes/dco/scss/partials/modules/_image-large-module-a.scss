@@ -1,5 +1,12 @@
 .imageLargeModuleA {
   position: relative;
+  margin: 15px 0;
+  @media #{$tablet-up} {
+    margin: 20px 0;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
   &-quote {
     @media #{$tablet-up} {
       position: absolute;

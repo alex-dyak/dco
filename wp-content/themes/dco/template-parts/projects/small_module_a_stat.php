@@ -3,35 +3,36 @@
 <div class="smallModuleStats container">
 
 	<?php if ( get_sub_field( 'header' ) && get_sub_field( 'body' ) ): ?>
-		<div class="smallModuleStats-body">
+        <div class="smallModuleStats-body">
 			<?php if ( get_sub_field( 'header' ) ): ?>
-				<h2 class="smallModuleStats-body-title"
-				    style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'header' ); ?></h2>
+                <h2 class="smallModuleStats-body-title"
+                    style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'header' ); ?></h2>
 			<?php endif; ?>
 
 			<?php if ( get_sub_field( 'body' ) ): ?>
-				<div class="smallModuleStats-body-description">
+                <div class="smallModuleStats-body-description">
 					<?php echo the_sub_field( 'body' ); ?>
-				</div>
+                </div>
 			<?php endif; ?>
-		</div>
+        </div>
 	<?php endif; ?>
 
 
 	<?php if ( have_rows( 'text_block' ) ): ?>
-		<div class="smallModuleStats-stats">
-				<?php while ( have_rows( 'text_block' ) ) : the_row();
-					if ( get_sub_field( 'text_color' ) ) {
-						$text_color = get_sub_field( 'text_color' );
-					} else {
-						$text_color = '';
-					}
-					?>
-                    <?php if ( get_sub_field( 'text' ) ): ?>
-                        <div class="smallModuleStats-stats-item" style="color: <?php echo $text_color; ?>"><?php echo the_sub_field( 'text' ); ?></div>
-                    <?php endif; ?>
-				<?php endwhile; ?>
-		</div>
+        <div class="smallModuleStats-stats">
+			<?php while ( have_rows( 'text_block' ) ) : the_row();
+				if ( get_sub_field( 'text_color' ) ) {
+					$text_color = get_sub_field( 'text_color' );
+				} else {
+					$text_color = '';
+				}
+				?>
+				<?php if ( get_sub_field( 'text' ) ): ?>
+                    <div class="smallModuleStats-stats-item"
+                         style="color: <?php echo $text_color; ?>"><?php echo the_sub_field( 'text' ); ?></div>
+				<?php endif; ?>
+			<?php endwhile; ?>
+        </div>
 	<?php endif; ?>
 
 </div>
@@ -40,8 +41,8 @@
 if ( ! empty ( $image ) ):
 	$url = $image['url'];
 	?>
-	<div class="smallModuleStatsImage container">
-		<img src="<?php echo $url; ?>">
-	</div>
+    <div class="smallModuleStatsImage container">
+        <img src="<?php echo $url; ?>">
+    </div>
 <?php endif; ?>
 
