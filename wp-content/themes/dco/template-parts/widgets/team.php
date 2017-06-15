@@ -4,7 +4,9 @@
  */
 ?>
 <div class="team-holder container">
-	<h3 class="widget-title">Team</h3> <!--TODO Need to change this to a variable-->
+	<?php if ( ! empty( $title ) ): ?>
+		<h3 class="widget-title"><?php echo esc_attr( $title ); ?></h3>
+	<?php endif; ?>
 	<div class="team-block">
 		<?php if ( ! empty( $members ) ): ?>
 			<?php foreach ( $members as $member_id => $member ) : ?>
