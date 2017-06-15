@@ -5,9 +5,9 @@
 			if ( ! empty ( $image ) ):
 				$url = $image['url'];
 				?>
-				<div class="imageSmallModuleA-image">
-					<img src="<?php echo $url; ?>">
-				</div>
+                <div class="imageSmallModuleA-image">
+                    <img src="<?php echo $url; ?>">
+                </div>
 			<?php endif; ?>
 		<?php endwhile; ?>
 	<?php endif; ?>

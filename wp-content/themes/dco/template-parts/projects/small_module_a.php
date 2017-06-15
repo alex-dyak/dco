@@ -1,11 +1,10 @@
 <?php $title_color = get_field( 'title_color' ); ?>
 <?php $blocks_revert = get_sub_field( 'blocks_reverse' );
-    if( $blocks_revert ) {
-        $block_revert_class = "imageSmallModuleA--reverse ";
-    }
-    else {
-      $block_revert_class = "";
-    }
+if ( $blocks_revert ) {
+	$block_revert_class = "imageSmallModuleA--reverse ";
+} else {
+	$block_revert_class = "";
+}
 ?>
 
 
@@ -14,24 +13,24 @@
 	if ( ! empty ( $image ) ):
 		$url = $image['url'];
 		?>
-		<div class="imageSmallModuleA-image">
-			<img src="<?php echo $url; ?>">
-		</div>
+        <div class="imageSmallModuleA-image">
+            <img src="<?php echo $url; ?>">
+        </div>
 	<?php endif; ?>
 
 	<?php if ( get_sub_field( 'header' ) && get_sub_field( 'body' ) ): ?>
-		<div class="imageSmallModuleA-body">
+        <div class="imageSmallModuleA-body">
 			<?php if ( get_sub_field( 'header' ) ): ?>
-				<h2 class="imageSmallModuleA-body-title"
-				    style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'header' ); ?></h2>
+                <h2 class="imageSmallModuleA-body-title"
+                    style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'header' ); ?></h2>
 			<?php endif; ?>
 
 			<?php if ( get_sub_field( 'body' ) ): ?>
-				<div class="imageSmallModuleA-body-description">
+                <div class="imageSmallModuleA-body-description">
 					<?php echo the_sub_field( 'body' ); ?>
-				</div>
+                </div>
 			<?php endif; ?>
-		</div>
+        </div>
 	<?php endif; ?>
 
 </div>

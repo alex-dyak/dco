@@ -30,26 +30,27 @@ switch ( $select ) {
 }
 ?>
 
-	<div class="videoLargeModuleB">
-        <?php if ($quote_title || $quote_body) : ?>
-            <div class="videoLargeModuleB-quote position-<?php echo $class_title; ?>" style="background: <?php echo $background_color; ?>">
-                <?php if ($quote_body) : ?>
-                    <div class="videoLargeModuleB-quote-body">
-                        <?php echo $quote_body; ?>
-                    </div>
-                <?php endif; ?>
-	            <?php if ($quote_title) : ?>
-		            <div class="videoLargeModuleB-quote-title"
-		                 <?php if($class_title == "middle_left"): ?>style="color: <?php echo $title_color; ?>"<?php endif; ?>><?php echo $quote_title; ?></div>
-	            <?php endif; ?>
-            </div>
-        <?php endif; ?>
+<div class="videoLargeModuleB">
+	<?php if ( $quote_title || $quote_body ) : ?>
+        <div class="videoLargeModuleB-quote position-<?php echo $class_title; ?>"
+             style="background: <?php echo $background_color; ?>">
+			<?php if ( $quote_body ) : ?>
+                <div class="videoLargeModuleB-quote-body">
+					<?php echo $quote_body; ?>
+                </div>
+			<?php endif; ?>
+			<?php if ( $quote_title ) : ?>
+                <div class="videoLargeModuleB-quote-title"
+				     <?php if ( $class_title == "middle_left" ): ?>style="color: <?php echo $title_color; ?>"<?php endif; ?>><?php echo $quote_title; ?></div>
+			<?php endif; ?>
+        </div>
+	<?php endif; ?>
 
-		<?php if ( ! empty ( $video ) ):
-			$url = $video['url']; ?>
-		<video autoplay>
-			<source src="<?php echo $url; ?>">
-		</video>
-	</div>
+	<?php if ( ! empty ( $video ) ):
+	$url = $video['url']; ?>
+    <video autoplay>
+        <source src="<?php echo $url; ?>">
+    </video>
+</div>
 
 <?php endif; ?>
