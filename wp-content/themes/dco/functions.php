@@ -168,3 +168,73 @@ function dco_locate_template ( $template_name, $args = array() ) {
 	}
 	return $located;
 }
+
+// GET Clients Category
+function clients_get_category( $post_ID ) {
+	$term_list = wp_get_post_terms($post_ID, 'clients-category', array("fields" => "names"));
+
+	return $term_list;
+}
+
+// GET Business Directions
+function clients_get_business_directions( $post_ID ) {
+	$term_list = wp_get_post_terms($post_ID, 'business-direction', array("fields" => "names"));
+
+	return $term_list;
+}
+
+// Clients ADD NEW COLUMNS to admin
+add_filter('manage_posts_columns', 'clients_columns_head');
+function clients_columns_head( $defaults ) {
+	$defaults['business_directions'] = 'Business Directions';
+	$defaults['category']            = 'Category';
+
+	return $defaults;
+}
+
+// Clients DISPLAY NEW COLUMNS to admin
+add_action('manage_posts_custom_column', 'clients_columns_content', 10, 2);
+function clients_columns_content( $column_name, $post_ID ) {
+	if ( $column_name == 'category' ) {
+		$clients_categories = clients_get_category( $post_ID );
+		if ( $clients_categories ) {
+			$total = count( $clients_categories );
+			$counter = 0;
+			foreach ( $clients_categories as $category ) {
+				$counter++;
+				if ( $counter == $total ) {
+					echo $category;
+				}
+				else {
+					echo $category . ', ';
+				}
+			}
+		}
+	}
+
+	if ( $column_name == 'business_directions' ) {
+		$business_directions = clients_get_business_directions( $post_ID );
+		if ( $business_directions ) {
+			$total = count( $business_directions );
+			$counter = 0;
+			foreach ( $business_directions as $direction ) {
+				$counter++;
+				if ( $counter == $total ) {
+					echo $direction;
+				}
+				else {
+					echo $direction . ', ';
+				}
+			}
+		}
+	}
+}
+
+// Make Business Direction column sortable.
+add_filter( 'manage_edit-client_sortable_columns', 'set_custom_client_sortable_columns' );
+
+function set_custom_client_sortable_columns( $columns ) {
+	$columns['business_directions'] = 'business_directions';
+
+	return $columns;
+}
