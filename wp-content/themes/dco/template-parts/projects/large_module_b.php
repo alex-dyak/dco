@@ -30,6 +30,16 @@ switch ( $select ) {
 		$class_title = '';
 		$class_body  = '';
 }
+
+if ( ! empty ( $video_poster ) ) {
+	$url                     = $video_poster['url'];
+	$full_img_mobile_small   = $video_poster['sizes']['full_img_mobile_small'];
+	$full_img_mobile_large   = $video_poster['sizes']['full_img_mobile_large'];
+	$full_img_tablet         = $video_poster['sizes']['full_img_tablet'];
+	$full_img_desktop_small  = $video_poster['sizes']['full_img_desktop_small'];
+	$full_img_desktop_medium = $video_poster['sizes']['full_img_desktop_medium'];
+	$full_img_desktop_large  = $video_poster['sizes']['full_img_desktop_large'];
+}
 ?>
 
 <div class="videoLargeModuleB">
@@ -59,8 +69,15 @@ switch ( $select ) {
 	<?php if ( ! empty ( $video ) ):
 		$url = $video['url']; ?>
         <div class="videoLargeModuleB-video videoBox js-videoBox">
-            <div class="videoBox-poster js-videoPoster"
-                 style="background-image: url('<?php echo $video_poster['url']; ?>')"></div>
+            <div class="videoBox-poster lazyload js-videoPoster"
+                 data-bgset="<?php echo $full_img_mobile_small; ?> 480w,
+                    <?php echo $full_img_mobile_large; ?> 768w,
+                    <?php echo $full_img_tablet; ?> 992w,
+                    <?php echo $full_img_desktop_small; ?> 1200w,
+                    <?php echo $full_img_desktop_medium; ?> 1620w,
+                    <?php echo $full_img_desktop_large; ?> 1920w"
+                 data-sizes="auto"></div>
+
             <div class="videoBox-video js-video">
                 <video width="100%" loop>
                     <source src="<?php echo $url; ?>">

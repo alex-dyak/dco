@@ -14,7 +14,7 @@ if ( $blocks_revert ) {
 		$url = $image['url'];
 		?>
         <div class="imageSmallModuleA-image">
-            <img src="<?php echo $url; ?>">
+            <img src="<?php echo $image['sizes']['full_img_mobile_large']; ?>">
         </div>
 	<?php endif; ?>
 
