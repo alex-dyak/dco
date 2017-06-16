@@ -14,8 +14,16 @@ get_header(); ?>
 
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
-			<?php if ( get_field( 'select_widget_area' ) ) : ?>
-					<?php the_field( 'select_widget_area' ); ?>
+			<?php if ( get_field( 'select_slider_area' ) ) : ?>
+				<div class="homepage-slider-area">
+					<?php the_field( 'select_slider_area' ); ?>
+				</div>
+			<?php endif; ?>
+
+			<?php if ( get_field( 'select_grid_area' ) ) : ?>
+				<div class="homepage-grid-area">
+					<?php the_field( 'select_grid_area' ); ?>
+				</div>
 			<?php endif; ?>
 
 		</article>
