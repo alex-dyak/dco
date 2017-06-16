@@ -101,14 +101,15 @@
     }
   }
 
-  .parallaxImg {
-    display: none;
-    @media #{$tablet-up} {
-      display: block;
-      background-attachment: fixed;
-      background-position: 50% 80%;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
+}
+
+.parallaxImg {
+  display: none;
+  @media #{$tablet-up} {
+    display: block;
+    background-attachment: fixed;
+    background-position: 50% 80%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
