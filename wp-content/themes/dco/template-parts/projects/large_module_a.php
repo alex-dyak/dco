@@ -29,60 +29,55 @@ switch ( $select ) {
 		$class_title = '';
 		$class_body  = '';
 }
-if ( ! empty ( $image ) ):
-	$url = $image['url'];
-	$full_img_mobile_small   = $image['sizes']['full_img_mobile_small'];
-	$full_img_mobile_large   = $image['sizes']['full_img_mobile_large'];
-	$full_img_tablet         = $image['sizes']['full_img_tablet'];
-	$full_img_desktop_small  = $image['sizes']['full_img_desktop_small'];
-	$full_img_desktop_medium = $image['sizes']['full_img_desktop_medium'];
-	$full_img_desktop_large  = $image['sizes']['full_img_desktop_large'];
-	?>
+if ( ! empty( $image ) && is_int( $image ) ) : ?>
 
-    <div class="imageLargeModuleA">
+	<div class="imageLargeModuleA">
 		<?php if ( $quote_title || $quote_body ) : ?>
-            <div class="imageLargeModuleA-quote">
-                <div class="imageLargeModuleA-quote-inner position-<?php echo $class_title; ?>"
-                     style="background: <?php echo $background_color; ?>">
+			<div class="imageLargeModuleA-quote">
+				<div class="imageLargeModuleA-quote-inner position-<?php echo $class_title; ?>"
+					style="background: <?php echo $background_color; ?>">
 					<?php if ( $quote_title ) : ?>
-                        <div class="imageLargeModuleA-quote-title"
-						     <?php if ( $class_title == "middle_left" ): ?>style="color: <?php echo $title_color; ?>"<?php endif; ?>><?php echo $quote_title; ?></div>
+						<div class="imageLargeModuleA-quote-title"
+						     <?php if ( $class_title == "middle_left" ) : ?>
+							     style="color: <?php echo $title_color; ?>"
+						     <?php endif; ?>>
+							<?php echo $quote_title; ?>
+						</div>
 					<?php endif; ?>
 
 					<?php if ( $quote_body ) : ?>
-                        <div class="imageLargeModuleA-quote-body">
+						<div class="imageLargeModuleA-quote-body">
 							<?php echo $quote_body; ?>
-                        </div>
+						</div>
 					<?php endif; ?>
-                </div>
-            </div>
+				</div>
+			</div>
 		<?php endif; ?>
 
 		<?php if ( $apply_parallax ): ?>
-            <div class="imageLargeModuleA-image imageLargeModuleA-image--parallax">
-                <div class="lazyload parallaxImg" data-bgset="<?php echo $full_img_mobile_small; ?> 480w,
-                    <?php echo $full_img_mobile_large; ?> 768w,
-                    <?php echo $full_img_tablet; ?> 992w,
-                    <?php echo $full_img_desktop_small; ?> 1200w,
-                    <?php echo $full_img_desktop_medium; ?> 1620w,
-                    <?php echo $full_img_desktop_large; ?> 1920w" data-sizes="auto"></div>
+			<div
+				class="imageLargeModuleA-image imageLargeModuleA-image--parallax">
+				<div class="lazyload parallaxImg"
+				     data-bgset="<?php echo wp_get_attachment_image_srcset( $image, 'full_img_desktop_large' ); ?>"
+				     data-sizes="auto"></div>
 
-                <img src="<?php echo $url; ?>" srcset="
-                <?php echo $full_img_mobile_small; ?> 480w,
-                <?php echo $full_img_mobile_large; ?> 768w,
-                <?php echo $full_img_tablet; ?> 992w">
-            </div>
+				<?php
+				printf( '<img src="%s" srcset="%s">',
+					wp_get_attachment_image_url( $image ),
+					wp_get_attachment_image_srcset( $image, 'full' )
+				);
+				?>
+			</div>
 		<?php else: ?>
-            <div class="imageLargeModuleA-image">
-                <img src="<?php echo $url; ?>" srcset="
-                    <?php echo $full_img_mobile_small; ?> 480w,
-                    <?php echo $full_img_mobile_large; ?> 768w,
-                    <?php echo $full_img_tablet; ?> 992w,
-                    <?php echo $full_img_desktop_small; ?> 1200w,
-                    <?php echo $full_img_desktop_medium; ?> 1620w,
-                    <?php echo $full_img_desktop_large; ?> 1920w">
-            </div>
+			<div class="imageLargeModuleA-image">
+				<?php
+				printf( '<img src="%s" srcset="%s">',
+					wp_get_attachment_image_url( $image ),
+					wp_get_attachment_image_srcset( $image, 'full' )
+				);
+				?>
+			</div>
 		<?php endif; ?>
-    </div>
+	</div>
 
 <?php endif; ?>

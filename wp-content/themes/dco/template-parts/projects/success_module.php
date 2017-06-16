@@ -2,19 +2,19 @@
 
 <div class="successModule container">
 
-	<?php if ( get_sub_field( 'header' ) && get_sub_field( 'body' ) ): ?>
-        <div class="successModule-body">
+	<?php if ( get_sub_field( 'header' ) && get_sub_field( 'body' ) ) : ?>
+		<div class="successModule-body">
 			<?php if ( get_sub_field( 'header' ) ): ?>
-                <h2 class="successModule-body-title"
-                    style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'header' ); ?></h2>
+				<h2 class="successModule-body-title"
+				    style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'header' ); ?></h2>
 			<?php endif; ?>
 
 			<?php if ( get_sub_field( 'body' ) ): ?>
-                <div class="successModule-body-description">
+				<div class="successModule-body-description">
 					<?php echo the_sub_field( 'body' ); ?>
-                </div>
+				</div>
 			<?php endif; ?>
-        </div>
+		</div>
 	<?php endif; ?>
 
 </div>

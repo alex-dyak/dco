@@ -11,15 +11,13 @@ if ( $blocks_revert ) {
 <div class="imageSmallModuleA <?php echo $block_revert_class; ?>container">
 
 	<?php $image = get_sub_field( 'image' );
-	if ( ! empty ( $image ) ):
-		$url = $image['url'];
-		?>
-        <div class="imageSmallModuleA-box">
-            <div class="imageSmallModuleA-box-inner">
-                <div class="imageSmallModuleA-box-img">
-                    <img src="<?php echo $url; ?>">
-                </div>
-                <div class="imageSmallModuleA-box-text">
+	if ( ! empty( $image ) && is_int( $image ) ) : ?>
+		<div class="imageSmallModuleA-box">
+			<div class="imageSmallModuleA-box-inner">
+				<div class="imageSmallModuleA-box-img">
+					<?php echo wp_get_attachment_image( $image ); ?>
+				</div>
+				<div class="imageSmallModuleA-box-text">
 					<?php if ( have_rows( 'beside_image_text' ) ): ?>
 						<?php while ( have_rows( 'beside_image_text' ) ) : the_row();
 							if ( get_sub_field( 'text_color' ) ) {
@@ -29,31 +27,30 @@ if ( $blocks_revert ) {
 							}
 							?>
 							<?php if ( get_sub_field( 'text' ) ): ?>
-                                <span style="color: <?php echo $text_color; ?>"><?php echo the_sub_field( 'text' ); ?></span>
+								<span
+									style="color: <?php echo $text_color; ?>"><?php echo the_sub_field( 'text' ); ?></span>
 							<?php endif; ?>
 						<?php endwhile; ?>
 					<?php endif; ?>
-                </div>
-            </div>
+				</div>
+			</div>
 
-
-        </div>
+		</div>
 	<?php endif; ?>
 
 	<?php if ( get_sub_field( 'header' ) && get_sub_field( 'body' ) ): ?>
-        <div class="imageSmallModuleA-body">
+		<div class="imageSmallModuleA-body">
 			<?php if ( get_sub_field( 'header' ) ): ?>
-                <h2 class="imageSmallModuleA-body-title"
-                    style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'header' ); ?></h2>
+				<h2 class="imageSmallModuleA-body-title"
+				    style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'header' ); ?></h2>
 			<?php endif; ?>
 
 			<?php if ( get_sub_field( 'body' ) ): ?>
-                <div class="imageSmallModuleA-body-description">
+				<div class="imageSmallModuleA-body-description">
 					<?php echo the_sub_field( 'body' ); ?>
-                </div>
+				</div>
 			<?php endif; ?>
-        </div>
+		</div>
 	<?php endif; ?>
-
 
 </div>
