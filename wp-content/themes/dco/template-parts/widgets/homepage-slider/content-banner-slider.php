@@ -35,12 +35,15 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 					the_row();
 					if ( get_row_layout() == 'image_layout' ) {
 					$image = get_sub_field( 'image' );
-					if ( ! empty ( $image ) ):
-					$url = $image['url'];
-					?>
+					if ( ! empty( $image ) && is_int( $image ) ) : ?>
 					<div class="slider-item">
 						<?php echo $title; ?>
-						<img src="<?php echo $url; ?>">
+						<?php
+						printf( '<img src="%s" srcset="%s">',
+							wp_get_attachment_image_url( $image ),
+							wp_get_attachment_image_srcset( $image, 'full' )
+						);
+						?>
 						<?php endif; ?>
 						<?php
 						}
