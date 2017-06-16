@@ -14,11 +14,14 @@
 
 			<div class="project container">
 				<?php $image = get_sub_field( 'project_image' );
-				if ( ! empty ( $image ) ):
-					$url = $image['url'];
-					?>
+				if ( ! empty( $image ) && is_int( $image ) ) : ?>
 					<div class="project-image">
-						<img src="<?php echo $url; ?>">
+						<?php
+						printf( '<img src="%s" srcset="%s">',
+							wp_get_attachment_image_url( $image ),
+							wp_get_attachment_image_srcset( $image, 'middle' )
+						);
+						?>
 					</div>
 				<?php endif; ?>
 

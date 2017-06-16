@@ -1,20 +1,25 @@
 <div class="forestImage container">
 	<?php $image = get_sub_field( 'forest_image' );
-	if ( ! empty ( $image ) ):
-		$url = $image['url'];
-		?>
+	if ( ! empty( $image ) && is_int( $image ) ) : ?>
 		<div class="forestImage-image">
-			<img src="<?php echo $url; ?>">
+			<?php
+			printf( '<img src="%s" srcset="%s">',
+				wp_get_attachment_image_url( $image ),
+				wp_get_attachment_image_srcset( $image, 'middle' )
+			);
+			?>
 		</div>
 	<?php endif; ?>
 
 	<?php if ( get_sub_field( 'forest_title' ) && get_sub_field( 'forest_body' ) ): ?>
 		<?php
 		$background_image = get_sub_field( 'forest_background_image' );
-		if( ! empty( $background_image ) ) {
-			$background_url = $background_image['url'];
+		if( ! empty( $background_image  && is_int( $background_image ) ) ) {
+			$back_img = wp_get_attachment_image_srcset( $background_image, 'full' );
+		} else {
+			$back_img = '';
 		} ?>
-		<div class="forestImage-body" style="background-image: url(<?php echo $background_url; ?>)">
+		<div class="forestImage-body" style="background-image: url(<?php echo $back_img; ?>)">
 			<?php if ( get_sub_field( 'forest_title' ) ): ?>
 				<h2 class="forestImage-title"><?php echo the_sub_field( 'forest_title' ); ?></h2>
 			<?php endif; ?>
