@@ -48,7 +48,7 @@ function dco_setup() {
 	if ( function_exists( 'add_image_size' ) ) {
 		add_image_size( 'mobile_img', 280, 280, true );
         add_image_size( 'full_img_mobile_small', 480, '', TRUE );
-        add_image_size( 'full_img_mobile_large', 768, '', TRUE );
+        add_image_size( 'full_img_mobile_large', 770, '', TRUE );
         add_image_size( 'full_img_tablet', 992, '', TRUE );
         add_image_size( 'full_img_desktop_small', 1200, '', TRUE );
         add_image_size( 'full_img_desktop_medium', 1620, '', TRUE );

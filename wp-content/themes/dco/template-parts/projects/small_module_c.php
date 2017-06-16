@@ -1,10 +1,10 @@
 <?php $title_color = get_field( 'title_color' ); ?>
 
-<div class="imageSmallModuleA container">
+<div class="videoModuleC container">
 	<?php $video = get_sub_field( 'video' );
 	if ( ! empty ( $video ) ):
 		$url = $video['url']; ?>
-        <div class="imageSmallModuleA-image">
+        <div class="videoModuleC-image">
             <video autoplay>
                 <source src="<?php echo $url; ?>">
             </video>
@@ -12,14 +12,14 @@
 	<?php endif; ?>
 
 	<?php if ( get_sub_field( 'header' ) && get_sub_field( 'body' ) ): ?>
-        <div class="imageSmallModuleA-body">
+        <div class="videoModuleC-body">
 			<?php if ( get_sub_field( 'header' ) ): ?>
-                <h2 class="imageSmallModuleA-body-title"
+                <h2 class="videoModuleC-body-title"
                     style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'header' ); ?></h2>
 			<?php endif; ?>
 
 			<?php if ( get_sub_field( 'body' ) ): ?>
-                <div class="imageSmallModuleA-body-description">
+                <div class="videoModuleC-body-description">
 					<?php echo the_sub_field( 'body' ); ?>
                 </div>
 			<?php endif; ?>
