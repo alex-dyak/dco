@@ -51,10 +51,6 @@ get_header(); ?>
 
 							get_template_part( 'template-parts/projects/large_module_b' );
 
-						elseif ( get_row_layout() == 'large_module_b_quote_turned' ):
-
-							get_template_part( 'template-parts/projects/large_module_b_quote_turned' );
-
 						elseif ( get_row_layout() == 'small_module_b' ):
 
 							get_template_part( 'template-parts/projects/small_module_b' );
