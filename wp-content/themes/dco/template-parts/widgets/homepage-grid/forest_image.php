@@ -27,14 +27,14 @@
 
 			<?php if ( get_sub_field( 'forest_social_icon' ) || get_sub_field( 'forest_link_text' ) ): ?>
 				<div class="forestImage-social-icon">
-					<?php //if ( get_sub_field( 'forest_social_link' ) ): ?>
+					<?php if ( get_sub_field( 'forest_social_link' ) ): ?>
 						<div class="forestImage-social-link">
 							<a href="<?php the_sub_field( 'forest_social_link' ); ?>" target="_blank">
 								<i class="fa fa-<?php the_sub_field( 'forest_social_icon' ); ?>" aria-hidden="true"></i>
 								<?php the_sub_field( 'forest_link_text' ); ?>
 							</a>
 						</div>
-					<?php// endif; ?>
+					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 		</div>
