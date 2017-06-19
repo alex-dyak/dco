@@ -35,17 +35,105 @@
 }
 
 .clientPage {
-  padding: 60px 0 250px;
+  padding: 20px 15px 0;
+  @media #{$tablet-up} {
+    padding: 60px 0 200px;
+  }
   &-title {
     font-family: $Avenir-heavy;
+    letter-spacing: 3px;
   }
   &-body {
+    position: relative;
     display: flex;
     &-filter {
+      position: relative;
       flex: 1;
+      font-size: 1.063rem;
+      text-transform: uppercase;
     }
     &-content {
       flex: 0 0 585px;
     }
   }
 }
+
+.clientFilter {
+  list-style: none;
+  text-align: right;
+  padding: 0 50px 0 0;
+  margin: 0;
+  transition: top .3s;
+  &.is-sticky {
+    position: absolute;
+    width: 100%;
+  }
+  li {
+    padding: 8px 0;
+    &:first-child {
+      padding-top: 0;
+    }
+    a {
+      transition: all .3s;
+      &:hover {
+        color: $orange--light;
+      }
+      &.is-active {
+        color: $orange--light;
+      }
+    }
+
+  }
+}
+
+.clientList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  > li {
+    border-top: 1px dotted $gray-ship;
+    &.is-open {
+      > strong {
+        i {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    > strong {
+      display: flex;
+      align-items: center;
+      padding: 15px 30px 15px 10px;
+      font-family: $ProximaNova;
+      font-weight: 700;
+      color: $black;
+      text-transform: uppercase;
+      cursor: pointer;
+      i {
+        margin-right: 20px;
+        transition: all .1s;
+      }
+    }
+    >.clientItemList {
+      display: none;
+    }
+  }
+
+}
+
+.clientItemList {
+  list-style: none;
+  padding: 0 0 0 40px;
+  margin: 0 0 25px;
+  li {
+    padding: 5px 0;
+    > a {
+      color: rgba($gray-ship, .25);
+      &.is-active {
+        color: $gray-ship;
+      }
+    }
+  }
+}
+
+//$gray-ship
+//
