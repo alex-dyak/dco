@@ -45,7 +45,7 @@ if ( $terms ) : ?>
                         $args = array(
                             'numberposts'        => - 1,
                             'business-direction' => $term->slug,
-                            'orderby'            => 'date',
+                            'orderby'            => 'name',
                             'order'              => 'ASC',
                             'post_type'          => 'client',
                         );
