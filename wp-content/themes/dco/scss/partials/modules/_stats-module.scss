@@ -1,0 +1,67 @@
+.statsModule {
+  display: flex;
+  padding: 20px 0;
+  &-item {
+    text-align: center;
+    padding: 0 15px;
+    @media #{$tablet-up} {
+      flex: 1 0;
+      border-left: 1px dotted $nevada;
+    }
+    @media #{$desktop-up} {
+      padding: 0 30px;
+    }
+
+    &:first-child {
+      border-left: 0;
+    }
+
+    &--content {
+      border: 0;
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      @media #{$tablet-up} {
+        font-size: 0.7rem;
+        line-height: 1.2rem;
+      }
+      @media #{$desktop-up} {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+
+    &-amount {
+      font-family: $ProximaNova;
+      font-weight: 600;
+      font-size: 4.8rem;
+      line-height: 5.76rem;
+      @media #{$tablet-up} {
+        font-size: 2.8rem;
+        line-height: 3.76rem;
+      }
+      @media #{$desktop-up} {
+        font-size: 4.8rem;
+        line-height: 5.76rem;
+      }
+    }
+
+    &-description {
+      font-family: $ProximaNova;
+      font-weight: 400;
+      font-size: 1.3rem;
+      line-height: 2rem;
+      color: $nevada;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      @media #{$tablet-up} {
+        font-size: 1rem;
+        line-height: 1.4rem;
+      }
+      @media #{$desktop-up} {
+        font-size: 1.3rem;
+        line-height: 2rem;
+      }
+    }
+  }
+}
