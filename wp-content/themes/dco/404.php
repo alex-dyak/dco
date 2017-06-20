@@ -9,8 +9,23 @@
 
 get_header(); ?>
 
-<h2><?php esc_html_e( 'Error 404 - Page Not Found', 'dco' ); ?></h2>
+<?php $image_id = get_field('background_image', 'option') ? get_field('background_image', 'option') : '' ; ?>
+<?php if ( ! empty( $image_id ) && is_int( $image_id ) ) : ?>
+	<div>
+		<?php $background_image = wp_get_attachment_image_url( $image_id ); ?>
+	</div>
+<?php endif; ?>
 
-<?php get_sidebar(); ?>
+<div class="404-page" style="background-image: url(<?php echo $background_image; ?>); color: #ffffff">
+	<h2><?php esc_html_e( '404' ); ?></h2>
+	<?php
+	if ( get_field('text_before_page_name', 'option') ) {
+		$text_before_page_name = get_field('text_before_page_name', 'option');
+	}
+	if ( get_field('text_after_page_name', 'option') ) {
+		$text_after_page_name = get_field('text_after_page_name', 'option');
+	}
 
-<?php get_footer(); ?>
+	echo $text_before_page_name . ' "/' . $name . '" ' . $text_after_page_name;
+	?>
+</div>
