@@ -83,8 +83,6 @@
 
         $(window).on('scroll', function(){
             stickyAside();
-
-
         });
     });
 })(jQuery);
