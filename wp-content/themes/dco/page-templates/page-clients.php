@@ -67,58 +67,9 @@ get_header(); ?>
 
 			<?php if ( get_field( 'filter_area' ) ) : ?>
 				<div class="clientPage container">
-					<a href="#lightbox"><?php echo get_field( 'filter_area' ); ?></a>
+					<?php echo get_field( 'filter_area' ); ?>
 				</div>
 			<?php endif; ?>
-
-<!-- Clients Lightbox -->
-			<div id="lightbox">
-				<?php
-				// Slider speed value. Could be changed from admin panel.
-				$speed = get_field( 'slider_speed' ) ? get_sub_field( 'slider_speed' ) : 6000;
-				?>
-
-				<div class="clientsLightbox container">
-					<?php $images = get_field( 'slider' );
-					if ( $images ): ?>
-						<div class="clientsLightbox-slider">
-							<div class="moduleSlider js-moduleSlider" data-speed="<?php echo $speed; ?>">
-								<?php foreach ( $images as $image ): ?>
-									<div>
-										<img src="<?php echo $image['sizes']['module_slider']; ?>"
-											alt="<?php echo $image['alt']; ?>"/>
-									</div>
-								<?php endforeach; ?>
-							</div>
-						</div>
-					<?php endif; ?>
-
-					<?php if ( get_field( 'title' ) ): ?>
-						<div class="clientsLightbox-body">
-							<?php if ( get_sub_field( 'title' ) ): ?>
-								<h2 class="clientsLightbox-title"
-								    style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'title' ); ?></h2>
-							<?php endif; ?>
-
-							<?php if ( get_sub_field( 'text_first_column' ) ): ?>
-								<div class="clientsLightbox-text-first-column">
-									<?php echo the_sub_field( 'text_first_column' ); ?>
-								</div>
-							<?php endif; ?>
-							<?php if ( get_sub_field( 'text_second_column' ) ): ?>
-								<div class="clientsLightbox-text-second-column">
-									<?php echo the_sub_field( 'text_second_column' ); ?>
-								</div>
-							<?php endif; ?>
-							<?php if ( get_sub_field( 'text_third_column' ) ): ?>
-								<div class="clientsLightbox-text-third-column">
-									<?php echo the_sub_field( 'text_third_column' ); ?>
-								</div>
-							<?php endif; ?>
-						</div>
-					<?php endif; ?>
-				</div>
-			</div><!-- END Clients Lightbox -->
 		</article>
 
 	<?php endwhile;
