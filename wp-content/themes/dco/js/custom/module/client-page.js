@@ -68,18 +68,12 @@
             }
 
             var topBrakpoint = positionBlock - heightHeader - adminbarHeight,
-                bottomBreakpoint =  positionBlock + heightWrap - $(window).height()/2;
-
-            console.log('positionBlock', positionBlock);
-            console.log('heightBlock', heightBlock);
-            console.log('bottomBreakpoint', bottomBreakpoint);
-            console.log($(window).scrollTop());
+                bottomBreakpoint =  topBrakpoint + heightWrap - heightBlock;
 
             if($(window).scrollTop() >= topBrakpoint && $(window).scrollTop() < bottomBreakpoint) {
                 $block.addClass('is-sticky').css({'top': $(window).scrollTop() - positionBlock + heightHeader + adminbarHeight, 'bottom': 'inherit'});
             }
             else if($(window).scrollTop() >= bottomBreakpoint) {
-                //console.log(123);
                 $block.addClass('is-sticky').css({'top': 'inherit', 'bottom': 0});
             }
             else {
@@ -89,8 +83,6 @@
 
         $(window).on('scroll', function(){
             stickyAside();
-
-
         });
     });
 })(jQuery);
