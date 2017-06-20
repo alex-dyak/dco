@@ -14,5 +14,3 @@
 			class="projectDescription-description"><?php echo the_sub_field( 'body' ); ?></div>
 	<?php endif; ?>
 </div>
-
-

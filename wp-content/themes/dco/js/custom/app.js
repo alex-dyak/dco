@@ -13,8 +13,6 @@
       fade: true
     });
 
-      $('.parallax-window').parallax();
-
       var moduleSlider = $('.js-moduleSlider'),
           moduleSliderSpeed = profileSlider.data('speed');
       moduleSliderSpeed = moduleSliderSpeed % 1 == 0 ? moduleSliderSpeed : 3000;

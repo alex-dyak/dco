@@ -28,26 +28,16 @@ $counter = 0;
 
 			<?php
 				$image = get_field( 'landing_image' );
-			if ( ! empty ( $image ) ) {
-				$url = $image['url'];
-				$full_img_mobile_small = $image['sizes']['full_img_mobile_small'];
-				$full_img_mobile_large = $image['sizes']['full_img_mobile_large'];
-				$full_img_tablet = $image['sizes']['full_img_tablet'];
-				$full_img_desktop_small = $image['sizes']['full_img_desktop_small'];
-				$full_img_desktop_large = $image['sizes']['full_img_desktop_large'];
-			}
-			?>
-
-			<?php if( get_field( 'landing_image' ) ) : ?>
+			if ( ! empty( $image ) && is_int( $image ) ) : ?>
 				<a href="<?php the_permalink(); ?>" class="landing-block">
 					<div class="landing-title <?php echo $class; ?>"  style="background-color: <?php echo $project_color; ?>"><strong><?php the_title(); ?></strong></div>
 					<div class="landing-image">
-						<img src="<?php echo $url; ?>" srcset="
-							<?php echo $full_img_mobile_small; ?> 480w,
-							<?php echo $full_img_mobile_large; ?> 768w,
-							<?php echo $full_img_tablet; ?> 992w,
-							<?php echo $full_img_desktop_small; ?> 1200w,
-							<?php echo $full_img_desktop_large; ?> 1920w">
+						<?php
+						printf( '<img src="%s" srcset="%s">',
+							wp_get_attachment_image_url( $image ),
+							wp_get_attachment_image_srcset( $image, 'full' )
+						);
+						?>
 					</div>
 				</a>
 			<?php endif; ?>

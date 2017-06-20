@@ -16,6 +16,10 @@
 
 .videoLargeModuleB {
   position: relative;
+  padding: 15px 0;
+  @media #{$tablet-up} {
+    padding: 20px 0;
+  }
   &-quote {
     @media #{$tablet-up} {
       position: absolute;
@@ -29,6 +33,12 @@
     }
     @media #{$desktop-up} {
       max-width: 970px;
+    }
+    &.location-bottom_right {
+      @media #{$tablet-up} {
+        top: 100%;
+        height: 0;
+      }
     }
     &-inner {
       padding: 33px 15px;

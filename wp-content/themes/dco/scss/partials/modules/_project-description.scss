@@ -4,9 +4,9 @@ $subTitleColor: $blue--light;
 /*===========================*/
 
 .projectDescription {
-  padding: 20px 15px 45px;
+  padding: 15px;
   @media #{$tablet-up} {
-    padding: 45px 0 55px;
+    padding: 20px 0 25px;
   }
   &-header {
     @media #{$tablet-up} {

@@ -2,11 +2,12 @@
 	<?php if ( have_rows( 'images' ) ): ?>
 		<?php while ( have_rows( 'images' ) ) : the_row();
 			$image = get_sub_field( 'image' );
-			if ( ! empty ( $image ) ):
-				$url = $image['url'];
+			if ( ! empty( $image ) && is_int( $image ) ) :
+				$image = get_sub_field( 'image' );
+				$size  = 'full_img_mobile_large';
 				?>
 				<div class="imageSmallModuleA-image">
-					<img src="<?php echo $url; ?>">
+					<?php echo wp_get_attachment_image( $image, $size ); ?>
 				</div>
 			<?php endif; ?>
 		<?php endwhile; ?>

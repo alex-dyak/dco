@@ -1,4 +1,6 @@
-<?php $title_color = get_field( 'title_color' ); ?>
+<?php
+$title_color = get_field( 'title_color' );
+?>
 
 <div class="smallModuleStats container">
 
@@ -20,28 +22,32 @@
 
 	<?php if ( have_rows( 'text_block' ) ): ?>
 		<div class="smallModuleStats-stats">
-				<?php while ( have_rows( 'text_block' ) ) : the_row();
-					if ( get_sub_field( 'text_color' ) ) {
-						$text_color = get_sub_field( 'text_color' );
-					} else {
-						$text_color = '';
-					}
-					?>
-                    <?php if ( get_sub_field( 'text' ) ): ?>
-                        <div class="smallModuleStats-stats-item" style="color: <?php echo $text_color; ?>"><?php echo the_sub_field( 'text' ); ?></div>
-                    <?php endif; ?>
-				<?php endwhile; ?>
+			<?php while ( have_rows( 'text_block' ) ) : the_row();
+				if ( get_sub_field( 'text_color' ) ) {
+					$text_color = get_sub_field( 'text_color' );
+				} else {
+					$text_color = '';
+				}
+				?>
+				<?php if ( get_sub_field( 'text' ) ): ?>
+					<div class="smallModuleStats-stats-item"
+					     style="color: <?php echo $text_color; ?>"><?php echo the_sub_field( 'text' ); ?></div>
+				<?php endif; ?>
+			<?php endwhile; ?>
 		</div>
 	<?php endif; ?>
 
 </div>
 
 <?php $image = get_sub_field( 'image' );
-if ( ! empty ( $image ) ):
-	$url = $image['url'];
-	?>
+if ( ! empty( $image ) && is_int( $image ) ) : ?>
 	<div class="smallModuleStatsImage container">
-		<img src="<?php echo $url; ?>">
+		<?php
+		printf( '<img src="%s" srcset="%s">',
+			wp_get_attachment_image_url( $image ),
+			wp_get_attachment_image_srcset( $image, 'full' )
+		);
+		?>
 	</div>
 <?php endif; ?>
 
