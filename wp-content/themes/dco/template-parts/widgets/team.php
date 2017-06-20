@@ -35,7 +35,7 @@
 
 					<!-- Member modal block -->
 					<div class="member-modal">
-						<div class="member-modal-holder right">
+						<div class="member-modal-holder">
 							<div class="arrow arrow-up"></div>
 							<div class="member-modal-frame">
 								<div>
