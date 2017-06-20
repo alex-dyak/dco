@@ -35,25 +35,40 @@
 }
 
 .clientPage {
-  padding: 20px 15px 0;
+  padding: 20px 0 0;
   @media #{$tablet-up} {
     padding: 60px 0 200px;
   }
   &-title {
+    padding: 0 15px;
     font-family: $Avenir-heavy;
     letter-spacing: 3px;
+    @media #{$tablet-up} {
+      padding: 0;
+    }
   }
   &-body {
     position: relative;
-    display: flex;
+    @media #{$tablet-up} {
+      display: flex;
+    }
     &-filter {
-      position: relative;
-      flex: 1;
-      font-size: 1.063rem;
-      text-transform: uppercase;
+      display: none;
+      @media #{$tablet-up} {
+        display: block;
+        position: relative;
+        flex: 1;
+        font-size: 1.063rem;
+        text-transform: uppercase;
+      }
     }
     &-content {
-      flex: 0 0 585px;
+      @media #{$tablet-up} {
+        flex: 0 0 340px;
+      }
+      @media #{$desktop-up} {
+        flex: 0 0 585px;
+      }
     }
   }
 }
@@ -63,7 +78,6 @@
   text-align: right;
   padding: 0 50px 0 0;
   margin: 0;
-  transition: top .3s;
   &.is-sticky {
     position: absolute;
     width: 100%;
@@ -92,6 +106,12 @@
   margin: 0;
   > li {
     border-top: 1px dotted $gray-ship;
+    &:last-child {
+      border-bottom: 1px dotted $gray-ship;
+      @media #{$tablet-up} {
+        border-bottom: 0;
+      }
+    }
     &.is-open {
       > strong {
         i {
@@ -105,6 +125,7 @@
       padding: 15px 30px 15px 10px;
       font-family: $ProximaNova;
       font-weight: 700;
+      font-size: 0.9375em;
       color: $black;
       text-transform: uppercase;
       cursor: pointer;
@@ -127,13 +148,15 @@
   li {
     padding: 5px 0;
     > a {
-      color: rgba($gray-ship, .25);
+      @media #{$tablet-up} {
+        color: rgba($gray-ship, .25);
+      }
       &.is-active {
-        color: $gray-ship;
+        @media #{$tablet-up} {
+          color: $gray-ship;
+        }
       }
     }
   }
 }
 
-//$gray-ship
-//
