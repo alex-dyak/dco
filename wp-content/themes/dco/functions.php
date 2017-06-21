@@ -55,6 +55,7 @@ function dco_setup() {
 		add_image_size( 'full_img_desktop_large', 1920, '', true );
 		add_image_size( 'module_slider', 470, 290, true );
 		add_image_size( 'featured_preview', 55, 55, true );
+		add_image_size( 'client_image', 865, 497, true );
 
 		//need add the image size to array $image_sizes in the function dco_add_custom_image_srcset
 	}
