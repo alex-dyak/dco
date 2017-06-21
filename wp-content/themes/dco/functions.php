@@ -46,14 +46,15 @@ function dco_setup() {
 	add_theme_support( 'title-tag' );
 
 	if ( function_exists( 'add_image_size' ) ) {
-		add_image_size( 'mobile_img', 280, 280, TRUE );
-		add_image_size( 'full_img_mobile_small', 480, '', TRUE );
-		add_image_size( 'full_img_mobile_large', 770, '', TRUE );
-		add_image_size( 'full_img_tablet', 992, '', TRUE );
-		add_image_size( 'full_img_desktop_small', 1200, '', TRUE );
-		add_image_size( 'full_img_desktop_medium', 1620, '', TRUE );
-		add_image_size( 'full_img_desktop_large', 1920, '', TRUE );
-		add_image_size( 'module_slider', 470, 290, TRUE );
+		add_image_size( 'mobile_img', 280, 280, true );
+		add_image_size( 'full_img_mobile_small', 480, '', true );
+		add_image_size( 'full_img_mobile_large', 770, '', true );
+		add_image_size( 'full_img_tablet', 992, '', true );
+		add_image_size( 'full_img_desktop_small', 1200, '', true );
+		add_image_size( 'full_img_desktop_medium', 1620, '', true );
+		add_image_size( 'full_img_desktop_large', 1920, '', true );
+		add_image_size( 'module_slider', 470, 290, true );
+		add_image_size( 'featured_preview', 55, 55, true );
 
 		//need add the image size to array $image_sizes in the function dco_add_custom_image_srcset
 	}
@@ -74,14 +75,17 @@ function dco_scripts_styles() {
 	}
 
 	// Load Stylesheets.
-	wp_enqueue_style( 'dco-style', get_template_directory_uri() . '/css/application.css');
+	wp_enqueue_style( 'dco-style', get_template_directory_uri() . '/css/application.css' );
 
 	// This is where we put our custom JS functions.
-    wp_enqueue_script( 'dco-vendor', get_template_directory_uri() . '/js/vendor.min.js', array( 'jquery' ), null, true );
-	wp_enqueue_script( 'dco-application', get_template_directory_uri() . '/js/app.min.js', array( 'jquery', 'dco-vendor' ), null, true );
+	wp_enqueue_script( 'dco-vendor', get_template_directory_uri() . '/js/vendor.min.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'dco-application', get_template_directory_uri() . '/js/app.min.js', array(
+		'jquery',
+		'dco-vendor'
+	), null, true );
 
-    wp_enqueue_script( 'typekit', 'https://use.typekit.net/zfh5oso.js', array(), null, false );
-    wp_add_inline_script( 'typekit', 'try{Typekit.load({ async: true });}catch(e){}' );
+	wp_enqueue_script( 'typekit', 'https://use.typekit.net/zfh5oso.js', array(), null, false );
+	wp_add_inline_script( 'typekit', 'try{Typekit.load({ async: true });}catch(e){}' );
 }
 
 add_action( 'wp_enqueue_scripts', 'dco_scripts_styles' );
@@ -150,41 +154,44 @@ require_once( get_template_directory() . '/inc/filters.php' );
 // Custom shortcodes.
 require_once( get_template_directory() . '/inc/shortcodes.php' );
 
-if( function_exists( 'acf_add_options_page' ) ) {
+if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page();
 }
 
-function dco_locate_template ( $template_name, $args = array() ) {
-	$template_dir = dirname( __FILE__ ) .'/template-parts/';
-	$located = '';
-	$file = $template_dir . $template_name . '.php';
-	if ( file_exists( $file) ) {
+function dco_locate_template( $template_name, $args = array() ) {
+	$template_dir = dirname( __FILE__ ) . '/template-parts/';
+	$located      = '';
+	$file         = $template_dir . $template_name . '.php';
+	if ( file_exists( $file ) ) {
 		$located = $file;
 	}
 
-	if( $located ){
-		if( is_array($args) ) extract($args);
-		include($located);
+	if ( $located ) {
+		if ( is_array( $args ) ) {
+			extract( $args );
+		}
+		include( $located );
 	}
+
 	return $located;
 }
 
 // GET Clients Category
 function clients_get_category( $post_ID ) {
-	$term_list = wp_get_post_terms($post_ID, 'clients-category', array("fields" => "names"));
+	$term_list = wp_get_post_terms( $post_ID, 'clients-category', array( "fields" => "names" ) );
 
 	return $term_list;
 }
 
 // GET Business Directions
 function clients_get_business_directions( $post_ID ) {
-	$term_list = wp_get_post_terms($post_ID, 'business-direction', array("fields" => "names"));
+	$term_list = wp_get_post_terms( $post_ID, 'business-direction', array( "fields" => "names" ) );
 
 	return $term_list;
 }
 
 // Clients ADD NEW COLUMNS to admin
-add_filter('manage_posts_columns', 'clients_columns_head');
+add_filter( 'manage_posts_columns', 'clients_columns_head' );
 function clients_columns_head( $defaults ) {
 	$defaults['business_directions'] = 'Business Directions';
 	$defaults['category']            = 'Category';
@@ -193,19 +200,18 @@ function clients_columns_head( $defaults ) {
 }
 
 // Clients DISPLAY NEW COLUMNS to admin
-add_action('manage_posts_custom_column', 'clients_columns_content', 10, 2);
+add_action( 'manage_posts_custom_column', 'clients_columns_content', 10, 2 );
 function clients_columns_content( $column_name, $post_ID ) {
 	if ( $column_name == 'category' ) {
 		$clients_categories = clients_get_category( $post_ID );
 		if ( $clients_categories ) {
-			$total = count( $clients_categories );
+			$total   = count( $clients_categories );
 			$counter = 0;
 			foreach ( $clients_categories as $category ) {
-				$counter++;
+				$counter ++;
 				if ( $counter == $total ) {
 					echo $category;
-				}
-				else {
+				} else {
 					echo $category . ', ';
 				}
 			}
@@ -215,14 +221,13 @@ function clients_columns_content( $column_name, $post_ID ) {
 	if ( $column_name == 'business_directions' ) {
 		$business_directions = clients_get_business_directions( $post_ID );
 		if ( $business_directions ) {
-			$total = count( $business_directions );
+			$total   = count( $business_directions );
 			$counter = 0;
 			foreach ( $business_directions as $direction ) {
-				$counter++;
+				$counter ++;
 				if ( $counter == $total ) {
 					echo $direction;
-				}
-				else {
+				} else {
 					echo $direction . ', ';
 				}
 			}
@@ -240,24 +245,26 @@ function set_custom_client_sortable_columns( $columns ) {
 
 /**
  * filter function to force wordpress to add our custom srcset values
- * @param array  $sources {
+ *
+ * @param array $sources {
  *     One or more arrays of source data to include in the 'srcset'.
  *
- *     @type type array $width {
- *          @type type string $url        The URL of an image source.
- *          @type type string $descriptor The descriptor type used in the image candidate string,
+ * @type type array $width {
+ * @type type string $url        The URL of an image source.
+ * @type type string $descriptor The descriptor type used in the image candidate string,
  *                                        either 'w' or 'x'.
- *          @type type int    $value      The source width, if paired with a 'w' descriptor or a
+ * @type type int    $value      The source width, if paired with a 'w' descriptor or a
  *                                        pixel density value if paired with an 'x' descriptor.
  *     }
  * }
- * @param array  $size_array    Array of width and height values in pixels (in that order).
- * @param string $image_src     The 'src' of the image.
- * @param array  $image_meta    The image meta data as returned by 'wp_get_attachment_metadata()'.
- * @param int    $attachment_id Image attachment ID.
+ *
+ * @param array $size_array Array of width and height values in pixels (in that order).
+ * @param string $image_src The 'src' of the image.
+ * @param array $image_meta The image meta data as returned by 'wp_get_attachment_metadata()'.
+ * @param int $attachment_id Image attachment ID.
  */
 add_filter( 'wp_calculate_image_srcset', 'dco_add_custom_image_srcset', 10, 5 );
-function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_meta, $attachment_id ){
+function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_meta, $attachment_id ) {
 
 	$image_sizes = array(
 		'mobile_img',
@@ -289,12 +296,12 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
 	$image_baseurl = trailingslashit( $image_baseurl );
 	// check whether our custom image size exists in image meta
 	foreach ( $image_sizes as $image_size ) {
-		if( array_key_exists( $image_size, $image_meta['sizes'] ) ){
+		if ( array_key_exists( $image_size, $image_meta['sizes'] ) ) {
 			// add source value to create srcset
-			$sources[ $image_meta['sizes'][$image_size]['width'] ] = array(
-				'url'        => $image_baseurl .  $image_meta['sizes'][$image_size]['file'],
+			$sources[ $image_meta['sizes'][ $image_size ]['width'] ] = array(
+				'url'        => $image_baseurl . $image_meta['sizes'][ $image_size ]['file'],
 				'descriptor' => 'w',
-				'value'      => $image_meta['sizes'][$image_size]['width'],
+				'value'      => $image_meta['sizes'][ $image_size ]['width'],
 			);
 		}
 	}
@@ -303,4 +310,23 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
 	return $sources;
 }
 
+// Add new column for Team Custom Type.
+add_filter( 'manage_team_posts_columns', 'dco_columns_head' );
 
+function dco_columns_head( $defaults ) {
+	$defaults['featured_image'] = __('Featured Image');
+
+	return $defaults;
+}
+
+// Show image on Team Cutom Type Column.
+add_action( 'manage_team_posts_custom_column', 'dco_columns_content', 10, 2 );
+
+function dco_columns_content( $column_name, $post_ID ) {
+	if ( $column_name == 'featured_image' ) {
+		$post_featured_image = get_the_post_thumbnail( $post_ID, 'featured_preview' );
+		if ( $post_featured_image ) {
+			echo $post_featured_image;
+		}
+	}
+}
