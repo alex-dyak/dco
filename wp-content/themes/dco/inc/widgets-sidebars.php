@@ -192,11 +192,12 @@ class W4P_Contacts_Widget extends WP_Widget {
 			'Skype'   => 'skype',
 		);
 		// Set up some default widget settings.
-		$defaults = array( 'title'       => __( 'Contacts', 'dco' ),
-		                   'items'       => array(),
-		                   'skype_url'   => true,
-		                   'phone_url'   => true,
-		                   'item_titles' => false
+		$defaults = array(
+			'title'       => __( 'Contacts', 'dco' ),
+			'items'       => array(),
+			'skype_url'   => true,
+			'phone_url'   => true,
+			'item_titles' => false
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 
@@ -379,14 +380,14 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
 
 	function get_page_achors() {
 		$post_id = get_the_ID();
-		$group = $this->dco_get_field_objects( get_the_ID() );
+		$group   = $this->dco_get_field_objects( get_the_ID() );
 
-		$menu  = array();
+		$menu = array();
 		foreach ( $group as $fields ) {
 			if ( ! empty( $fields['value'] ) && is_array( $fields['value'] ) ) {
 				foreach ( $fields['value'] as $key => $field ) {
 					if ( $field['acf_fc_layout'] == 'anchor_section' ) {
-						$field_values = array_values($field);
+						$field_values = array_values( $field );
 						if ( ! empty( $field_values[1] ) && ! empty( $field_values[2] ) ) {
 							$menu[ $field_values[2] ] = $field_values[1];
 						}
@@ -410,18 +411,19 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
 
 
 		// vars
-		$meta = array();
+		$meta   = array();
 		$fields = array();
 
 
 		// get field_names
-		if( ! is_numeric($post_id) )
+		if ( ! is_numeric( $post_id ) ) {
 			return;
+		}
 
 		$meta = get_post_meta( $post_id );
 
 		// bail early if no meta
-		if( empty($meta) ) {
+		if ( empty( $meta ) ) {
 
 			return false;
 
@@ -429,17 +431,17 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
 
 
 		// populate vars
-		foreach( $meta as $k => $v ) {
+		foreach ( $meta as $k => $v ) {
 
 			// Hopefuly improve efficiency: bail early if $k does start with an '_'
-			if( $k[0] === '_' ) {
+			if ( $k[0] === '_' ) {
 
 				continue;
 
 			}
 
 			// does a field key exist for this value?
-			if( !array_key_exists("_{$k}", $meta) ) {
+			if ( ! array_key_exists( "_{$k}", $meta ) ) {
 
 				continue;
 
@@ -447,11 +449,11 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
 
 			// get field
 			$field_key = $meta["_{$k}"][0];
-			$field = acf_get_field( $field_key );
+			$field     = acf_get_field( $field_key );
 
 
 			// bail early if not a parent field
-			if( !$field || acf_is_sub_field($field) ) {
+			if ( ! $field || acf_is_sub_field( $field ) ) {
 
 				continue;
 
@@ -459,7 +461,7 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
 
 
 			// load value
-			if( $load_value ) {
+			if ( $load_value ) {
 
 				$field['value'] = acf_get_value( $post_id, $field );
 
@@ -472,7 +474,7 @@ class W4P_Anchor_Menu_Widget extends WP_Widget {
 
 
 		// no value
-		if( empty($fields) ) {
+		if ( empty( $fields ) ) {
 
 			return false;
 
@@ -515,14 +517,15 @@ class W4P_Team_Widget extends WP_Widget {
 		$data    = array();
 		if ( $members->have_posts() ):
 			while ( $members->have_posts() ) : $members->the_post();
-				$member_id                           = get_the_ID();
-				$data[ $member_id ]['name'][]        = get_field( 'member_surname', $member_id );
-				$data[ $member_id ]['name'][]        = get_field( 'member_name', $member_id );
-				$data[ $member_id ]['position']      = get_field( 'position', $member_id );
-				$data[ $member_id ]['description']   = get_the_content();
-				$big_photo_id                        = get_field( 'big_photo', $member_id );
-				$data[ $member_id ]['photo']         = wp_get_attachment_image( $big_photo_id, 'full' );
-				$data[ $member_id ]['photo_preview'] = get_the_post_thumbnail( $member_id, 'full' );
+				$member_id                                       = get_the_ID();
+				$data[ $member_id ]['name'][]                    = get_field( 'member_surname', $member_id );
+				$data[ $member_id ]['name'][]                    = get_field( 'member_name', $member_id );
+				$data[ $member_id ]['position']                  = get_field( 'position', $member_id );
+				$data[ $member_id ]['description']               = get_the_content();
+				$data[ $member_id ]['position_description_text'] = get_field( 'position_description_text', $member_id );
+				$big_photo_id                                    = get_field( 'big_photo', $member_id );
+				$data[ $member_id ]['photo']                     = wp_get_attachment_image( $big_photo_id, 'full' );
+				$data[ $member_id ]['photo_preview']             = get_the_post_thumbnail( $member_id, 'full' );
 			endwhile;
 			wp_reset_postdata();
 		endif;
@@ -570,7 +573,7 @@ class W4P_Client_Filter_Widget extends WP_Widget {
 	/** @see WP_Widget::widget -- do not rename this */
 	function widget( $args, $instance ) {
 		extract( $args );
-		$title  = apply_filters( 'widget_title', $instance['title'] ); /* The widget title. */
+		$title = apply_filters( 'widget_title', $instance['title'] ); /* The widget title. */
 
 		echo $before_widget;
 		if ( $title ) {
@@ -635,11 +638,11 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 		}
 
 		$args = array(
-			'posts_per_page'   => 1,
-			'orderby'          => 'post_date',
-			'order'            => 'DESC',
-			'post_type'        => 'post',
-			'post_status'      => 'publish',
+			'posts_per_page' => 1,
+			'orderby'        => 'post_date',
+			'order'          => 'DESC',
+			'post_type'      => 'post',
+			'post_status'    => 'publish',
 		);
 
 		$query = new WP_Query( $args );
@@ -657,7 +660,7 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 					<span class="news-box-date"><?php echo $date; ?></span>
 					<span class="news-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
 				</a>
-			<?php
+				<?php
 			}
 		}
 		wp_reset_postdata();
@@ -694,7 +697,7 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 
 	/** @see WP_Widget::update -- do not rename this */
 	function update( $new_instance, $old_instance ) {
-		$instance = $old_instance;
+		$instance          = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
 
 		return $instance;
@@ -708,12 +711,15 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 
 		// Get widget fields values.
 		if ( ! empty( $instance ) ) {
-			$title 	= esc_attr( $instance['title'] );
+			$title = esc_attr( $instance['title'] );
 		}
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
-			<input id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			<label
+				for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+			<input id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+			       name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text"
+			       value="<?php echo esc_attr( $title ); ?>"/>
 		</p>
 
 	<?php }
@@ -757,7 +763,7 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 
 	/** @see WP_Widget::update -- do not rename this */
 	function update( $new_instance, $old_instance ) {
-		$instance = $old_instance;
+		$instance          = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
 
 		return $instance;
@@ -771,12 +777,15 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 
 		// Get widget fields values.
 		if ( ! empty( $instance ) ) {
-			$title 	= esc_attr( $instance['title'] );
+			$title = esc_attr( $instance['title'] );
 		}
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
-			<input id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			<label
+				for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+			<input id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+			       name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text"
+			       value="<?php echo esc_attr( $title ); ?>"/>
 		</p>
 
 	<?php }
