@@ -276,6 +276,7 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
 		'full_img_desktop_medium',
 		'full_img_desktop_large',
 		'module_slider',
+		'client_image',
 	);
 
 	// image base name
