@@ -74,11 +74,11 @@
 									= 'all, ' . implode( ", ", $terms_name );
 								?>
 								<li>
-									<a href="#test-popup" class="client-item <?php echo $class; ?> js-popup"
+									<a href="#client-popup-<?php echo $post->ID; ?>" class="client-item <?php echo $class; ?> js-popup"
 									   data-category='<?php echo $data_category; ?>'><?php echo $post->post_title; ?></a>
 
 									<!-- Clients Lightbox -->
-									<div id="test-popup" class="clientPopup mfp-hide">
+									<div id="client-popup-<?php echo $post->ID; ?>" class="clientPopup mfp-hide">
                                         <button title="Close (Esc)" type="button" class="mfp-close">×</button>
 										<?php
 										// Slider speed value. Could be changed from admin panel.
@@ -103,24 +103,25 @@
 											<?php if ( get_field( 'title', $post->ID ) ): ?><!-- Title -->
 												<div class="clientPopup-body">
 													<?php if ( get_field( 'title', $post->ID ) ): ?>
-														<h2 class="clientsLightbox-title"><?php echo the_field( 'title', $post->ID ); ?></h2>
+														<h2 class="clientPopup-title"><?php echo the_field( 'title', $post->ID ); ?></h2>
 													<?php endif; ?>
-
-													<?php if ( get_field( 'text_first_column', $post->ID ) ): ?><!-- Text 3 column -->
-														<div class="clientsLightbox-text-first-column">
-															<?php echo the_field( 'text_first_column', $post->ID ); ?>
-														</div>
-													<?php endif; ?>
-													<?php if ( get_field( 'text_second_column', $post->ID ) ): ?>
-														<div class="clientsLightbox-text-second-column">
-															<?php echo the_field( 'text_second_column', $post->ID ); ?>
-														</div>
-													<?php endif; ?>
-													<?php if ( get_field( 'text_third_column', $post->ID ) ): ?>
-														<div class="clientsLightbox-text-third-column">
-															<?php echo the_field( 'text_third_column', $post->ID ); ?>
-														</div>
-													<?php endif; ?>
+                                                        <div class="clientPopup-body-inner">
+                                                            <?php if ( get_field( 'text_first_column', $post->ID ) ): ?><!-- Text 3 column -->
+                                                                <div class="clientPopup-body-inner-column">
+                                                                    <?php echo the_field( 'text_first_column', $post->ID ); ?>
+                                                                </div>
+                                                            <?php endif; ?>
+                                                            <?php if ( get_field( 'text_second_column', $post->ID ) ): ?>
+                                                                <div class="clientPopup-body-inner-column">
+                                                                    <?php echo the_field( 'text_second_column', $post->ID ); ?>
+                                                                </div>
+                                                            <?php endif; ?>
+                                                            <?php if ( get_field( 'text_third_column', $post->ID ) ): ?>
+                                                                <div class="clientPopup-body-inner-column">
+                                                                    <?php echo the_field( 'text_third_column', $post->ID ); ?>
+                                                                </div>
+                                                            <?php endif; ?>
+                                                        </div>
 												</div>
 											<?php endif; ?>
 										</div>

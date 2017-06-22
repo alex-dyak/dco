@@ -1,6 +1,7 @@
 .clientPopup {
   position: relative;
-  width: 865px;
+  width: 100%;
+  max-width: 865px;
   background: $white;
   margin: 83px auto;
   img {
@@ -12,9 +13,36 @@
     top: 8px;
     right: 8px;
   }
+
+  &-body {
+    padding: 23px 15px;
+    text-align: left;
+    @media #{$tablet-up} {
+      padding: 35px;
+      min-height: 357px;
+    }
+    &-title {
+      margin-bottom: 20px;
+    }
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      @media #{$tablet-up} {
+        margin: 0 -21px;
+        flex-direction: row;
+      }
+      &-column {
+        padding-bottom: 30px;
+        @media #{$tablet-up} {
+          padding: 0 21px;
+        }
+      }
+    }
+  }
 }
 
 .clientSlider {
+  min-height: 497px;
   .slick-dots {
     list-style: none;
     padding: 0;
