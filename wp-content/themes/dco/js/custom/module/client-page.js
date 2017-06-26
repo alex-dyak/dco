@@ -68,18 +68,12 @@
             }
 
             var topBrakpoint = positionBlock - heightHeader - adminbarHeight,
-                bottomBreakpoint =  positionBlock + heightWrap - $(window).height()/2;
-
-            console.log('positionBlock', positionBlock);
-            console.log('heightBlock', heightBlock);
-            console.log('bottomBreakpoint', bottomBreakpoint);
-            console.log($(window).scrollTop());
+                bottomBreakpoint =  topBrakpoint + heightWrap - heightBlock;
 
             if($(window).scrollTop() >= topBrakpoint && $(window).scrollTop() < bottomBreakpoint) {
                 $block.addClass('is-sticky').css({'top': $(window).scrollTop() - positionBlock + heightHeader + adminbarHeight, 'bottom': 'inherit'});
             }
             else if($(window).scrollTop() >= bottomBreakpoint) {
-                //console.log(123);
                 $block.addClass('is-sticky').css({'top': 'inherit', 'bottom': 0});
             }
             else {
@@ -89,8 +83,27 @@
 
         $(window).on('scroll', function(){
             stickyAside();
+        });
 
+        $('.js-popup').magnificPopup({
+            type:'inline'
+        });
 
+        $('.js-clientSlider').slick({
+            autoplay: true,
+            autoplaySpeed: 4000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            dots: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        dots: false
+                    }
+                }
+            ]
         });
     });
 })(jQuery);
