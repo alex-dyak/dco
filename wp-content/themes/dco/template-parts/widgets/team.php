@@ -62,15 +62,17 @@
 						</div>
 
 						<?php if ( ! empty( $member['photo'] ) ): ?>
-							<?php echo $member['photo']; ?>
+							<div class="img-holder">
+								<?php echo $member['photo']; ?>
+							</div>
 						<?php endif; ?>
 
 						<span class="close">Close</span>
 					</div>
 					<!-- End Member modal block -->
-					<div class="overlay"></div>
 				</div>
 			<?php endforeach; ?>
+			<div class="overlay"></div>
 		<?php endif; ?>
 	</div>
 </div>
