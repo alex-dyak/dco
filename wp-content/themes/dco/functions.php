@@ -332,3 +332,26 @@ function dco_columns_content( $column_name, $post_ID ) {
 		}
 	}
 }
+
+add_filter( 'wpcf7_ajax_json_echo', 'dco_wpcf7_custom_ajax_json_echo' );
+
+function dco_wpcf7_custom_ajax_json_echo( $messages ) {
+	if ( function_exists( 'get_field' ) && get_field( 'dco_message_sent_ok', 'option' ) ) {
+		if ( ! empty( $messages['status'] ) && $messages['status'] == 'mail_sent' ) {
+			$message = get_field( 'dco_message_sent_ok', 'option' );
+
+			ob_start();
+			?>
+			<div class="confirm-message">
+				<div class="close">X</div>
+				<?php echo $message; ?>
+			</div>
+			<?php
+			$message_data = ob_get_clean();
+
+			$messages['message'] = $message_data;
+		}
+	}
+
+	return $messages;
+}
