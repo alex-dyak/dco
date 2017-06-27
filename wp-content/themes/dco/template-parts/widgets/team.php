@@ -35,8 +35,8 @@
 
 					<!-- Member modal block -->
 					<?php $text_position = ! empty( $member['position_description_text'] ) ? $member['position_description_text'] : 'left'; ?>
-					<div class="member-modal <?php echo $text_position; ?>">
-						<div class="member-modal-holder ">
+					<div class="member-modal">
+						<div class="member-modal-holder <?php echo $text_position; ?>">
 							<div class="arrow arrow-up"></div>
 							<div class="member-modal-frame">
 								<div>
