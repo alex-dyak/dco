@@ -67,8 +67,8 @@
 								<?php echo $member['photo']; ?>
 							</div>
 						<?php endif; ?>
-
-						<span class="close">Close</span>
+						<?php $close_link_color = ! empty($member['close_link_color']) ? $member['close_link_color'] : 'white'; ?>
+						<span class="close <?php echo $close_link_color; ?>">Close</span>
 					</div>
 					<!-- End Member modal block -->
 				</div>
