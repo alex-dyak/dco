@@ -138,5 +138,9 @@
                 scrollTop: ($( $.attr(this, 'href') ).offset().top - $('.siteHeader').outerHeight())
             }, 500);
         });
+
+        $(document).on('click', '.wpcf7-response-output .close', function () {
+            $(this).closest('.wpcf7-response-output').hide();
+        });
     });
 })(jQuery);
