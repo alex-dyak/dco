@@ -33,7 +33,7 @@ $counter = 0;
 					<div class="landing-title <?php echo $class; ?>"  style="background-color: <?php echo $project_color; ?>"><strong><?php the_title(); ?></strong></div>
 					<div class="landing-image">
 						<?php
-						printf( '<img src="%s" srcset="%s">',
+						printf( '<img data-src="%s" data-srcset="%s" class="lazyload">',
 							wp_get_attachment_image_url( $image ),
 							wp_get_attachment_image_srcset( $image, 'full' )
 						);

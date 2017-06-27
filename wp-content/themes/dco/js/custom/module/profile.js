@@ -97,14 +97,12 @@
         }
 
         /* On click moves the text */
-        $(document).on('click','.arrow', function() {
+        $('.team-block').on('click','.arrow', function() {
             moveText($(this));
         });
 
         /* On click opens elements */
-        $(document).on('click','.team-member:not(.active, .cloned)', function() {
-            console.log('enable - ');
-            console.log($(this));
+        $('.team-block').on('click','.team-member:not(.active, .cloned)', function() {
             if($(window).width() > 480) {
                 insertCloned($(this));
             } else {
@@ -114,10 +112,7 @@
         });
 
         /* On click closes active elements */
-        $(document).on('click','.team-member .close, .overlay', function() {
-            console.log('disable - ');
-            console.log($(this));
-
+        $('.team-block').on('click','.team-member .close, .overlay', function() {
             if($(window).width() > 480) {
                 removeCloned();
             } else {
@@ -139,7 +134,7 @@
             }, 500);
         });
 
-        $(document).on('click', '.wpcf7-response-output .close', function () {
+        $('.wpcf7-response-output').on('click', '.close', function () {
             $(this).closest('.wpcf7-response-output').hide();
         });
     });
