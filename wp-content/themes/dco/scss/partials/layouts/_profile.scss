@@ -186,7 +186,10 @@ $profileCareerInputLineHeight: 19px;
     }
     .graph {
         margin: -20px 0 39px;
-
+        display: none;
+        @media #{$mobile-up} {
+            display: block;
+        }
     }
     > img{
         position: absolute;
@@ -280,6 +283,9 @@ $profileCareerInputLineHeight: 19px;
     }
     .member-modal {
         display: none;
+        .img-holder {
+            display: none;
+        }
     }
     .team-member {
         position: relative;
@@ -302,25 +308,52 @@ $profileCareerInputLineHeight: 19px;
         &.cloned {
             width: 100%;
             height: auto;
-            max-height: 0;
             z-index: 5;
+            * {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
             .team-member-container > img,
             .team-member-holder {
                 display: none;
             }
-            .member-modal,
-            .overlay {
+            .member-modal {
                 display: block;
             }
+            .member-modal {
+                .img-holder,
+                .member-modal-holder,
+                .close{
+                    overflow: hidden;
+                    max-height: 0;
+                    transition: max-height 0.6s;
+                }
+                .img-holder {
+                    display: block;
+                }
+            }
+            &.height {
+                .member-modal {
+                    .img-holder,
+                    .member-modal-holder,
+                    .close {
+                        max-height: 800px;
+                    }
+                }
+            }
         }
+
         &.active {
             @media #{$mobile-up} {
                 height: 0;
             }
             @media #{$mobilesmall-only} {
                 z-index: 5;
-                .member-modal,
-                .overlay {
+                .member-modal {
                     display: block;
                 }
             }
@@ -397,6 +430,7 @@ $profileCareerInputLineHeight: 19px;
         background: $profileTeamBackgroundColor;
         min-height: 61px;
         padding: 12px 16px 5px;
+        z-index: 4;
         .dots {
             position: absolute;
             top: 50%;
@@ -454,28 +488,26 @@ $profileCareerInputLineHeight: 19px;
             @media #{$mobile-up} {
                 position: absolute;
                 left: 50%;
-                width: 15px;
+                width: 22px;
                 height: 15px;
-                border: 2px solid rgba(255, 255, 255, 0.5);
-                border-width: 0 0 2px 2px;
                 margin: 0 0 0 -6px;
                 display: none;
                 cursor: pointer;
+                background: url("../images/arrow.png") 0 50% no-repeat;
             }
         }
         .arrow-up {
             @media #{$mobile-up} {
                 top: 12px;
-                transform: rotate(135deg);
             }
             @media #{$tablet-up}{
                 top: 25px;
             }
         }
         .arrow-down {
+            transform: rotate(180deg);
             @media #{$mobile-up} {
                 bottom: 12px;
-                transform: rotate(-45deg);
             }
             @media #{$tablet-up}{
                 bottom: 25px;
@@ -557,9 +589,13 @@ $profileCareerInputLineHeight: 19px;
         right: 0;
         background: $profileTeamColor;
         content: '';
-        z-index: -1;
         display: none;
         opacity: 0;
+        z-index: 4;
+        transition: opacity 0.3s;
+        &.active {
+            opacity: 0.85;
+        }
     }
 }
 
