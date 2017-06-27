@@ -22,12 +22,18 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 				<?php
 				$background_color = get_sub_field( 'background_color' )
 					? get_sub_field( 'background_color' ) : '';
+                $title_color = get_sub_field( 'title_color' )
+                  ? get_sub_field( 'title_color' ) : '';
+                $text_color = get_sub_field( 'text_color' )
+                  ? get_sub_field( 'text_color' ) : '';
 				$link_url         = get_sub_field( 'link_url' )
 					? get_sub_field( 'link_url' ) : '#';
 				$title_extension  = get_sub_field( 'title_extension' )
 					? get_sub_field( 'title_extension' ) : '';
 				$teaser           = get_sub_field( 'teaser' )
 					? get_sub_field( 'teaser' ) : '';
+                $teaser_full_height_list = get_sub_field( 'teaser_full_height_list' )
+                  ? get_sub_field( 'teaser_full_height_list' ) : '';
 				$link_text        = get_sub_field( 'link_text' )
 					? get_sub_field( 'link_text' ) : '';
 
@@ -52,14 +58,14 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 						}
 						if ( get_row_layout() == 'video_layout' ) {
 						$video = get_sub_field( 'video' );
+						$video_poster = get_sub_field( 'video_poster' );
 						if ( ! empty ( $video ) ):
 						$url = $video['url'];
 						?>
-							<?php // echo $title; ?>
-							<div
-								class="videoLargeModuleB-video videoBox">
-								<div class="videoBox-video">
-									<video height="568px" loop>
+                            <div class="homepageSlider-slide-title homepageSlider-slide-title--video"><h1><?php echo $title; ?></h1></div>
+							<div class="homepageSlider-slide-video heroVideo">
+								<div class="heroVideo-video">
+									<video loop muted class="js-heroVideo" poster="<?php echo $video_poster['url'] ?>">
 										<source
 											src="<?php echo $url; ?>">
 									</video>
@@ -73,18 +79,23 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 
                                     <div class="homepageSliderCaption-inner">
 
-									<div class="homepageSliderCaption-inner-title"><?php echo $title_extension; ?></div>
+									<div class="homepageSliderCaption-inner-title" style="color: <?php echo $title_color; ?>"><?php echo $title_extension; ?></div>
 
 									<?php if ( $teaser ) : ?>
-										<div class="homepageSliderCaption-inner-text">
+										<div class="homepageSliderCaption-inner-text" style="color: <?php echo $text_color; ?>">
                                             <p><?php echo $teaser; ?></p>
                                           <?php if ( $link_text ) : ?>
                                               <a href="<?php $link_url; ?>"><?php echo $link_text; ?></a>
                                           <?php endif; ?>
                                         </div>
 									<?php endif; ?>
-
                                     </div>
+
+                                    <?php if($teaser_full_height_list): ?>
+                                        <div class="homepageSliderCaption-fullList">
+                                            <?php echo $teaser_full_height_list; ?>
+                                        </div>
+                                    <?php endif; ?>
 
 								</div>
 							<?php endif; ?>
