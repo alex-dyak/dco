@@ -52,6 +52,13 @@ $profileCareerSubmitColor: $white;
 $profileCareerInputFontFamily: $SourceSansPro-regular;
 $profileCareerInputFontSize: 16px;
 $profileCareerInputLineHeight: 19px;
+$profileCareerOverlayColor: rgba(27,27,27,0.8);
+$profileCareerMessageBackground: $orange--light;
+$profileCareerMessageColor: $white;
+$profileCareerMessageFontFamily: $SourceSansPro-regular;
+$profileCareerMessageFontSize: 1.125rem;
+$profileCareerMessageTitleFontFamily: $SourceSansPro-semibold;
+$profileCareerMessageTitleFontSize: 1.7125rem;
 
 /*===========================*/
 
@@ -588,7 +595,6 @@ $profileCareerInputLineHeight: 19px;
         left: 0;
         right: 0;
         background: $profileTeamColor;
-        content: '';
         display: none;
         opacity: 0;
         z-index: 4;
@@ -668,31 +674,36 @@ $profileCareerInputLineHeight: 19px;
             display: block;
             margin: -1px 0 0;
         }
-        p {
-            margin: 0 0 15px;
-            position: relative;
-            @media #{$mobile-up} {
-                margin: 0 -1px 13px;
-                display: inline-block;
-                vertical-align: top;
-                width: 100%;
-                &:nth-of-type(1),
-                &:nth-of-type(3) {
-                    width: 40%;
-                    padding: 0 31px 0 0;
+        form {
+            > p {
+                margin: 0 0 15px;
+                position: relative;
+                @media #{$mobile-up} {
+                    margin: 0 -1px 13px;
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 100%;
+                    &:nth-of-type(1),
+                    &:nth-of-type(3) {
+                        width: 40%;
+                        padding: 0 31px 0 0;
+                        [role="alert"] {
+                            right: 31px;
+                        }
+                    }
+                    &:nth-of-type(2),
+                    &:nth-of-type(4) {
+                        width: 60%;
+                    }
                 }
-                &:nth-of-type(2),
-                &:nth-of-type(4) {
-                    width: 60%;
+                .wpcf7-form-control-wrap {
+                    position: static;
                 }
-            }
-            .wpcf7-form-control-wrap {
-                position: static;
-            }
-            [role="alert"] {
-                position: absolute;
-                bottom: -2px;
-                right: 0;
+                [role="alert"] {
+                    position: absolute;
+                    bottom: -2px;
+                    right: 0;
+                }
             }
         }
         input[type="submit"] {
@@ -710,9 +721,59 @@ $profileCareerInputLineHeight: 19px;
                 margin-top: -6px;
             }
         }
-        div.wpcf7-mail-sent-ok {
+        .wpcf7-response-output {
             border: none;
-            background: #000;
+            .overlay {
+                background: $profileCareerOverlayColor;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 4;
+            }
+            .confirm-message {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                max-width: 400px;
+                transform: translate(-50%, -50%);
+                background: $profileCareerMessageBackground;
+                color: $profileCareerMessageColor;
+                font-family: $profileCareerMessageFontFamily;
+                font-size: $profileCareerMessageFontSize;
+                padding: 40px 20px;
+                z-index: 5;
+                h2 {
+                    font-family: $profileCareerMessageTitleFontFamily;
+                    font-size: $profileCareerMessageTitleFontSize;
+                    margin: 0 0 15px;
+                }
+                .close {
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    cursor: pointer;
+                    text-indent: -9999px;
+                    overflow: hidden;
+                    width: 15px;
+                    height: 15px;
+                    &:before,
+                    &:after {
+                        position: absolute;
+                        top: 7px;
+                        left: 0;
+                        content: '';
+                        width: 15px;
+                        height: 2px;
+                        background: $profileCareerMessageColor;
+                        transform: rotate(45deg);
+                    }
+                    &:after {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
         }
     }
 }

@@ -346,6 +346,7 @@ function dco_wpcf7_custom_ajax_json_echo( $messages ) {
 				<div class="close">X</div>
 				<?php echo $message; ?>
 			</div>
+            <div class="overlay"></div>
 			<?php
 			$message_data = ob_get_clean();
 
