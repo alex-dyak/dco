@@ -1,5 +1,3 @@
-/* go top */
-
 (function($){
     $(function(){
         var $teamBlock = $('.team-block'),
