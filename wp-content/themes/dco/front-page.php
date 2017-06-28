@@ -15,13 +15,13 @@ get_header(); ?>
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
 			<?php if ( get_field( 'select_slider_area' ) ) : ?>
-				<div class="homepage-slider-area">
+				<div class="homepageSliderArea">
 					<?php the_field( 'select_slider_area' ); ?>
 				</div>
 			<?php endif; ?>
 
 			<?php if ( get_field( 'select_grid_area' ) ) : ?>
-				<div class="homepage-grid-area">
+				<div class="homepageGridArea">
 					<?php the_field( 'select_grid_area' ); ?>
 				</div>
 			<?php endif; ?>

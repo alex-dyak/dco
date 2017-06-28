@@ -23,7 +23,7 @@
           slidesToScroll: 1,
           arrows: false,
           dots: true
-      })
+      });
 
 
       $('.js-videoBox').videoPlayer({

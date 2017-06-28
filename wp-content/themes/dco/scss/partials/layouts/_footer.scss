@@ -9,7 +9,9 @@ $gotTopColor--hover: $gray-ship;
 /*===========================*/
 
 .siteFooter {
+  position: relative;
   text-align: center;
+  background: $white;
   &-inner {
     @media #{$tablet-up} {
       display: inline-block;

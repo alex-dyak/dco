@@ -1,0 +1,13 @@
+.homepageSliderArea {
+
+}
+
+.homepageGridArea{
+  position: relative;
+  z-index: 9;
+  background: $white;
+  @media #{$tablet-up} {
+    margin: 0 -21px;
+    padding: 0 21px;
+  }
+}
