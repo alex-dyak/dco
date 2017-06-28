@@ -43,6 +43,7 @@
         if(needToFix && isProjectPage) {
             initReplace();
         }
+
         $(window).on('resize',function(){
             if(needToFix && isProjectPage) {
                 initReplace();
