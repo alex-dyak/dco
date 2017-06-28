@@ -44,7 +44,7 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 					$image = get_sub_field( 'image' );
 					if ( ! empty( $image ) && is_int( $image ) ) : ?>
 
-                        <div class="homepageSlider-slide-title"><h1><?php echo $title; ?></h1></div>
+                        <div class="homepageSlider-slide-title"><?php echo $title; ?></div>
 						<div class="homepageSlider-slide-img">
                               <?php
                             printf( '<img src="%s" srcset="%s">',
@@ -62,13 +62,23 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 						if ( ! empty ( $video ) ):
 						$url = $video['url'];
 						?>
-                            <div class="homepageSlider-slide-title homepageSlider-slide-title--video"><h1><?php echo $title; ?></h1></div>
+                            <div class="homepageSlider-slide-title homepageSlider-slide-title--video"><?php echo $title; ?></div>
 							<div class="homepageSlider-slide-video heroVideo">
 								<div class="heroVideo-video">
-									<video loop muted class="js-heroVideo" poster="<?php echo $video_poster['url'] ?>">
+									<video loop class="js-heroVideo" poster="<?php echo $video_poster['url'] ?>">
 										<source
 											src="<?php echo $url; ?>">
 									</video>
+                                    <ul class="heroVideo-video-controls js-videoControls" style="display: none">
+                                        <li>
+                                            <button type="button" class="js-videoPause"><i class="fa fa-pause" aria-hidden="true"></i></button>
+                                            <button type="button" class="js-videoPlay" style="display: none"><i class="fa fa-play" aria-hidden="true"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="js-videoMute"><i class="fa fa-volume-off" aria-hidden="true"></i></button>
+                                            <button type="button" class="js-videoSound" style="display: none"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
+                                        </li>
+                                    </ul>
 								</div>
 							</div>
 							<?php endif;
@@ -85,14 +95,14 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 										<div class="homepageSliderCaption-inner-text" style="color: <?php echo $text_color; ?>">
                                             <p><?php echo $teaser; ?></p>
                                           <?php if ( $link_text ) : ?>
-                                              <a href="<?php $link_url; ?>"><?php echo $link_text; ?></a>
+                                              <a href="<?php $link_url; ?>" style="color: <?php echo $text_color; ?>"><?php echo $link_text; ?></a>
                                           <?php endif; ?>
                                         </div>
 									<?php endif; ?>
                                     </div>
 
                                     <?php if($teaser_full_height_list): ?>
-                                        <div class="homepageSliderCaption-fullList">
+                                        <div class="homepageSliderCaption-fullList" style="color: <?php echo $text_color; ?>">
                                             <?php echo $teaser_full_height_list; ?>
                                         </div>
                                     <?php endif; ?>

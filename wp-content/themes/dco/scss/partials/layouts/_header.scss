@@ -18,8 +18,8 @@ $menuBtnColor--hover: $gray-ship;
   justify-content: space-between;
   z-index: 10;
   @media #{$tablet-up} {
-    height: 21px;
-    padding: 5px 21px;
+    height: 42px;
+    padding: 14px 21px;
   }
   &-logo {
     height: 24px;
