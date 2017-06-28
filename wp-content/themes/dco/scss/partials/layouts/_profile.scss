@@ -687,9 +687,6 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
                     &:nth-of-type(3) {
                         width: 40%;
                         padding: 0 31px 0 0;
-                        [role="alert"] {
-                            right: 31px;
-                        }
                     }
                     &:nth-of-type(2),
                     &:nth-of-type(4) {
@@ -700,15 +697,8 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
                     position: static;
                 }
                 [role="alert"] {
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
-                    text-align: right;
-                    z-index: 2;
-                    line-height: 1.3;
-                    @media #{$mobile-up} {
-                        max-width: 60%;
-                    }
+                    line-height: 1.2;
+                    margin: 0 0 -23px;
                 }
             }
         }
