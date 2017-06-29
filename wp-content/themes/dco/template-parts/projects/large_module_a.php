@@ -67,7 +67,7 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
 				     data-sizes="auto"></div>
 
 				<?php
-				printf( '<img src="%s" srcset="%s">',
+				printf( '<img data-src="%s" data-srcset="%s" class="lazyload">',
 					wp_get_attachment_image_url( $image ),
 					wp_get_attachment_image_srcset( $image, 'full' )
 				);
@@ -76,7 +76,7 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
 		<?php else: ?>
 			<div class="imageLargeModuleA-image">
 				<?php
-				printf( '<img src="%s" srcset="%s">',
+				printf( '<img data-src="%s" data-srcset="%s" class="lazyload">',
 					wp_get_attachment_image_url( $image ),
 					wp_get_attachment_image_srcset( $image, 'full' )
 				);
