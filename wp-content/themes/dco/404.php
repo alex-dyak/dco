@@ -16,16 +16,18 @@ get_header(); ?>
 	</div>
 <?php endif; ?>
 
-<div class="404-page" style="background-image: url(<?php echo $background_image; ?>); color: #ffffff">
-	<h2><?php esc_html_e( '404' ); ?></h2>
-	<?php
-	if ( get_field('text_before_page_name', 'option') ) {
-		$text_before_page_name = get_field('text_before_page_name', 'option');
-	}
-	if ( get_field('text_after_page_name', 'option') ) {
-		$text_after_page_name = get_field('text_after_page_name', 'option');
-	}
+<div class="page-404" style="background-image: url(<?php echo $background_image; ?>); color: #ffffff">
+	<div class="page-404-container">
+		<h2><?php esc_html_e( '404' ); ?></h2>
+		<?php
+		if ( get_field('text_before_page_name', 'option') ) {
+			$text_before_page_name = get_field('text_before_page_name', 'option');
+		}
+		if ( get_field('text_after_page_name', 'option') ) {
+			$text_after_page_name = get_field('text_after_page_name', 'option');
+		}
 
-	echo $text_before_page_name . ' "/' . $name . '" ' . $text_after_page_name;
-	?>
+		echo $text_before_page_name . ' "/' . $name . '" ' . $text_after_page_name;
+		?>
+	</div>
 </div>
