@@ -62,7 +62,7 @@
                 heightWrap = $('.js-filterList').height(),
                 heightHeader = $('.siteHeader').outerHeight() + 10,
                 adminbarHeight = 0;
-            
+
             if($('#wpadminbar').length) {
                 adminbarHeight = $('#wpadminbar').height();
             }

@@ -1,0 +1,40 @@
+/* variables for this module */
+$page404TitleFontSize: 3.785rem;
+$page404TitleFontWeight: 600;
+$page404FontFamily: $ProximaNova;
+$page404FontSize: 1.25rem;
+$page404Color: $white;
+
+body.error404 {
+    .siteHeader {
+        background: none;
+    }
+    .menuBtn {
+        color: $page404Color;
+    }
+}
+.page-404 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    color: $page404Color;
+    font-size: $page404FontSize;
+    font-family: $page404FontFamily;
+    h2 {
+        font-size: $page404TitleFontSize;
+        font-weight: $page404TitleFontWeight;
+        font-family: $page404FontFamily;
+        margin: 0 0 30px;
+    }
+}
+
+.page-404-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
