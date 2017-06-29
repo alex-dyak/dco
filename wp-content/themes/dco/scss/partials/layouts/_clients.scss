@@ -87,12 +87,14 @@
     &:first-child {
       padding-top: 0;
     }
+    &.is-active {
+      a {
+        color: $orange--light;
+      }
+    }
     a {
       transition: all .3s;
       &:hover {
-        color: $orange--light;
-      }
-      &.is-active {
         color: $orange--light;
       }
     }
