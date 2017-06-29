@@ -313,7 +313,49 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
 }
 
 // Add new column for Team Custom Type.
+function dco_columns_head( $defaults ) {
+	$defaults['featured_image'] = __('Featured Image');
+
+	return $defaults;
+}
 add_filter( 'manage_team_posts_columns', 'dco_columns_head' );
+
+// Show image on Team Cutom Type Column.
+add_action( 'manage_team_posts_custom_column', 'dco_columns_content', 10, 2 );
+
+function dco_columns_content( $column_name, $post_ID ) {
+	if ( $column_name == 'featured_image' ) {
+		$post_featured_image = get_the_post_thumbnail( $post_ID, 'featured_preview' );
+		if ( $post_featured_image ) {
+			echo $post_featured_image;
+		}
+	}
+}
+
+add_filter( 'wpcf7_ajax_json_echo', 'dco_wpcf7_custom_ajax_json_echo' );
+
+function dco_wpcf7_custom_ajax_json_echo( $messages ) {
+	if ( function_exists( 'get_field' ) && get_field( 'dco_message_sent_ok', 'option' ) ) {
+		if ( ! empty( $messages['status'] ) && $messages['status'] == 'mail_sent' ) {
+			$message = get_field( 'dco_message_sent_ok', 'option' );
+
+			ob_start();
+			?>
+			<div class="confirm-message">
+				<div class="close">X</div>
+				<?php echo $message; ?>
+			</div>
+            <div class="overlay"></div>
+			<?php
+			$message_data = ob_get_clean();
+
+			$messages['message'] = $message_data;
+		}
+	}
+
+	return $messages;
+}
+
 /**
  * Redirect login page.
  */
@@ -363,44 +405,3 @@ function logout_page() {
 	exit;
 }
 add_action('wp_logout','logout_page');
-function dco_columns_head( $defaults ) {
-	$defaults['featured_image'] = __('Featured Image');
-
-	return $defaults;
-}
-
-// Show image on Team Cutom Type Column.
-add_action( 'manage_team_posts_custom_column', 'dco_columns_content', 10, 2 );
-
-function dco_columns_content( $column_name, $post_ID ) {
-	if ( $column_name == 'featured_image' ) {
-		$post_featured_image = get_the_post_thumbnail( $post_ID, 'featured_preview' );
-		if ( $post_featured_image ) {
-			echo $post_featured_image;
-		}
-	}
-}
-
-add_filter( 'wpcf7_ajax_json_echo', 'dco_wpcf7_custom_ajax_json_echo' );
-
-function dco_wpcf7_custom_ajax_json_echo( $messages ) {
-	if ( function_exists( 'get_field' ) && get_field( 'dco_message_sent_ok', 'option' ) ) {
-		if ( ! empty( $messages['status'] ) && $messages['status'] == 'mail_sent' ) {
-			$message = get_field( 'dco_message_sent_ok', 'option' );
-
-			ob_start();
-			?>
-			<div class="confirm-message">
-				<div class="close">X</div>
-				<?php echo $message; ?>
-			</div>
-            <div class="overlay"></div>
-			<?php
-			$message_data = ob_get_clean();
-
-			$messages['message'] = $message_data;
-		}
-	}
-
-	return $messages;
-}
