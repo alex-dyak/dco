@@ -11,5 +11,10 @@
   }
   a {
     font-family: $SourceSansPro-semibold;
+    display: block;
+    text-align: center;
+    @media #{$tablet-up} {
+      display: inline-block;
+    }
   }
 }
