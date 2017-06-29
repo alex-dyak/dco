@@ -3,6 +3,7 @@ $image          = get_sub_field( 'image' );
 $select         = get_sub_field( 'select_place' );
 $quote_title    = get_sub_field( 'pullquote_title' );
 $quote_body     = get_sub_field( 'pullquote_body' );
+$quote_body_size = get_sub_field( 'pullquote_size' );
 $apply_parallax = get_sub_field( 'apply_parallax' );
 
 $background_color            = get_field( 'background_color' );
@@ -33,8 +34,12 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
 
 	<div class="imageLargeModuleA">
 		<?php if ( $quote_title || $quote_body ) : ?>
+            <?php $quote_body_size_class = "" ?>
+            <?php if($quote_body_size): ?>
+                <?php $quote_body_size_class = ' imageLargeModuleA-quote-inner--large' ?>
+            <?php endif; ?>
 			<div class="imageLargeModuleA-quote">
-				<div class="imageLargeModuleA-quote-inner position-<?php echo $class_title; ?>"
+				<div class="imageLargeModuleA-quote-inner<?php echo $quote_body_size_class; ?> position-<?php echo $class_title; ?>"
 					style="background: <?php echo $background_color; ?>">
 					<?php if ( $quote_title ) : ?>
 						<div class="imageLargeModuleA-quote-title"
