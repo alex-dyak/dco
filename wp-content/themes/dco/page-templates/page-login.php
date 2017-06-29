@@ -3,7 +3,7 @@
  * Template Name: Page - Log In
  * The template for displaying Log In page
  */
-
+get_header( 'login' );
 ?>
 <?php if ( have_posts() ) :
 	while ( have_posts() ) : the_post(); ?>
