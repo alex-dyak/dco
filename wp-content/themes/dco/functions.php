@@ -312,6 +312,7 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
 	return $sources;
 }
 
+
 // Add new column for Team Custom Type.
 add_filter( 'manage_team_posts_columns', 'dco_columns_head' );
 
@@ -356,3 +357,53 @@ function dco_wpcf7_custom_ajax_json_echo( $messages ) {
 
 	return $messages;
 }
+
+/**
+ * Redirect login page.
+ */
+function redirect_login_page() {
+	$login_page  = home_url( '/login/' );
+	$page_viewed = basename($_SERVER['REQUEST_URI']);
+
+	if( $page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+		wp_redirect($login_page);
+		exit;
+	}
+}
+add_action('init','redirect_login_page');
+
+/**
+ * Redirect Login failed.
+ */
+function login_failed() {
+	$login_page  = home_url( '/login/' );
+	wp_redirect( $login_page . '?login=failed' );
+	exit;
+}
+add_action( 'wp_login_failed', 'login_failed' );
+
+/**
+ * Login verification.
+ *
+ * @param $user
+ * @param $username
+ * @param $password
+ */
+function verify_username_password( $user, $username, $password ) {
+	$login_page  = home_url( '/login/' );
+	if( $username == "" || $password == "" ) {
+		wp_redirect( $login_page . "?login=empty" );
+		exit;
+	}
+}
+add_filter( 'authenticate', 'verify_username_password', 1, 3);
+
+/**
+ * Logout redirect.
+ */
+function logout_page() {
+	$login_page  = home_url( '/login/' );
+	wp_redirect( $login_page . "?login=false" );
+	exit;
+}
+add_action('wp_logout','logout_page');
