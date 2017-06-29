@@ -10,6 +10,7 @@
 
             $block.find('input').attr('placeholder', text);
         }
+        
         insertPlaceholder('login-username');
         insertPlaceholder('login-password');
     });
