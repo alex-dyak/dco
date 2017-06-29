@@ -84,6 +84,27 @@
         $(window).on('scroll', function(){
             stickyAside();
         });
+
+        $('.js-popup').magnificPopup({
+            type:'inline'
+        });
+
+        $('.js-clientSlider').slick({
+            autoplay: true,
+            autoplaySpeed: 4000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            dots: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        dots: false
+                    }
+                }
+            ]
+        });
     });
 })(jQuery);
 

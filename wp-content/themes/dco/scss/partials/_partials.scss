@@ -4,6 +4,8 @@
 @import 'layouts/landing';
 @import 'layouts/profile';
 @import 'layouts/clients';
+@import 'layouts/home-page.scss';
+@import 'layouts/404.scss';
 
 @import 'modules/breadcrumbs';
 @import 'modules/navigation';
@@ -17,3 +19,5 @@
 @import 'modules/video-large-module-b';
 @import 'modules/small-module-stats';
 @import 'modules/stats-module';
+@import 'modules/client-popup';
+@import 'modules/home-page-hero-slider';

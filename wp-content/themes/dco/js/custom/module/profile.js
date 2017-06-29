@@ -1,5 +1,3 @@
-/* go top */
-
 (function($){
     $(function(){
         var $teamBlock = $('.team-block'),
@@ -41,12 +39,17 @@
                 rowPos = ($(window).width() > 769)? 3 : 2,
                 newPos = pos - pos%rowPos,
                 $clone = $el.clone().addClass('cloned'),
-                $overlay = $clone.find('.overlay');
+                $overlay = $teamBlock.find('.overlay');
 
+            
             $($set[newPos]).before($clone);
             $el.addClass(activeClass);
-            $clone.animate({ maxHeight: 800 }, 800);
-            $overlay.animate({ opacity: 0.85 }, 200);
+            $overlay.show(5, function () {
+                $overlay.addClass(activeClass);
+            });
+            setTimeout(function(){
+                $clone.addClass('height');
+            }, 5);
             arrowsEnable($clone);
             adjustPosition($clone);
         }
@@ -54,56 +57,50 @@
         /* Removes the cloned element from the row */
         function removeCloned() {
             var $block = $teamBlock.find('.cloned'),
-                $overlay = $block.find('.overlay'),
-                $activeBlock = $teamBlock.find('.'+activeClass);
+                $activeBlock = $teamBlock.find('.'+activeClass),
+                $overlay = $teamBlock.find('.overlay');
 
-            $overlay.animate({ opacity: 0 }, 400);
-            $block.animate(
-                { maxHeight: 0 },
-                { duration: 400,
-                    complete: function () {
-                        $(this).remove();
-                        $activeBlock.removeClass(activeClass);
-                    }});
+            $block.removeClass('height');
+            $overlay.removeClass(activeClass);
             $activeBlock.removeClass(activeClass);
+            setTimeout(function(){
+                $block.remove();
+                $overlay.hide(5);
+            }, 600);
         }
 
         /* Shows the selected element on mobile devices */
         function mobileActiveEnable($el) {
             var $block = $el.find('.member-modal-container'),
-                $overlay = $el.find('.overlay');
+                $overlay = $teamBlock.find('.overlay');
 
-            if($el.hasClass(activeClass)) {
-                $overlay.animate({ opacity: 0 }, 300);
-                $block.hide(300, function () {
-                    $el.removeClass(activeClass);
-                });
-            } else {
-                $el.addClass(activeClass);
-                $block.show(300);
-                $overlay.animate({ opacity: 0.85 }, 300);
-            }
+            $el.addClass(activeClass);
+            $block.show(300);
+            $overlay.show(5, function () {
+                $overlay.addClass(activeClass);
+            });
         }
 
         /* Removes the selected element on mobile devices */
         function mobileActiveDisable() {
             var $el = $('.team-member.active'),
                 $block = $el.find('.member-modal-container'),
-                $overlay = $el.find('.overlay');
+                $overlay = $teamBlock.find('.overlay');
 
-            $overlay.animate({ opacity: 0 }, 300);
+            $overlay.removeClass(activeClass);
             $block.hide(300, function () {
                 $el.removeClass(activeClass);
+                $overlay.hide(5);
             });
         }
 
         /* On click moves the text */
-        $(document).on('click','.arrow', function() {
+        $('.team-block').on('click','.arrow', function() {
             moveText($(this));
         });
 
         /* On click opens elements */
-        $('.team-member').on('click', function() {
+        $('.team-block').on('click','.team-member:not(.active, .cloned)', function() {
             if($(window).width() > 480) {
                 insertCloned($(this));
             } else {
@@ -113,7 +110,7 @@
         });
 
         /* On click closes active elements */
-        $(document).on('click','.team-member .close, .overlay', function() {
+        $('.team-block').on('click','.team-member .close, .overlay', function() {
             if($(window).width() > 480) {
                 removeCloned();
             } else {
@@ -133,6 +130,10 @@
             $('html, body').animate({
                 scrollTop: ($( $.attr(this, 'href') ).offset().top - $('.siteHeader').outerHeight())
             }, 500);
+        });
+
+        $('.wpcf7-response-output').on('click', '.close', function () {
+            $(this).closest('.wpcf7-response-output').hide();
         });
     });
 })(jQuery);

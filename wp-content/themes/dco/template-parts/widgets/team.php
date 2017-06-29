@@ -34,8 +34,9 @@
 					</div>
 
 					<!-- Member modal block -->
+					<?php $text_position = ! empty( $member['position_description_text'] ) ? $member['position_description_text'] : 'left'; ?>
 					<div class="member-modal">
-						<div class="member-modal-holder">
+						<div class="member-modal-holder <?php echo $text_position; ?>">
 							<div class="arrow arrow-up"></div>
 							<div class="member-modal-frame">
 								<div>
@@ -62,15 +63,17 @@
 						</div>
 
 						<?php if ( ! empty( $member['photo'] ) ): ?>
-							<?php echo $member['photo']; ?>
+							<div class="img-holder">
+								<?php echo $member['photo']; ?>
+							</div>
 						<?php endif; ?>
-
-						<span class="close">Close</span>
+						<?php $close_link_color = ! empty($member['close_link_color']) ? $member['close_link_color'] : 'white'; ?>
+						<span class="close <?php echo $close_link_color; ?>">Close</span>
 					</div>
 					<!-- End Member modal block -->
-					<div class="overlay"></div>
 				</div>
 			<?php endforeach; ?>
+			<div class="overlay"></div>
 		<?php endif; ?>
 	</div>
 </div>

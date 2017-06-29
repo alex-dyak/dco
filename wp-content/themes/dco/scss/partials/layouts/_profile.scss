@@ -38,6 +38,27 @@ $profileTeamMemberTitleLineHeight: .04rem;
 $profileTeamMemberTextColor: $gray-ship;
 $profileTeamCloseButtonColor: $white;
 $profileTeamCloseButtonDarkColor: $black;
+/* career block */
+$profileCareerMobileTitleFontSize: 1.5rem;
+$profileCareerTitleLineHeight: 1.2;
+$profileCareerTitleFontSize: 2.5rem;
+$profileCareerTitleFontWeight: 600;
+$profileCareerTitleColor: $white;
+$profileCareerTitleSecondColor: $blue--light;
+$profileCareerTitleFontFamily: $ProximaNova;
+$profileCareerInputBackground: $white;
+$profileCareerSubmitBackground: $blue--light;
+$profileCareerSubmitColor: $white;
+$profileCareerInputFontFamily: $SourceSansPro-regular;
+$profileCareerInputFontSize: 16px;
+$profileCareerInputLineHeight: 19px;
+$profileCareerOverlayColor: rgba(27,27,27,0.8);
+$profileCareerMessageBackground: $orange--light;
+$profileCareerMessageColor: $white;
+$profileCareerMessageFontFamily: $SourceSansPro-regular;
+$profileCareerMessageFontSize: 1.125rem;
+$profileCareerMessageTitleFontFamily: $SourceSansPro-semibold;
+$profileCareerMessageTitleFontSize: 1.7125rem;
 
 /*===========================*/
 
@@ -172,7 +193,10 @@ $profileTeamCloseButtonDarkColor: $black;
     }
     .graph {
         margin: -20px 0 39px;
-
+        display: none;
+        @media #{$mobile-up} {
+            display: block;
+        }
     }
     > img{
         position: absolute;
@@ -266,6 +290,9 @@ $profileTeamCloseButtonDarkColor: $black;
     }
     .member-modal {
         display: none;
+        .img-holder {
+            display: none;
+        }
     }
     .team-member {
         position: relative;
@@ -288,25 +315,52 @@ $profileTeamCloseButtonDarkColor: $black;
         &.cloned {
             width: 100%;
             height: auto;
-            max-height: 0;
             z-index: 5;
+            * {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
             .team-member-container > img,
             .team-member-holder {
                 display: none;
             }
-            .member-modal,
-            .overlay {
+            .member-modal {
                 display: block;
             }
+            .member-modal {
+                .img-holder,
+                .member-modal-holder,
+                .close{
+                    overflow: hidden;
+                    max-height: 0;
+                    transition: max-height 0.6s;
+                }
+                .img-holder {
+                    display: block;
+                }
+            }
+            &.height {
+                .member-modal {
+                    .img-holder,
+                    .member-modal-holder,
+                    .close {
+                        max-height: 800px;
+                    }
+                }
+            }
         }
+
         &.active {
             @media #{$mobile-up} {
                 height: 0;
             }
             @media #{$mobilesmall-only} {
                 z-index: 5;
-                .member-modal,
-                .overlay {
+                .member-modal {
                     display: block;
                 }
             }
@@ -383,6 +437,7 @@ $profileTeamCloseButtonDarkColor: $black;
         background: $profileTeamBackgroundColor;
         min-height: 61px;
         padding: 12px 16px 5px;
+        z-index: 4;
         .dots {
             position: absolute;
             top: 50%;
@@ -440,28 +495,26 @@ $profileTeamCloseButtonDarkColor: $black;
             @media #{$mobile-up} {
                 position: absolute;
                 left: 50%;
-                width: 15px;
+                width: 22px;
                 height: 15px;
-                border: 2px solid rgba(255, 255, 255, 0.5);
-                border-width: 0 0 2px 2px;
                 margin: 0 0 0 -6px;
                 display: none;
                 cursor: pointer;
+                background: url("../images/arrow.png") 0 50% no-repeat;
             }
         }
         .arrow-up {
             @media #{$mobile-up} {
                 top: 12px;
-                transform: rotate(135deg);
             }
             @media #{$tablet-up}{
                 top: 25px;
             }
         }
         .arrow-down {
+            transform: rotate(180deg);
             @media #{$mobile-up} {
                 bottom: 12px;
-                transform: rotate(-45deg);
             }
             @media #{$tablet-up}{
                 bottom: 25px;
@@ -542,9 +595,181 @@ $profileTeamCloseButtonDarkColor: $black;
         left: 0;
         right: 0;
         background: $profileTeamColor;
-        content: '';
-        z-index: -1;
         display: none;
         opacity: 0;
+        z-index: 4;
+        transition: opacity 0.3s;
+        &.active {
+            opacity: 0.85;
+        }
+    }
+}
+
+.careers-block {
+    position: relative;
+    color: #fff;
+    padding: 45px 15px 15px;
+    overflow: hidden;
+    @media #{$mobile-up} {
+        padding-top: 52px;
+        padding-bottom: 38px;
+    }
+    @media #{$tablet-up} {
+        padding-top: 54px;
+        padding-bottom: 38px;
+    }
+    &-holder {
+        margin: 0 auto;
+        max-width: 650px;
+    }
+    > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        min-width: 100%;
+        min-height: 100%;
+    }
+    h2 {
+        font-family: $profileCareerTitleFontFamily;
+        line-height: $profileCareerTitleLineHeight;
+        font-weight: $profileCareerTitleFontWeight;
+        color: $profileCareerTitleColor;
+        font-size: $profileCareerMobileTitleFontSize;
+        margin: 0 0 13px;
+        @media #{$mobile-up} {
+            font-size: $profileCareerTitleFontSize;
+            margin: 0 0 7px;
+        }
+    }
+    .blue {
+        color: $profileCareerTitleSecondColor;
+    }
+    [role="form"] {
+        padding: 5px 0 10px;
+        @media #{$mobile-up} {
+            padding-top: 0;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"] {
+            width: 100%;
+            background: $profileCareerInputBackground;
+            border: none;
+            height: 33px;
+            font-size: $profileCareerInputFontSize;
+            font-family: $profileCareerInputFontFamily;
+            line-height: $profileCareerInputLineHeight;
+            padding-top: 5px;
+            padding-bottom: 8px;
+            @media #{$mobile-up} {
+                height: 30px;
+                padding-top: 3px;
+                padding-bottom: 6px;
+            }
+        }
+        label {
+            line-height: 19px;
+            display: block;
+            margin: -1px 0 0;
+        }
+        form {
+            > p {
+                margin: 0 0 15px;
+                position: relative;
+                @media #{$mobile-up} {
+                    margin: 0 -1px 13px;
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 100%;
+                    &:nth-of-type(1),
+                    &:nth-of-type(3) {
+                        width: 40%;
+                        padding: 0 31px 0 0;
+                    }
+                    &:nth-of-type(2),
+                    &:nth-of-type(4) {
+                        width: 60%;
+                    }
+                }
+                .wpcf7-form-control-wrap {
+                    position: static;
+                }
+                [role="alert"] {
+                    line-height: 1.2;
+                    margin: 0 0 -23px;
+                }
+            }
+        }
+        input[type="submit"] {
+            width: 116px;
+            background: $profileCareerSubmitBackground;
+            border: none;
+            height: 38px;
+            color: $profileCareerSubmitColor;
+            display: block;
+            margin: 0 auto;
+            text-transform: uppercase;
+            border-radius: 18px;
+            @media #{$tablet-up} {
+                margin-right: 0;
+                margin-top: -6px;
+            }
+        }
+        .wpcf7-response-output {
+            border: none;
+            .overlay {
+                background: $profileCareerOverlayColor;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 4;
+            }
+            .confirm-message {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                max-width: 400px;
+                transform: translate(-50%, -50%);
+                background: $profileCareerMessageBackground;
+                color: $profileCareerMessageColor;
+                font-family: $profileCareerMessageFontFamily;
+                font-size: $profileCareerMessageFontSize;
+                padding: 40px 20px;
+                z-index: 5;
+                h2 {
+                    font-family: $profileCareerMessageTitleFontFamily;
+                    font-size: $profileCareerMessageTitleFontSize;
+                    margin: 0 0 15px;
+                }
+                .close {
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    cursor: pointer;
+                    text-indent: -9999px;
+                    overflow: hidden;
+                    width: 15px;
+                    height: 15px;
+                    &:before,
+                    &:after {
+                        position: absolute;
+                        top: 7px;
+                        left: 0;
+                        content: '';
+                        width: 15px;
+                        height: 2px;
+                        background: $profileCareerMessageColor;
+                        transform: rotate(45deg);
+                    }
+                    &:after {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
     }
 }
