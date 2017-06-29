@@ -23,8 +23,8 @@
 						$class = '';
 					}
 					?>
-					<li>
-						<a href="#" class="item-link <?php echo $class; ?>"
+					<li class="<?php echo $class; ?>">
+						<a href="#" class="item-link"
 						   value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
 					</li>
 				<?php endforeach; ?>

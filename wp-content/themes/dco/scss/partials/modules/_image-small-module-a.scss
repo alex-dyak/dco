@@ -29,8 +29,12 @@
     }
     a {
       font-family: $SourceSansPro-semibold;
-      display: inline-block;
+      display: block;
+      text-align: center;
       padding: 10px 0;
+      @media #{$tablet-up} {
+        display: inline-block;
+      }
     }
   }
 

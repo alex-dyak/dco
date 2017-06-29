@@ -43,7 +43,7 @@ $title_color = get_field( 'title_color' );
 if ( ! empty( $image ) && is_int( $image ) ) : ?>
 	<div class="smallModuleStatsImage container">
 		<?php
-		printf( '<img src="%s" srcset="%s">',
+		printf( '<img data-src="%s" data-srcset="%s" class="lazyload">',
 			wp_get_attachment_image_url( $image ),
 			wp_get_attachment_image_srcset( $image, 'full' )
 		);
