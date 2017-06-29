@@ -60,9 +60,9 @@
                 positionBlock = $('.js-stickyFilter').offset().top,
                 heightBlock = $block.height(),
                 heightWrap = $('.js-filterList').height(),
-                heightHeader = $('.siteHeader').height() + 10,
+                heightHeader = $('.siteHeader').outerHeight() + 10,
                 adminbarHeight = 0;
-
+            
             if($('#wpadminbar').length) {
                 adminbarHeight = $('#wpadminbar').height();
             }
