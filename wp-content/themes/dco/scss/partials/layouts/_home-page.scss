@@ -1,5 +1,5 @@
 .homepageSliderArea {
-
+  margin-bottom: 21px;
 }
 
 .homepageGridArea{
@@ -8,6 +8,6 @@
   background: $white;
   @media #{$tablet-up} {
     margin: 0 -21px;
-    padding: 0 21px;
+    padding: 0 21px 0;
   }
 }
