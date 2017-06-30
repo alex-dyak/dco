@@ -1,0 +1,34 @@
+.joinOurTeam {
+  position: relative;
+  width: 50%;
+  &:before {
+    content: "";
+    display: block;
+    padding-bottom: 50%;
+  }
+
+  &-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+  }
+
+  &-image {
+    flex: 0 0 50%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &-body {
+    flex: 0 0 50%;
+  }
+}
+
+.reedHimage {
+  width: 25%;
+}

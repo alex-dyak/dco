@@ -1,4 +1,4 @@
-<div class="forestImage container">
+<div class="forestImage">
 	<?php $image = get_sub_field( 'forest_image' );
 	if ( ! empty( $image ) && is_int( $image ) ) : ?>
 		<div class="forestImage-image">
