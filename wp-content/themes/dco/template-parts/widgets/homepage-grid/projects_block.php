@@ -23,6 +23,10 @@
 						);
 						?>
 					</div>
+					<?php else: ?>
+					<div class="project-image-placeholder">
+						<img src="http://via.placeholder.com/464x464">
+					</div>
 				<?php endif; ?>
 
 				<?php if ( get_sub_field( 'project_title' ) && get_sub_field( 'project_body' ) ): ?>
