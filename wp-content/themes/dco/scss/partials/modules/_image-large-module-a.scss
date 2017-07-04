@@ -35,6 +35,13 @@
         padding: 47px 25px;
       }
 
+      &--large {
+        @media #{$desktop-up} {
+          font-size: 1.35rem;
+          line-height: 1.65rem;
+        }
+      }
+
       &.position-top_right {
         @media #{$tablet-up} {
           right: 0;

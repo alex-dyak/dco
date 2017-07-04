@@ -1,0 +1,23 @@
+.newsBox {
+  position: relative;
+  display: block;
+  background: $orange--light;
+  color: $white;
+  width: 25%;
+  //height: 232px;
+  &:before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+  &-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

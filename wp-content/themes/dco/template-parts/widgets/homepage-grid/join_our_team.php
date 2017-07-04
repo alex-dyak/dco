@@ -1,13 +1,15 @@
-<div class="joinOurTeam container">
+<div class="joinOurTeam">
+    <div class="joinOurTeam-inner">
 	<?php $image = get_sub_field( 'join_our_team_image' );
 	if ( ! empty( $image ) && is_int( $image ) ) : ?>
-		<div class="joinOurTeam-image">
-			<?php
-			printf( '<img src="%s" srcset="%s">',
-				wp_get_attachment_image_url( $image ),
-				wp_get_attachment_image_srcset( $image, 'middle' )
-			);
-			?>
+		<div class="joinOurTeam-image" style="background-image: url('<?php echo wp_get_attachment_image_url( $image, 'full' ); ?>');">
+<!--            <img src="--><?php //echo wp_get_attachment_image_url( $image, 'full' ); ?><!--" alt="">-->
+<!--			--><?php
+//			printf( '<img src="%s" srcset="%s">',
+//				wp_get_attachment_image_url( $image ),
+//				wp_get_attachment_image_srcset( $image, 'middle' )
+//			);
+//			?>
 		</div>
 	<?php endif; ?>
 
@@ -24,5 +26,5 @@
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
-
+    </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="project js-testimonialsSlider">
+<div class="projectsSlider js-projectsSlider">
 	<?php if ( have_rows( 'project' ) ): ?>
 		<?php while ( have_rows( 'project' ) ) : the_row();
 			if ( get_sub_field( 'project_background_color' ) ) {
@@ -12,7 +12,7 @@
 			}
 			?>
 
-			<div class="project container">
+			<div class="project">
 				<?php $image = get_sub_field( 'project_image' );
 				if ( ! empty( $image ) && is_int( $image ) ) : ?>
 					<div class="project-image">
