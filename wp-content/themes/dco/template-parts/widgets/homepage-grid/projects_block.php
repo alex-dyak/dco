@@ -14,18 +14,22 @@
                     }
                     ?>
 
-                    <div class="project">
-                        <?php $image = get_sub_field( 'project_image' );
-                        if ( ! empty( $image ) && is_int( $image ) ) : ?>
-                            <div class="project-image" style="background-image: url('<?php echo wp_get_attachment_image_url( $image, 'homepage_grid_slider_project' ) ?>')">
-                                <?php
-                                printf( '<img src="%s" srcset="%s">',
-                                    wp_get_attachment_image_url( $image ),
-                                    wp_get_attachment_image_srcset( $image, 'middle' )
-                                );
-//                                ?>
-                            </div>
-                        <?php endif; ?>
+			<div class="project">
+				<?php $image = get_sub_field( 'project_image' );
+				if ( ! empty( $image ) && is_int( $image ) ) : ?>
+					<div class="project-image">
+						<?php
+						printf( '<img src="%s" srcset="%s">',
+							wp_get_attachment_image_url( $image ),
+							wp_get_attachment_image_srcset( $image, 'middle' )
+						);
+						?>
+					</div>
+					<?php else: ?>
+					<div class="project-image-placeholder">
+						<img src="http://via.placeholder.com/464x464">
+					</div>
+				<?php endif; ?>
 
                         <?php if ( get_sub_field( 'project_title' ) && get_sub_field( 'project_body' ) ): ?>
                             <div class="project-body"
