@@ -57,7 +57,7 @@ function dco_setup() {
 		add_image_size( 'featured_preview', 55, 55, true );
 		add_image_size( 'client_image', 865, 497, true );
         add_image_size( 'homepage_grid_slider_project', 930, 930, true );
-        add_image_size( 'homepage_grid_small_image', 465, 465, false );
+        add_image_size( 'homepage_grid_small_image', 465, 465, true );
 
 		//need add the image size to array $image_sizes in the function dco_add_custom_image_srcset
 	}
