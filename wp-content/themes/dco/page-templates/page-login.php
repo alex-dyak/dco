@@ -7,30 +7,20 @@ get_header( 'login' );
 
 if ( ! empty( $_REQUEST ) ) {
 	if ( ! empty( $_REQUEST['log'] ) && $_REQUEST['log'] == 'emptylog' ) {
-		echo '<div class="login-errors" style="color: white">';
-		_e( '<strong>ERROR</strong>: The username field is empty.' );
-		echo '</div>';
+		echo '<span class="error-name">The username field is empty.</span>';
 	}
 	if ( ! empty( $_REQUEST['log'] ) && $_REQUEST['log'] == 'emptylog?pwd=emptypwd' ) {
-		echo '<div class="login-errors" style="color: white">';
-		_e( '<strong>ERROR</strong>: The username field is empty.' );
-		_e( '<strong>ERROR</strong>: The password field is empty.' );
-		echo '</div>';
+		echo '<span class="error-name">The username field is empty.</span>';
+		echo '<span class="error-pass">The password field is empty.</span>';
 	}
 	if ( ! empty( $_REQUEST['pwd'] ) && $_REQUEST['pwd'] == 'emptypwd' ) {
-		echo '<div class="login-errors" style="color: white">';
-		_e( '<strong>ERROR</strong>: The password field is empty.' );
-		echo '</div>';
+		echo '<span class="error-pass">The password field is empty.</span>';
 	}
 	if ( ! empty( $_REQUEST['usr'] ) && $_REQUEST['usr'] == 'failed' ) {
-		echo '<div class="login-errors" style="color: white">';
-		echo '<strong>ERROR</strong>: Invalid username. <a href="' . wp_lostpassword_url() . '" title="Password Lost and Found">Lost your password?</a>';
-		echo '</div>';
+		echo '<span class="error-name">Invalid username. <a href="' . wp_lostpassword_url() . '" title="Password Lost and Found">Lost your password?</a></span>';
 	}
 	if ( ! empty( $_REQUEST['pwd'] ) && $_REQUEST['pwd'] == 'failed' ) {
-		echo '<div class="login-errors" style="color: white">';
-		echo '<strong>ERROR</strong>: The password you entered is incorrect.  <a href="' . wp_lostpassword_url() . '" title="Password Lost and Found">Lost your password?</a>';
-		echo '</div>';
+		echo '<span class="error-pass">The password you entered is incorrect.  <a href="' . wp_lostpassword_url() . '" title="Password Lost and Found">Lost your password?</a></span>';
 	}
 }
 ?>
