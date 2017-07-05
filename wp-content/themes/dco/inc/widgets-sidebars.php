@@ -63,7 +63,7 @@ if ( function_exists( 'register_sidebar' ) ) {
 		register_sidebar( array(
 			'name'          => __( 'Homepage Grid Area', 'dco' ),
 			'id'            => 'homepage-grid-area',
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget %2$s js-grid">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
@@ -684,10 +684,12 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 					$link = get_the_permalink();
 				}
 				?>
-				<a href="<?php echo $link; ?>" class="news-box">
-					<span class="news-box-date"><?php echo $date; ?></span>
-					<span
-						class="news-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
+				<a href="<?php echo $link; ?>" target="_blank" class="newsBox">
+                    <span class="newsBox-inner">
+                        <span class="newsBox-date"><?php echo $date; ?></span>
+                        <span
+                            class="newsBox-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
+                    </span>
 				</a>
 				<?php
 			}

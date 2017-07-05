@@ -12,7 +12,7 @@ get_header(); ?>
 <?php $image_id = get_field('background_image', 'option') ? get_field('background_image', 'option') : '' ; ?>
 <?php if ( ! empty( $image_id ) && is_int( $image_id ) ) : ?>
 	<div>
-		<?php $background_image = wp_get_attachment_image_url( $image_id ); ?>
+		<?php $background_image = wp_get_attachment_image_url( $image_id, 'full' ); ?>
 	</div>
 <?php endif; ?>
 
@@ -31,3 +31,5 @@ get_header(); ?>
 		?>
 	</div>
 </div>
+
+<?php get_footer( 'login' ); ?>

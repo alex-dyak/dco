@@ -56,6 +56,8 @@ function dco_setup() {
 		add_image_size( 'module_slider', 470, 290, true );
 		add_image_size( 'featured_preview', 55, 55, true );
 		add_image_size( 'client_image', 865, 497, true );
+        add_image_size( 'homepage_grid_slider_project', 930, 930, true );
+        add_image_size( 'homepage_grid_small_image', 465, 465, true );
 
 		//need add the image size to array $image_sizes in the function dco_add_custom_image_srcset
 	}
@@ -405,3 +407,37 @@ function logout_page() {
 	exit;
 }
 add_action('wp_logout','logout_page');
+
+add_filter( 'image_resize_dimensions', 'thumbnail_upscale' , 10, 6 );
+/**
+ * Crop image fix.
+ *
+ * @param $default
+ * @param $orig_w
+ * @param $orig_h
+ * @param $new_w *
+ * @param $new_h
+ * @param $crop *
+ *
+ * @return array|null
+ */
+
+function thumbnail_upscale(
+	$default,
+	$orig_w,
+	$orig_h,
+	$new_w,
+	$new_h,
+	$crop
+) {
+	if ( ! $crop ) {
+		return NULL;
+	}
+	// let the wordpress default function handle this
+	$size_ratio = max( $new_w / $orig_w, $new_h / $orig_h );
+	$crop_w = round( $new_w / $size_ratio );
+	$crop_h = round( $new_h / $size_ratio );
+	$s_x = floor( ( $orig_w - $crop_w ) / 2 );
+	$s_y = floor( ( $orig_h - $crop_h ) / 2 );
+	return array( 0, 0, (int) $s_x, (int) $s_y, (int) $new_w, (int) $new_h, (int) $crop_w, (int) $crop_h );
+}
