@@ -399,6 +399,8 @@ function verify_username_password( $user, $username, $password ) {
 			$user = '?usr=failed';
 		} elseif ( ! wp_check_password( $password, $user->user_pass, $user->ID ) ){
 			$user = '?pwd=failed';
+		} else {
+			return $user;
 		}
 		wp_redirect( $login_page . $user );
 		exit;
