@@ -1,6 +1,9 @@
 .twoStoryImage {
   position: relative;
-  width: 25%;
+  width: 33.3333%;
+  @media #{$desktop-up} {
+    width: 25%;
+  }
   &:before {
     content: "";
     display: block;
@@ -30,5 +33,18 @@
     z-index: 1;
     height: 50%;
     background: rgba($white, .8);
+    padding: 0 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.01rem;
+    line-height: 1.35rem;
+    color: $nevada;
+    &-title {
+      font-size: 1.01rem;
+      line-height: 1.35rem;
+      color: $orange--light;
+      text-transform: uppercase;
+    }
   }
 }

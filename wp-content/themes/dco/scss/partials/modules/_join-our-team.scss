@@ -1,6 +1,10 @@
 .joinOurTeam {
   position: relative;
-  width: 50%;
+  background: $nevada;
+  width: 66.6666%;
+  @media #{$desktop-up} {
+    width: 50%;
+  }
   &:before {
     content: "";
     display: block;
@@ -26,9 +30,36 @@
 
   &-body {
     flex: 0 0 50%;
+    color: $white;
+    font-size: 0.909rem;
+    line-height: 1.35rem;
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      padding: 0 34px;
+    }
+
+    &-title {
+      font-size: 0.909rem;
+      line-height: 1.35rem;
+      color: $black;
+    }
+
+    a {
+      color: $blue--light;
+      transition: all .3s;
+      &:hover {
+        color: $blue;
+      }
+    }
   }
 }
 
 .reedHimage {
-  width: 25%;
+  width: 33.3333%;
+  @media #{$desktop-up} {
+    width: 25%;
+  }
 }
