@@ -684,7 +684,7 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 					$link = get_the_permalink();
 				}
 				?>
-				<a href="<?php echo $link; ?>" target="_blank" class="newsBox">
+				<a href="<?php echo $link; ?>" target="_blank" class="newsBox gridItem">
                     <span class="newsBox-inner">
                         <span class="newsBox-date"><?php echo $date; ?></span>
                         <span

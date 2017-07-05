@@ -1,4 +1,4 @@
-<div class="projectsSliderWrap">
+<div class="projectsSliderWrap gridItem">
     <div class="projectsSliderWrap-inner">
         <div class="projectsSlider js-projectsSlider">
             <?php if ( have_rows( 'project' ) ): ?>
@@ -18,7 +18,7 @@
 				<?php $image = get_sub_field( 'project_image' );
 				if ( ! empty( $image ) && is_int( $image ) ) : ?>
 					<div class="project-image">
-                        <img src="<?php echo wp_get_attachment_image_url( $image, 'homepage_grid_slider_project' ) ?>" alt="">
+                        <img src="<?php echo wp_get_attachment_image_url( $image, 'homepage_grid_slider_project' ) ?>" alt="<?php the_sub_field( 'project_title' ); ?>">
 					</div>
 					<?php else: ?>
 					<div class="project-image-placeholder">
@@ -30,13 +30,11 @@
                             <div class="project-body"
                                  style="background-color: <?php echo $background_color; ?>">
                                 <?php if ( get_sub_field( 'project_title' ) ): ?>
-                                    <h2 class="project-title" style=" color: <?php echo $title_color; ?>"><?php the_sub_field( 'project_title' ); ?></h2>
+                                    <h2 class="project-body-title" style=" color: <?php echo $title_color; ?>"><?php the_sub_field( 'project_title' ); ?></h2>
                                 <?php endif; ?>
 
                                 <?php if ( get_sub_field( 'project_body' ) ): ?>
-                                    <div class="project-description" style=" color: <?php echo $body_color; ?>">
-                                        <?php the_sub_field( 'project_body' ); ?>
-                                    </div>
+                                    <div class="project-body-description" style=" color: <?php echo $body_color; ?>"><?php the_sub_field( 'project_body' ); ?></div>
                                 <?php endif; ?>
                             </div>
                         <?php endif; ?>

@@ -1,6 +1,9 @@
 .projectsSliderWrap {
   position: relative;
-  width: 50%;
+  width: 66.6666%;
+  @media #{$desktop-up} {
+    width: 50%;
+  }
   &:before {
     content: "";
     display: block;
@@ -30,6 +33,25 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    > li {
+      margin: 0 10px;
+      &.slick-active {
+        button {
+          background: $white;
+        }
+      }
+      > button {
+        text-indent: -9999px;
+        border: 0;
+        border-radius: 50%;
+        outline: 0;
+        padding: 0;
+        width: 15px;
+        height: 15px;
+        display: block;
+        background: rgba($white, .5);
+      }
+    }
   }
   .slick-slide {
     outline: 0;
@@ -53,5 +75,13 @@
     top: 0;
     right: 0;
     width: 50%;
+    min-height: 50%;
+    padding: 34px;
+    font-size: .909rem;
+    line-height: 1.35rem;
+    &-title {
+      font-size: .909rem;
+      line-height: 1.35rem;
+    }
   }
 }
