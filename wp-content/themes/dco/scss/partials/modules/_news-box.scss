@@ -3,10 +3,13 @@
   display: block;
   background: $orange--light;
   color: $white;
-  width: 25%;
   font-size: .909rem;
   line-height: 1.35rem;
   transition: all .3s;
+  width: 33.3333%;
+  @media #{$desktop-up} {
+    width: 25%;
+  }
   &:hover {
     color: $white;
     background: $blue;

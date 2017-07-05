@@ -2,8 +2,15 @@
 
 (function($){
     $(function(){
-        $('.js-grid').masonry({
-            // options
+        $('.js-grid').isotope({
+            layoutMode: 'packery',
+            itemSelector: '.gridItem',
+            percentPosition: true,
+            animationOptions: {
+                duration: 0,
+                easing: 'linear',
+                queue: false
+            }
 
         });
 
