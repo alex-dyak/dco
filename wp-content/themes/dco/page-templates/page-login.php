@@ -4,6 +4,25 @@
  * The template for displaying Log In page
  */
 get_header( 'login' );
+
+if ( ! empty( $_REQUEST ) ) {
+	if ( ! empty( $_REQUEST['log'] ) && $_REQUEST['log'] == 'emptylog' ) {
+		echo '<span class="error-name">The username field is empty.</span>';
+	}
+	if ( ! empty( $_REQUEST['log'] ) && $_REQUEST['log'] == 'emptylog?pwd=emptypwd' ) {
+		echo '<span class="error-name">The username field is empty.</span>';
+		echo '<span class="error-pass">The password field is empty.</span>';
+	}
+	if ( ! empty( $_REQUEST['pwd'] ) && $_REQUEST['pwd'] == 'emptypwd' ) {
+		echo '<span class="error-pass">The password field is empty.</span>';
+	}
+	if ( ! empty( $_REQUEST['usr'] ) && $_REQUEST['usr'] == 'failed' ) {
+		echo '<span class="error-name">Invalid username. <a href="' . wp_lostpassword_url() . '" title="Password Lost and Found">Lost your password?</a></span>';
+	}
+	if ( ! empty( $_REQUEST['pwd'] ) && $_REQUEST['pwd'] == 'failed' ) {
+		echo '<span class="error-pass">The password you entered is incorrect.  <a href="' . wp_lostpassword_url() . '" title="Password Lost and Found">Lost your password?</a></span>';
+	}
+}
 ?>
 <?php if ( have_posts() ) :
 	while ( have_posts() ) : the_post(); ?>

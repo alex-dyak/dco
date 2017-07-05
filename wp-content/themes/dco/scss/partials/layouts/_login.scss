@@ -8,6 +8,7 @@ $loginPageInputColor: $gray--light;
 $loginPageSubmitColor: $white;
 $loginPageSubmitBackground: $blue--light;
 $loginPageSubmitHoverBackground: $blue--light1;
+$loginPageErrorColor: $red;
 
 .page-template-page-login {
     min-height: 100%;
@@ -43,6 +44,13 @@ $loginPageSubmitHoverBackground: $blue--light1;
     .login-page-holder {
         margin: auto;
         width: 291px;
+        form {
+            &:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+        }
     }
     .login-username,
     .login-password {
@@ -117,6 +125,20 @@ $loginPageSubmitHoverBackground: $blue--light1;
             padding: 0 15px 1px;
             &:hover {
                 background: $loginPageSubmitHoverBackground;
+            }
+        }
+    }
+    .error-name,
+    .error-pass {
+        display: block;
+        padding: 5px 0 0;
+        color: $loginPageErrorColor;
+        a {
+            text-decoration: underline;
+            color: $loginPageErrorColor;
+            &:hover {
+                text-decoration: none;
+                color: $loginPageErrorColor;
             }
         }
     }

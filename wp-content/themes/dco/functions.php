@@ -392,10 +392,25 @@ add_action( 'wp_login_failed', 'login_failed' );
  */
 function verify_username_password( $user, $username, $password ) {
 	$login_page  = home_url( '/login/' );
-	if( $username == "" || $password == "" ) {
-		wp_redirect( $login_page . "?login=empty" );
+	if( $username == "" ) {
+		$username = "?log=emptylog";
+	} else {
+		$user = get_user_by( 'login', $username );
+		if ( ! $user ) {
+			$user = '?usr=failed';
+		} elseif ( ! wp_check_password( $password, $user->user_pass, $user->ID ) ){
+			$user = '?pwd=failed';
+		} else {
+			return $user;
+		}
+		wp_redirect( $login_page . $user );
 		exit;
 	}
+	if( $password == "" ) {
+		$password = "?pwd=emptypwd";
+	}
+	wp_redirect( $login_page . $username . $password );
+	exit;
 }
 add_filter( 'authenticate', 'verify_username_password', 1, 3);
 
