@@ -63,3 +63,10 @@ img {
 .parallaxImg  {
     min-height: 509px;
 }
+
+input[type="submit"] {
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
