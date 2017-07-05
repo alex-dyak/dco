@@ -27,7 +27,7 @@ get_header( 'login' );
 							'label_username' => __( 'Username or Email Address' ),
 							'label_password' => __( 'Password' ),
 							'label_remember' => __( 'Stay signed in' ),
-							'label_log_in'   => __( 'Log In' ),
+							'label_log_in'   => __( 'Log in' ),
 							'remember'       => true
 						);
 						wp_login_form( $args );
