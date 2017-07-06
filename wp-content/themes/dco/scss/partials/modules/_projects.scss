@@ -1,6 +1,9 @@
 .projectsSliderWrap {
   position: relative;
-  width: 66.6666%;
+  width: 100%;
+  @media #{$tablet-up} {
+    width: 66.6666%;
+  }
   @media #{$desktop-up} {
     width: 50%;
   }
@@ -74,11 +77,14 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 50%;
+    width: 100%;
     min-height: 50%;
     padding: 34px;
     font-size: .909rem;
     line-height: 1.35rem;
+    @media #{$tablet-up} {
+      width: 50%;
+    }
     &-title {
       font-size: .909rem;
       line-height: 1.35rem;

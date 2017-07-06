@@ -63,7 +63,7 @@ if ( function_exists( 'register_sidebar' ) ) {
 		register_sidebar( array(
 			'name'          => __( 'Homepage Grid Area', 'dco' ),
 			'id'            => 'homepage-grid-area',
-			'before_widget' => '<div id="%1$s" class="widget %2$s js-grid">',
+			'before_widget' => '<div id="%1$s" class="widget %2$s grid js-grid">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
@@ -684,6 +684,7 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 					$link = get_the_permalink();
 				}
 				?>
+                <div class="grid-sizer"></div>
 				<a href="<?php echo $link; ?>" target="_blank" class="newsBox gridItem">
                     <span class="newsBox-inner">
                         <span class="newsBox-date"><?php echo $date; ?></span>

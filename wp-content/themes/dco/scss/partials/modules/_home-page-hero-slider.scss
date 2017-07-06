@@ -24,10 +24,11 @@ $heroBannerHeight--mobile: 441px;
   position: fixed;
   left: 0;
   right: 0;
-  top: 42px;
+  top: 54px;
   @media #{$tablet-up} {
     left: 21px;
     right: 21px;
+    top: 42px;
     height: $heroBannerHeight--desktop;
   }
   &.slick-initialized {

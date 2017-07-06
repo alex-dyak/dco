@@ -1,5 +1,7 @@
 .homepageSliderArea {
-  margin-bottom: 21px;
+  @media #{$tablet-up} {
+    margin-bottom: 21px;
+  }
 }
 
 .homepageGridArea{
