@@ -1,31 +1,43 @@
 .joinOurTeam {
   position: relative;
   background: $nevada;
-  width: 66.6666%;
+  width: 100%;
+  @media #{$tablet-up} {
+    width: 66.6666%;
+  }
   @media #{$desktop-up} {
     width: 50%;
   }
   &:before {
-    content: "";
-    display: block;
-    padding-bottom: 50%;
+    @media #{$tablet-up} {
+      content: "";
+      display: block;
+      padding-bottom: 50%;
+    }
   }
 
   &-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
     display: flex;
+    flex-direction: column-reverse;
+    @media #{$tablet-up} {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      flex-direction: row;
+    }
   }
 
   &-image {
-    flex: 0 0 50%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    flex: 0 0 100%;
+    @media #{$tablet-up} {
+      flex: 0 0 50%;
+    }
+    img {
+      width: 100%;
+    }
   }
 
   &-body {
@@ -37,8 +49,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 100%;
-      padding: 0 34px;
+      padding: 34px;
+      min-height: 200px;
+      @media #{$tablet-up} {
+        padding: 0 34px;
+        height: 100%;
+        min-height: inherit;
+      }
     }
 
     &-title {
@@ -58,8 +75,14 @@
 }
 
 .reedHimage {
-  width: 33.3333%;
+  width: 100%;
+  @media #{$tablet-up} {
+    width: 33.3333%;
+  }
   @media #{$desktop-up} {
     width: 25%;
+  }
+  img {
+    width: 100%;
   }
 }

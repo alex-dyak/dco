@@ -1,6 +1,9 @@
 .twoStoryImage {
   position: relative;
-  width: 33.3333%;
+  width: 100%;
+  @media #{$tablet-up} {
+    width: 33.3333%;
+  }
   @media #{$desktop-up} {
     width: 25%;
   }
@@ -23,9 +26,9 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    img {
+      width: 100%;
+    }
   }
 
   &-body {

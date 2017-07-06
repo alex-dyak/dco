@@ -1,34 +1,49 @@
 .forestImage {
-  position: absolute;
-  width: 66.6666%;
+  position: relative;
+  width: 100%;
+  @media #{$tablet-up} {
+    width: 66.6666%;
+  }
   @media #{$desktop-up} {
     width: 25%;
   }
   &:before {
-    content: "";
-    display: block;
-    padding-bottom: 50%;
+    @media #{$tablet-up} {
+      content: "";
+      display: block;
+      padding-bottom: 50%;
+    }
     @media #{$desktop-up} {
       padding-bottom: 200%;
     }
   }
   &-inner {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    @media #{$tablet-up} {
+      flex-direction: row;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
     @media #{$desktop-up} {
       flex-direction: column;
     }
   }
 
   &-image {
-    flex: 0 0 50%;
+    flex: 0 0 100%;
+    @media #{$tablet-up} {
+      flex: 0 0 50%;
+    }
     @media #{$desktop-up} {
       height: 50%;
+    }
+    img {
+      display: block;
+      width: 100%;
     }
   }
 
@@ -36,13 +51,19 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-    padding: 0 34px;
+    padding: 30px 34px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-size: .909rem;
     line-height: 1.35rem;
-    flex: 0 0 50%;
+    flex: 0 0 100%;
+    min-height: 200px;
+    @media #{$tablet-up} {
+      flex: 0 0 50%;
+      min-height: inherit;
+      padding: 0 34px;
+    }
     @media #{$desktop-up} {
       height: 50%;
     }

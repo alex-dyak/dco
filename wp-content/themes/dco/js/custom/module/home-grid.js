@@ -4,13 +4,7 @@
     $(function(){
         $('.js-grid').isotope({
             layoutMode: 'packery',
-            itemSelector: '.gridItem',
-            percentPosition: true,
-            animationOptions: {
-                duration: 0,
-                easing: 'linear',
-                queue: false
-            }
+            itemSelector: '.gridItem'
 
         });
 
@@ -20,6 +14,10 @@
             arrows: false,
             fade: true
         });
+
+        if($(window).width() < 960) {
+
+        }
 
     });
 })(jQuery);
