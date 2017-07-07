@@ -48,6 +48,12 @@
 
 <body <?php body_class(); ?>>
 
+<div class="preloader js-preloader">
+    <div class="preloader-inner">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/preloader.gif" alt="">
+    </div>
+</div>
+
 <div id="wrapper" class="wrapper">
 <?php
 $homePage = "";
