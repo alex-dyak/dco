@@ -32,4 +32,8 @@
           'positionStart': 0.9
       });
   });
+
+  $(window).on('load', function(){
+      $('.js-preloader').fadeOut();
+  });
 })(jQuery);
