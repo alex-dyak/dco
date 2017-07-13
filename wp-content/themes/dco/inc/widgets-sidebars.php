@@ -538,8 +538,8 @@ class W4P_Team_Widget extends WP_Widget {
 		if ( $members->have_posts() ):
 			while ( $members->have_posts() ) : $members->the_post();
 				$member_id                                       = get_the_ID();
-				$data[ $member_id ]['name'][]                    = get_field( 'member_surname', $member_id );
 				$data[ $member_id ]['name'][]                    = get_field( 'member_name', $member_id );
+				$data[ $member_id ]['name'][]                    = get_field( 'member_surname', $member_id );
 				$data[ $member_id ]['position']                  = get_field( 'position', $member_id );
 				$data[ $member_id ]['description']               = get_the_content();
 				$data[ $member_id ]['position_description_text'] = get_field( 'position_description_text', $member_id );
