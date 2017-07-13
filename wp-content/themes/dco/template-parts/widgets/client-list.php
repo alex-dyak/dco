@@ -74,8 +74,17 @@
 									= 'all, ' . implode( ", ", $terms_name );
 								?>
 								<li>
+									<?php if( ! empty( get_field( 'slider', $post->ID ) ) ||
+									          ! empty( get_field( 'title', $post->ID ) ) ||
+									          ! empty( get_field( 'text_first_column', $post->ID ) ) ||
+									          ! empty( get_field( 'text_second_column', $post->ID ) ) ||
+									          ! empty( get_field( 'text_third_column', $post->ID ) ) ) : ?>
 									<a href="#client-popup-<?php echo $post->ID; ?>" class="client-item <?php echo $class; ?> js-popup"
 									   data-category='<?php echo $data_category; ?>'><?php echo $post->post_title; ?></a>
+									<?php else : ?>
+										<a class="client-item <?php echo $class; ?>"
+										   data-category='<?php echo $data_category; ?>'><?php echo $post->post_title; ?></a>
+									<?php endif; ?>
 
 									<!-- Clients Lightbox -->
 									<div id="client-popup-<?php echo $post->ID; ?>" class="clientPopup mfp-hide">
