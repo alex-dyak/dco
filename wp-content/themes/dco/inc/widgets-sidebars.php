@@ -531,7 +531,7 @@ class W4P_Team_Widget extends WP_Widget {
 			'posts_per_page' => - 1,
 			'post_type'      => 'team',
 			'meta_key'       => 'member_surname',
-			'orderby'        => 'meta_value',
+			'orderby'        => 'date',
 			'order'          => 'ASC',
 		) );
 		$data    = array();
