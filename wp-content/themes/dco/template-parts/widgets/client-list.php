@@ -14,15 +14,9 @@
 	if ( $terms ) : ?>
 		<div class="clientPage-body-filter js-stickyFilter">
 			<ul id="category-list" class="clientFilter js-filter">
-				<li><a href="#" value="all"><?php _e( 'All', 'dco' ); ?></a>
+				<li class="is-active"><a href="#" value="all"><?php _e( 'All', 'dco' ); ?></a>
 				</li>
-				<?php foreach ( $terms as $term ) :
-					if ( $term->slug == $rand_category ) {
-						$class = 'is-active';
-					} else {
-						$class = '';
-					}
-					?>
+				<?php foreach ( $terms as $term ) : ?>
 					<li class="<?php echo $class; ?>">
 						<a href="#" class="item-link"
 						   value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
@@ -34,18 +28,32 @@
 
 	<?php
 	$terms = get_terms( 'business-direction' );
-	$i     = 0;
+
+	$busines_direction_terms_name = array();
+
+	foreach ( $terms as $term ) {
+		$busines_direction_terms_name[] = $term->slug;
+	}
+	$rand_key      = array_rand( $busines_direction_terms_name );
+	$rand_category = $busines_direction_terms_name[ $rand_key ];
+	$class         = '';
+
 	if ( $terms ) : ?>
 		<div class="clientPage-body-content">
 			<ul class="clientList js-filterList">
-				<?php foreach ( $terms as $term ) : ?>
-					<li class="<?php echo( $i == 0 ? "is-open" : '' ); ?>">
+				<?php foreach ( $terms as $term ) :
+					if ( $term->slug == $rand_category ) {
+						$class = 'is-open';
+					} else {
+						$class = '';
+					}
+					?>
+					<li class="<?php echo $class; ?>">
 						<strong><i class="fa fa-chevron-right"
 						           aria-hidden="true"></i><?php echo $term->name; ?>
 						</strong>
 						<ol class="clientItemList"
-						    style="<?php echo( $i == 0 ? "display: block"
-							    : '' ); ?>">
+						    style="<?php if( $class ) echo "display: block"; ?>">
 							<?php
 							// Get Business direction items.
 							$args  = array(
@@ -70,8 +78,7 @@
 								} else {
 									$class = '';
 								}
-								$data_category
-									= 'all, ' . implode( ", ", $terms_name );
+								$data_category = 'all, ' . implode( ", ", $terms_name );
 								?>
 								<li>
 									<?php if( ! empty( get_field( 'slider', $post->ID ) ) ||
@@ -79,10 +86,10 @@
 									          ! empty( get_field( 'text_first_column', $post->ID ) ) ||
 									          ! empty( get_field( 'text_second_column', $post->ID ) ) ||
 									          ! empty( get_field( 'text_third_column', $post->ID ) ) ) : ?>
-									<a href="#client-popup-<?php echo $post->ID; ?>" class="client-item <?php echo $class; ?> js-popup"
+									<a href="#client-popup-<?php echo $post->ID; ?>" class="client-item <?php echo $class; ?> is-active js-popup"
 									   data-category='<?php echo $data_category; ?>'><?php echo $post->post_title; ?></a>
 									<?php else : ?>
-										<a class="client-item <?php echo $class; ?>"
+										<a class="client-item <?php echo $class; ?> is-active"
 										   data-category='<?php echo $data_category; ?>'><?php echo $post->post_title; ?></a>
 									<?php endif; ?>
 
@@ -140,7 +147,6 @@
 							<?php
 							}
 							wp_reset_postdata();
-							$i ++;
 							?>
 						</ol>
 					</li>
