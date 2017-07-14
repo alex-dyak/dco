@@ -26,9 +26,9 @@ $heroBannerHeight--mobile: 441px;
   right: 0;
   top: 54px;
   @media #{$tablet-up} {
-    left: 21px;
-    right: 21px;
-    top: 42px;
+    left: $whiteSpace--large;
+    right: $whiteSpace--large;
+    top: $whiteSpace--large;
     height: $heroBannerHeight--desktop;
   }
   &.slick-initialized {
@@ -133,7 +133,7 @@ $heroBannerHeight--mobile: 441px;
     @media #{$tablet-up} {
       flex-direction: column;
       bottom: 0;
-      right: -15px;
+      right: -20px;
       height: 100%;
       width: auto;
     }

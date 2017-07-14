@@ -18,16 +18,21 @@ $menuBtnColor--hover: $gray-ship;
   justify-content: space-between;
   z-index: 10;
   @media #{$tablet-up} {
-    height: 42px;
-    padding: 14px 21px;
+    height: 30px;
+    padding: 5px $whiteSpace--large;
   }
   &-logo {
     height: 24px;
     @media #{$tablet-up} {
       height: 11px;
+      margin-top: 5px;
     }
   }
   &-menu {
+    margin-top: 5px;
+    @media #{$tablet-up} {
+      margin-top: 0;
+    }
   }
 }
 
