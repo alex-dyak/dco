@@ -66,13 +66,18 @@ $menuBtnColor--hover: $gray-ship;
   }
   i {
     font-size: 0.9375rem;
-    padding-top: 2px;
     margin-left: 4px;
     @media #{$tablet-up} {
-      font-size: 0.6875rem;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.25rem;
     }
   }
   span {
     font-family: $menuBtnFont;
+    @media #{$tablet-up} {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 }
