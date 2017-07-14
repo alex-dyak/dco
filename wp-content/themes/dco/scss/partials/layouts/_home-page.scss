@@ -9,7 +9,7 @@
   z-index: 9;
   background: $white;
   @media #{$tablet-up} {
-    margin: 0 -21px;
-    padding: 0 21px 0;
+    margin: 0 -($whiteSpace--large);
+    padding: 0 $whiteSpace--large 0;
   }
 }
