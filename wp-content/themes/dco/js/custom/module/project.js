@@ -40,6 +40,20 @@
             })
         }
 
+        function fullHeightModule() {
+            var $fullHeightEl = $('.js-fullHeight');
+            if ( $fullHeightEl.length ) {
+                $fullHeightEl.each(function () {
+                    var $this = $(this),
+                        $parallaxWrap = $this.find('.parallaxImg'),
+                        headerHeight = $('.js-siteHeader').outerHeight(),
+                        sectionHeight = $(window).height() - (headerHeight * 2);
+                    $parallaxWrap.height(sectionHeight);
+                });
+            }
+        }
+        fullHeightModule()
+
         if(needToFix && isProjectPage) {
             initReplace();
         }

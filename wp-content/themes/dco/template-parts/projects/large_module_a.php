@@ -5,9 +5,11 @@ $quote_title    = get_sub_field( 'pullquote_title' );
 $quote_body     = get_sub_field( 'pullquote_body' );
 $quote_body_size = get_sub_field( 'pullquote_size' );
 $apply_parallax = get_sub_field( 'apply_parallax' );
+$full_height = get_sub_field( 'full_height' );
 
 $background_color            = get_field( 'background_color' );
 $title_color                 = get_field( 'title_color' );
+
 
 switch ( $select ) {
 	case 'none':
@@ -32,7 +34,14 @@ switch ( $select ) {
 }
 if ( ! empty( $image ) && is_int( $image ) ) : ?>
 
-	<div class="imageLargeModuleA">
+    <?php if ( $full_height ) {
+        $full_height_class = 'js-fullHeight';
+    } else {
+        $full_height_class = '';
+    }
+    ?>
+
+	<div class="imageLargeModuleA <?php echo $full_height_class; ?>">
 		<?php if ( $quote_title || $quote_body ) : ?>
             <?php $quote_body_size_class = "" ?>
             <?php if($quote_body_size): ?>
