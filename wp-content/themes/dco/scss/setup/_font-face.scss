@@ -59,6 +59,29 @@
 }
 
 
+@font-face {
+  font-family: 'AvenirLTStd-Medium';
+  src: url('../fonts/3431D2_0_0.eot');
+  src: url('../fonts/3431D2_0_0.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/3431D2_0_0.woff2') format('woff2'),
+  url('../fonts/3431D2_0_0.woff') format('woff'),
+  url('../fonts/3431D2_0_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvenirLTStd-Light';
+  src: url('../fonts/3431D2_1_0.eot');
+  src: url('../fonts/3431D2_1_0.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/3431D2_1_0.woff2') format('woff2'),
+  url('../fonts/3431D2_1_0.woff') format('woff'),
+  url('../fonts/3431D2_1_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 $BodoniURW-Light: 'bodoni-urw', 'Times New Roman', serif;
 $FuturaPT: 'futura-pt', Arial, sans-serif; // font-weight: 400 - regular, 500 - medium
@@ -71,3 +94,5 @@ $SourceSansPro-light: 'Source Sans Pro Light', Arial, sans-serif;
 
 $Avenir-heavy: 'Avenir Heavy', Arial, sans-serif;
 $Avenir-book: 'Avenir Book', Arial, sans-serif;
+$Avenir-medium: 'AvenirLTStd-Medium', Arial, sans-serif;
+$Avenir-light: 'AvenirLTStd-Light', Arial, sans-serif
