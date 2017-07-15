@@ -62,7 +62,7 @@ if ( is_front_page() ) {
 };
 ?>
 
-	<header id="header" class="siteHeader">
+	<header id="header" class="siteHeader js-siteHeader">
         <div class="siteHeader-logo">
             <?php
             if ( get_header_image() && ! display_header_text() ) : /* If there's a header image but no header text. */ { ?>
