@@ -89,7 +89,6 @@ $heroBannerHeight--mobile: 441px;
       line-height: 1;
       @media #{$tablet-up} {
         font-size: 3rem;
-        right: 30%;
         transform: translate(0, -50%);
         padding-right: 5px;
       }
@@ -172,7 +171,7 @@ $heroBannerHeight--mobile: 441px;
   position: absolute;
   top: 0;
   right: -30%;
-  width: 30%;
+  width: 50%;
   color: $grey;
   padding: 0 5px;
   transition: all .5s ease-out .3s;

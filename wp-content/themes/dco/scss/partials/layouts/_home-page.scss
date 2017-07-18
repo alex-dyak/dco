@@ -1,6 +1,6 @@
 .homepageSliderArea {
   @media #{$tablet-up} {
-    margin-bottom: 21px;
+    margin-bottom: 0;
   }
 }
 
@@ -10,6 +10,6 @@
   background: $white;
   @media #{$tablet-up} {
     margin: 0 (-$whiteSpace--large);
-    padding: 0 $whiteSpace--large 0;
+    padding: $whiteSpace--large $whiteSpace--large 0;
   }
 }
