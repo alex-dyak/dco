@@ -45,7 +45,11 @@
     font-family: $Avenir-heavy;
     letter-spacing: 3px;
     @media #{$tablet-up} {
-      padding: 0;
+      padding: 0 390px 0 0;
+      text-align: right;
+    }
+    @media #{$desktop-up} {
+      padding-right: 635px;
     }
   }
   &-body {
