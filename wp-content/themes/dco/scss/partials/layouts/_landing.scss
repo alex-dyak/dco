@@ -2,7 +2,7 @@
 $landingTitleColor: $white;
 $landingTitleFontFamily: $ProximaNova;
 $landingTitleFontWeight: 600;
-$landingTitleFontSize: 1.3125rem;
+$landingTitleFontSize: 1.5rem;
 $landingTitleLineHeight: 1;
 /*===========================*/
 
@@ -39,6 +39,7 @@ $landingTitleLineHeight: 1;
             filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
             filter: gray;
             filter: grayscale(100%);
+            transition: all ease-out 0.4s;
             &-fix {
                 width: 100%;
                 height: 100%;
@@ -60,6 +61,7 @@ $landingTitleLineHeight: 1;
         bottom: 0;
         height: 65px;
         width: 100%;
+        text-align: center;
         @media #{$tablet-up} {
             top: 0;
             width: 47.67%;
