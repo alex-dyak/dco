@@ -6,42 +6,43 @@
 <?php if ( have_rows( 'approach_columns' ) ): ?>
 	<div class="approach-items">
 		<div class="container">
+            <div class="approach-items-inner">
+                <?php $i = 1; ?>
 
-			<?php $i = 1; ?>
+                <?php while ( have_rows( 'approach_columns' ) ) : the_row(); ?>
 
-			<?php while ( have_rows( 'approach_columns' ) ) : the_row(); ?>
+                    <div class="<?php printf( 'col%s', $i ); ?>">
 
-				<div class="<?php printf( 'col%s', $i ); ?>">
+                        <?php if ( have_rows( 'approach_items' ) ): ?>
 
-					<?php if ( have_rows( 'approach_items' ) ): ?>
+                            <?php while ( have_rows( 'approach_items' ) ) : the_row(); ?>
 
-						<?php while ( have_rows( 'approach_items' ) ) : the_row(); ?>
+                                <div class="approach-item">
 
-							<div class="approach-item">
+                                    <h3><?php the_sub_field( 'group_title' ); ?></h3>
 
-								<h3><?php the_sub_field( 'group_title' ); ?></h3>
+                                    <?php if ( have_rows( 'items' ) ): ?>
 
-								<?php if ( have_rows( 'items' ) ): ?>
+                                        <?php while ( have_rows( 'items' ) ) : the_row(); ?>
 
-									<?php while ( have_rows( 'items' ) ) : the_row(); ?>
+                                            <p><?php the_sub_field( 'item_title' ); ?></p>
 
-										<p><?php the_sub_field( 'item_title' ); ?></p>
+                                        <?php endwhile; ?>
 
-									<?php endwhile; ?>
+                                    <?php endif; ?>
 
-								<?php endif; ?>
+                                </div>
 
-							</div>
+                            <?php endwhile; ?>
 
-						<?php endwhile; ?>
+                        <?php endif; ?>
 
-					<?php endif; ?>
+                    </div>
 
-				</div>
+                    <?php $i ++; ?>
 
-				<?php $i ++; ?>
-
-			<?php endwhile; ?>
+                <?php endwhile; ?>
+            </div>
 
 		</div>
 

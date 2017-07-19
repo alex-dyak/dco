@@ -9,7 +9,9 @@
 
 		<h3><?php the_sub_field( 'sub_title' ); ?></h3>
 
-		<?php the_sub_field( 'content' ); ?>
+		<div class="approach-block-text">
+            <?php the_sub_field( 'content' ); ?>
+        </div>
 
 		<div class="graph">
 			<?php $graph_image_id = get_sub_field( 'approach_graphic' ); ?>
