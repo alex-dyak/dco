@@ -2,10 +2,9 @@
 
 (function($){
     $(function(){
-        $('.js-grid').isotope({
-            layoutMode: 'packery',
-            itemSelector: '.gridItem'
-
+        $('.js-grid').packery({
+            itemSelector: '.gridItem',
+            gutter: 0
         });
 
         $('.js-projectsSlider').slick({
@@ -20,4 +19,9 @@
         }
 
     });
+    $(window).resize(function () {
+        setTimeout(function () {
+            $('.js-grid').packery();
+        }, 400)
+    })
 })(jQuery);
