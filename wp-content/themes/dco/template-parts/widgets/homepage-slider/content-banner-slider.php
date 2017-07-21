@@ -12,7 +12,7 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 ?>
 
 <?php if ( have_rows( 'slider_content' ) ): ?>
-	<div class="homepageSliderWrap">
+	<div class="homepageSliderWrap js-homepage-sliderWrapp">
 		<div class="homepageSlider js-homepage-slider"
 		     data-speed="<?php echo $speed; ?>">
 
