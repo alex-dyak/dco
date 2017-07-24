@@ -42,12 +42,11 @@ $title_color = get_field( 'title_color' );
 <?php $image = get_sub_field( 'image' );
 if ( ! empty( $image ) && is_int( $image ) ) : ?>
 	<div class="smallModuleStatsImage container">
-		<?php
-		printf( '<img data-src="%s" data-srcset="%s" class="lazyload">',
-			wp_get_attachment_image_url( $image ),
-			wp_get_attachment_image_srcset( $image, 'full' )
-		);
-		?>
+		<img data-src="<?php echo wp_get_attachment_image_url($image, 'full_img_tablet'); ?>" class="lazyload"
+         data-srcset="<?php echo wp_get_attachment_image_url($image, 'full_img_mobile_small'); ?> 480w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_mobile_large'); ?> 760w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_tablet'); ?> 990w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_tablet'); ?> 1900w">
 	</div>
 <?php endif; ?>
 

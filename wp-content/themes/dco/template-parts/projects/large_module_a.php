@@ -72,24 +72,31 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
 			<div
 				class="imageLargeModuleA-image imageLargeModuleA-image--parallax">
 				<div class="lazyload parallaxImg"
-				     data-bgset="<?php echo wp_get_attachment_image_srcset( $image, 'full_img_desktop_large' ); ?>"
+				     data-bgset="<?php echo wp_get_attachment_image_url($image, 'full_img_mobile_small'); ?> 480w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_mobile_large'); ?> 760w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_tablet'); ?> 990w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_small'); ?> 1200w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_medium'); ?> 1600w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_large'); ?> 1900w"
 				     data-sizes="auto"></div>
 
-				<?php
-				printf( '<img data-src="%s" data-srcset="%s" class="lazyload">',
-					wp_get_attachment_image_url( $image ),
-					wp_get_attachment_image_srcset( $image, 'full' )
-				);
-				?>
+        <img src="<?php echo wp_get_attachment_image_url($image, 'full_img_desktop_large'); ?>" alt="<?php echo $quote_title; ?>"
+             srcset="<?php echo wp_get_attachment_image_url($image, 'full_img_mobile_small'); ?> 480w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_mobile_large'); ?> 760w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_tablet'); ?> 990w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_small'); ?> 1200w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_medium'); ?> 1600w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_large'); ?> 1900w">
 			</div>
 		<?php else: ?>
 			<div class="imageLargeModuleA-image">
-				<?php
-				printf( '<img data-src="%s" data-srcset="%s" class="lazyload">',
-					wp_get_attachment_image_url( $image ),
-					wp_get_attachment_image_srcset( $image, 'full' )
-				);
-				?>
+        <img data-src="<?php echo wp_get_attachment_image_url($image, 'full_img_desktop_large'); ?>" class="lazyload" alt="<?php echo $quote_title; ?>"
+             data-srcset="<?php echo wp_get_attachment_image_url($image, 'full_img_mobile_small'); ?> 480w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_mobile_large'); ?> 760w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_tablet'); ?> 990w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_small'); ?> 1200w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_medium'); ?> 1600w,
+             <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_large'); ?> 1900w">
 			</div>
 		<?php endif; ?>
 	</div>

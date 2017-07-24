@@ -64,7 +64,12 @@ switch ( $select ) {
 		<div class="videoLargeModuleB-video videoBox js-videoBox">
 			<?php if ( ! empty ( $video_poster ) && is_int( $video_poster ) ) : ?>
 				<div class="videoBox-poster lazyload js-videoPoster"
-				     data-bgset="<?php echo wp_get_attachment_image_srcset( $video_poster, 'full_img_desktop_large' ); ?>"
+				     data-bgset="<?php echo wp_get_attachment_image_url($video_poster, 'full_img_mobile_small'); ?> 480w,
+             <?php echo wp_get_attachment_image_url($video_poster, 'full_img_mobile_large'); ?> 760w,
+             <?php echo wp_get_attachment_image_url($video_poster, 'full_img_tablet'); ?> 990w,
+             <?php echo wp_get_attachment_image_url($video_poster, 'full_img_desktop_small'); ?> 1200w,
+             <?php echo wp_get_attachment_image_url($video_poster, 'full_img_desktop_medium'); ?> 1600w,
+             <?php echo wp_get_attachment_image_url($video_poster, 'full_img_desktop_large'); ?> 1900w"
 				     data-sizes="auto"></div>
 			<?php endif; ?>
 			<div class="videoBox-video js-video">

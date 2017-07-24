@@ -5,8 +5,14 @@ if ( $blocks_revert ) {
 } else {
 	$block_revert_class = "";
 }
-?>
 
+if ( get_sub_field( 'header' ) ) {
+  $block_title = get_sub_field( 'header' );
+}
+else {
+  $block_title = "";
+}
+?>
 
 <div class="imageSmallModuleA <?php echo $block_revert_class; ?>container">
 	<?php $image = get_sub_field( 'image' );
@@ -15,7 +21,7 @@ if ( $blocks_revert ) {
 		$size  = 'module_img';
 		?>
 		<div class="imageSmallModuleA-image">
-			<?php echo wp_get_attachment_image( $image, $size ); ?>
+      <img src="<?php echo wp_get_attachment_image_url($image, 'module_img'); ?>" alt="<?php echo $block_title; ?>">
 		</div>
 	<?php endif; ?>
 
@@ -23,12 +29,12 @@ if ( $blocks_revert ) {
 		<div class="imageSmallModuleA-body">
 			<?php if ( get_sub_field( 'header' ) ): ?>
 				<h2 class="imageSmallModuleA-body-title"
-				    style="color: <?php echo $title_color; ?>"><?php echo the_sub_field( 'header' ); ?></h2>
+				    style="color: <?php echo $title_color; ?>"><?php the_sub_field( 'header' ); ?></h2>
 			<?php endif; ?>
 
 			<?php if ( get_sub_field( 'body' ) ): ?>
 				<div class="imageSmallModuleA-body-description">
-					<?php echo the_sub_field( 'body' ); ?>
+					<?php the_sub_field( 'body' ); ?>
 				</div>
 			<?php endif; ?>
 		</div>
