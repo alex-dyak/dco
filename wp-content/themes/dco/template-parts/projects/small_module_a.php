@@ -12,7 +12,7 @@ if ( $blocks_revert ) {
 	<?php $image = get_sub_field( 'image' );
 	if ( ! empty( $image ) && is_int( $image ) ) :
 		$image = get_sub_field( 'image' );
-		$size  = 'full_img_mobile_large';
+		$size  = 'module_img';
 		?>
 		<div class="imageSmallModuleA-image">
 			<?php echo wp_get_attachment_image( $image, $size ); ?>

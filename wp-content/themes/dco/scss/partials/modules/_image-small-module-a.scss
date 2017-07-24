@@ -8,10 +8,10 @@
   &-image {
     @media #{$tablet-up} {
       padding-right: 15px;
-      flex: 1 0 50%;
+      flex: 1 0 40%;
     }
     @media #{$desktop-up} {
-      flex: 1;
+      //flex: 1;
     }
     img {
       width: 100%;
@@ -21,11 +21,11 @@
   &-body {
     padding: 27px 15px 0;
     @media #{$tablet-up} {
-      flex: 1 0 50%;
+      flex: 1 0 60%;
       padding: 0 0 0 15px;
     }
     @media #{$desktop-up} {
-      flex: 1;
+      //flex: 1;
     }
     a {
       font-family: $SourceSansPro-semibold;
@@ -35,6 +35,9 @@
       @media #{$tablet-up} {
         display: inline-block;
       }
+    }
+    &-title {
+      margin-top: -5px;
     }
   }
 

@@ -37,16 +37,17 @@
 
       &--large {
         @media #{$desktop-up} {
-          font-size: 1.35rem;
+          font-size: 1.375rem;
           line-height: 1.65rem;
         }
       }
 
       &.position-top_right {
         @media #{$tablet-up} {
-          right: 0;
-          top: 0;
-          transform: translateY(-50%);
+          right: 85px;
+          //left: 500px;
+          top: -70px;
+          //transform: translateY(-50%);
         }
       }
 
