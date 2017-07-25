@@ -94,22 +94,25 @@
                         thisSlider = $(popupId).find('.js-clientSlider');
 
                     if(thisSlider.length && !thisSlider.hasClass('slick-initialized')) {
-                        thisSlider.slick({
-                            autoplay: true,
-                            autoplaySpeed: 4000,
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            arrows: false,
-                            dots: true,
-                            responsive: [
-                                {
-                                    breakpoint: 768,
-                                    settings: {
-                                        dots: false
+                        setTimeout(function () {
+                            thisSlider.slick({
+                                autoplay: true,
+                                autoplaySpeed: 4000,
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                arrows: false,
+                                dots: true,
+                                responsive: [
+                                    {
+                                        breakpoint: 768,
+                                        settings: {
+                                            dots: false
+                                        }
                                     }
-                                }
-                            ]
-                        });
+                                ]
+                            });
+                            alert('Slider on open init')
+                        }, 500)
                     }
                 },
                 close: function() {

@@ -21,7 +21,7 @@ else {
 		$size  = 'module_img';
 		?>
 		<div class="imageSmallModuleA-image">
-      <img src="<?php echo wp_get_attachment_image_url($image, 'module_img'); ?>" alt="<?php echo $block_title; ?>">
+      <img src="<?php echo wp_get_attachment_image_url($image, $size); ?>" alt="<?php echo $block_title; ?>">
 		</div>
 	<?php endif; ?>
 
