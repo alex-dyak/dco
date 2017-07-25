@@ -91,7 +91,7 @@
                 open: function () {
                     var thisClickItem = $(this._lastFocusedEl).get(0),
                         popupId = $(thisClickItem).attr('href'),
-                        thisSlider = $(popupId).find('.js-clientSlider');
+                        thisSlider = $('.js-clientSlider');
 
                     if(thisSlider.length && !thisSlider.hasClass('slick-initialized')) {
                         setTimeout(function () {
