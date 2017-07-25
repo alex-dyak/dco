@@ -85,39 +85,36 @@
             stickyAside();
         });
 
+        var magnificPopup = $.magnificPopup.instance;
+
         $('.js-popup').magnificPopup({
             type:'inline',
             callbacks: {
                 open: function () {
-                    var thisClickItem = $(this._lastFocusedEl).get(0),
-                        popupId = $(thisClickItem).attr('href'),
-                        thisSlider = $('.js-clientSlider');
+                    var popupId = magnificPopup.currItem.src,
+                        thisSlider = $(popupId).find('.js-clientSlider');
 
                     if(thisSlider.length && !thisSlider.hasClass('slick-initialized')) {
-                        setTimeout(function () {
-                            thisSlider.slick({
-                                autoplay: true,
-                                autoplaySpeed: 4000,
-                                slidesToShow: 1,
-                                slidesToScroll: 1,
-                                arrows: false,
-                                dots: true,
-                                responsive: [
-                                    {
-                                        breakpoint: 768,
-                                        settings: {
-                                            dots: false
-                                        }
+                        thisSlider.slick({
+                            autoplay: true,
+                            autoplaySpeed: 4000,
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: false,
+                            dots: true,
+                            responsive: [
+                                {
+                                    breakpoint: 768,
+                                    settings: {
+                                        dots: false
                                     }
-                                ]
-                            });
-                            alert('Slider on open init')
-                        }, 500)
+                                }
+                            ]
+                        });
                     }
                 },
                 close: function() {
-                    var thisClickItem = $(this._lastFocusedEl).get(0),
-                        popupId = $(thisClickItem).attr('href'),
+                    var popupId = magnificPopup.currItem.src,
                         thisSlider = $(popupId).find('.js-clientSlider');
 
                     if(thisSlider.length && thisSlider.hasClass('slick-initialized')) {
