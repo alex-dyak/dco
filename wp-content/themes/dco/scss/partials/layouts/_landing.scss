@@ -15,6 +15,9 @@ $landingTitleLineHeight: 1;
         overflow: hidden;
         @media #{$tablet-up} {
             margin: 0 0 7px;
+            height: 300px;
+        }
+        @media #{$desktop-up} {
             height: 450px;
         }
         &:hover {
@@ -64,11 +67,11 @@ $landingTitleLineHeight: 1;
         text-align: center;
         @media #{$tablet-up} {
             top: 0;
-            width: 47.67%;
+            width: 300px;
             height: auto;
         }
         @media #{$desktop-up} {
-            width: 25%;
+            width: 450px;
         }
         &.left {
             left: 0;

@@ -19,9 +19,11 @@
 
         function sliderHeight() {
             var tablet = window.matchMedia("only screen and (max-width: 48em)"),
-                sliderHeightV = 0;
+                sliderHeightV = 0,
+                itemHeight = 0;
             if( !tablet.matches ) {
-                sliderHeightV = $(window).height() * 0.84;
+                itemHeight = $(window).height() * 0.84;
+                sliderHeightV = itemHeight.toFixed();
             } else {
                 sliderHeightV = 441;
             }

@@ -1,5 +1,6 @@
 /* variables for this module */
-$dotsColor: $swirl;
+$dotsColor: rgba($swirl, .4);
+$dotsColor--hover: rgba($swirl, .8);
 $dotsColor--active: $scorpion;
 
 /*===========================*/
@@ -18,7 +19,7 @@ $dotsColor--active: $scorpion;
     @media #{$tablet-up} {
       padding-right: 15px;
       //flex: 1 0 50%;
-      width: 50%;
+      width: 40%;
     }
     img {
       display: block;
@@ -30,7 +31,29 @@ $dotsColor--active: $scorpion;
     @media #{$tablet-up} {
       padding: 0 0 0 15px;
       //flex: 1 0 50%;
-      width: 50%;
+      width: 60%;
+    }
+    &-description {
+      ul {
+        padding: 0;
+        margin: 0 0 1.5rem;
+        list-style: none;
+        li {
+          position: relative;
+          padding-left: 32px;
+          &::before {
+            position: absolute;
+            top: 50%;
+            margin-top: -2px;
+            left: 0;
+            width: 4px;
+            height: 4px;
+            content: "";
+            border-radius: 100%;
+            background: $green--lighter;
+          }
+        }
+      }
     }
   }
 }
@@ -57,6 +80,9 @@ $dotsColor--active: $scorpion;
       &.slick-active {
         > button {
           background: $dotsColor--active;
+          &:hover {
+            background: $dotsColor--active;
+          }
         }
       }
       > button {
@@ -69,6 +95,9 @@ $dotsColor--active: $scorpion;
         background: $dotsColor;
         border: 0;
         outline: 0;
+        &:hover {
+          background: $dotsColor--hover;
+        }
       }
     }
   }

@@ -18,10 +18,10 @@ else {
 	<?php $image = get_sub_field( 'image' );
 	if ( ! empty( $image ) && is_int( $image ) ) :
 		$image = get_sub_field( 'image' );
-		$size  = 'full_img_mobile_small';
+		$size  = 'module_img';
 		?>
 		<div class="imageSmallModuleA-image">
-      <img src="<?php echo wp_get_attachment_image_url($image, 'full_img_mobile_small'); ?>" alt="<?php echo $block_title; ?>">
+      <img src="<?php echo wp_get_attachment_image_url($image, $size); ?>" alt="<?php echo $block_title; ?>">
 		</div>
 	<?php endif; ?>
 
