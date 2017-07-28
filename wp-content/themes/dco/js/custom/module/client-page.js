@@ -36,6 +36,21 @@
 
         });
 
+        function fullHeightModule() {
+            var $fullHeightEl = $('.js-fullHeightImage');
+            if ( $fullHeightEl.length ) {
+                $fullHeightEl.each(function () {
+                    var $this = $(this),
+                        $parallaxWrap = $this.find('.parallaxImg'),
+                        headerHeight = $('.js-siteHeader').outerHeight(),
+                        sectionHeight = $(window).height() - (headerHeight * 2);
+                    $parallaxWrap.height(sectionHeight);
+                });
+            }
+        }
+        fullHeightModule();
+
+
         //Clients filter function
         function filterList(value) {
             var $list = $(".clientItemList"),
@@ -122,6 +137,10 @@
                     }
                 }
             }
+        });
+
+        $(window).on('resize',function(){
+            fullHeightModule();
         });
 
 

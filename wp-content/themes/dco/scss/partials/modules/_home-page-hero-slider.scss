@@ -1,6 +1,8 @@
 /* variables for this module */
 $heroBannerHeight--desktop: 568px;
 $heroBannerHeight--mobile: 441px;
+$homePageSlider-btnBackground: rgba($grey, .3);
+$homePageSlider-btnBackground--hover: rgba($grey, .8);
 
 
 /*===========================*/
@@ -120,7 +122,7 @@ $heroBannerHeight--mobile: 441px;
 
   .slick-dots {
     position: absolute;
-    bottom: 20px;
+    bottom: 14px;
     right: 0;
     width: 100%;
     list-style: none;
@@ -137,7 +139,7 @@ $heroBannerHeight--mobile: 441px;
       width: auto;
     }
     > li {
-      padding: 0 5px;
+      padding: 0 8px;
       @media #{$tablet-up} {
         padding: 5px 0;
       }
@@ -148,14 +150,17 @@ $heroBannerHeight--mobile: 441px;
         }
       }
       > button {
-        width: 17px;
-        height: 17px;
+        width: 11px;
+        height: 11px;
         padding: 0;
         text-indent: -9999px;
-        background: $grey;
+        background: $homePageSlider-btnBackground;
         border-radius: 50%;
         border: 0;
         outline: 0;
+        &:hover {
+          background: $homePageSlider-btnBackground--hover;
+        }
         @media #{$tablet-up} {
           width: 8px;
           height: 8px;
