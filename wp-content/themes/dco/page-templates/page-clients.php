@@ -41,7 +41,7 @@ get_header(); ?>
 					?>
 
 					<div class="imageClientPage">
-						<div class="imageClientPage-image">
+						<div class="imageClientPage-image js-fullHeightImage">
 							<div class="lazyload parallaxImg"
 							     data-bgset="<?php echo $full_img_mobile_small; ?> 480w,
                                             <?php echo $full_img_mobile_large; ?> 768w,

@@ -48,7 +48,12 @@
                         $parallaxWrap = $this.find('.parallaxImg'),
                         headerHeight = $('.js-siteHeader').outerHeight(),
                         sectionHeight = $(window).height() - (headerHeight * 2);
-                    $parallaxWrap.height(sectionHeight);
+                    if( $parallaxWrap.length ) {
+                        $parallaxWrap.height(sectionHeight);
+                    }else {
+                        //$this.find('img')
+                    }
+
                 });
             }
         }
@@ -59,6 +64,7 @@
         }
 
         $(window).on('resize',function(){
+            fullHeightModule()
             if(needToFix && isProjectPage) {
                 initReplace();
             }

@@ -8,6 +8,8 @@
     margin-top: 0;
   }
   &-quote {
+    position: relative;
+    z-index: 1;
     @media #{$tablet-up} {
       position: absolute;
       left: 50%;
@@ -88,6 +90,23 @@
       text-transform: uppercase;
       margin-bottom: 15px;
     }
+  }
+  &.fullHeight{
+    overflow: hidden;
+     .imageLargeModuleA-image {
+       min-height: 365px;
+       img {
+         display: block;
+         width: auto;
+         min-width: 100%;
+         min-height: 100%;
+         max-width: none;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+       }
+     }
   }
 
   &-image {

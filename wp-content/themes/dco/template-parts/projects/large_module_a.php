@@ -35,7 +35,7 @@ switch ( $select ) {
 if ( ! empty( $image ) && is_int( $image ) ) : ?>
 
     <?php if ( $full_height ) {
-        $full_height_class = 'js-fullHeight';
+        $full_height_class = 'js-fullHeight fullHeight';
     } else {
         $full_height_class = '';
     }
