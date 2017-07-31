@@ -47,12 +47,13 @@ function dco_setup() {
 
 	if ( function_exists( 'add_image_size' ) ) {
 		add_image_size( 'mobile_img', 280, 280, true );
-		add_image_size( 'full_img_mobile_small', 480, '', true );
-		add_image_size( 'full_img_mobile_large', 770, '', true );
+		add_image_size( 'full_img_mobile_small', 480, 365, true );
+		add_image_size( 'full_img_mobile_large', 770, 365, true );
 		add_image_size( 'full_img_tablet', 992, '', true );
         add_image_size( 'full_img_desktop_small', 1200, '', true );
         add_image_size( 'full_img_desktop_medium', 1620, '', true );
         add_image_size( 'full_img_desktop_large', 1920, '', true );
+        add_image_size( 'full_height_img_desktop_large', 1920, '', false );
         add_image_size( 'module_img', 343, '', false );
         add_image_size( 'module_slider', 374, 584, true );
 		add_image_size( 'featured_preview', 55, 55, true );

@@ -40,31 +40,52 @@
             })
         }
 
+        function sliderHeight() {
+            var tablet = window.matchMedia("only screen and (max-width: 48em)"),
+                sliderHeightV = 0,
+                itemHeight = 0,
+                headerHeight = $('.js-siteHeader').outerHeight(),
+                $slides = profileSlider.find('.slick-slide');
+            if( !tablet.matches ) {
+                itemHeight = $(window).height() - (headerHeight * 2);
+                sliderHeightV = itemHeight.toFixed();
+            } else {
+                sliderHeightV = 365;
+            }
+            //profileSlider.height(sliderHeightV);
+            $slides.height(sliderHeightV);
+        }
+
         function fullHeightModule() {
-            var $fullHeightEl = $('.js-fullHeight');
+            var tablet = window.matchMedia("only screen and (max-width: 48em)"),
+                $fullHeightEl = $('.js-fullHeight');
             if ( $fullHeightEl.length ) {
                 $fullHeightEl.each(function () {
+                    console.log(11);
                     var $this = $(this),
                         $parallaxWrap = $this.find('.parallaxImg'),
                         headerHeight = $('.js-siteHeader').outerHeight(),
                         sectionHeight = $(window).height() - (headerHeight * 2);
-                    if( $parallaxWrap.length ) {
-                        $parallaxWrap.height(sectionHeight);
-                    }else {
-                        //$this.find('img')
+                    if( !tablet.matches ) {
+                        if ($parallaxWrap.length) {
+                            $parallaxWrap.height(sectionHeight);
+                        } else {
+                            $this.find('.js-fullHeightDefault').height(sectionHeight);
+                        }
+                    } else {
+                        $this.find('.js-fullHeightDefault').height('auto');
                     }
-
                 });
             }
         }
-        fullHeightModule()
+        fullHeightModule();
 
         if(needToFix && isProjectPage) {
             initReplace();
         }
 
         $(window).on('resize',function(){
-            fullHeightModule()
+            fullHeightModule();
             if(needToFix && isProjectPage) {
                 initReplace();
             }
