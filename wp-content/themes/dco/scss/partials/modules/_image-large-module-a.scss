@@ -121,6 +121,9 @@
       //display: block;
       width: 100%;
       display: none;
+      &.defaultImage {
+        display: block;
+      }
     }
     &--parallax {
       margin-bottom: 0;

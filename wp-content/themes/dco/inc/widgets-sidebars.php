@@ -545,7 +545,7 @@ class W4P_Team_Widget extends WP_Widget {
 				$data[ $member_id ]['position_description_text'] = get_field( 'position_description_text', $member_id );
 				$data[ $member_id ]['close_link_color']          = get_field( 'close_link_color', $member_id );
 				$big_photo_id                                    = get_field( 'big_photo', $member_id );
-				$data[ $member_id ]['photo']                     = wp_get_attachment_image( $big_photo_id, 'full' );
+				$data[ $member_id ]['photo']                     = wp_get_attachment_image( $big_photo_id, 'profile_team_image' );
 				$data[ $member_id ]['photo_preview']             = get_the_post_thumbnail( $member_id, 'full' );
 			endwhile;
 			wp_reset_postdata();
