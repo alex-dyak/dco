@@ -6,6 +6,7 @@
     align-items: flex-start;
   }
   &-image {
+    text-align: center;
     @media #{$tablet-up} {
       padding-right: 15px;
       flex: 1 0 40%;
@@ -14,8 +15,10 @@
       //flex: 1;
     }
     img {
-      width: 100%;
-      display: block;
+      @media #{$tablet-up} {
+        width: 100%;
+        display: block;
+      }
     }
   }
   &-body {

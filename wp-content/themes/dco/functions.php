@@ -47,16 +47,24 @@ function dco_setup() {
 
 	if ( function_exists( 'add_image_size' ) ) {
 		add_image_size( 'mobile_img', 280, 280, true );
-		add_image_size( 'full_img_mobile_small', 480, '', true );
-		add_image_size( 'full_img_mobile_large', 770, '', true );
-		add_image_size( 'full_img_tablet', 992, '', true );
+		add_image_size( 'full_img_mobile_small', 480, 365, true );
+		add_image_size( 'full_img_mobile_large', 770, 365, true );
+		add_image_size( 'full_img_tablet', 992, '', false );
         add_image_size( 'full_img_desktop_small', 1200, '', true );
         add_image_size( 'full_img_desktop_medium', 1620, '', true );
         add_image_size( 'full_img_desktop_large', 1920, '', true );
+        add_image_size( 'full_height_img_desktop_large', 1920, '', false );
+        add_image_size( 'full_default_img_desktop_mobile_small', 480, '', false );
+        add_image_size( 'full_default_img_desktop_mobile_large', 770, '', false );
+        add_image_size( 'full_default_img_desktop_tablet', 992, '', false );
+        add_image_size( 'full_default_img_desktop_small', 1200, '', false );
+        add_image_size( 'full_default_img_desktop_medium', 1620, '', false );
+        add_image_size( 'full_default_img_desktop_large', 1920, '', false );
         add_image_size( 'module_img', 343, '', false );
         add_image_size( 'module_slider', 374, 584, true );
 		add_image_size( 'featured_preview', 55, 55, true );
 		add_image_size( 'client_image', 865, 497, true );
+		add_image_size( 'profile_team_image', 800, '', false );
     add_image_size( 'homepage_grid_slider_project', 930, 930, true );
     add_image_size( 'homepage_grid_small_image', 465, 465, true );
     add_image_size( 'homepage_grid_long_image', 465, 930, true );
@@ -279,6 +287,13 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
 		'full_img_desktop_small',
 		'full_img_desktop_medium',
 		'full_img_desktop_large',
+        'full_height_img_desktop_large',
+        'full_default_img_desktop_mobile_small',
+        'full_default_img_desktop_mobile_large',
+        'full_default_img_desktop_tablet',
+        'full_default_img_desktop_small',
+        'full_default_img_desktop_medium',
+        'full_default_img_desktop_large',
 		'module_slider',
 		'client_image',
 		'module_img',
