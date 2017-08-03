@@ -119,7 +119,7 @@
                             dots: true,
                             responsive: [
                                 {
-                                    breakpoint: 768,
+                                    breakpoint: 769,
                                     settings: {
                                         dots: false
                                     }

@@ -3,8 +3,8 @@
 
         var matchMedia = {
             mobilesmall: window.matchMedia("only screen and (max-width: 30em)"),
-            mobile: window.matchMedia("only screen and (min-width: 30.062em) and (max-width: 48em)"),
-            tablet: window.matchMedia("only screen and (min-width: 48.063em) and (max-width: 62em)"),
+            mobile: window.matchMedia("only screen and (min-width: 30.062em) and (max-width: 47.937em)"),
+            tablet: window.matchMedia("only screen and (min-width: 48em) and (max-width: 62em)"),
             desktop: window.matchMedia("only screen and (min-width: 62.063em) and (max-width: 75em)"),
             desktoplarge: window.matchMedia("only screen and (min-width: 75.063em)")
         };
