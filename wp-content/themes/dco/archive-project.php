@@ -35,7 +35,7 @@ $counter = 0;
 						<?php
 						printf( '<img data-src="%s" data-srcset="%s" class="grayscale lazyload">',
 							wp_get_attachment_image_url( $image ),
-							wp_get_attachment_image_srcset( $image, 'full' )
+							wp_get_attachment_image_srcset( $image, 'full_default_img_desktop_large' )
 						);
 						?>
 					</div>
