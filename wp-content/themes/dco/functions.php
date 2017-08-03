@@ -299,6 +299,9 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
 		'client_image',
 		'module_img',
 		'work_desktop_large',
+        'homepage_grid_slider_project',
+        'homepage_grid_small_image',
+        'homepage_grid_long_image',
 	);
 
 	// image base name
