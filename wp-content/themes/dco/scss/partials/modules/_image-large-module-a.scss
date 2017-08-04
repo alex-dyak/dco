@@ -1,3 +1,5 @@
+$quoteBlock-color: #696A6D;
+
 .imageLargeModuleA {
   position: relative;
   margin: 15px 0;
@@ -57,7 +59,7 @@
         color: $white;
         @media #{$tablet-up} {
           background: rgba( $white, .95) !important;
-          color: $gray-ship;
+          color: $quoteBlock-color;
           width: 40%;
           left: 0;
           top: 50%;
