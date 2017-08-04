@@ -78,6 +78,16 @@ switch ( $select ) {
 				</video>
 			</div>
 		</div>
+	<?php else: ?>
+		<div class="imageLargeModuleA-image">
+			<img data-src="<?php echo wp_get_attachment_image_url($video_poster, 'full_default_img_desktop_large'); ?>" class="lazyload defaultImage" alt="<?php echo $quote_title; ?>"
+			     data-srcset="<?php echo wp_get_attachment_image_url($video_poster, 'full_default_img_desktop_mobile_small'); ?> 480w,
+                                 <?php echo wp_get_attachment_image_url($video_poster, 'full_default_img_desktop_mobile_large'); ?> 760w,
+                                 <?php echo wp_get_attachment_image_url($video_poster, 'full_default_img_desktop_tablet'); ?> 990w,
+                                 <?php echo wp_get_attachment_image_url($video_poster, 'full_default_img_desktop_small'); ?> 1200w,
+                                 <?php echo wp_get_attachment_image_url($video_poster, 'full_default_img_desktop_medium'); ?> 1600w,
+                                 <?php echo wp_get_attachment_image_url($video_poster, 'full_default_img_desktop_large'); ?> 1900w">
+		</div>
 	<?php endif; ?>
 </div>
 
