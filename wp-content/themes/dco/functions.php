@@ -60,6 +60,7 @@ function dco_setup() {
         add_image_size( 'full_default_img_desktop_small', 1200, '', false );
         add_image_size( 'full_default_img_desktop_medium', 1620, '', false );
         add_image_size( 'full_default_img_desktop_large', 1920, '', false );
+        add_image_size( 'work_desktop_large', 1920, 500, true );
         add_image_size( 'module_img', 343, '', false );
         add_image_size( 'module_slider', 374, 584, true );
 		add_image_size( 'featured_preview', 55, 55, true );
@@ -297,6 +298,10 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
 		'module_slider',
 		'client_image',
 		'module_img',
+		'work_desktop_large',
+        'homepage_grid_slider_project',
+        'homepage_grid_small_image',
+        'homepage_grid_long_image',
 	);
 
 	// image base name
