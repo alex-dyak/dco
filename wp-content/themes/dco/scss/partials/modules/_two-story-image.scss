@@ -10,7 +10,10 @@
   &:before {
     content: "";
     display: block;
-    padding-bottom: 200%;
+    padding-bottom: 100%;
+    @media #{$tablet-up} {
+      padding-bottom: 200%;
+    }
   }
   &-inner {
     position: absolute;
@@ -34,7 +37,7 @@
   &-body {
     position: relative;
     z-index: 1;
-    height: 50%;
+    min-height: 200px;
     background: rgba($white, .8);
     padding: 0 34px;
     display: flex;
@@ -43,12 +46,17 @@
     font-size: 1.01rem;
     line-height: 1.35rem;
     color: $nevada;
+    @media #{$tablet-up} {
+      min-height: auto;
+      height: 50%;
+    }
     &-title {
       font-family: $Avenir-medium;
-      font-size: 1.01rem;
+      font-size: 1.56rem;
       line-height: 1.35rem;
       color: $orange--light;
       text-transform: uppercase;
+      font-weight: 600;
     }
   }
 }

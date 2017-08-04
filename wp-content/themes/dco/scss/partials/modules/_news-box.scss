@@ -3,19 +3,20 @@
   display: block;
   background: $orange--light;
   color: $white;
-  font-size: .909rem;
+  font-size: 1.125rem;
   line-height: 1.35rem;
   transition: all .3s;
   width: 100%;
   @media #{$tablet-up} {
     width: 33.3333%;
+    font-size: .909rem;
   }
   @media #{$desktop-up} {
     width: 25%;
   }
   &:hover {
     color: $white;
-    background: $blue;
+    //background: $blue;
   }
   &:before {
     @media #{$tablet-up} {
@@ -25,7 +26,7 @@
     }
   }
   &-inner {
-    padding: 30px 13.8%;
+    padding: 34px;
     display: flex;
     flex-direction: column;
     justify-content: center;

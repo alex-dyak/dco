@@ -43,8 +43,11 @@
   &-body {
     flex: 0 0 50%;
     color: $white;
-    font-size: 0.909rem;
+    font-size: 1.125rem;
     line-height: 1.35rem;
+    @media #{$tablet-up} {
+      font-size: 0.909rem;
+    }
     &-inner {
       display: flex;
       flex-direction: column;
@@ -60,9 +63,12 @@
 
     &-title {
       font-family: $Avenir-medium;
-      font-size: 0.909rem;
+      font-size: 1.3125rem;
       line-height: 1.35rem;
       color: $black;
+      @media #{$tablet-up} {
+        font-size: .909rem;
+      }
     }
 
     a {
