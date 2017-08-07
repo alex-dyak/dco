@@ -60,6 +60,8 @@ $dotsColor--active: $scorpion;
 
 .moduleSlider {
   position: relative;
+  max-width: 373px;
+  margin: 0 auto;
   .slick-slide {
     outline: 0;
   }
