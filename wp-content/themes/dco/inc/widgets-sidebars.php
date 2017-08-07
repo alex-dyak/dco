@@ -535,6 +535,7 @@ class W4P_Team_Widget extends WP_Widget {
 			'order'          => 'ASC',
 		) );
 		$data    = array();
+        add_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
 		if ( $members->have_posts() ):
 			while ( $members->have_posts() ) : $members->the_post();
 				$member_id                                       = get_the_ID();
@@ -550,6 +551,7 @@ class W4P_Team_Widget extends WP_Widget {
 			endwhile;
 			wp_reset_postdata();
 		endif;
+        remove_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
 
 		return $data;
 	}

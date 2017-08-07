@@ -66,6 +66,7 @@ function dco_setup() {
 		add_image_size( 'featured_preview', 55, 55, true );
 		add_image_size( 'client_image', 865, 497, true );
 		add_image_size( 'profile_team_image', 800, '', false );
+		add_image_size( 'small_profile_team_image', 259, 196, false );
     add_image_size( 'homepage_grid_slider_project', 930, 930, true );
     add_image_size( 'homepage_grid_small_image', 465, 465, true );
     add_image_size( 'homepage_grid_long_image', 465, 930, true );
@@ -302,6 +303,7 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
         'homepage_grid_slider_project',
         'homepage_grid_small_image',
         'homepage_grid_long_image',
+        'homepage_grid_slider_project',
 	);
 
 	// image base name
