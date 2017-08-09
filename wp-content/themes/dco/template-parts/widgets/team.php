@@ -10,7 +10,12 @@
 	<div class="team-block">
 		<?php if ( ! empty( $members ) ): ?>
 			<?php foreach ( $members as $member_id => $member ) : ?>
-				<div class="team-member">
+                <?php if ( empty( $member['description'] ) ): ?>
+                    <div class="team-member no-description">
+                <?php else: ?>
+                    <div class="team-member">
+                <?php endif; ?>
+<!--				<div class="team-member">-->
 					<div class="team-member-container">
 						<div class="team-member-holder">
 							<?php if ( ! empty( $member['name'] ) ): ?>
