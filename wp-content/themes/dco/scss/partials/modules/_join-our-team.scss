@@ -83,6 +83,7 @@
 
 .reedHimage {
   width: 100%;
+  line-height: 0;
   @media #{$tablet-up} {
     width: 33.3333%;
   }

@@ -61,7 +61,6 @@
                 $fullHeightEl = $('.js-fullHeight');
             if ( $fullHeightEl.length ) {
                 $fullHeightEl.each(function () {
-                    console.log(11);
                     var $this = $(this),
                         $parallaxWrap = $this.find('.parallaxImg'),
                         headerHeight = $('.js-siteHeader').outerHeight(),

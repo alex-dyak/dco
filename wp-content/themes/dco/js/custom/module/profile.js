@@ -100,7 +100,7 @@
         });
 
         /* On click opens elements */
-        $('.team-block').on('click','.team-member:not(.active, .cloned)', function() {
+        $('.team-block').on('click','.team-member:not(.active, .cloned, .no-description)', function() {
             if($(window).width() > 480) {
                 insertCloned($(this));
             } else {
