@@ -22,9 +22,7 @@ get_header(); ?>
 
 			<?php if ( get_field( 'select_grid_area' ) ) : ?>
 				<div class="homepageGridArea">
-					<div class="container">
-                        <?php the_field( 'select_grid_area' ); ?>
-                    </div>
+                    <?php the_field( 'select_grid_area' ); ?>
 				</div>
 			<?php endif; ?>
 

@@ -10,9 +10,9 @@
   &:before {
     content: "";
     display: block;
-    padding-bottom: 100%;
+    padding-bottom: 125%;
     @media #{$tablet-up} {
-      padding-bottom: 200%;
+      padding-bottom: 180%;
     }
   }
   &-inner {
@@ -29,6 +29,7 @@
     left: 0;
     height: 100%;
     width: 100%;
+    overflow: hidden;
     img {
       width: 100%;
     }
@@ -37,7 +38,7 @@
   &-body {
     position: relative;
     z-index: 1;
-    min-height: 200px;
+    min-height: 50%;
     background: rgba($white, .8);
     padding: 0 34px;
     display: flex;
@@ -51,12 +52,32 @@
       height: 50%;
     }
     &-title {
+      margin-bottom: 0;
       font-family: $Avenir-medium;
-      font-size: 1.56rem;
-      line-height: 1.35rem;
+      //font-size: 1.56rem;
+      //line-height: 1.75rem;
+      font-size: 7.8vw;
+      line-height: 1.2;
       color: $orange--light;
       text-transform: uppercase;
       font-weight: 600;
+      @media #{$tablet-up} {
+        font-size: 1.56rem;
+        line-height: 1.75rem;
+      }
+    }
+    &-text {
+      font-family: $Avenir-medium;
+      //font-size: 1.56rem;
+      //line-height: 1.75rem;
+      font-size: 7.8vw;
+      line-height: 1.2;
+      text-transform: uppercase;
+      font-weight: 600;
+      @media #{$tablet-up} {
+        font-size: 1.56rem;
+        line-height: 1.75rem;
+      }
     }
   }
 }

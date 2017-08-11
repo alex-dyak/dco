@@ -687,13 +687,13 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 				}
 				?>
                 <div class="grid-sizer"></div>
-				<a href="<?php echo $link; ?>" target="_blank" class="newsBox gridItem">
+				<div class="newsBox gridItem">
                     <span class="newsBox-inner">
                         <span class="newsBox-date"><?php echo $date; ?></span>
                         <span
                             class="newsBox-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
                     </span>
-				</a>
+				</div>
 				<?php
 			}
 		}
