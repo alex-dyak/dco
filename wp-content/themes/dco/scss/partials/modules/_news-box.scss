@@ -3,13 +3,16 @@
   display: block;
   background: $orange--light;
   color: $white;
-  font-size: 1.125rem;
-  line-height: 1.35rem;
+  //font-size: 1.125rem;
+  //line-height: 1.35rem;
+  font-size: 5.5vw;
+  line-height: 1.2;
   transition: all .3s;
   width: 100%;
   @media #{$tablet-up} {
     width: 33.3333%;
     font-size: .909rem;
+    line-height: 1.35rem;
   }
   @media #{$desktop-up} {
     width: 25%;
@@ -19,18 +22,24 @@
     //background: $blue;
   }
   &:before {
+    content: '';
+    display: block;
+    padding-bottom: 62.5%;
     @media #{$tablet-up} {
-      content: '';
-      display: block;
-      padding-bottom: 100%;
+      padding-bottom: 90%;
     }
   }
   &-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     padding: 34px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 200px;
+    //min-height: 200px;
     @media #{$tablet-up} {
       position: absolute;
       top: 0;
