@@ -459,8 +459,8 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
         bottom: 0;
         left: 0;
         right: 0;
-        min-height: 54px;
-        padding: 5px 35px 5px 16px;
+        //min-height: 54px;
+        padding: 10px 35px 10px 16px;
         background: $profileTeamBackgroundColor;
         z-index: 4;
         .dots {
@@ -495,7 +495,7 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
             top: 10px;
             left: 10px;
             bottom: 10px;
-            width: 343px;
+            width: 230px;
             background: $profileTeamBackgroundColor;
             padding: 20px 10px;
         }
@@ -504,6 +504,9 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
             left: 50px;
             bottom: 30px;
             padding: 30px;
+        }
+        @media #{$desktop-up}{
+            width: 343px;
         }
         &.right {
             @media #{$mobile-up} {
