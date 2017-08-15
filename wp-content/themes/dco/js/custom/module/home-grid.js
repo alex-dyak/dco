@@ -12,7 +12,7 @@
             dots: true,
             arrows: false,
             autoplay: true,
-            autoplaySpeed: 3000,
+            autoplaySpeed: 2000,
             fade: true
         });
 
