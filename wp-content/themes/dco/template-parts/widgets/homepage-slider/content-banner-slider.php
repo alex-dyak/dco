@@ -45,13 +45,11 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 					if ( ! empty( $image ) && is_int( $image ) ) : ?>
 
                         <div class="homepageSlider-slide-title"><?php echo $title; ?></div>
-						<div class="homepageSlider-slide-img">
-                              <?php
-                            printf( '<img src="%s" srcset="%s">',
-                                wp_get_attachment_image_url( $image ),
-                                wp_get_attachment_image_srcset( $image, 'full' )
-                            );
-                            ?>
+						<div class="homepageSlider-slide-img lazyload"
+                             data-bgset="<?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full_large' ) ?> 1900w,
+                                         <?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full_medium' ) ?> 1600w,
+                                         <?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full_small' ) ?> 1200w"
+                             data-sizes="auto">
                         </div>
                     <?php endif; ?>
                       						<?php
