@@ -65,6 +65,9 @@ $homePageSlider-btnBackground--hover: rgba($grey, .8);
     }
 
     &-img {
+      width: 100%;
+      background-size: cover;
+      background-position: 50% 50%;
       height: $heroBannerHeight--mobile;
       @media #{$tablet-up} {
         height: $heroBannerHeight--desktop;

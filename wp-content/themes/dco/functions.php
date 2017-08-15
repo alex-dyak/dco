@@ -69,6 +69,9 @@ function dco_setup() {
     add_image_size( 'homepage_grid_slider_project', 930, 930, true );
     add_image_size( 'homepage_grid_small_image', 465, 465, true );
     add_image_size( 'homepage_grid_long_image', 465, 930, true );
+    add_image_size( 'homepage_slider_full_large', 1920, 1080, true );
+    add_image_size( 'homepage_slider_full_medium', 1600, 1050, true );
+    add_image_size( 'homepage_slider_full_small', 1280, 1024, true );
 
 		//need add the image size to array $image_sizes in the function dco_add_custom_image_srcset
 	}
@@ -302,6 +305,9 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
         'homepage_grid_slider_project',
         'homepage_grid_small_image',
         'homepage_grid_long_image',
+        'homepage_slider_full_large',
+        'homepage_slider_full_medium',
+        'homepage_slider_full_small',
 	);
 
 	// image base name
