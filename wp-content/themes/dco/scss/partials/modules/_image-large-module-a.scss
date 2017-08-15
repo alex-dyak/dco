@@ -146,9 +146,13 @@ $quoteBlock-color: #696A6D;
   background-repeat: no-repeat;
   background-size: cover;
   @media #{$tablet-up} {
-    background-attachment: fixed;
     min-height: 509px;
     max-height: none;
+  }
+  html:not(.ios) & {
+    @media #{$tablet-up} {
+      background-attachment: fixed;
+    }
   }
 }
 .defaultFullHeightImage {

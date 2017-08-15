@@ -57,5 +57,8 @@
 
   $(window).on('load', function(){
       $('.js-preloader').fadeOut();
+      if (navigator.userAgent.match(/(\(iPod|\(iPhone|\(iPad)/)) {
+          $('html').addClass('ios')
+      }
   });
 })(jQuery);
