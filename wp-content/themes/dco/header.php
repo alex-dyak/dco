@@ -50,7 +50,7 @@
 
 <div class="preloader js-preloader">
     <div class="preloader-inner">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/preloader.gif" alt="">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/preloader_horiz.gif" alt="">
     </div>
 </div>
 
