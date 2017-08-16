@@ -47,8 +47,8 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
                         <div class="homepageSlider-slide-title"><?php echo $title; ?></div>
 						<div class="homepageSlider-slide-img lazyload"
                              data-bgset="<?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full_large' ) ?> 1900w,
-                                         <?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full_medium' ) ?> 1600w,
-                                         <?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full_small' ) ?> 1200w"
+                                         <?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full' ) ?> 1600w,
+                                         <?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full' ) ?> 1200w"
                              data-sizes="auto">
                         </div>
                     <?php endif; ?>
