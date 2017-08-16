@@ -146,6 +146,9 @@ $quoteBlock-color: #696A6D;
   background-repeat: no-repeat;
   background-size: cover;
   @media #{$tablet-up} {
+
+  }
+  @media #{$desktop-up} {
     min-height: 509px;
     max-height: none;
   }

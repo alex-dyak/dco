@@ -37,13 +37,18 @@
         });
 
         function fullHeightModule() {
-            var $fullHeightEl = $('.js-fullHeightImage');
+            var tablet = window.matchMedia("only screen and (max-width: 48em)"),
+                $fullHeightEl = $('.js-fullHeightImage');
             if ( $fullHeightEl.length ) {
                 $fullHeightEl.each(function () {
                     var $this = $(this),
-                        $parallaxWrap = $this.find('.parallaxImg'),
-                        headerHeight = $('.js-siteHeader').outerHeight(),
-                        sectionHeight = $(window).height() - (headerHeight * 2);
+                        $parallaxWrap = $this.find('.parallaxImg');
+                    if( !tablet.matches ) {
+                        var headerHeight = $('.js-siteHeader').outerHeight(),
+                            sectionHeight = $(window).height() - (headerHeight * 2);
+                    } else {
+                        sectionHeight = 365;
+                    }
                     $parallaxWrap.height(sectionHeight);
                 });
             }
@@ -146,4 +151,3 @@
 
     });
 })(jQuery);
-

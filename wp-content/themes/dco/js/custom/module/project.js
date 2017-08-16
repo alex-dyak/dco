@@ -73,6 +73,7 @@
                         }
                     } else {
                         $this.find('.js-fullHeightDefault').height('auto');
+                        $parallaxWrap.height(365);
                     }
                 });
             }
