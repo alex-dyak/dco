@@ -1,19 +1,45 @@
 (function($){
     $(function(){
         var $homePageSlider = $('.js-homepage-slider'),
-            homePageSliderSpeed = $homePageSlider.data('speed');
+            homePageSliderSpeed = $homePageSlider.data('speed'),
+            homePageSliderSpeed2x = $homePageSlider.data('speed') * 2;
+        $homePageSlider.on('init', function (event, slick) {
+            console.log('init slider');
+        })
         $homePageSlider.slick({
             autoplay: true,
-            autoplaySpeed: homePageSliderSpeed,
-           infinite: true,
-           arrows: false,
-           dots: true,
-           vertical: true,
-           adaptiveHeight: true,
-           slidesToShow: 1
-       }).on('afterChange', function(event, slick, currentSlide, nextSlide){
-           heroVideo();
-       });
+            autoplaySpeed: homePageSliderSpeed2x,
+            infinite: true,
+            arrows: false,
+            dots: true,
+            pauseOnHover: false,
+            vertical: true,
+            adaptiveHeight: true,
+            slidesToShow: 1
+        })
+        .on('init', function (event, slick) {
+            console.log('init slider');
+            console.log('this is video slide');
+            console.log('init video functionality, run double animation for description');
+        })
+        .on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+            slick.slickSetOption("autoplay", false, false);
+        })
+        .on('afterChange', function(event, slick, currentSlide){
+            if( currentSlide == 0 ) {
+                console.log('this is video slide');
+                console.log('init video functionality, run double animation for description');
+                console.log('autoplay speed:', homePageSliderSpeed2x);
+                slick.slickSetOption("autoplay", true, false);
+                slick.slickSetOption("autoplaySpeed", homePageSliderSpeed2x, false);
+            }else {
+                console.log('this is default slide');
+                console.log('autoplay speed:', homePageSliderSpeed);
+                slick.slickSetOption("autoplay", true, false);
+                slick.slickSetOption("autoplaySpeed", homePageSliderSpeed, false);
+            }
+            heroVideo();
+        });
 
         var $sliderWrapp = $('.js-homepage-sliderWrapp');
 
