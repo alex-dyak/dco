@@ -460,18 +460,21 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
         left: 0;
         right: 0;
         //min-height: 54px;
-        padding: 10px 35px 10px 16px;
+        padding: 9px 35px 9px 16px;
         background: $profileTeamBackgroundColor;
         z-index: 4;
         .dots {
             position: absolute;
             top: 50%;
-            right: 21px;
+            right: 13px;
             transform: translateY(-50%);
             background: $profileTeamColor;
             width: 3px;
             height: 3px;
             border-radius: 50%;
+            @media #{$tablet-up} {
+                right: 21px;
+            }
             &:before,
             &:after {
                 position: absolute;
