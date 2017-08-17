@@ -21,10 +21,7 @@ $socialsColor: $white;
     text-align: center;
     transition: all .3s;
     i {
-      display: block;
-      width: 25px;
-      height: 25px;
-      line-height: 25px;
+      display: none;
     }
     &:hover {
       background: $socialsBg--hover;
