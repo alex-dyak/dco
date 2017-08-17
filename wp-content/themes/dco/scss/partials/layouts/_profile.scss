@@ -579,9 +579,15 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
         .position {
             margin-bottom: 20px;
             text-align: center;
+            @media #{$tablet-up} {
+                text-align: left;
+            }
         }
         .name {
             text-align: center;
+            @media #{$tablet-up} {
+                text-align: left;
+            }
         }
     }
     .member-modal {
