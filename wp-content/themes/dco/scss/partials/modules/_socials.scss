@@ -20,6 +20,12 @@ $socialsColor: $white;
     color: $socialsColor;
     text-align: center;
     transition: all .3s;
+    i {
+      display: block;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+    }
     &:hover {
       background: $socialsBg--hover;
     }
