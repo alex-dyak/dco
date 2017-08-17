@@ -11,6 +11,7 @@ $socialsColor: $white;
     display: block;
     width: 25px;
     height: 25px;
+    flex-basis: 25px;
     margin-left: 20px;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
@@ -20,9 +21,6 @@ $socialsColor: $white;
     color: $socialsColor;
     text-align: center;
     transition: all .3s;
-    i {
-      display: none;
-    }
     &:hover {
       background: $socialsBg--hover;
     }
