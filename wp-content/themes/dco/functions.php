@@ -62,7 +62,7 @@ function dco_setup() {
         add_image_size( 'full_default_img_desktop_large', 1920, '', false );
         add_image_size( 'work_desktop_large', 1920, 500, true );
         add_image_size( 'module_img', 343, '', false );
-        add_image_size( 'module_slider', 374, 584, true );
+        add_image_size( 'module_slider', 374, '', false );
 		add_image_size( 'featured_preview', 55, 55, true );
 		add_image_size( 'client_image', 865, 497, true );
 		add_image_size( 'profile_team_image', 800, '', false );
