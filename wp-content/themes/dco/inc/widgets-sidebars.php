@@ -787,8 +787,87 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 			while ( have_rows( 'slider_block' ) ) {
 				the_row();
 				if ( get_row_layout() == 'slider' ) {
+                  if ( have_rows( 'slider_content' ) ):
+                    $i = 0;
+                    while (have_rows( 'slider_content' )) : the_row();
+                        $slider_array[$i]['background_color'] = get_sub_field( 'background_color' );
+                        $slider_array[$i]['title_color'] = get_sub_field( 'title_color' );
+                        $slider_array[$i]['text_color'] = get_sub_field( 'text_color' );
+                        $slider_array[$i]['link_url'] = get_sub_field( 'link_url' );
+                        $slider_array[$i]['title_extension'] = get_sub_field( 'title_extension' );
+                        $slider_array[$i]['teaser'] = get_sub_field( 'teaser' );
+                        $slider_array[$i]['teaser_full_height_list'] = get_sub_field( 'teaser_full_height_list' );
+                        $slider_array[$i]['link_text'] = get_sub_field( 'link_text' );
 
-					get_template_part( 'template-parts/widgets/homepage-slider/content-banner-slider' );
+                        if ( have_rows( 'image_or_video' ) ) :
+                          while ( have_rows( 'image_or_video' ) ) : the_row();
+
+                            if ( get_row_layout() == 'image_layout' ) {
+                              $image = get_sub_field( 'image' );
+                              if ( ! empty( $image ) && is_int( $image ) ) :
+                                $slider_array[$i]['image'][] = $image;
+                              endif;
+                            }
+
+                            if ( get_row_layout() == 'video_layout' ) {
+                              $video = get_sub_field( 'video' );
+                              $video_poster = get_sub_field( 'video_poster' );
+                              if ( ! empty ( $video ) ):
+                                $slider_array[$i]['video_url'] = $video['url'];
+                              endif;
+                            }
+
+                          endwhile;
+                        endif;
+
+                        $i++;
+                    endwhile;
+                  endif;
+
+//                  if ( have_rows( 'first_slider_content' ) ):
+//                    $f = 0;
+//                    while (have_rows( 'first_slider_content' )) : the_row();
+//                      $f_slider_array[$f]['background_color'] = get_sub_field( 'background_color' );
+//                      $f_slider_array[$f]['title_color'] = get_sub_field( 'title_color' );
+//                      $f_slider_array[$f]['text_color'] = get_sub_field( 'text_color' );
+//                      $f_slider_array[$f]['link_url'] = get_sub_field( 'link_url' );
+//                      $f_slider_array[$f]['title_extension'] = get_sub_field( 'title_extension' );
+//                      $f_slider_array[$f]['teaser'] = get_sub_field( 'teaser' );
+//                      $f_slider_array[$f]['teaser_full_height_list'] = get_sub_field( 'teaser_full_height_list' );
+//                      $f_slider_array[$f]['link_text'] = get_sub_field( 'link_text' );
+//
+//                      if ( have_rows( 'image_or_video' ) ) :
+//                        while ( have_rows( 'image_or_video' ) ) : the_row();
+//
+//                          if ( get_row_layout() == 'image_layout' ) {
+//                            $image = get_sub_field( 'image' );
+//                            if ( ! empty( $image ) && is_int( $image ) ) :
+//                              $f_slider_array[$f]['image'][] = $image;
+//                            endif;
+//                          }
+//
+//                          if ( get_row_layout() == 'video_layout' ) {
+//                            $video = get_sub_field( 'video' );
+//                            $video_poster = get_sub_field( 'video_poster' );
+//                            if ( ! empty ( $video ) ):
+//                              $f_slider_array[$f]['video_url'] = $video['url'];
+//                            endif;
+//                          }
+//
+//                        endwhile;
+//                      endif;
+//
+//                      $f++;
+//                    endwhile;
+//                  endif;
+
+
+
+//					get_template_part( 'widgets/homepage-slider/content-banner-slider' );
+
+                  dco_locate_template( 'widgets/homepage-slider/content-banner-slider', array(
+                    'slider' => $slider_array,
+                  ) );
 
 				}
 			}
