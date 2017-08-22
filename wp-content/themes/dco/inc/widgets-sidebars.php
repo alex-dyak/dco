@@ -118,56 +118,56 @@ class W4P_Contacts_Widget extends WP_Widget {
 		} ?>
 		<?php
 		if ( ! empty( $address ) || ! empty( $phones ) || ! empty( $skype ) ) { ?>
-			<ul class="contacts-list">
+            <ul class="contacts-list">
 				<?php
 				foreach ( $items as $item ) {
 					switch ( $item ) {
 						case 'address':
 							if ( ! empty( $address ) ) { ?>
-								<li>
+                                <li>
 									<?php if ( ! empty( $item_titles ) ) : ?>
-										<h4><?php esc_html_e( 'Address:', 'dco' ); ?></h4>
+                                        <h4><?php esc_html_e( 'Address:', 'dco' ); ?></h4>
 									<?php endif; ?>
 									<?php echo esc_html( $address ); ?>
-								</li>
+                                </li>
 							<?php }
 							break;
 						case 'phones':
 							if ( ! empty( $phones ) ) { ?>
-								<li>
+                                <li>
 									<?php
 									if ( ! empty( $item_titles ) ) : ?>
-										<h4><?php esc_html_e( 'Phones:', 'dco' ); ?></h4>
+                                        <h4><?php esc_html_e( 'Phones:', 'dco' ); ?></h4>
 									<?php endif;
 									foreach ( explode( ',', $phones ) as $phone ) {
 										if ( ! empty( $phone ) ) { ?>
 											<?php if ( ! empty( $phone_url ) ) : ?>
-												<a href="tel:<?php echo esc_attr( trim( $phone ) ); ?>"><?php echo esc_html( trim( $phone ) ); ?></a>&nbsp;
+                                                <a href="tel:<?php echo esc_attr( trim( $phone ) ); ?>"><?php echo esc_html( trim( $phone ) ); ?></a>&nbsp;
 											<?php else : ?>
 												<?php echo esc_html( trim( $phone ) ); ?>&nbsp;
 											<?php endif; ?>
 										<?php }
 									} ?>
-								</li>
+                                </li>
 							<?php }
 							break;
 						case 'skype':
 							if ( ! empty( $skype ) ) : ?>
-								<li>
+                                <li>
 									<?php if ( ! empty( $item_titles ) ) : ?>
-										<h4><?php esc_html_e( 'Skype:', 'dco' ); ?></h4>
+                                        <h4><?php esc_html_e( 'Skype:', 'dco' ); ?></h4>
 									<?php endif; ?>
 									<?php if ( ! empty( $skype_url ) ) : ?>
-										<a href="skype:<?php echo esc_attr( $skype ); ?>"><?php echo esc_html( $skype ); ?></a>&nbsp;
+                                        <a href="skype:<?php echo esc_attr( $skype ); ?>"><?php echo esc_html( $skype ); ?></a>&nbsp;
 									<?php else : ?>
 										<?php echo esc_html( $skype ); ?>
 									<?php endif; ?>
-								</li>
+                                </li>
 							<?php endif; ?>
 							<?php break;
 					} ?>
 				<?php } ?>
-			</ul>
+            </ul>
 		<?php }
 		echo $after_widget;
 	}
@@ -209,53 +209,53 @@ class W4P_Contacts_Widget extends WP_Widget {
 			$skype_url   = $instance['skype_url'];
 			$item_titles = $instance['item_titles'];
 		} ?>
-		<p>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
-			<input
-				id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
-				name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
-				type="text"
-				value="<?php echo esc_attr( $title ); ?>"/>
-		</p>
-		<p>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'items' ) ); ?>"><?php esc_html_e( 'Choose the Contacts to display:', 'dco' ); ?></label>
-			<select
-				id="<?php echo esc_attr( $this->get_field_id( 'items' ) ); ?>"
-				class="select-toggle" size="3"
-				multiple="multiple"
-				name="<?php echo esc_attr( $this->get_field_name( 'items' ) ); ?>[]">
+        <p>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+            <input
+                    id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+                    name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
+                    type="text"
+                    value="<?php echo esc_attr( $title ); ?>"/>
+        </p>
+        <p>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'items' ) ); ?>"><?php esc_html_e( 'Choose the Contacts to display:', 'dco' ); ?></label>
+            <select
+                    id="<?php echo esc_attr( $this->get_field_id( 'items' ) ); ?>"
+                    class="select-toggle" size="3"
+                    multiple="multiple"
+                    name="<?php echo esc_attr( $this->get_field_name( 'items' ) ); ?>[]">
 				<?php foreach ( $item_list as $label => $item ) { ?>
-					<option <?php echo in_array( $item, (array) $items, TRUE ) ? ' selected="selected" ' : ''; ?>
-						value="<?php echo esc_attr( $item ); ?>"><?php echo esc_html( $label ); ?></option>
+                    <option <?php echo in_array( $item, (array) $items, TRUE ) ? ' selected="selected" ' : ''; ?>
+                            value="<?php echo esc_attr( $item ); ?>"><?php echo esc_html( $label ); ?></option>
 				<?php } ?>
-			</select>
-		</p>
-		<p>
-			<input class="checkbox"
-			       type="checkbox" <?php checked( $item_titles, 'on' ); ?>
-			       id="<?php echo esc_attr( $this->get_field_id( 'item_titles' ) ); ?>"
-			       name="<?php echo esc_attr( $this->get_field_name( 'item_titles' ) ); ?>"/>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'item_titles' ) ); ?>"><?php esc_html_e( 'Display item titles', 'dco' ) ?></label>
-		</p>
-		<p>
-			<input class="checkbox"
-			       type="checkbox" <?php checked( $phone_url, 'on' ); ?>
-			       id="<?php echo esc_attr( $this->get_field_id( 'phone_url' ) ); ?>"
-			       name="<?php echo esc_attr( $this->get_field_name( 'phone_url' ) ); ?>"/>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'phone_url' ) ); ?>"><?php esc_html_e( 'Phones as URL', 'dco' ) ?></label>
-		</p>
-		<p>
-			<input class="checkbox"
-			       type="checkbox" <?php checked( $skype_url, 'on' ); ?>
-			       id="<?php echo esc_attr( $this->get_field_id( 'skype_url' ) ); ?>"
-			       name="<?php echo esc_attr( $this->get_field_name( 'skype_url' ) ); ?>"/>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'skype_url' ) ); ?>"><?php esc_html_e( 'Skype as URL', 'dco' ) ?></label>
-		</p>
+            </select>
+        </p>
+        <p>
+            <input class="checkbox"
+                   type="checkbox" <?php checked( $item_titles, 'on' ); ?>
+                   id="<?php echo esc_attr( $this->get_field_id( 'item_titles' ) ); ?>"
+                   name="<?php echo esc_attr( $this->get_field_name( 'item_titles' ) ); ?>"/>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'item_titles' ) ); ?>"><?php esc_html_e( 'Display item titles', 'dco' ) ?></label>
+        </p>
+        <p>
+            <input class="checkbox"
+                   type="checkbox" <?php checked( $phone_url, 'on' ); ?>
+                   id="<?php echo esc_attr( $this->get_field_id( 'phone_url' ) ); ?>"
+                   name="<?php echo esc_attr( $this->get_field_name( 'phone_url' ) ); ?>"/>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'phone_url' ) ); ?>"><?php esc_html_e( 'Phones as URL', 'dco' ) ?></label>
+        </p>
+        <p>
+            <input class="checkbox"
+                   type="checkbox" <?php checked( $skype_url, 'on' ); ?>
+                   id="<?php echo esc_attr( $this->get_field_id( 'skype_url' ) ); ?>"
+                   name="<?php echo esc_attr( $this->get_field_name( 'skype_url' ) ); ?>"/>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'skype_url' ) ); ?>"><?php esc_html_e( 'Skype as URL', 'dco' ) ?></label>
+        </p>
 		<?php
 	}
 } /* End class W4P_Contacts_Widget. */
@@ -286,19 +286,19 @@ class W4P_Social_Profiles_Widget extends WP_Widget {
 					array_push( $social_profile_index, $name . '_' . $index );
 				}
 			} ?>
-			<ul class="social-profile-list">
+            <ul class="social-profile-list">
 				<?php
 				foreach ( (array) $social_profiles as $name => $element ) {
 					foreach ( $element as $index => $value ) { ?>
 						<?php if ( in_array( (string) ( $name . '_' . $index ), (array) $items, TRUE ) ) { ?>
-							<li>
-								<a class="<?php echo esc_attr( $name ); ?>"
-								   href="<?php echo esc_url( $value ) ?>"><?php echo esc_html( $name ); ?></a>
-							</li>
+                            <li>
+                                <a class="<?php echo esc_attr( $name ); ?>"
+                                   href="<?php echo esc_url( $value ) ?>"><?php echo esc_html( $name ); ?></a>
+                            </li>
 						<?php } ?>
 					<?php }
 				} ?>
-			</ul>
+            </ul>
 		<?php }
 		echo $after_widget;
 	}
@@ -335,41 +335,41 @@ class W4P_Social_Profiles_Widget extends WP_Widget {
 				}
 			}
 		} ?>
-		<p>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
-			<input
-				id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
-				name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
-				type="text"
-				value="<?php echo esc_attr( $title ); ?>"/>
-		</p>
-		<p>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'items' ) ); ?>"><?php esc_html_e( 'Choose the Social Profiles to display:', 'dco' ); ?></label><br>
-			<select
-				id="<?php echo esc_attr( $this->get_field_id( 'items' ) ); ?>"
-				class="select-toggle"
-				size="<?php echo count( $social_profile_index ); ?>"
-				multiple="multiple"
-				name="<?php echo esc_attr( $this->get_field_name( 'items' ) ); ?>[]"
-				style="min-width: 150px;">
+        <p>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+            <input
+                    id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+                    name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
+                    type="text"
+                    value="<?php echo esc_attr( $title ); ?>"/>
+        </p>
+        <p>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'items' ) ); ?>"><?php esc_html_e( 'Choose the Social Profiles to display:', 'dco' ); ?></label><br>
+            <select
+                    id="<?php echo esc_attr( $this->get_field_id( 'items' ) ); ?>"
+                    class="select-toggle"
+                    size="<?php echo count( $social_profile_index ); ?>"
+                    multiple="multiple"
+                    name="<?php echo esc_attr( $this->get_field_name( 'items' ) ); ?>[]"
+                    style="min-width: 150px;">
 				<?php
 				if ( ! empty( $social_profiles ) ) {
 					foreach ( (array) $social_profiles as $name => $element ) {
 						foreach ( $element as $index => $value ) { ?>
-							<option
+                            <option
 								<?php echo in_array( (string) ( $name . '_' . $index ), (array) $items, TRUE ) ? ' selected="selected" ' : ''; ?>
-								value="<?php echo esc_attr( $name . '_' . $index ); ?>"
-								tooltip="<?php echo esc_attr( $value ); ?>"
-								title="<?php echo esc_attr( $value ); ?>"
-							><?php echo esc_html( ucfirst( $name ) ); ?>
-							</option>
+                                    value="<?php echo esc_attr( $name . '_' . $index ); ?>"
+                                    tooltip="<?php echo esc_attr( $value ); ?>"
+                                    title="<?php echo esc_attr( $value ); ?>"
+                            ><?php echo esc_html( ucfirst( $name ) ); ?>
+                            </option>
 						<?php }
 					}
 				} ?>
-			</select>
-		</p>
+            </select>
+        </p>
 	<?php }
 } /* End class W4P_Contacts_Widget. */
 
@@ -535,7 +535,7 @@ class W4P_Team_Widget extends WP_Widget {
 			'order'          => 'ASC',
 		) );
 		$data    = array();
-        add_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+		add_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
 		if ( $members->have_posts() ):
 			while ( $members->have_posts() ) : $members->the_post();
 				$member_id                                       = get_the_ID();
@@ -551,7 +551,7 @@ class W4P_Team_Widget extends WP_Widget {
 			endwhile;
 			wp_reset_postdata();
 		endif;
-        remove_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+		remove_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
 
 		return $data;
 	}
@@ -574,15 +574,15 @@ class W4P_Team_Widget extends WP_Widget {
 			$title = esc_attr( $instance['title'] );
 		}
 		?>
-		<p>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
-			<input
-				id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
-				name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
-				type="text"
-				value="<?php echo esc_attr( $title ); ?>"/>
-		</p>
+        <p>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+            <input
+                    id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+                    name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
+                    type="text"
+                    value="<?php echo esc_attr( $title ); ?>"/>
+        </p>
 	<?php }
 } /* End class W4P_Team_Widget. */
 
@@ -632,15 +632,15 @@ class W4P_Client_Filter_Widget extends WP_Widget {
 			$title = esc_attr( $instance['title'] );
 		}
 		?>
-		<p>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
-			<input
-				id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
-				name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
-				type="text"
-				value="<?php echo esc_attr( $title ); ?>"/>
-		</p>
+        <p>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+            <input
+                    id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+                    name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
+                    type="text"
+                    value="<?php echo esc_attr( $title ); ?>"/>
+        </p>
 	<?php }
 
 } /* End class W4P_Client_Filter_Widget. */
@@ -687,13 +687,13 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 				}
 				?>
                 <div class="grid-sizer"></div>
-				<div class="newsBox gridItem">
+                <div class="newsBox gridItem">
                     <span class="newsBox-inner">
                         <span class="newsBox-date"><?php echo $date; ?></span>
                         <span
-                            class="newsBox-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
+                                class="newsBox-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
                     </span>
-				</div>
+                </div>
 				<?php
 			}
 		}
@@ -748,15 +748,15 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 			$title = esc_attr( $instance['title'] );
 		}
 		?>
-		<p>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
-			<input
-				id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
-				name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
-				type="text"
-				value="<?php echo esc_attr( $title ); ?>"/>
-		</p>
+        <p>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+            <input
+                    id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+                    name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
+                    type="text"
+                    value="<?php echo esc_attr( $title ); ?>"/>
+        </p>
 
 	<?php }
 
@@ -768,111 +768,72 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 class W4P_Homepage_Slider_Widget extends WP_Widget {
 
 	function __construct() {
+
+		if (!isset($_COOKIE['firsttime_visit'])) {
+			setcookie("firsttime_visit", "no");
+		}
+
 		parent::__construct( FALSE, $name = __( '[W4P] Homepage Slider', 'dco' ) );
 	}
 
 	/** @see WP_Widget::widget -- do not rename this */
 	function widget( $args, $instance ) {
+	    $firsttime_visit = FALSE;
+		if (!isset($_COOKIE['firsttime_visit'])) {
+			$firsttime_visit = TRUE;
+		}
+
+		$slider_data = $first_slide_data = '';
+		$slider_items = array();
+
 		extract( $args );
 		$title = apply_filters( 'widget_title',
 			$instance['title'] ); /* The widget title. */
+		$first_slide_data = array();
 
+		/**
+		 * @var $before_widget;
+		 */
 		echo $before_widget;
 
 		if ( $title ) {
 			echo $before_title . $title . $after_title;
 		}
 
-		if ( have_rows( 'slider_block' ) ) {
-			while ( have_rows( 'slider_block' ) ) {
-				the_row();
-				if ( get_row_layout() == 'slider' ) {
-                  if ( have_rows( 'slider_content' ) ):
-                    $i = 0;
-                    while (have_rows( 'slider_content' )) : the_row();
-                        $slider_array[$i]['background_color'] = get_sub_field( 'background_color' );
-                        $slider_array[$i]['title_color'] = get_sub_field( 'title_color' );
-                        $slider_array[$i]['text_color'] = get_sub_field( 'text_color' );
-                        $slider_array[$i]['link_url'] = get_sub_field( 'link_url' );
-                        $slider_array[$i]['title_extension'] = get_sub_field( 'title_extension' );
-                        $slider_array[$i]['teaser'] = get_sub_field( 'teaser' );
-                        $slider_array[$i]['teaser_full_height_list'] = get_sub_field( 'teaser_full_height_list' );
-                        $slider_array[$i]['link_text'] = get_sub_field( 'link_text' );
+//		$first_slides_data = $this->get_first_slider_data();
+		$slider_data = $this->get_slider_data($firsttime_visit);
 
-                        if ( have_rows( 'image_or_video' ) ) :
-                          while ( have_rows( 'image_or_video' ) ) : the_row();
+		if(!empty($slider_data['slides']) && is_array($slider_data['slides'])){
+			$slider_items = $slider_data['slides'];
+        }
 
-                            if ( get_row_layout() == 'image_layout' ) {
-                              $image = get_sub_field( 'image' );
-                              if ( ! empty( $image ) && is_int( $image ) ) :
-                                $slider_array[$i]['image'][] = $image;
-                              endif;
-                            }
-
-                            if ( get_row_layout() == 'video_layout' ) {
-                              $video = get_sub_field( 'video' );
-                              $video_poster = get_sub_field( 'video_poster' );
-                              if ( ! empty ( $video ) ):
-                                $slider_array[$i]['video_url'] = $video['url'];
-                              endif;
-                            }
-
-                          endwhile;
-                        endif;
-
-                        $i++;
-                    endwhile;
-                  endif;
-
-//                  if ( have_rows( 'first_slider_content' ) ):
-//                    $f = 0;
-//                    while (have_rows( 'first_slider_content' )) : the_row();
-//                      $f_slider_array[$f]['background_color'] = get_sub_field( 'background_color' );
-//                      $f_slider_array[$f]['title_color'] = get_sub_field( 'title_color' );
-//                      $f_slider_array[$f]['text_color'] = get_sub_field( 'text_color' );
-//                      $f_slider_array[$f]['link_url'] = get_sub_field( 'link_url' );
-//                      $f_slider_array[$f]['title_extension'] = get_sub_field( 'title_extension' );
-//                      $f_slider_array[$f]['teaser'] = get_sub_field( 'teaser' );
-//                      $f_slider_array[$f]['teaser_full_height_list'] = get_sub_field( 'teaser_full_height_list' );
-//                      $f_slider_array[$f]['link_text'] = get_sub_field( 'link_text' );
-//
-//                      if ( have_rows( 'image_or_video' ) ) :
-//                        while ( have_rows( 'image_or_video' ) ) : the_row();
-//
-//                          if ( get_row_layout() == 'image_layout' ) {
-//                            $image = get_sub_field( 'image' );
-//                            if ( ! empty( $image ) && is_int( $image ) ) :
-//                              $f_slider_array[$f]['image'][] = $image;
-//                            endif;
-//                          }
-//
-//                          if ( get_row_layout() == 'video_layout' ) {
-//                            $video = get_sub_field( 'video' );
-//                            $video_poster = get_sub_field( 'video_poster' );
-//                            if ( ! empty ( $video ) ):
-//                              $f_slider_array[$f]['video_url'] = $video['url'];
-//                            endif;
-//                          }
-//
-//                        endwhile;
-//                      endif;
-//
-//                      $f++;
-//                    endwhile;
-//                  endif;
-
-
-
-//					get_template_part( 'widgets/homepage-slider/content-banner-slider' );
-
-                  dco_locate_template( 'widgets/homepage-slider/content-banner-slider', array(
-                    'slider' => $slider_array,
-                  ) );
-
-				}
-			}
+		if(!empty($slider_data['first_slides']) && is_array($slider_data['first_slides'])){
+		    if($firsttime_visit){
+			    array_unshift($slider_items, $slider_data['first_slides'][0]);
+            }else{
+			    array_unshift($slider_items, $slider_data['first_slides'][array_rand($slider_data['first_slides'])]);
+            }
 		}
 
+
+
+//		$slider_items = $slider_items +
+//		if ($firsttime_visit) {
+//			$first_slide_data[] = $slider_data[0];
+//        }else{
+//		    unset($slider_data[0]);
+//			$first_slide_data[] = $first_slides_data[array_rand($first_slides_data)];
+//        }
+
+//		$slider_data = $first_slide_data + $slider_data;
+		//get_template_part( 'widgets/homepage-slider/content-banner-slider' );
+		dco_locate_template( 'widgets/homepage-slider/content-banner-slider', array(
+			'slider' => $slider_items,
+		) );
+
+		/**
+		 * @var $after_widget;
+		 */
 		echo $after_widget;
 	}
 
@@ -895,16 +856,173 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 			$title = esc_attr( $instance['title'] );
 		}
 		?>
-		<p>
-			<label
-				for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
-			<input
-				id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
-				name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
-				type="text"
-				value="<?php echo esc_attr( $title ); ?>"/>
-		</p>
+        <p>
+            <label
+                    for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'dco' ); ?></label>
+            <input
+                    id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+                    name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
+                    type="text"
+                    value="<?php echo esc_attr( $title ); ?>"/>
+        </p>
 
 	<?php }
+
+	/**
+	 *  Return slider data except first slide.
+	 *
+	 */
+	function get_slider_data($firsttime_visit = FALSE) {
+		$slider_array = array();
+		if ( have_rows( 'slider_block' ) ) {
+			while (have_rows('slider_block')) { the_row();
+				if (get_row_layout() == 'slider') {
+
+					if ( have_rows( 'first_slide_content' ) ):
+						$f = (int)0;
+						while ( have_rows( 'first_slide_content' ) ) : the_row();
+
+						    if($f == 0 && !$firsttime_visit){
+						        $f++;
+                                continue;
+                            }
+
+							$first_slider_array[ $f ]['background_color']        = get_sub_field( 'background_color' );
+							$first_slider_array[ $f ]['title_color']             = get_sub_field( 'title_color' );
+							$first_slider_array[ $f ]['text_color']              = get_sub_field( 'text_color' );
+							$first_slider_array[ $f ]['link_url']                = get_sub_field( 'link_url' );
+							$first_slider_array[ $f ]['title_extension']         = get_sub_field( 'title_extension' );
+							$first_slider_array[ $f ]['teaser']                  = get_sub_field( 'teaser' );
+							$first_slider_array[ $f ]['teaser_full_height_list'] = get_sub_field( 'teaser_full_height_list' );
+							$first_slider_array[ $f ]['link_text']               = get_sub_field( 'link_text' );
+
+							if ( have_rows( 'image_or_video' ) ) :
+								while ( have_rows( 'image_or_video' ) ) : the_row();
+
+									if ( get_row_layout() == 'image_layout' ) {
+										$image = get_sub_field( 'image' );
+										if ( ! empty( $image ) && is_int( $image ) ) :
+											$first_slider_array[ $f ]['image'][] = $image;
+										endif;
+									}
+
+									if ( get_row_layout() == 'video_layout' ) {
+										$video        = get_sub_field( 'video' );
+										$video_poster = get_sub_field( 'video_poster' );
+										if ( ! empty ( $video ) ):
+											$first_slider_array[ $f ]['video_url'] = $video['url'];
+										endif;
+									}
+
+								endwhile;
+							endif;
+
+							$f ++;
+						endwhile;
+						$slider_data['first_slides'] = $first_slider_array;
+					endif;
+
+
+					if (have_rows('slider_content')):
+						$i = 0;
+						while (have_rows('slider_content')) : the_row();
+							$slider_array[$i]['background_color']        = get_sub_field('background_color');
+							$slider_array[$i]['title_color']             = get_sub_field('title_color');
+							$slider_array[$i]['text_color']              = get_sub_field('text_color') ? get_sub_field('text_color') : '';
+							$slider_array[$i]['link_url']                = get_sub_field('link_url');
+							$slider_array[$i]['title_extension']         = get_sub_field('title_extension');
+							$slider_array[$i]['teaser']                  = get_sub_field('teaser');
+							$slider_array[$i]['teaser_full_height_list'] = get_sub_field('teaser_full_height_list');
+							$slider_array[$i]['link_text']               = get_sub_field('link_text');
+
+							if (have_rows('image_or_video')) :
+								while (have_rows('image_or_video')) : the_row();
+
+									if (get_row_layout() == 'image_layout') {
+										$image = get_sub_field('image');
+										if (!empty($image) && is_int($image)) :
+											$slider_array[$i]['image'][] = $image;
+										endif;
+									}
+
+									if (get_row_layout() == 'video_layout') {
+										$video        = get_sub_field('video');
+										$video_poster = get_sub_field('video_poster');
+										if (!empty ($video)):
+											$slider_array[$i]['video_url'] = $video['url'];
+										endif;
+									}
+
+								endwhile;
+							endif;
+
+							$i++;
+						endwhile;
+						$slider_data['slides'] = $slider_array;
+					endif;
+
+
+
+
+				}
+			}
+		}
+
+		return $slider_data;
+	}
+
+	/**
+	 * Function return first slide data.
+	 */
+	function get_first_slider_data() {
+		$first_slider_array = array();
+
+		if ( have_rows( 'slider_block' ) ) {
+			while ( have_rows( 'slider_block' ) ) {
+				the_row();
+				if ( get_row_layout() == 'slider' ) {
+					if ( have_rows( 'first_slide_content' ) ):
+						$f = 0;
+						while ( have_rows( 'first_slide_content' ) ) : the_row();
+							$first_slider_array[ $f ]['background_color']        = get_sub_field( 'background_color' );
+							$first_slider_array[ $f ]['title_color']             = get_sub_field( 'title_color' );
+							$first_slider_array[ $f ]['text_color']              = get_sub_field( 'text_color' );
+							$first_slider_array[ $f ]['link_url']                = get_sub_field( 'link_url' );
+							$first_slider_array[ $f ]['title_extension']         = get_sub_field( 'title_extension' );
+							$first_slider_array[ $f ]['teaser']                  = get_sub_field( 'teaser' );
+							$first_slider_array[ $f ]['teaser_full_height_list'] = get_sub_field( 'teaser_full_height_list' );
+							$first_slider_array[ $f ]['link_text']               = get_sub_field( 'link_text' );
+
+							if ( have_rows( 'image_or_video' ) ) :
+								while ( have_rows( 'image_or_video' ) ) : the_row();
+
+									if ( get_row_layout() == 'image_layout' ) {
+										$image = get_sub_field( 'image' );
+										if ( ! empty( $image ) && is_int( $image ) ) :
+											$first_slider_array[ $f ]['image'][] = $image;
+										endif;
+									}
+
+									if ( get_row_layout() == 'video_layout' ) {
+										$video        = get_sub_field( 'video' );
+										$video_poster = get_sub_field( 'video_poster' );
+										if ( ! empty ( $video ) ):
+											$first_slider_array[ $f ]['video_url'] = $video['url'];
+										endif;
+									}
+
+								endwhile;
+							endif;
+
+							$f ++;
+						endwhile;
+					endif;
+				}
+			}
+		}
+
+		return $first_slider_array;
+	}
+
 
 } /* End class W4P_Homepage_Slider_Widget. */
