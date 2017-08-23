@@ -71,11 +71,12 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 									<?php echo $item['teaser_full_height_list']; ?>
                                 </div>
 							<?php endif; ?>
+
+	                        <?php if(!empty($item['first_slide_teaser'])): ?>
+		                        <?php echo $item['first_slide_teaser']; ?>
+	                        <?php endif; ?>
                         </div>
 					<?php endif; ?>
-                    <?php if(!empty($item['first_slide_teaser'])): ?>
-                        <?php echo $item['first_slide_teaser']; ?>
-                    <?php endif; ?>
                 </div>
 			<?php endforeach; ?>
         </div>
