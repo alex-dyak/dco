@@ -816,17 +816,6 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 		}
 
 
-
-//		$slider_items = $slider_items +
-//		if ($firsttime_visit) {
-//			$first_slide_data[] = $slider_data[0];
-//        }else{
-//		    unset($slider_data[0]);
-//			$first_slide_data[] = $first_slides_data[array_rand($first_slides_data)];
-//        }
-
-//		$slider_data = $first_slide_data + $slider_data;
-		//get_template_part( 'widgets/homepage-slider/content-banner-slider' );
 		dco_locate_template( 'widgets/homepage-slider/content-banner-slider', array(
 			'slider' => $slider_items,
 		) );
@@ -894,6 +883,7 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 							$first_slider_array[ $f ]['title_extension']         = get_sub_field( 'title_extension' );
 							$first_slider_array[ $f ]['teaser']                  = get_sub_field( 'teaser' );
 							$first_slider_array[ $f ]['teaser_full_height_list'] = get_sub_field( 'teaser_full_height_list' );
+							$first_slider_array[ $f ]['first_slide_teaser'] = get_sub_field( 'first_slide_teaser' );
 							$first_slider_array[ $f ]['link_text']               = get_sub_field( 'link_text' );
 
 							if ( have_rows( 'image_or_video' ) ) :
@@ -908,7 +898,7 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 
 									if ( get_row_layout() == 'video_layout' ) {
 										$video        = get_sub_field( 'video' );
-										$video_poster = get_sub_field( 'video_poster' );
+										$first_slider_array[ $f ]['video_poster'] = get_sub_field( 'video_poster' );
 										if ( ! empty ( $video ) ):
 											$first_slider_array[ $f ]['video_url'] = $video['url'];
 										endif;
@@ -960,9 +950,6 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 						endwhile;
 						$slider_data['slides'] = $slider_array;
 					endif;
-
-
-
 
 				}
 			}

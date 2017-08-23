@@ -27,11 +27,11 @@ $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
                              data-sizes="auto">
                         </div>
 					<?php endif; ?>
-					<?php if ( ! empty($item['video_url']) ): ?>
+					<?php if ( ! empty($item['video_url']) && !empty($item['video_poster']) ): ?>
                         <div class="homepageSlider-slide-title homepageSlider-slide-title--video"><?php echo $title; ?></div>
                         <div class="homepageSlider-slide-video heroVideo">
                             <div class="heroVideo-video">
-                                <video loop class="js-heroVideo" poster="<?php echo $item['video_url']; ?>">
+                                <video loop class="js-heroVideo" poster="<?php echo $item['video_poster']['url']; ?>">
                                     <source
                                             src="<?php echo $item['video_url']; ?>">
                                 </video>
