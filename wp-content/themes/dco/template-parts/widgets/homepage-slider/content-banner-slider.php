@@ -10,108 +10,75 @@ $speed = get_sub_field( 'slider_speed' ) ? get_sub_field( 'slider_speed' )
 	: 6000;
 $title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 ?>
+<?php if ( $slider ): ?>
+    <div class="homepageSliderWrap js-homepage-sliderWrapp">
+        <div class="homepageSlider js-homepage-slider"
+             data-speed="<?php echo $speed; ?>">
 
-<?php if ( have_rows( 'slider_content' ) ): ?>
-	<div class="homepageSliderWrap js-homepage-sliderWrapp">
-		<div class="homepageSlider js-homepage-slider"
-		     data-speed="<?php echo $speed; ?>">
-
-			<?php while (have_rows( 'slider_content' )) :
-				the_row(); ?>
-            <div class="homepageSlider-slide">
-				<?php
-				$background_color = get_sub_field( 'background_color' )
-					? get_sub_field( 'background_color' ) : '';
-                $title_color = get_sub_field( 'title_color' )
-                  ? get_sub_field( 'title_color' ) : '';
-                $text_color = get_sub_field( 'text_color' )
-                  ? get_sub_field( 'text_color' ) : '';
-				$link_url         = get_sub_field( 'link_url' )
-					? get_sub_field( 'link_url' ) : '#';
-				$title_extension  = get_sub_field( 'title_extension' )
-					? get_sub_field( 'title_extension' ) : '';
-				$teaser           = get_sub_field( 'teaser' )
-					? get_sub_field( 'teaser' ) : '';
-                $teaser_full_height_list = get_sub_field( 'teaser_full_height_list' )
-                  ? get_sub_field( 'teaser_full_height_list' ) : '';
-				$link_text        = get_sub_field( 'link_text' )
-					? get_sub_field( 'link_text' ) : '';
-
-				if ( have_rows( 'image_or_video' ) ) : ?>
-				<?php while ( have_rows( 'image_or_video' ) ) :
-					the_row();
-					if ( get_row_layout() == 'image_layout' ) {
-					$image = get_sub_field( 'image' );
-					if ( ! empty( $image ) && is_int( $image ) ) : ?>
+			<?php foreach ($slider as $item ) : ?>
+                <div class="homepageSlider-slide">
+					<?php if ( !empty($item['image']) ): ?>
 
                         <div class="homepageSlider-slide-title"><?php echo $title; ?></div>
-						<div class="homepageSlider-slide-img lazyload"
-                             data-bgset="<?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full_large' ) ?> 1900w,
-                                         <?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full' ) ?> 1600w,
-                                         <?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full' ) ?> 1200w"
+                        <div class="homepageSlider-slide-img lazyload"
+                             data-bgset="<?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full_large' ) ?> 1900w,
+                                         <?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full' ) ?> 1600w,
+                                         <?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full' ) ?> 1200w"
                              data-sizes="auto">
                         </div>
-                    <?php endif; ?>
-                      						<?php
-						}
-						if ( get_row_layout() == 'video_layout' ) {
-						$video = get_sub_field( 'video' );
-						$video_poster = get_sub_field( 'video_poster' );
-						if ( ! empty ( $video ) ):
-						$url = $video['url'];
-						?>
-                            <div class="homepageSlider-slide-title homepageSlider-slide-title--video"><?php echo $title; ?></div>
-							<div class="homepageSlider-slide-video heroVideo">
-								<div class="heroVideo-video">
-									<video loop class="js-heroVideo" poster="<?php echo $video_poster['url'] ?>">
-										<source
-											src="<?php echo $url; ?>">
-									</video>
-                                    <ul class="heroVideo-video-controls js-videoControls" style="display: none">
-                                        <li>
-                                            <button type="button" class="js-videoPause"><i class="fa fa-pause" aria-hidden="true"></i></button>
-                                            <button type="button" class="js-videoPlay" style="display: none"><i class="fa fa-play" aria-hidden="true"></i></button>
-                                        </li>
-                                        <li>
-                                            <button type="button" class="js-videoMute"><i class="fa fa-volume-off" aria-hidden="true"></i></button>
-                                            <button type="button" class="js-videoSound" style="display: none"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
-                                        </li>
-                                    </ul>
-								</div>
-							</div>
-							<?php endif;
-							}
-							if ( $title_extension ) : ?>
-								<div class="homepageSlider-slide-description homepageSliderCaption"
-									style="background-color: <?php echo $background_color; ?>" >
+					<?php endif; ?>
+					<?php if ( ! empty($item['video_url']) && !empty($item['video_poster']) ): ?>
+                        <div class="homepageSlider-slide-title homepageSlider-slide-title--video"><?php echo $title; ?></div>
+                        <div class="homepageSlider-slide-video heroVideo">
+                            <div class="heroVideo-video">
+                                <video loop class="js-heroVideo" poster="<?php echo $item['video_poster']['url']; ?>">
+                                    <source
+                                            src="<?php echo $item['video_url']; ?>">
+                                </video>
+                                <ul class="heroVideo-video-controls js-videoControls" style="display: none">
+                                    <li>
+                                        <button type="button" class="js-videoPause"><i class="fa fa-pause" aria-hidden="true"></i></button>
+                                        <button type="button" class="js-videoPlay" style="display: none"><i class="fa fa-play" aria-hidden="true"></i></button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="js-videoMute"><i class="fa fa-volume-off" aria-hidden="true"></i></button>
+                                        <button type="button" class="js-videoSound" style="display: none"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+					<?php endif; ?>
+					<?php if ( $item['title_extension'] ) : ?>
+                        <div class="homepageSlider-slide-description homepageSliderCaption"
+                             style="background-color: <?php echo $item['background_color']; ?>" >
 
-                                    <div class="homepageSliderCaption-inner">
+                            <div class="homepageSliderCaption-inner">
 
-									<div class="homepageSliderCaption-inner-title" style="color: <?php echo $title_color; ?>"><?php echo $title_extension; ?></div>
+                                <div class="homepageSliderCaption-inner-title" style="color: <?php echo $item['title_color']; ?>"><?php echo $item['title_extension']; ?></div>
 
-									<?php if ( $teaser ) : ?>
-										<div class="homepageSliderCaption-inner-text" style="color: <?php echo $text_color; ?>">
-                                            <p><?php echo $teaser; ?></p>
-                                          <?php if ( $link_text ) : ?>
-                                              <a href="<?php $link_url; ?>" style="color: <?php echo $text_color; ?>"><?php echo $link_text; ?></a>
-                                          <?php endif; ?>
-                                        </div>
-									<?php endif; ?>
+								<?php if ( $item['teaser'] ) : ?>
+                                    <div class="homepageSliderCaption-inner-text" style="color: <?php echo $item['text_color']; ?>">
+                                        <p><?php echo $item['teaser']; ?></p>
+										<?php if ( $item['link_text'] ) : ?>
+                                            <a href="<?php $item['link_url']; ?>" style="color: <?php echo $item['text_color']; ?>"><?php echo $item['link_text']; ?></a>
+										<?php endif; ?>
                                     </div>
+								<?php endif; ?>
+                            </div>
 
-                                    <?php if($teaser_full_height_list): ?>
-                                        <div class="homepageSliderCaption-fullList" style="color: <?php echo $text_color; ?>">
-                                            <?php echo $teaser_full_height_list; ?>
-                                        </div>
-                                    <?php endif; ?>
-
-								</div>
+							<?php if($item['teaser_full_height_list']): ?>
+                                <div class="homepageSliderCaption-fullList" style="color: <?php echo $item['text_color']; ?>">
+									<?php echo $item['teaser_full_height_list']; ?>
+                                </div>
 							<?php endif; ?>
-					<?php endwhile; ?>
-				<?php endif; ?>
+                        </div>
+					<?php endif; ?>
+                    <?php if(!empty($item['first_slide_teaser'])): ?>
+                        <?php echo $item['first_slide_teaser']; ?>
+                    <?php endif; ?>
                 </div>
-			<?php endwhile; ?>
-		</div>
-	</div>
+			<?php endforeach; ?>
+        </div>
+    </div>
 
 <?php endif; ?>
