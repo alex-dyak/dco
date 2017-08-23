@@ -862,7 +862,7 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 	 *
 	 */
 	function get_slider_data($firsttime_visit = FALSE) {
-		$slider_array = array();
+		$slider_array = $first_slider_array = array();
 		if ( have_rows( 'slider_block' ) ) {
 			while (have_rows('slider_block')) { the_row();
 				if (get_row_layout() == 'slider') {
