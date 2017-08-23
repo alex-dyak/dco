@@ -6,9 +6,6 @@
 
 <?php
 // Slider speed value. Could be changed from admin panel.
-$speed = get_sub_field( 'slider_speed' ) ? get_sub_field( 'slider_speed' )
-	: 6000;
-$title = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 ?>
 <?php if ( $slider ): ?>
     <div class="homepageSliderWrap js-homepage-sliderWrapp">
