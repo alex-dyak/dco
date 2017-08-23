@@ -898,6 +898,7 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 
 									if ( get_row_layout() == 'video_layout' ) {
 										$video        = get_sub_field( 'video' );
+
 										$first_slider_array[ $f ]['video_poster'] = get_sub_field( 'video_poster' );
 										if ( ! empty ( $video ) ):
 											$first_slider_array[ $f ]['video_url'] = $video['url'];
