@@ -14,16 +14,8 @@
 
 			<?php foreach ($slider as $item ) : ?>
                 <div class="homepageSlider-slide">
-					<?php if ( !empty($item['image']) ): ?>
 
-                        <div class="homepageSlider-slide-title"><?php echo $title; ?></div>
-                        <div class="homepageSlider-slide-img lazyload"
-                             data-bgset="<?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full_large' ) ?> 1900w,
-                                         <?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full' ) ?> 1600w,
-                                         <?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full' ) ?> 1200w"
-                             data-sizes="auto">
-                        </div>
-					<?php endif; ?>
+                    <!-- if user comes for a first time -->
 					<?php if ( ! empty($item['video_url']) && !empty($item['video_poster']) ): ?>
                         <div class="homepageSlider-slide-title homepageSlider-slide-title--video"><?php echo $title; ?></div>
                         <div class="homepageSlider-slide-video heroVideo">
@@ -45,35 +37,61 @@
                             </div>
                         </div>
 					<?php endif; ?>
-					<?php if ( $item['title_extension'] ) : ?>
+                    <!-- end if user comes for a first time -->
+
+                    <!-- if user comes for a second time -->
+					<?php if ( !empty($item['image']) ): ?>
+                        <div class="homepageSlider-slide-title"><?php echo $title; ?></div>
+                        <div class="homepageSlider-slide-img lazyload"
+                             data-bgset="<?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full_large' ) ?> 1900w,
+                                         <?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full' ) ?> 1600w,
+                                         <?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full' ) ?> 1200w"
+                             data-sizes="auto">
+                        </div>
+					<?php endif; ?>
+                    <!-- end if user comes for a second time -->
+
+                    <!-- this shows each time user comes -->
+					<?php if ( !empty($item['title_extension']) ) : ?>
                         <div class="homepageSlider-slide-description homepageSliderCaption"
                              style="background-color: <?php echo $item['background_color']; ?>" >
 
-                            <div class="homepageSliderCaption-inner">
+                            <!-- First Overlay -->
+                            <div class="firstOverlay js-firstOverlay">
+                                <div class="homepageSliderCaption-inner">
 
-                                <div class="homepageSliderCaption-inner-title" style="color: <?php echo $item['title_color']; ?>"><?php echo $item['title_extension']; ?></div>
+                                    <div class="homepageSliderCaption-inner-title" style="color: <?php echo $item['title_color']; ?>"><?php echo $item['title_extension']; ?></div>
 
-								<?php if ( $item['teaser'] ) : ?>
-                                    <div class="homepageSliderCaption-inner-text" style="color: <?php echo $item['text_color']; ?>">
-                                        <p><?php echo $item['teaser']; ?></p>
-										<?php if ( $item['link_text'] ) : ?>
-                                            <a href="<?php $item['link_url']; ?>" style="color: <?php echo $item['text_color']; ?>"><?php echo $item['link_text']; ?></a>
-										<?php endif; ?>
+									<?php if ( !empty($item['teaser']) ) : ?>
+                                        <div class="homepageSliderCaption-inner-text" style="color: <?php echo $item['text_color']; ?>">
+                                            <p><?php echo $item['teaser']; ?></p>
+											<?php if ( $item['link_text'] ) : ?>
+                                                <a href="<?php $item['link_url']; ?>" style="color: <?php echo $item['text_color']; ?>"><?php echo $item['link_text']; ?></a>
+											<?php endif; ?>
+                                        </div>
+									<?php endif; ?>
+                                </div>
+
+								<?php if($item['teaser_full_height_list']): ?>
+                                    <div class="homepageSliderCaption-fullList" style="color: <?php echo $item['text_color']; ?>">
+										<?php echo $item['teaser_full_height_list']; ?>
                                     </div>
 								<?php endif; ?>
                             </div>
+                            <!-- End First Overlay -->
 
-							<?php if($item['teaser_full_height_list']): ?>
-                                <div class="homepageSliderCaption-fullList" style="color: <?php echo $item['text_color']; ?>">
-									<?php echo $item['teaser_full_height_list']; ?>
+                            <!-- Second Overlay -->
+							<?php if(!empty($item['overlay_2'])): ?>
+                                <div class="secondOverlay">
+									<?php echo $item['overlay_2']; ?>
                                 </div>
 							<?php endif; ?>
+                            <!-- End Second Overlay -->
 
-	                        <?php if(!empty($item['first_slide_teaser'])): ?>
-		                        <?php echo $item['first_slide_teaser']; ?>
-	                        <?php endif; ?>
                         </div>
 					<?php endif; ?>
+                    <!-- end this shows each time user comes -->
+
                 </div>
 			<?php endforeach; ?>
         </div>

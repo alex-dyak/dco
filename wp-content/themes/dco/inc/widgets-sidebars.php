@@ -778,7 +778,7 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 
 	/** @see WP_Widget::widget -- do not rename this */
 	function widget( $args, $instance ) {
-	    $firsttime_visit = FALSE;
+		$firsttime_visit = FALSE;
 		if (!isset($_COOKIE['firsttime_visit'])) {
 			$firsttime_visit = TRUE;
 		}
@@ -800,26 +800,21 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 		}
 
-//		$first_slides_data = $this->get_first_slider_data();
 		$slider_data = $this->get_slider_data($firsttime_visit);
 
 		if(!empty($slider_data['slides']) && is_array($slider_data['slides'])){
 			$slider_items = $slider_data['slides'];
-        }
+		}
 
-		if(!empty($slider_data['first_slides']) && is_array($slider_data['first_slides'])){
-		    if($firsttime_visit){
-			    array_unshift($slider_items, $slider_data['first_slides'][0]);
-            }else{
-			    array_unshift($slider_items, $slider_data['first_slides'][array_rand($slider_data['first_slides'])]);
-            }
+		if(!empty($slider_data['first_slides']) ){
+			array_unshift($slider_items, $slider_data['first_slides'][0]);
 		}
 
 
 		dco_locate_template( 'widgets/homepage-slider/content-banner-slider', array(
 			'slider' => $slider_items,
-            'title' => $slider_data['title'],
-            'speed' => $slider_data['speed'],
+			'title' => $slider_data['title'],
+			'speed' => $slider_data['speed'],
 		) );
 
 		/**
@@ -878,41 +873,37 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 						$f = (int)0;
 						while ( have_rows( 'first_slide_content' ) ) : the_row();
 
-						    if($f == 0 && !$firsttime_visit){
-						        $f++;
-                                continue;
-                            }
-
 							$first_slider_array[ $f ]['background_color']        = get_sub_field( 'background_color' );
 							$first_slider_array[ $f ]['title_color']             = get_sub_field( 'title_color' );
 							$first_slider_array[ $f ]['text_color']              = get_sub_field( 'text_color' );
 							$first_slider_array[ $f ]['link_url']                = get_sub_field( 'link_url' );
 							$first_slider_array[ $f ]['title_extension']         = get_sub_field( 'title_extension' );
-							$first_slider_array[ $f ]['teaser']                  = get_sub_field( 'teaser' );
 							$first_slider_array[ $f ]['teaser_full_height_list'] = get_sub_field( 'teaser_full_height_list' );
-							$first_slider_array[ $f ]['first_slide_teaser'] = get_sub_field( 'first_slide_teaser' );
+							$first_slider_array[ $f ]['overlay_2'] = get_sub_field( 'overlay_2' );
 							$first_slider_array[ $f ]['link_text']               = get_sub_field( 'link_text' );
 
-							if ( have_rows( 'image_or_video' ) ) :
-								while ( have_rows( 'image_or_video' ) ) : the_row();
+							if ( $firsttime_visit && have_rows( 'video' ) ) :
+								while ( have_rows( 'video' ) ) : the_row();
+									$video        = get_sub_field( 'video' );
 
-									if ( get_row_layout() == 'image_layout' ) {
-										$image = get_sub_field( 'image' );
-										if ( ! empty( $image ) && is_int( $image ) ) :
-											$first_slider_array[ $f ]['image'][] = $image;
-										endif;
-									}
-
-									if ( get_row_layout() == 'video_layout' ) {
-										$video        = get_sub_field( 'video' );
-
-										$first_slider_array[ $f ]['video_poster'] = get_sub_field( 'video_poster' );
-										if ( ! empty ( $video ) ):
-											$first_slider_array[ $f ]['video_url'] = $video['url'];
-										endif;
-									}
+									$first_slider_array[ $f ]['video_poster'] = get_sub_field( 'video_poster' );
+									if ( ! empty ( $video ) ):
+										$first_slider_array[ $f ]['video_url'] = $video['url'];
+									endif;
 
 								endwhile;
+
+                            elseif (have_rows( 'images' )):
+								$images = array();
+								while ( have_rows( 'images' ) ) : the_row();
+									$image = get_sub_field('image');
+
+									if (!empty($image) && is_int($image)) :
+										$images[] = $image;
+									endif;
+								endwhile;
+
+								$first_slider_array[$f]['image'][] = $images[array_rand($images)];
 							endif;
 
 							$f ++;
@@ -965,59 +956,5 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 
 		return $slider_data;
 	}
-
-	/**
-	 * Function return first slide data.
-	 */
-	function get_first_slider_data() {
-		$first_slider_array = array();
-
-		if ( have_rows( 'slider_block' ) ) {
-			while ( have_rows( 'slider_block' ) ) {
-				the_row();
-				if ( get_row_layout() == 'slider' ) {
-					if ( have_rows( 'first_slide_content' ) ):
-						$f = 0;
-						while ( have_rows( 'first_slide_content' ) ) : the_row();
-							$first_slider_array[ $f ]['background_color']        = get_sub_field( 'background_color' );
-							$first_slider_array[ $f ]['title_color']             = get_sub_field( 'title_color' );
-							$first_slider_array[ $f ]['text_color']              = get_sub_field( 'text_color' );
-							$first_slider_array[ $f ]['link_url']                = get_sub_field( 'link_url' );
-							$first_slider_array[ $f ]['title_extension']         = get_sub_field( 'title_extension' );
-							$first_slider_array[ $f ]['teaser']                  = get_sub_field( 'teaser' );
-							$first_slider_array[ $f ]['teaser_full_height_list'] = get_sub_field( 'teaser_full_height_list' );
-							$first_slider_array[ $f ]['link_text']               = get_sub_field( 'link_text' );
-
-							if ( have_rows( 'image_or_video' ) ) :
-								while ( have_rows( 'image_or_video' ) ) : the_row();
-
-									if ( get_row_layout() == 'image_layout' ) {
-										$image = get_sub_field( 'image' );
-										if ( ! empty( $image ) && is_int( $image ) ) :
-											$first_slider_array[ $f ]['image'][] = $image;
-										endif;
-									}
-
-									if ( get_row_layout() == 'video_layout' ) {
-										$video        = get_sub_field( 'video' );
-										$video_poster = get_sub_field( 'video_poster' );
-										if ( ! empty ( $video ) ):
-											$first_slider_array[ $f ]['video_url'] = $video['url'];
-										endif;
-									}
-
-								endwhile;
-							endif;
-
-							$f ++;
-						endwhile;
-					endif;
-				}
-			}
-		}
-
-		return $first_slider_array;
-	}
-
 
 } /* End class W4P_Homepage_Slider_Widget. */
