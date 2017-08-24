@@ -15,7 +15,23 @@ $breadcrumbsBackgroundColor: $white;
     letter-spacing: 1px;
     text-transform: uppercase;
     background: $breadcrumbsBackgroundColor;
+    li {
+        padding-left: 26px;
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            a {
+                margin-right: 0;
+            }
+        }
+    }
     a {
+        display: inline-block;
+        margin-right: 26px;
         color: $breadcrumbsColor;
+        &:hover {
+            color: $black--lighter;
+        }
     }
 }
