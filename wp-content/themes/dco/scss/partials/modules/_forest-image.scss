@@ -82,8 +82,9 @@
       flex: 0 0 50%;
       min-height: inherit;
       padding: 0 34px;
-      font-size: .909rem;
-      line-height: 1.35rem;
+      font-size: 1.5vw;
+      //font-size: .909rem;
+      //line-height: 1.35rem;
     }
     @media #{$desktop-up} {
       height: 50%;
@@ -94,9 +95,11 @@
       //line-height: 1.35rem;
       font-size: 6.5vw;
       line-height: 1.2;
+      letter-spacing: .15vw;
       text-transform: uppercase;
       @media #{$tablet-up} {
-        font-size: .909rem;
+        font-size: 1.5vw;
+        //font-size: .909rem;
       }
     }
     &-social {
