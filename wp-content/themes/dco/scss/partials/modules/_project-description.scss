@@ -1,5 +1,7 @@
 /* variables for this module */
 $subTitleColor: $blue--light;
+$descriptionTitleFontFamily: $Avenir-heavy;
+$descriptionSubTitleFontFamily: $Avenir-book;
 
 /*===========================*/
 
@@ -13,9 +15,11 @@ $subTitleColor: $blue--light;
       width: 80%;
     }
     &-title {
+      font-family: $descriptionTitleFontFamily;
       margin-bottom: 16px;
     }
     &-subtitle {
+      font-family: $descriptionSubTitleFontFamily;
       color: $subTitleColor;
       margin-bottom: 30px;
     }
