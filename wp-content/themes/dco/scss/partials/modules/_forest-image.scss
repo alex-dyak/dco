@@ -83,6 +83,7 @@
       min-height: inherit;
       padding: 0 34px;
       font-size: 1.5vw;
+      line-height: 1.9vw;
       //font-size: .909rem;
       //line-height: 1.35rem;
     }
@@ -99,6 +100,7 @@
       text-transform: uppercase;
       @media #{$tablet-up} {
         font-size: 1.5vw;
+        line-height: 1.9vw;
         //font-size: .909rem;
       }
     }
