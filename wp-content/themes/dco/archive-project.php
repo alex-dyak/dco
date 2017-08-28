@@ -30,7 +30,10 @@ $counter = 0;
 				$image = get_field( 'landing_image' );
 			if ( ! empty( $image ) && is_int( $image ) ) : ?>
 				<a href="<?php the_permalink(); ?>" class="landing-block">
-					<div class="landing-title <?php echo $class; ?>"  style="background-color: <?php echo $project_color; ?>"><strong><?php the_title(); ?></strong></div>
+					<div class="landing-title <?php echo $class; ?>"  style="background-color: <?php echo $project_color; ?>">
+						<strong><?php the_title(); ?></strong>
+						<div class="project-description"><?php the_content(); ?></div>
+					</div>
 					<div class="landing-image">
                         <img data-src="<?php echo wp_get_attachment_image_url($image, 'full_default_img_desktop_large'); ?>" class="grayscale lazyload defaultImage" alt="post-alt"
                              data-srcset="<?php echo wp_get_attachment_image_url($image, 'full_default_img_desktop_medium'); ?> 1600w,
