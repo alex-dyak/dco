@@ -13,6 +13,7 @@
             arrows: false,
             autoplay: true,
             autoplaySpeed: 3000,
+            speed: 800,
             fade: true
         });
 

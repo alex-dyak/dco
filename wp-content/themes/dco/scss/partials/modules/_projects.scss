@@ -101,7 +101,7 @@
     @media #{$tablet-up} {
       width: 50%;
       min-height: 50%;
-      display: block;
+      //display: block;
       font-size: 1.5vw;
       //font-size: .909rem;
       //line-height: 1.35rem;
@@ -114,12 +114,13 @@
       font-family: $Avenir-medium;
       @media #{$tablet-up} {
         font-size: 1.5vw;
+        line-height: 1.9vw;
         //font-size: .909rem;
         //line-height: 1.35rem;
       }
     }
     &-description {
-      text-align: center;
+      //text-align: center;
     }
   }
 }
