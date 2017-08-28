@@ -150,8 +150,8 @@ register_nav_menu( 'primary', __( 'Navigation Menu', 'dco' ) );
  */
 function post_navigation() {
 	echo '<div class="navigation">';
-	echo '	<div class="next-posts">' . esc_html( get_next_posts_link( '&laquo; Older Entries' ) ) . '</div>';
-	echo '	<div class="prev-posts">' . esc_html( get_previous_posts_link( 'Newer Entries &raquo;' ) ) . '</div>';
+	echo '	<div class="next-posts">' . get_next_post_link(  '%link', '&lt; %title' ) . '</div>';
+	echo '	<div class="prev-posts">' . get_previous_post_link( '%link', '%title &gt;' ) . '</div>';
 	echo '</div>';
 }
 
