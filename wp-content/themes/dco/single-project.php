@@ -80,9 +80,10 @@ get_header(); ?>
 		</article>
 
 	<?php endwhile;
-endif; ?>
 
-<?php post_navigation(); ?>
+	post_navigation();
+
+endif; ?>
 
 
 <?php get_footer(); ?>
