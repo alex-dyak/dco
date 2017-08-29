@@ -264,3 +264,49 @@ $linksFont: $FuturaPT;
     }
   }
 }
+.postNavigation {
+  display: none;
+  @media #{$tablet-up} {
+    display: block;
+  }
+  &-nextPosts,
+  &-prevPosts {
+    position: absolute;
+    //bottom: 200px;
+    opacity: 0;
+    transition: opacity .3s;
+    z-index: 1000;
+    a {
+      display: inline-block;
+      vertical-align: middle;
+      font-family: $FuturaPT;
+      font-weight: 500;
+      font-size: 1.5625rem;
+      line-height: 30px;
+      text-transform: uppercase;
+      color: $nevada;
+    }
+    i {
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -4px;
+      font-size: 30px;
+      color: $nevada;
+      &.fa-angle-left {
+        margin-right: 8px;
+      }
+      &.fa-angle-right {
+        margin-left: 8px;
+      }
+    }
+    &.is-visible {
+      opacity: 1;
+    }
+  }
+  &-nextPosts {
+    right: 100px;
+  }
+  &-prevPosts {
+    left: 100px;
+  }
+}
