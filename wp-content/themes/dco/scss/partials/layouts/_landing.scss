@@ -58,17 +58,20 @@ $landingTitleLineHeight: 1;
     &-title {
         position: absolute;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         z-index: 1;
         bottom: 0;
-        height: 65px;
+        //height: 65px;
         width: 100%;
-        text-align: center;
+        padding: 25px 0;
+        //text-align: center;
         @media #{$tablet-up} {
             top: 0;
             width: 300px;
             height: auto;
+            padding: 0;
         }
         @media #{$desktop-up} {
             width: 450px;
@@ -84,11 +87,22 @@ $landingTitleLineHeight: 1;
             color: $landingTitleColor;
             text-transform: uppercase;
             max-width: 90%;
+            margin-bottom: 25px;
             @media #{$tablet-up} {
                 width: 74%;
             }
             @media #{$mobile-down} {
                 text-align: center;
+            }
+        }
+        .project-description {
+            font-family: $SourceSansPro-light;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: $white;
+            max-width: 90%;
+            @media #{$tablet-up} {
+                width: 74%;
             }
         }
     }

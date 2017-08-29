@@ -82,11 +82,19 @@
 }
 @font-face {
   font-family: 'AvenirLTStd-Black';
-  src: url('webfonts/3485E0_4_0.eot');
-  src: url('webfonts/3485E0_4_0.eot?#iefix') format('embedded-opentype'),
-  url('webfonts/3485E0_4_0.woff2') format('woff2'),
-  url('webfonts/3485E0_4_0.woff') format('woff'),
-  url('webfonts/3485E0_4_0.ttf') format('truetype');
+  src: url('../fonts/3485E0_4_0.eot');
+  src: url('../fonts/3485E0_4_0.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/3485E0_4_0.woff2') format('woff2'),
+  url('../fonts/3485E0_4_0.woff') format('woff'),
+  url('../fonts/3485E0_4_0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'AvenirLTStd-Roman';
+  src: url('../fonts/3485E0_1_0.eot');
+  src: url('../fonts/3485E0_1_0.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/3485E0_1_0.woff2') format('woff2'),
+  url('../fonts/3485E0_1_0.woff') format('woff'),
+  url('../fonts/3485E0_1_0.ttf') format('truetype');
 }
 
 
@@ -104,5 +112,6 @@ $SourceSansPro-light: 'Source Sans Pro Light', Arial, sans-serif;
 $Avenir-heavy: 'Avenir Heavy', Arial, sans-serif;
 $Avenir-book: 'Avenir Book', Arial, sans-serif;
 $Avenir-medium: 'AvenirLTStd-Medium', Arial, sans-serif;
-$Avenir-light: 'AvenirLTStd-Light', Arial, sans-serif
-$Avenir-black: 'AvenirLTStd-Black', Arial, sans-serif
+$Avenir-light: 'AvenirLTStd-Light', Arial, sans-serif;
+$Avenir-black: 'AvenirLTStd-Black', Arial, sans-serif;
+$Avenir-roman: 'AvenirLTStd-Roman', Arial, sans-serif;
