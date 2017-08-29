@@ -30,6 +30,46 @@
     }
 
     sliderHeight();
+    
+    function pageArrows() {
+        if($('.js-postNav').length ) {
+            var $postNavParent = $('.js-postNav'),
+                $postNavNext = $postNavParent.find('.js-data-next'),
+                $postNavPrev = $postNavParent.find('.js-data-prev');
+            // $postNavNext.addClass('is-visible');
+            $(window).scroll(function () {
+                var startPoint = $(window).height() + 100,
+                    finishPoint = $('#footer').offset().top + 50,
+                    currentPosition = $(window).scrollTop() + $(window).height();
+
+                $postNavNext.attr('data-start', startPoint);
+                $postNavNext.attr('data-end', finishPoint);
+                $postNavPrev.attr('data-start', finishPoint - 300);
+                $postNavPrev.attr('data-end', finishPoint);
+
+                if( currentPosition >= $postNavNext.attr('data-start') && currentPosition <= $postNavNext.attr('data-end') ) {
+                    $postNavNext.addClass('is-visible');
+                    $postNavNext.css({
+                        'position': 'absolute',
+                        'top': $(window).scrollTop() + $(window).height() - 50
+                    })
+                } else if ( currentPosition <= $postNavNext.attr('data-start') ){
+                    $postNavNext.removeClass('is-visible');
+                }
+
+                if( currentPosition >= $postNavPrev.attr('data-start') && currentPosition <= $postNavPrev.attr('data-end')) {
+                    $postNavPrev.addClass('is-visible');
+                    $postNavPrev.css({
+                        'position': 'absolute',
+                        'top': $(window).scrollTop() + $(window).height() - 50
+                    })
+                } else if ( currentPosition <= $postNavPrev.attr('data-start') ){
+                    $postNavPrev.removeClass('is-visible');
+                }
+            })
+        }
+    }
+    //pageArrows();
 
       var moduleSlider = $('.js-moduleSlider'),
           moduleSliderSpeed = profileSlider.data('speed');
@@ -52,6 +92,12 @@
 
       $(window).on('resize', function(){
           sliderHeight();
+      });
+      $(window).on('load', function(){
+          setTimeout(function () {
+              pageArrows();
+              console.log('go')
+          }, 500)
       });
   });
 
