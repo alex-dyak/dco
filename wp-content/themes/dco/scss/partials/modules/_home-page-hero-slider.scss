@@ -1,8 +1,8 @@
 /* variables for this module */
 $heroBannerHeight--desktop: 568px;
 $heroBannerHeight--mobile: 441px;
-$homePageSlider-btnBackground: rgba($grey, .3);
-$homePageSlider-btnBackground--hover: rgba($grey, .8);
+$homePageSlider-btnBackground: rgba($nevada, .3);
+$homePageSlider-btnBackground--hover: $nevada;
 
 
 /*===========================*/
@@ -150,7 +150,6 @@ $homePageSlider-btnBackground--hover: rgba($grey, .8);
       &.slick-active {
         > button {
           background: $nevada;
-          border-color: $nevada;
         }
       }
       > button {
@@ -168,8 +167,6 @@ $homePageSlider-btnBackground--hover: rgba($grey, .8);
         @media #{$tablet-up} {
           width: 8px;
           height: 8px;
-          border: 1px solid $gray-ship;
-          background: transparent;
         }
       }
     }

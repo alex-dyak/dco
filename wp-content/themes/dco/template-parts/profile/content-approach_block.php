@@ -15,13 +15,15 @@
 
 		<div class="graph">
 			<?php $graph_image_id = get_sub_field( 'approach_graphic' ); ?>
-			<?php $graph_size = 'full'; ?>
-			<?php echo wp_get_attachment_image( $graph_image_id, $graph_size ); ?>
+            <?php if ( !empty($graph_image_id) ): ?>
+                <img src="<?php echo $graph_image_id; ?>" alt="">
+            <?php endif; ?>
 		</div>
 	</div>
 
 	<!-- Background image -->
-	<?php $background = get_sub_field( 'approach_background' ); ?>
-	<?php $background_size = get_sub_field( 'approach_background' ); ?>
-	<?php echo wp_get_attachment_image( $background, $background_size ); ?>
+    <?php $background = get_sub_field( 'approach_background' ); ?>
+    <?php if ( !empty($background) ): ?>
+        <img src="<?php echo $background; ?>" alt="">
+    <?php endif; ?>
 </div>

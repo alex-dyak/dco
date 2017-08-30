@@ -72,6 +72,7 @@ function dco_setup() {
     add_image_size( 'homepage_slider_full_large', 1920, 1080, true );
     add_image_size( 'homepage_slider_full_medium', 1600, 1050, true );
     add_image_size( 'homepage_slider_full_small', 1280, 1024, true );
+    add_image_size( 'graph-image', 970, '', false );
 
 		//need add the image size to array $image_sizes in the function dco_add_custom_image_srcset
 	}
@@ -284,7 +285,7 @@ function set_custom_client_sortable_columns( $columns ) {
  * @param array $image_meta The image meta data as returned by 'wp_get_attachment_metadata()'.
  * @param int $attachment_id Image attachment ID.
  */
-add_filter( 'wp_calculate_image_srcset', 'dco_add_custom_image_srcset', 10, 5 );
+//add_filter( 'wp_calculate_image_srcset', 'dco_add_custom_image_srcset', 10, 5 );
 function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_meta, $attachment_id ) {
 
 	$image_sizes = array(
@@ -312,6 +313,7 @@ function dco_add_custom_image_srcset( $sources, $size_array, $image_src, $image_
         'homepage_slider_full_large',
         'homepage_slider_full_medium',
         'homepage_slider_full_small',
+        'graph-image',
 	);
 
 	// image base name
