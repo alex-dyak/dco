@@ -108,10 +108,11 @@ $gotTopColor--hover: $gray-ship;
         right: 8px;
         top: 14px;
         flex-direction: column;
-        min-width: 115px;
+        //min-width: 115px;
         @media #{$tablet-up} {
           position: static;
           flex-direction: row;
+          min-width: 115px;
         }
         a {
           background: $socialsBg;
