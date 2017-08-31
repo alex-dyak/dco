@@ -152,10 +152,10 @@ register_nav_menu( 'primary', __( 'Navigation Menu', 'dco' ) );
 function post_navigation() {
 	echo '<div class="postNavigation js-postNav">';
 	if ( get_next_post_link(  '%link', 'Prev Project' ) ) {
-        echo '	<div class="postNavigation-prevPosts js-data-prev" data-start="" data-end=""><i class="fa fa-angle-left" aria-hidden="true"></i> ' . get_next_post_link(  '%link', 'Prev Project' ) . '</div>';
+        echo '	<div class="postNavigation-prevPosts js-data-prev" data-start="" data-end=""><i class="fa fa-angle-left" aria-hidden="true"></i> ' . get_next_post_link(  '%link', 'Previous' ) . '</div>';
     }
     if ( get_previous_post_link('%link', 'Next Project') ) {
-        echo '	<div class="postNavigation-nextPosts js-data-next" data-start="" data-end="">' . get_previous_post_link('%link', 'Next Project') . ' <i class="fa fa-angle-right" aria-hidden="true"></i></div>';
+        echo '	<div class="postNavigation-nextPosts js-data-next" data-start="" data-end="">' . get_previous_post_link('%link', 'Next') . ' <i class="fa fa-angle-right" aria-hidden="true"></i></div>';
     }
 	echo '</div>';
 }
