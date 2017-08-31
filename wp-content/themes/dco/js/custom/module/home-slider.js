@@ -2,13 +2,32 @@
     $(function(){
         var $homePageSlider = $('.js-homepage-slider'),
             homePageSliderSpeed = $homePageSlider.data('speed'),
-            homePageSliderSpeed2x = $homePageSlider.data('speed') * 2;
+            homePageSliderSpeed2x = $homePageSlider.data('speed') * 2,
+            slides = $homePageSlider.find('.slick-slide');
         $homePageSlider.on('init', function (event, slick) {
-            console.log('init slider');
+            //console.log('init slider');
+            $(window).on('load', function(){
+                //console.log('window load');
+                setTimeout(function () {
+                    slick.slickSetOption("autoplay", true, true);
+                    //console.log('play slider');
+
+                    var slides = $homePageSlider.find('.slick-slide');
+                    slides.each(function () {
+                        var $this = $(this);
+                        if ($this.hasClass('slick-active')) {
+                            $this.addClass('is-active');
+                        } else {
+                            $this.removeClass('is-active');
+                        }
+                    });
+                    //console.log('active slider set');
+                }, 2000);
+            });
         })
         $homePageSlider.slick({
-            autoplay: true,
-            autoplaySpeed: homePageSliderSpeed2x,
+            autoplay: false,
+            autoplaySpeed: homePageSliderSpeed,
             infinite: true,
             arrows: false,
             dots: true,
@@ -18,26 +37,36 @@
             slidesToShow: 1
         })
         .on('init', function (event, slick) {
-            console.log('init slider');
-            console.log('this is video slide');
-            console.log('init video functionality, run double animation for description');
+            //console.log('init slider');
+            //console.log('this is video slide');
+            //console.log('init video functionality, run double animation for description');
         })
         .on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-            slick.slickSetOption("autoplay", false, false);
+           // slick.slickSetOption("autoplay", false, false);
         })
         .on('afterChange', function(event, slick, currentSlide){
-            if( currentSlide == 0 ) {
-                console.log('this is video slide');
-                console.log('init video functionality, run double animation for description');
-                console.log('autoplay speed:', homePageSliderSpeed2x);
-                slick.slickSetOption("autoplay", true, false);
-                slick.slickSetOption("autoplaySpeed", homePageSliderSpeed2x, false);
-            }else {
-                console.log('this is default slide');
-                console.log('autoplay speed:', homePageSliderSpeed);
-                slick.slickSetOption("autoplay", true, false);
-                slick.slickSetOption("autoplaySpeed", homePageSliderSpeed, false);
-            }
+            // if( currentSlide == 0 ) {
+            //     console.log('this is video slide');
+            //     console.log('init video functionality, run double animation for description');
+            //     console.log('autoplay speed:', homePageSliderSpeed2x);
+            //     slick.slickSetOption("autoplay", true, false);
+            //     slick.slickSetOption("autoplaySpeed", homePageSliderSpeed2x, false);
+            // }else {
+            //     console.log('this is default slide');
+            //     console.log('autoplay speed:', homePageSliderSpeed);
+            //     slick.slickSetOption("autoplay", true, false);
+            //     slick.slickSetOption("autoplaySpeed", homePageSliderSpeed, false);
+            // }
+            var slides = $homePageSlider.find('.slick-slide');
+            slides.each(function () {
+                var $this = $(this);
+                if ($this.hasClass('slick-active')) {
+                    $this.addClass('is-active');
+                } else {
+                    $this.removeClass('is-active');
+                }
+            });
+            //console.log('active slider set');
             heroVideo();
         });
 

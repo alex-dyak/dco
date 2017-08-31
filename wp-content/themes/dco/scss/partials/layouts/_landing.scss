@@ -89,7 +89,10 @@ $landingTitleLineHeight: 1;
             max-width: 90%;
             margin-bottom: 25px;
             @media #{$tablet-up} {
-                width: 74%;
+                width: 80%;
+            }
+            @media #{$desktop-up} {
+                width: 60%;
             }
             @media #{$mobile-down} {
                 text-align: center;
@@ -102,7 +105,10 @@ $landingTitleLineHeight: 1;
             color: $white;
             max-width: 90%;
             @media #{$tablet-up} {
-                width: 74%;
+                width: 80%;
+            }
+            @media #{$desktop-up} {
+                width: 60%;
             }
         }
     }
