@@ -12,6 +12,14 @@ $gotTopColor--hover: $gray-ship;
   position: relative;
   text-align: center;
   background: $white;
+  .single-project & {
+    margin-top: 135px;
+    padding-top: 151px;
+    @media #{$tablet-up} {
+      margin-top: 157px;
+      padding-top: 157px;
+    }
+  }
   &-inner {
     @media #{$tablet-up} {
       display: inline-block;
