@@ -271,7 +271,7 @@ $linksFont: $FuturaPT;
     //bottom: 200px;
     opacity: 0;
     transition: opacity .3s;
-    z-index: 1000;
+    z-index: 9;
     a {
       display: inline-block;
       vertical-align: middle;
@@ -281,6 +281,13 @@ $linksFont: $FuturaPT;
       line-height: 26px;
       text-transform: uppercase;
       color: $nevada;
+      &::after {
+        content: "Project";
+        @media #{$tablet-up} {
+          display: inline-block;
+          margin-left: 5px;
+        }
+      }
       @media #{$tablet-up} {
         font-size: 1.3rem;
       }
