@@ -282,10 +282,11 @@ $linksFont: $FuturaPT;
       text-transform: uppercase;
       color: $nevada;
       &::after {
+        display: none;
         content: "Project";
+        margin-left: 5px;
         @media #{$tablet-up} {
           display: inline-block;
-          margin-left: 5px;
         }
       }
       @media #{$tablet-up} {
