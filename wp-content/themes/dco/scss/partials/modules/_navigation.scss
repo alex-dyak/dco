@@ -265,10 +265,6 @@ $linksFont: $FuturaPT;
   }
 }
 .postNavigation {
-  display: none;
-  @media #{$tablet-up} {
-    display: block;
-  }
   &-nextPosts,
   &-prevPosts {
     position: absolute;
@@ -281,16 +277,19 @@ $linksFont: $FuturaPT;
       vertical-align: middle;
       font-family: $FuturaPT;
       font-weight: 500;
-      font-size: 1.5625rem;
-      line-height: 30px;
+      font-size: 0.78125rem;
+      line-height: 26px;
       text-transform: uppercase;
       color: $nevada;
+      @media #{$tablet-up} {
+        font-size: 1.3rem;
+      }
     }
     i {
       display: inline-block;
       vertical-align: middle;
       margin-top: -4px;
-      font-size: 30px;
+      font-size: 26px;
       color: $nevada;
       &.fa-angle-left {
         margin-right: 8px;
@@ -304,9 +303,15 @@ $linksFont: $FuturaPT;
     }
   }
   &-nextPosts {
-    right: 100px;
+    right: 25px;
+    @media #{$tablet-up} {
+      right: 50px;
+    }
   }
   &-prevPosts {
-    left: 100px;
+    left: 25px;
+    @media #{$tablet-up} {
+      left: 50px;
+    }
   }
 }

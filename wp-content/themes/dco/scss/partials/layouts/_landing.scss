@@ -63,7 +63,6 @@ $landingTitleLineHeight: 1;
         justify-content: center;
         z-index: 1;
         bottom: 0;
-        //height: 65px;
         width: 100%;
         padding: 25px 0;
         //text-align: center;
@@ -87,6 +86,7 @@ $landingTitleLineHeight: 1;
             color: $landingTitleColor;
             text-transform: uppercase;
             max-width: 90%;
+            letter-spacing: .15vw;
             margin-bottom: 25px;
             @media #{$tablet-up} {
                 width: 80%;
