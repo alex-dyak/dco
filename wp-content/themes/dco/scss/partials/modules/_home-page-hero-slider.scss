@@ -41,7 +41,7 @@ $homePageSlider-btnBackground--hover: $nevada;
     position: relative;
     border: 0 !important;
     overflow: hidden;
-    &.slick-active {
+    &.is-active {
       .homepageSliderCaption {
         right: 0;
       }
@@ -172,15 +172,15 @@ $homePageSlider-btnBackground--hover: $nevada;
     }
   }
 }
-
 .homepageSliderCaption {
   position: absolute;
   top: 0;
-  right: -30%;
+  right: -100%;
   width: 50%;
   color: $grey;
   padding: 0 5px;
-  transition: all .5s ease-out .3s;
+  transition: right .5s ease-out;
+  will-change: transition;
   &-inner {
     position: absolute;
     top: 50%;

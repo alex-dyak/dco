@@ -96,7 +96,6 @@
       $(window).on('load', function(){
           setTimeout(function () {
               pageArrows();
-              console.log('go')
           }, 500)
       });
   });
