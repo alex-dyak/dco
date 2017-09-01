@@ -20,7 +20,7 @@
           headerHeight = $('.js-siteHeader').outerHeight(),
           $slides = profileSlider.find('.slick-slide');
       if( !tablet.matches ) {
-          itemHeight = $(window).height() - (headerHeight * 2);
+          itemHeight = ( $(window).height() * .8 ) - (headerHeight * 2);
           sliderHeightV = itemHeight.toFixed();
       } else {
           sliderHeightV = 365;

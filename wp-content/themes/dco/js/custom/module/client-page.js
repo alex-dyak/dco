@@ -45,7 +45,7 @@
                         $parallaxWrap = $this.find('.parallaxImg');
                     if( !tablet.matches ) {
                         var headerHeight = $('.js-siteHeader').outerHeight(),
-                            sectionHeight = $(window).height() - (headerHeight * 2);
+                            sectionHeight = ($(window).height() * .8) - (headerHeight * 2);
                     } else {
                         sectionHeight = 365;
                     }
