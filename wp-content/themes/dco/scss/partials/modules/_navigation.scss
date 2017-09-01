@@ -266,6 +266,7 @@ $linksFont: $FuturaPT;
 }
 .postNavigation {
   width: 100%;
+  left: 0;
   z-index: 9;
   opacity: 0;
   transition: opacity .3s;
