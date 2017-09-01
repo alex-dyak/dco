@@ -265,13 +265,15 @@ $linksFont: $FuturaPT;
   }
 }
 .postNavigation {
+  width: 100%;
+  z-index: 9;
+  opacity: 0;
+  transition: opacity .3s;
   &-nextPosts,
   &-prevPosts {
     position: absolute;
-    //bottom: 200px;
-    opacity: 0;
+    top: 0;
     transition: opacity .3s;
-    z-index: 9;
     a {
       display: inline-block;
       vertical-align: middle;
@@ -306,7 +308,12 @@ $linksFont: $FuturaPT;
         margin-left: 8px;
       }
     }
-    &.is-visible {
+  }
+  &.is-visible {
+    opacity: 1;
+  }
+  &.is-onBottom {
+    .postNavigation-prevPosts {
       opacity: 1;
     }
   }
@@ -318,6 +325,8 @@ $linksFont: $FuturaPT;
   }
   &-prevPosts {
     left: 25px;
+    opacity: 0;
+    transition: opacity .3s;
     @media #{$tablet-up} {
       left: 50px;
     }
