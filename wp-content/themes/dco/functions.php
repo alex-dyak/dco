@@ -150,7 +150,7 @@ register_nav_menu( 'primary', __( 'Navigation Menu', 'dco' ) );
  * Navigation - update coming from twentythirteen.
  */
 function post_navigation() {
-	echo '<div class="postNavigation js-postNav">';
+	echo '<div class="postNavigation js-postNav" id="sticky">';
 	if ( get_next_post_link(  '%link', 'Prev Project' ) ) {
         echo '	<div class="postNavigation-prevPosts js-data-prev" data-start="" data-end=""><i class="fa fa-angle-left" aria-hidden="true"></i> ' . get_next_post_link(  '%link', 'Previous' ) . '</div>';
     }
