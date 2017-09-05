@@ -83,7 +83,9 @@ if ( is_front_page() ) {
         <div class="siteHeader-menu">
             <button type="button" class="menuBtn js-menuTrigger">
                 <span><?php _e('menu'); ?></span>
-                <i class="fa fa-bars" aria-hidden="true"></i>
+                <i>
+                    <span></span>
+                </i>
             </button>
         </div>
 

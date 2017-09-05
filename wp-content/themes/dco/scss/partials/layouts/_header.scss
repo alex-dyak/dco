@@ -25,13 +25,12 @@ $menuBtnColor--hover: $gray-ship;
     height: 24px;
     @media #{$tablet-up} {
       height: 18px;
-      margin-top: 2px;
     }
   }
   &-menu {
     margin-top: 5px;
     @media #{$tablet-up} {
-      margin-top: 0;
+      margin-top: 1px;
     }
   }
 }
@@ -69,16 +68,60 @@ $menuBtnColor--hover: $gray-ship;
   &:focus {
     color: $menuBtnColor--hover;
   }
-  i {
-    font-size: 0.9375rem;
+  > i {
+    display: inline-block;
+    position: relative;
+    width: 17px;
+    height: 17px;
+    //font-size: 0.9375rem;
     margin-left: 4px;
+
+    &:before,
+    &:after,
+    span {
+      position: absolute;
+      width: 17px;
+      height: 2px;
+      left: 0;
+      content: "";
+      opacity: 1;
+      transition: none .5s ease .5s;
+      transition-property: transform, top, bottom, left, opacity;
+      background: $menuBtnColor;
+      color: $menuBtnColor;
+    }
+    &:before {
+      top: 0;
+    }
+    span {
+      top: 7px;
+    }
+    &:after {
+      top: 14px;
+    }
+    &.is-active {
+      &:before,
+      &:after {
+        top: 10px;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      span {
+        left: -50px;
+        opacity: 0;
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
     @media #{$tablet-up} {
       display: inline-block;
       vertical-align: middle;
-      font-size: 1.25rem;
+      //font-size: 1.25rem;
     }
   }
-  span {
+  > span {
     font-family: $menuBtnFont;
     @media #{$tablet-up} {
       display: inline-block;
