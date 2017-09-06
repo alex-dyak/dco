@@ -1,119 +1,82 @@
 <?php
-/*
-Plugin Name: Advanced Custom Fields: Widget
-*/
 
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+/**
+ * Plugin Name:       Advanced Custom Fields: Widget
+ * Plugin URI:        https://www.directbasing.com/resources/wordpress/advanced-custom-fields-widget/
+ * Description:       A widget that is able to use content from an ACF field group
+ * Version:           1.0.2
+ * Author:            Direct Basing
+ * Author URI:        https://www.directbasing.com/
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       acf_widget
+ * Domain Path:       /languages
+ */
+
+require_once( 'includes/class-acf-widget.php' );
+require_once( 'includes/class-acf-widget-plugin.php' );
+require_once( 'includes/class-acf-widget-plugin-init.php' );
+
+$GLOBALS['acf_widget_types'] = array( 'acf_widget' );
+$GLOBALS['ACF_Widget_Plugin'] = new ACF_Widget_Plugin();
+$GLOBALS['ACF_Widget_Plugin_Init'] = new ACF_Widget_Plugin_Init();
+
+function acf_widget_init()
+{
+	//
+	// TODO
+	// Use for future update so default ACF Widget can access data immediately
+	// and not after saving first (AJAX)
+	//
+
+	//wp_register_script( 'acf-widget', plugins_url( 'acf-widget.js', __FILE__ ) );
+	//wp_enqueue_script( 'acf-widget' );
+
+	register_widget( 'ACF_Widget' );
 }
 
-// Check if class exists, only run code if it does not
-if ( ! class_exists( 'acf_field_widget_plugin' ) ) {
+add_action( 'widgets_init', 'acf_widget_init' );
 
-	class acf_field_widget_plugin {
-		/*
-		*  Construct
-		*
-		*  @since: 1.0.0
-		*/
+function observe_deleted_widgets() {
 
-		function __construct() {
+	global $wp_registered_widgets;
 
-			/**
-			 * Setup some base variables for the plugin
-			 */
-			$this->basename       = plugin_basename( __FILE__ );
-			$this->directory_path = plugin_dir_path( __FILE__ );
-			$this->directory_url  = plugins_url( dirname( $this->basename ) );
+	if ( strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post') {
 
-			/**
-			 * Load Textdomain
-			 */
-			load_plugin_textdomain( 'acf_widget_area', false, dirname( $this->basename ) . '/languages' );
+		// Get widget ids
+		$widget_raw_id = $_POST['widget-id'];
+		$widget = explode( '-', $widget_raw_id );
+		$widget_id_base = $widget[0];
+		$widget_id = $widget[1];
 
-			/**
-			 * Make sure we have our requirements, and disable the plugin if we do not have them.
-			 */
-			add_action( 'admin_notices', array( $this, 'maybe_disable_plugin' ) );
+		if ( isset( $_POST['delete_widget'] ) AND in_array( $widget_id_base, $GLOBALS['acf_widget_types'] ) ) {
 
-			/**
-			 * Add action for version 5
-			 */
-			add_action( 'acf/include_field_types', array( $this, 'include_field_type' ) );
+			if ( (int) $_POST['delete_widget'] === 1 ) {
 
-			/**
-			 * Add action for version 4
-			 */
-			add_action( 'acf/register_fields', array( $this, 'register_fields' ) );
+				// Get widget by raw id
+				$option_name = $wp_registered_widgets[ $widget_raw_id ]['callback'][0]->option_name;
+				$key = $wp_registered_widgets[ $widget_raw_id ]['params'][0]['number'];
+				$widget_data = get_option( $option_name );
+				$output = (object) $widget_data[ $key ];
 
-		}
+				// Empty ACF fields
+				if ( isset( $output['fields'] ) ) {
 
-		/**
-		 * Check that all plugin requirements are met
-		 *
-		 * @since  1.0.0
-		 *
-		 * @return bool
-		 */
-		public static function meets_requirements() {
-			/**
-			 * If the main acf class doesn't exist, our plugin won't work.
-			 */
-			if( ! class_exists( 'acf' ) ) {
-				return false;
+					foreach ( $output['fields'] as $key => $value ) {
+
+						$output['fields'][ $key ] = $value;
+						update_field( $key, '', 'widget_' . $widget_id_base . '_' . $widget_id );
+
+					}
+
+				}
+
 			}
-
-			/**
-			 * We have met all requirements
-			 */
-			return true;
-		}
-
-		/**
-		 * Check if the plugin meets requirements and disable it if they are not present.
-		 *
-		 * @since 1.0.0
-		 */
-		public function maybe_disable_plugin() {
-
-			if ( ! $this->meets_requirements() ) {
-				// Display our error
-				echo '<div id="message" class="error">';
-				echo '<p>' . sprintf( __( 'ACF Widget Area is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'acf_widget_area' ), admin_url( 'plugins.php' ) ) . '</p>';
-				echo '</div>';
-
-				// Deactivate our plugin
-				deactivate_plugins( $this->basename );
-			}
-
-		}
-
-		/**
-		 * Include field type for ACF v5
-		 *
-		 * @param $version
-		 */
-		function include_field_type( $version ) {
-
-			include_once( $this->directory_path . '/widget-v5.php' );
-
-		}
-
-		/*
-		*  register_fields
-		*
-		*  @since: 1.0.0
-		*/
-
-		function register_fields() {
-
-			include_once( $this->directory_path . '/widget-v4.php' );
 
 		}
 
 	}
 
-	new acf_field_widget_plugin();
-
 }
+
+add_action( 'sidebar_admin_setup', 'observe_deleted_widgets' );
