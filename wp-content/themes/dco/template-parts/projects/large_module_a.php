@@ -41,14 +41,14 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
     }
     ?>
 
-	<div class="imageLargeModuleA <?php echo $full_height_class; ?>">
+	<div class="imageLargeModuleA <?php echo $full_height_class; ?> js-hasSticky">
 		<?php if ( $quote_title || $quote_body ) : ?>
             <?php $quote_body_size_class = "" ?>
             <?php if($quote_body_size): ?>
                 <?php $quote_body_size_class = ' imageLargeModuleA-quote-inner--large' ?>
             <?php endif; ?>
 			<div class="imageLargeModuleA-quote">
-				<div class="imageLargeModuleA-quote-inner<?php echo $quote_body_size_class; ?> position-<?php echo $class_title; ?>"
+				<div class="js-hasSticky-item imageLargeModuleA-quote-inner<?php echo $quote_body_size_class; ?> position-<?php echo $class_title; ?>"
 					style="background: <?php echo $background_color; ?>">
 					<?php if ( $quote_title ) : ?>
 						<div class="imageLargeModuleA-quote-title"

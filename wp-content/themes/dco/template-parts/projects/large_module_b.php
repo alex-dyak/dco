@@ -32,12 +32,12 @@ switch ( $select ) {
 }
 ?>
 
-<div class="videoLargeModuleB">
+<div class="videoLargeModuleB js-hasSticky" >
 	<?php if ( $quote_title || $quote_body ) : ?>
 		<div
 			class="videoLargeModuleB-quote location-<?php echo $class_title; ?>">
 			<div
-				class="videoLargeModuleB-quote-inner position-<?php echo $class_title; ?>"
+				class="js-hasSticky-item videoLargeModuleB-quote-inner position-<?php echo $class_title; ?>"
 				style="background: <?php echo $background_color; ?>">
 				<?php if ( $quote_title ) : ?>
 					<div class="videoLargeModuleB-quote-title"

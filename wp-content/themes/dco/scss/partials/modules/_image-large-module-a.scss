@@ -49,7 +49,7 @@ $quoteBlock-color: #696A6D;
       &.position-top_right {
         @media #{$tablet-up} {
           right: 85px;
-          //left: 500px;
+          left: auto !important;
           top: -70px;
           //transform: translateY(-50%);
         }
