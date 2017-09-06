@@ -20,13 +20,6 @@ $descriptionFont: $SourceSansPro-light;
     &:last-child {
       margin-bottom: 0;
     }
-    &:hover {
-      color: $descriptionColor--hover;
-      text-decoration: none;
-      .newsList-box-date {
-        color: $dateColor--hover;
-      }
-    }
     &-date {
       display: block;
       margin-bottom: 3px;
@@ -36,6 +29,13 @@ $descriptionFont: $SourceSansPro-light;
     }
     &-description {
       display: block;
+    }
+  }
+  a:hover {
+    color: $descriptionColor--hover;
+    text-decoration: none;
+    .newsList-box-date {
+      color: $dateColor--hover;
     }
   }
 }
