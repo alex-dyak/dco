@@ -148,17 +148,22 @@ if ( is_front_page() ) {
                                     $query->the_post();
                                     $date = get_the_date( 'm.d.y' );
                                     if ( get_field( 'external_link' ) ) {
-                                      $link = get_field( 'external_link' );
-                                    } else {
-                                      $link = get_the_permalink();
-                                    }
-                                    ?>
-                                      <a href="<?php echo $link; ?>" class="newsList-box">
-                                          <span class="newsList-box-date"><?php echo $date; ?></span>
-                                          <span class="newsList-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
-                                      </a>
+	                                    ?>
+	                                    <a href="<?php echo get_field( 'external_link' ); ?>" class="newsList-box">
+		                                    <span class="newsList-box-date"><?php echo $date; ?></span>
+		                                    <span class="newsList-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
+	                                    </a>
                                     <?php
+                                    } else {
+	                                    ?>
+	                                    <div class="newsList-box">
+		                                    <span class="newsList-box-date"><?php echo $date; ?></span>
+		                                    <span class="newsList-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
+	                                    </div>
+                                    <?php
+                                    }
                                   }
+
                                 }
                                 wp_reset_postdata();
                               }
