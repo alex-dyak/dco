@@ -134,7 +134,7 @@
           }
       });
     }
-    check_if_in_view()
+    //check_if_in_view();
 
       var moduleSlider = $('.js-moduleSlider'),
           moduleSliderSpeed = profileSlider.data('speed');
@@ -162,14 +162,14 @@
           setTimeout(function () {
               pageArrows();
           }, 500);
-          $(window).stellar({
-              horizontalScrolling: false,
-              verticalOffset: 0,
-              responsive: true,
-          });
+          // $(window).stellar({
+          //     horizontalScrolling: false,
+          //     verticalOffset: 0,
+          //     responsive: true,
+          // });
       });
       $(window).scroll(function () {
-          check_if_in_view();
+          //check_if_in_view();
       });
   });
 
