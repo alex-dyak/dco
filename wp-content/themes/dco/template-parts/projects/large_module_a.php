@@ -73,7 +73,8 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
                 <?php if ( $full_height ): ?>
                     <div class="lazyload parallaxImg"
                          data-bgset="<?php echo wp_get_attachment_image_url($image, 'full_height_img_desktop_large'); ?> 1900w"
-                         data-sizes="auto"></div>
+                         data-sizes="auto"
+                         data-stellar-background-ratio="0.5"></div>
                 <?php else: ?>
                     <div class="lazyload parallaxImg"
                          data-bgset="<?php echo wp_get_attachment_image_url($image, 'full_img_mobile_small'); ?> 480w,
@@ -82,7 +83,8 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
                                      <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_small'); ?> 1200w,
                                      <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_medium'); ?> 1600w,
                                      <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_large'); ?> 1900w"
-                         data-sizes="auto"></div>
+                         data-sizes="auto"
+                         data-stellar-background-ratio="0.5"></div>
                 <?php endif; ?>
 			</div>
 		<?php else: ?>

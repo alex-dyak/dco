@@ -115,7 +115,7 @@
           var element_top_position = $element.offset().top;
           var element_bottom_position = (element_top_position + element_height);
 
-          console.log(element_top_position)
+          //console.log(element_top_position)
 
           //check to see if this current container is within viewport.
           if( tablet.matches ) {
@@ -134,7 +134,7 @@
           }
       });
     }
-    check_if_in_view()
+    //check_if_in_view()
 
       var moduleSlider = $('.js-moduleSlider'),
           moduleSliderSpeed = profileSlider.data('speed');
@@ -162,9 +162,14 @@
           setTimeout(function () {
               pageArrows();
           }, 500);
+          // $(window).stellar({
+          //     horizontalScrolling: false,
+          //     // verticalOffset: 0,
+          //     responsive: false,
+          // });
       });
       $(window).scroll(function () {
-          check_if_in_view();
+          //check_if_in_view();
       });
   });
 
