@@ -149,7 +149,7 @@ if ( is_front_page() ) {
                                     $date = get_the_date( 'm.d.y' );
                                     if ( get_field( 'external_link' ) ) {
 	                                    ?>
-	                                    <a href="<?php echo get_field( 'external_link' ); ?>" class="newsList-box">
+	                                    <a href="<?php echo get_field( 'external_link' ); ?>" class="newsList-box" target="_blank">
 		                                    <span class="newsList-box-date"><?php echo $date; ?></span>
 		                                    <span class="newsList-box-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
 	                                    </a>
