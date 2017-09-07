@@ -68,7 +68,7 @@ wp-content/plugins/*
 !wp-content/.gitkeep
 # Custom and changed plugins
 !wp-content/plugins/advanced-custom-fields-pro
-!wp-content/plugins/advanced-custom-fields-widget
+!wp-content/plugins/advanced-custom-fields-widget-custom
 !wp-content/plugins/custom-acf-contact-form-7-field
 !wp-content/plugins/acf-rgba-color
 wp-content/mu-plugins/*/
