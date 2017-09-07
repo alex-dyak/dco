@@ -23,7 +23,11 @@ get_header(); ?>
 
 					while ( have_rows( 'progect_blocks' ) ) : the_row();
 
-						if ( get_row_layout() == 'large_module_a' ):
+						if ( get_row_layout() == 'large_module_a_top_banner' ):
+
+							get_template_part( 'template-parts/projects/large_module_a_top_banner' );
+
+						elseif ( get_row_layout() == 'large_module_a' ):
 
 							get_template_part( 'template-parts/projects/large_module_a' );
 
