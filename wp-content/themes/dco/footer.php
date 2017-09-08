@@ -50,7 +50,7 @@
                                   <li><?php echo get_field( 'copyright_2_part', 'option' ); ?></li>
                               <?php endif; ?>
                               <?php if ( get_field( 'copyright_3_part', 'option' ) ) : ?>
-                                  <li><?php echo get_field( 'copyright_3_part', 'option' ); ?></li>
+                                  <li><a href="tel:<?php echo get_field( 'copyright_3_part', 'option' ); ?>"><?php echo get_field( 'copyright_3_part', 'option' ); ?></a></li>
                               <?php endif; ?>
                               <?php if ( get_field( 'copyright_email', 'option' ) ) : ?>
                                   <li><a href="mailto:<?php echo get_field( 'copyright_email', 'option' ); ?>"><?php echo get_field( 'copyright_email', 'option' ); ?></a></li>

@@ -41,7 +41,7 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
     }
     ?>
 
-	<div class="imageLargeModuleA <?php echo $full_height_class; ?> js-hasSticky">
+	<div class="imageLargeModuleA <?php echo $full_height_class; ?> js-hasSticky intro-section">
 		<?php if ( $quote_title || $quote_body ) : ?>
             <?php $quote_body_size_class = "" ?>
             <?php if($quote_body_size): ?>
@@ -74,7 +74,8 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
                     <div class="lazyload parallaxImg"
                          data-bgset="<?php echo wp_get_attachment_image_url($image, 'full_height_img_desktop_large'); ?> 1900w"
                          data-sizes="auto"
-                         data-stellar-background-ratio="0.5"></div>
+                         data-stellar-background-ratio="0.5"
+                         data-stellar-vertical-offset="100"></div>
                 <?php else: ?>
                     <div class="lazyload parallaxImg"
                          data-bgset="<?php echo wp_get_attachment_image_url($image, 'full_img_mobile_small'); ?> 480w,
@@ -84,7 +85,8 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
                                      <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_medium'); ?> 1600w,
                                      <?php echo wp_get_attachment_image_url($image, 'full_img_desktop_large'); ?> 1900w"
                          data-sizes="auto"
-                         data-stellar-background-ratio="0.5"></div>
+                         data-stellar-background-ratio="0.5"
+                         data-stellar-vertical-offset="100"></div>
                 <?php endif; ?>
 			</div>
 		<?php else: ?>
