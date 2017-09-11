@@ -29,7 +29,8 @@
     "wpackagist-plugin/regenerate-thumbnails": ">=2.2.6",
     "wpackagist-plugin/advanced-custom-fields-widget": ">=1.0.2",
     "wpackagist-plugin/w3-total-cache": ">=0.9.5.4",
-    "wpackagist-plugin/lazy-load": ">=0.6"
+    "wpackagist-plugin/lazy-load": ">=0.6",
+    "wpackagist-plugin/wp-smtp": ">=1.1.9"
   },
   "extra": {
     "installer-paths": {
