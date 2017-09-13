@@ -54,6 +54,7 @@
     padding: 0 15px;
     font-family: $Avenir-heavy;
     letter-spacing: 3px;
+    font-weight: normal;
     @media #{$tablet-up} {
       padding: 0 390px 0 0;
       text-align: right;
@@ -141,7 +142,7 @@
       align-items: center;
       padding: 15px 40px 15px 10px;
       font-family: $Avenir-heavy;
-      font-weight: 700;
+      font-weight: normal;
       font-size: 0.9375em;
       color: $black;
       text-transform: uppercase;

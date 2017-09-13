@@ -82,7 +82,7 @@ $landingTitleLineHeight: 1;
             right: 0;
         }
         > strong {
-            font: normal #{$landingTitleFontWeight} #{$landingTitleFontSize}/#{$landingTitleLineHeight} #{$landingTitleFontFamily};
+            font: normal normal #{$landingTitleFontSize}/#{$landingTitleLineHeight} #{$landingTitleFontFamily};
             color: $landingTitleColor;
             text-transform: uppercase;
             max-width: 90%;
