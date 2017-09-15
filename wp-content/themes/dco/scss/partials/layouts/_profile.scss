@@ -128,7 +128,7 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
         }
     }
     h1 {
-        font: normal #{$landingTitleFontWeight} #{$landingTitleFontSize}/#{$landingTitleLineHeight} #{$landingTitleFontFamily};
+        font: normal normal #{$landingTitleFontSize}/#{$landingTitleLineHeight} #{$landingTitleFontFamily};
         text-transform: uppercase;
         margin: 0 0 19px;
         @media #{$mobile-up} {
@@ -184,7 +184,7 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
     }
     h2 {
         font-family: $profileApproachTitleFontFamily;
-        font-weight: $profileApproachTitleFontWeight;
+        font-weight: normal;
         color: $profileApproachTitleColor;
         margin: 0 0 7px;
         @media #{$mobilesmall-up} {
@@ -194,7 +194,7 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
     }
     h3 {
         font-family: $Avenir-black;
-        font-weight: $profileApproachSubTitleFontWeight;
+        font-weight: normal;
         color: $profileApproachSubTitleColor;
         margin: 0 0 18px;
         @media #{$mobilesmall-up} {
@@ -269,7 +269,7 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
 
     h3 {
         font-family: $Avenir-black;
-        font-weight: $profileApproachItemFontWeight;
+        font-weight: normal;
         color: $profileApproachItemTitleColor;
         margin-bottom: 0;
     }
