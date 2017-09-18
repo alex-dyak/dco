@@ -128,7 +128,7 @@ $profileCareerMessageTitleFontSize: 1.7125rem;
         }
     }
     h1 {
-        font: normal normal #{$landingTitleFontSize}/#{$landingTitleLineHeight} #{$landingTitleFontFamily};
+        font: normal normal #{$landingTitleFontSize}/#{$landingTitleLineHeight} "Avenir Heavy",Arial,sans-serif;
         text-transform: uppercase;
         margin: 0 0 19px;
         @media #{$mobile-up} {

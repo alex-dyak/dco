@@ -61,6 +61,11 @@ $homePageSlider-btnBackground--hover: $nevada;
         visibility: visible;
         opacity: 1;
         left: 0;
+        ul {
+          li {
+
+          }
+        }
       }
     }
 
@@ -264,30 +269,38 @@ $homePageSlider-btnBackground--hover: $nevada;
         text-transform: uppercase;
         padding: 5px 0;
         color: $nevada--most;
+        transform: translateX(60px);
+        transition: all .2s;
+        opacity: 0;
         @media screen and ( min-height: 800px ){
           padding: 10px 0;
         }
         @media screen and ( min-height: 800px ){
           padding: 15px 0;
         }
-        &:nth-child(1),
-        &:nth-child(9) {
-          opacity: .2;
-        }
-        &:nth-child(2),
-        &:nth-child(8) {
-          opacity: .3;
-        }
-        &:nth-child(3),
-        &:nth-child(7) {
-          opacity: .4;
-        }
-        &:nth-child(4),
-        &:nth-child(6) {
-          opacity: .5;
-        }
-        &:nth-child(5) {
-          opacity: 0;
+        &.is-active {
+          transform: translateX(0px);
+          //transform: translateX(0);
+          //opacity: 1;
+          &:nth-child(1),
+          &:nth-child(9) {
+            opacity: .2;
+          }
+          &:nth-child(2),
+          &:nth-child(8) {
+            opacity: .3;
+          }
+          &:nth-child(3),
+          &:nth-child(7) {
+            opacity: .4;
+          }
+          &:nth-child(4),
+          &:nth-child(6) {
+            opacity: .5;
+          }
+          &:nth-child(5) {
+            opacity: 1;
+          }
         }
       }
     }
