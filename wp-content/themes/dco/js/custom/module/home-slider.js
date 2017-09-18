@@ -40,8 +40,24 @@
                         var $this = $(this);
                         if ($this.hasClass('slick-active')) {
                             $this.addClass('is-active');
+                            // $this.find('.homepageSliderCaption-fullList ul li').each(function(i, li) {
+                            //     var $list = $(this).closest('ul');
+                            //     $list.delay(400).queue(function() {
+                            //         $(li).addClass('is-active');
+                            //         $list.dequeue();
+                            //     });
+                            // });
+                            $this.find('.homepageSliderCaption-fullList ul li').each(function(i, li) {
+                                i = i + 1;
+                                setTimeout(function(){
+                                    $(li).addClass('is-active');
+                                },500 + ( i * 200 ));
+                            });
                         } else {
                             $this.removeClass('is-active');
+                            $this.find('.homepageSliderCaption-fullList ul li').each(function(i) {
+                                $(this).removeClass('is-active');
+                            });
                         }
                     });
                     //console.log('active slider set');
@@ -58,8 +74,24 @@
                         var $this = $(this);
                         if ($this.hasClass('slick-active')) {
                             $this.addClass('is-active');
+                            // $this.find('.homepageSliderCaption-fullList ul li').each(function(i, li) {
+                            //     var $list = $(this).closest('ul');
+                            //     $list.delay(400).queue(function() {
+                            //         $(li).addClass('is-active');
+                            //         $list.dequeue();
+                            //     });
+                            // });
+                            $this.find('.homepageSliderCaption-fullList ul li').each(function(i, li) {
+                                i = i + 1;
+                                setTimeout(function(){
+                                    $(li).addClass('is-active');
+                                },500 + ( i * 200 ));
+                            });
                         } else {
                             $this.removeClass('is-active');
+                            $this.find('.homepageSliderCaption-fullList ul li').each(function(i) {
+                                $(this).removeClass('is-active');
+                            });
                         }
                     });
                     //console.log('active slider set');
@@ -89,6 +121,9 @@
         })
         .on('beforeChange', function (event, slick, currentSlide, nextSlide) {
            // slick.slickSetOption("autoplay", false, false);
+            $('.homepageSliderCaption-fullList ul li').each(function(i) {
+                $(this).removeClass('is-active');
+            });
         })
         .on('afterChange', function(event, slick, currentSlide){
             // if( currentSlide == 0 ) {
@@ -108,8 +143,24 @@
                 var $this = $(this);
                 if ($this.hasClass('slick-active')) {
                     $this.addClass('is-active');
+                    // $this.find('.homepageSliderCaption-fullList ul li').each(function(i, li) {
+                    //     var $list = $(this).closest('ul');
+                    //     $list.delay(400).queue(function() {
+                    //         $(li).addClass('is-active');
+                    //         $list.dequeue();
+                    //     });
+                    // });
+                    $this.find('.homepageSliderCaption-fullList ul li').each(function(i, li) {
+                        i = i + 1;
+                        setTimeout(function(){
+                            $(li).addClass('is-active');
+                        },500 + ( i * 200 ));
+                    });
                 } else {
                     $this.removeClass('is-active');
+                    $this.find('.homepageSliderCaption-fullList ul li').each(function(i) {
+                        $(this).removeClass('is-active');
+                    });
                 }
             });
             //console.log('active slider set');
