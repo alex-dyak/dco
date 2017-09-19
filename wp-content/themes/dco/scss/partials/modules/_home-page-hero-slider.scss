@@ -239,7 +239,7 @@ $homePageSlider-btnBackground--hover: $nevada;
     display: none;
     position: absolute;
     top: 0;
-    left: 50%;
+    left: 0;
     width: 100%;
     height: 100%;
     padding: 0 10px;
@@ -269,7 +269,7 @@ $homePageSlider-btnBackground--hover: $nevada;
         text-transform: uppercase;
         padding: 5px 0;
         color: $nevada--most;
-        transform: translateX(60px);
+        transform: translateY(-30px);
         transition: all .2s;
         opacity: 0;
         @media screen and ( min-height: 800px ){
@@ -279,9 +279,7 @@ $homePageSlider-btnBackground--hover: $nevada;
           padding: 15px 0;
         }
         &.is-active {
-          transform: translateX(0px);
-          //transform: translateX(0);
-          //opacity: 1;
+          transform: translateY(0px);
           &:nth-child(1),
           &:nth-child(9) {
             opacity: .2;
