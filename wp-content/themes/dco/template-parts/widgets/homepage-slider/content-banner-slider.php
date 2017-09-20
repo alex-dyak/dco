@@ -52,7 +52,7 @@
                     <!-- end if user comes for a second time -->
 
                     <!-- this shows each time user comes -->
-					<?php if ( !empty($item['title_extension']) ) : ?>
+					<?php //if ( !empty($item['title_extension']) ) : ?>
                         <div class="homepageSlider-slide-description homepageSliderCaption"
                              style="background-color: <?php echo $item['background_color']; ?>" >
 
@@ -89,7 +89,7 @@
                             <!-- End Second Overlay -->
 
                         </div>
-					<?php endif; ?>
+					<?php //endif; ?>
                     <!-- end this shows each time user comes -->
 
                 </div>
