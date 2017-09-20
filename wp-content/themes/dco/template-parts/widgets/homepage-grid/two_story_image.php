@@ -8,17 +8,19 @@
 	<?php endif; ?>
 
 	<?php if ( get_sub_field( 'two_story_title' ) && get_sub_field( 'two_story_body' ) ): ?>
-		<div class="twoStoryImage-body">
-			<?php if ( get_sub_field( 'two_story_title' ) ): ?>
-				<h2 class="twoStoryImage-body-title"><?php the_sub_field( 'two_story_title' ); ?></h2>
-			<?php endif; ?>
+		<a href="<?php echo get_home_url() . '/profile'; ?>">
+			<div class="twoStoryImage-body">
+				<?php if ( get_sub_field( 'two_story_title' ) ): ?>
+					<h2 class="twoStoryImage-body-title"><?php the_sub_field( 'two_story_title' ); ?></h2>
+				<?php endif; ?>
 
-			<?php if ( get_sub_field( 'two_story_body' ) ): ?>
-				<div class="twoStoryImage-body-text">
-					<?php the_sub_field( 'two_story_body' ); ?>
-				</div>
-			<?php endif; ?>
-		</div>
+				<?php if ( get_sub_field( 'two_story_body' ) ): ?>
+					<div class="twoStoryImage-body-text">
+						<?php the_sub_field( 'two_story_body' ); ?>
+					</div>
+				<?php endif; ?>
+			</div>
+		</a>
 	<?php endif; ?>
     </div>
 </div>
