@@ -66,7 +66,7 @@
                                         <div class="homepageSliderCaption-inner-text" style="color: <?php echo $item['text_color']; ?>">
                                             <p><?php echo $item['teaser']; ?></p>
 											<?php if ( $item['link_text'] ) : ?>
-                                                <a href="<?php $item['link_url']; ?>" style="color: <?php echo $item['text_color']; ?>"><?php echo $item['link_text']; ?></a>
+                                                <a href="<?php echo $item['link_url']; ?>" style="color: <?php echo $item['text_color']; ?>"><?php echo $item['link_text']; ?></a>
 											<?php endif; ?>
                                         </div>
 									<?php endif; ?>
