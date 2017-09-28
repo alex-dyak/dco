@@ -149,12 +149,6 @@
       });
 
 
-      $('.js-videoBox').videoPlayer({
-          'poster': $('.js-videoPoster'),
-          'video': $('.js-video video'),
-          'positionStart': 0.9
-      });
-
       $(window).on('resize', function(){
           sliderHeight();
       });
@@ -167,6 +161,11 @@
           //     verticalOffset: 0,
           //     responsive: true,
           // });
+          $('.js-videoBox').videoPlayer({
+              'poster': $('.js-videoPoster'),
+              'video': $('.js-video video'),
+              'positionStart': 0.9
+          });
       });
       $(window).scroll(function () {
           //check_if_in_view();
