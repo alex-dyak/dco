@@ -89,6 +89,20 @@
             initReplace();
         }
 
+        $(window).load(function () {
+            //console.log('window load');
+            // if( $('.js-video').length ) {
+            //     console.log('element true');
+            //     $('.js-video').each(function () {
+            //         var $this = $(this),
+            //             $srcTag = $this.find('source'),
+            //             trueSrc = $srcTag.attr('data-src');
+            //         console.log(trueSrc);
+            //         $srcTag.attr('src', trueSrc);
+            //     })
+            // }
+        });
+
         $(window).on('resize',function(){
             fullHeightModule();
             if(needToFix && isProjectPage) {
