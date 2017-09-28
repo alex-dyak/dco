@@ -73,7 +73,7 @@ switch ( $select ) {
 				     data-sizes="auto"></div>
 			<?php endif; ?>
 			<div class="videoBox-video js-video">
-				<video width="100%" loop poster="<?php echo wp_get_attachment_image_url($video_poster, 'full_img_desktop_large'); ?>">
+				<video width="100%" preload="none" loop poster="<?php echo wp_get_attachment_image_url($video_poster, 'full_img_desktop_large'); ?>">
 					<source src="<?php echo $url; ?>">
 				</video>
 			</div>
