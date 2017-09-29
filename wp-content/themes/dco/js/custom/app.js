@@ -161,7 +161,7 @@
               'video': $('.js-video video'),
               'positionStart': 0.9
           });
-          //$('.js-videoBox').find('video').attr('preload', 'auto');
+          $('.js-videoBox').find('video').attr('preload', 'auto');
       });
       $(window).scroll(function () {
           //check_if_in_view();

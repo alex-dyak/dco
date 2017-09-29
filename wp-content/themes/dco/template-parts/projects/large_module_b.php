@@ -73,20 +73,10 @@ switch ( $select ) {
 				     data-sizes="auto"></div>
 			<?php endif; ?>
 			<div class="videoBox-video js-video">
-				<video width="100%" onloadeddata="doWhatYouNeedTo()" preload="none" loop poster="<?php echo wp_get_attachment_image_url($video_poster, 'full_img_desktop_large'); ?>">
+				<video width="100%" preload="none" loop poster="<?php echo wp_get_attachment_image_url($video_poster, 'full_img_desktop_large'); ?>">
 					<source src="<?php echo $url; ?>">
 				</video>
 			</div>
-            <script type="application/javascript">
-                function doWhatYouNeedTo() {
-                    console.log('video uploaded 1')
-                    $('.js-videoBox').videoPlayer({
-                        'poster': $('.js-videoPoster'),
-                        'video': $('.js-video video'),
-                        'positionStart': 0.9
-                    });
-                }
-            </script>
 		</div>
 	<?php else: ?>
 		<div class="imageLargeModuleA-image">
