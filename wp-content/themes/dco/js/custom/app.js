@@ -156,16 +156,12 @@
           setTimeout(function () {
               pageArrows();
           }, 500);
-          // $(window).stellar({
-          //     horizontalScrolling: false,
-          //     verticalOffset: 0,
-          //     responsive: true,
-          // });
           $('.js-videoBox').videoPlayer({
               'poster': $('.js-videoPoster'),
               'video': $('.js-video video'),
               'positionStart': 0.9
           });
+          //$('.js-videoBox').find('video').attr('preload', 'auto');
       });
       $(window).scroll(function () {
           //check_if_in_view();
