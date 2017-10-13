@@ -41,11 +41,19 @@
 
                     <!-- if user comes for a second time -->
 					<?php if ( !empty($item['image']) ): ?>
+                        <?php
+						if ( count( $item['image'] ) > 1 ) {
+							$i     = array_rand( $item['image'] );
+							$image = $item['image'][ $i ];
+						} else {
+							$image = $item['image'][0];
+						}
+                        ?>
                         <div class="homepageSlider-slide-title"><?php echo $title; ?></div>
                         <div class="homepageSlider-slide-img lazyload"
-                             data-bgset="<?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full_large' ) ?> 1900w,
-                                         <?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full' ) ?> 1600w,
-                                         <?php echo wp_get_attachment_image_url( $item['image'][0], 'homepage_slider_full' ) ?> 1200w"
+                             data-bgset="<?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full_large' ) ?> 1900w,
+                                         <?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full' ) ?> 1600w,
+                                         <?php echo wp_get_attachment_image_url( $image, 'homepage_slider_full' ) ?> 1200w"
                              data-sizes="auto">
                         </div>
 					<?php endif; ?>
