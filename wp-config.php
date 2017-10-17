@@ -4,6 +4,11 @@
  * This file is required in the root directory so WordPress can find it.
  * WP is hardcoded to look in its own directory or one directory up for wp-config.php.
  */
+
+/** Enable W3 Total Cache */
+define( 'WP_CACHE', true ); // Added by W3 Total Cache
+define( 'W3TC_DYNAMIC_SECURITY', md5( rand( 0, 999999 ) ) );
+
 require_once('vendor/autoload.php');
 require_once('config/application.php');
 require_once(ABSPATH . 'wp-settings.php');
