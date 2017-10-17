@@ -71,6 +71,7 @@
         if (!!$('#sticky').length) { // make sure "#sticky" element exists
             var el = $('#sticky');
             var stickyTop = $(window).height() + 100; // returns number
+            var stickySrart = $('.projectDescription-header-title').offset().top;
             //var footerTop = $('#footer').offset().top + 50; // returns number
             var $postNavNext = el.find('.js-data-next');
             var $postNavPrev = el.find('.js-data-prev');
@@ -81,8 +82,9 @@
                 var footerTop = $('#footer').offset().top;
                 var limit = footerTop;
 
-                if (stickyTop < windowTop){
-                    el.css({ position: 'fixed', bottom: 50, top: 'auto' });
+                if (stickySrart < windowTop){
+                    el.css({ position: 'absolute', bottom: 'auto', top: stickySrart });
+                    //el.css({ position: 'fixed', bottom: 50, top: 'auto' });
                     el.addClass('is-visible');
                     el.removeClass('is-onBottom');
                 }
@@ -95,7 +97,7 @@
                 if (limit < windowTop - 50) {
                     var diff = limit - windowTop;
                     //el.css({top: diff, bottom: 'auto'});
-                    el.css({bottom: (diff * -1)});
+                    el.css({position: 'fixed', bottom: (diff * -1), top: 'auto'});
                     el.addClass('is-onBottom');
                 }
             });
