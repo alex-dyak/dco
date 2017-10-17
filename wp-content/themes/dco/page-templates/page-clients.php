@@ -43,28 +43,6 @@ get_header(); ?>
 							<?php endif; ?>
 						<?php endif;
 					}
-
-
-//					if ( have_rows( 'page_banner' ) ) {
-//						while ( have_rows( 'page_banner' ) ) {
-//							the_row();
-//
-//							$title = get_sub_field( 'image_title' );
-//							$image = get_sub_field( 'image' );
-//							$size = 'full';
-//
-//							if ( ! empty ( $image ) ): ?>
-<!--								--><?php //if ( ! empty( $image ) ) : ?>
-<!--                                    <div>-->
-<!--										--><?php //echo wp_get_attachment_image( $image['id'], $size ); ?>
-<!--										--><?php //if ( $title ) : ?>
-<!--                                            <div class="imageClientPage-title">--><?php //echo $title; ?><!--</div>-->
-<!--										--><?php //endif; ?>
-<!--                                    </div>-->
-<!--								--><?php //endif; ?>
-<!--							--><?php //endif;
-//						}
-//					}
 					?>
                 </div>
             </div>
