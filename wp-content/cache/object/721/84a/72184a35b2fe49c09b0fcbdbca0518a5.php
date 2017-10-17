@@ -1,0 +1,2 @@
+¶ÂY<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:4:"9967";s:7:"post_id";s:3:"356";s:8:"meta_key";s:38:"slider_block_0_slider_content_3_teaser";s:10:"meta_value";s:170:"When you hear it, you know. When you see, you learn. When you feel it, you move. For every project there is a defining concept, that when
+discovered, changes perception.";}}}

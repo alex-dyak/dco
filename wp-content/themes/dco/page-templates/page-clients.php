@@ -9,18 +9,17 @@ get_header(); ?>
 <?php if ( have_posts() ) :
 	while ( have_posts() ) : the_post(); ?>
 
-        <article class="post" id="post-<?php the_ID(); ?>">
-
+		<article class="post" id="post-<?php the_ID(); ?>">
+            <!-- W3TC_DYNAMIC_SECURITY mfunc -->
 			<?php
 			// Slider speed value. Could be changed from admin panel.
-			$speed = get_field( 'slider_speed' ) ? get_field( 'slider_speed' )
-				: 6000;
+			$speed = get_field( 'slider_speed' ) ? get_field( 'slider_speed' ) : 6000;
 
 			// Display banner.
 			$banners = [];
 			$counter = 0;
-
 			?>
+            <!--/mfunc W3TC_DYNAMIC_SECURITY -->
             <div class="profile-slider-holder">
                 <div class="profile-slider js-profile-slider"
                      data-speed="<?php echo $speed; ?>">
@@ -32,6 +31,7 @@ get_header(); ?>
 							$title = get_sub_field( 'image_title' );
 							$image = get_sub_field( 'image' );
 							$size = 'full';
+
 
 							if ( ! empty ( $image ) ): ?>
 								<?php if ( ! empty( $image ) ) : ?>
