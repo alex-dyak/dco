@@ -1,0 +1,1 @@
+≤®ÂY<?php exit; ?>a:1:{s:7:"content";s:54:"http://dco.loc/wp/wp-includes/images/media/default.png";}

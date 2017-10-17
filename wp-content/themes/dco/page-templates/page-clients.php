@@ -10,7 +10,7 @@ get_header(); ?>
 	while ( have_posts() ) : the_post(); ?>
 
 		<article class="post" id="post-<?php the_ID(); ?>">
-
+            <!-- W3TC_DYNAMIC_SECURITY mfunc -->
 			<?php
 			// Display banner.
 			$banners = array();
@@ -39,7 +39,7 @@ get_header(); ?>
 					$full_img_desktop_medium = $image['sizes']['full_img_desktop_medium'];
 					$full_img_desktop_large  = $image['sizes']['full_img_desktop_large'];
 					?>
-
+                    <!--/mfunc W3TC_DYNAMIC_SECURITY -->
 					<div class="imageClientPage">
 						<div class="imageClientPage-image js-fullHeightImage">
 							<div class="lazyload parallaxImg"
