@@ -246,16 +246,16 @@ $clientSliderDesktopHeight: 509px;
       @media #{$tablet-up} {
         color: rgba($gray-ship, .25);
       }
-      a[href*="#client-popup-"] {
-        color: #6194bb !important;
-        &:hover {
-          color: #3a5968 !important;
-        }
-      }
       &.is-active {
         @media #{$tablet-up} {
           color: $gray-ship;
         }
+      }
+    }
+    > a[href*="#client-popup-"] {
+      color: #6194bb !important;
+      &:hover {
+        color: #3a5968 !important;
       }
     }
   }
