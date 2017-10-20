@@ -29,6 +29,7 @@ $breadcrumbsBackgroundColor: $white;
     }
     a {
         display: inline-block;
+        margin-top: 4px;
         margin-right: 26px;
         color: $breadcrumbsColor;
         &:hover {
