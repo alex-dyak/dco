@@ -16,8 +16,8 @@ get_header(); ?>
 			$speed = get_field( 'slider_speed' ) ? get_field( 'slider_speed' ) : 6000;
 			?>
 
-            <div class="profile-slider-holder">
-                <div class="profile-slider js-profile-slider" data-speed="<?php echo $speed; ?>">
+            <div class="imageClientPage-slider-holder">
+                <div class="imageClientPage-slider js-client-slider" data-speed="<?php echo $speed; ?>">
                     <!-- W3TC_DYNAMIC_SECURITY mfunc -->
 					<?php
 					$repeater = get_field( 'page_banner' );
