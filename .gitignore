@@ -109,3 +109,6 @@ bower_components
 
 # wordfence
 wp-content/wflogs/*
+
+# W3TC
+wp-content/cache/*
