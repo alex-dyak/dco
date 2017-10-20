@@ -1,3 +1,7 @@
+/* variables for this module */
+$clientSliderMobileHeight: 365px;
+$clientSliderDesktopHeight: 509px;
+
 .imageClientPage {
   position: relative;
   overflow: hidden;
@@ -41,6 +45,68 @@
     text-align: right;
     @media #{$tablet-up} {
       justify-content: flex-end;
+    }
+  }
+  &-slider {
+    display: none;
+    &.slick-initialized {
+      display: block;
+      //TODO approve or remove parallax styles
+      /*position: fixed;
+      top: 54px;
+      left: 0;
+      width: 100%;
+      @media #{$mobile-up} {
+          top: 54px;
+      }
+      @media #{$tablet-up} {
+          top: 21px;
+      }*/
+    }
+    .slick-slide {
+      height: $clientSliderMobileHeight;
+      @media #{$mobile-up} {
+        height: $clientSliderDesktopHeight;
+      }
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      min-height: 100%;
+      min-width: 100%;
+      max-width: none;
+      width: auto;
+      transform: translateX(-50%);
+    }
+    .slick-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 50px;
+      transform: translateX(-50%);
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      > li {
+        margin: 0 10px;
+        &.slick-active {
+          button {
+            background: $white;
+          }
+        }
+        > button {
+          text-indent: -9999px;
+          border: 0;
+          border-radius: 50%;
+          outline: 0;
+          padding: 0;
+          width: 15px;
+          height: 15px;
+          display: block;
+          background: rgba($white, .5);
+        }
+      }
     }
   }
 }
@@ -179,6 +245,12 @@
     > a {
       @media #{$tablet-up} {
         color: rgba($gray-ship, .25);
+      }
+      a[href*="#client-popup-"] {
+        color: #6194bb !important;
+        &:hover {
+          color: #3a5968 !important;
+        }
       }
       &.is-active {
         @media #{$tablet-up} {
