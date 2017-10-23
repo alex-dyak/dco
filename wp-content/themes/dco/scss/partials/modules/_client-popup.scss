@@ -13,6 +13,19 @@
     top: 8px;
     right: 8px;
   }
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      text-align: left;
+      @media #{$tablet-up} {
+        float: left;
+        padding: 0 10px;
+        width: 33.333%;
+      }
+    }
+  }
 
   &-body {
     padding: 23px 15px;

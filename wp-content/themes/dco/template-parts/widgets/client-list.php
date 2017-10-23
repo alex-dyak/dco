@@ -120,12 +120,14 @@
                                             // Display clients categories in the lightbox.
                                             $cur_terms = get_the_terms( $post->ID, 'clients-category' );
                                             if ( $cur_terms ) : ?>
-                                                <ul>
-                                                    <?php
-                                                    foreach( $cur_terms as $cur_term ): ?>
-                                                        <li><?php echo $cur_term->name; ?></li>
-                                                    <?php endforeach; ?>
-                                                </ul>
+                                                <div class="clientPopup-body">
+                                                    <ul class="u-clearfix">
+                                                        <?php
+                                                        foreach( $cur_terms as $cur_term ): ?>
+                                                            <li><?php echo $cur_term->name; ?></li>
+                                                        <?php endforeach; ?>
+                                                    </ul>
+                                                </div>
                                             <?php endif; ?>
 
 										</div>
