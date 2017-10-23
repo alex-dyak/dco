@@ -116,30 +116,18 @@
 												</div>
 											<?php endif; ?>
 
-											<?php if ( get_field( 'title', $post->ID ) ): ?><!-- Title -->
-												<div class="clientPopup-body">
-													<?php if ( get_field( 'title', $post->ID ) ): ?>
-														<h2 class="clientPopup-title"><?php echo the_field( 'title', $post->ID ); ?></h2>
-													<?php endif; ?>
-                                                        <div class="clientPopup-body-inner">
-                                                            <?php if ( get_field( 'text_first_column', $post->ID ) ): ?><!-- Text 3 column -->
-                                                                <div class="clientPopup-body-inner-column">
-                                                                    <?php echo the_field( 'text_first_column', $post->ID ); ?>
-                                                                </div>
-                                                            <?php endif; ?>
-                                                            <?php if ( get_field( 'text_second_column', $post->ID ) ): ?>
-                                                                <div class="clientPopup-body-inner-column">
-                                                                    <?php echo the_field( 'text_second_column', $post->ID ); ?>
-                                                                </div>
-                                                            <?php endif; ?>
-                                                            <?php if ( get_field( 'text_third_column', $post->ID ) ): ?>
-                                                                <div class="clientPopup-body-inner-column">
-                                                                    <?php echo the_field( 'text_third_column', $post->ID ); ?>
-                                                                </div>
-                                                            <?php endif; ?>
-                                                        </div>
-												</div>
-											<?php endif; ?>
+                                            <?php
+                                            // Display clients categories in the lightbox.
+                                            $cur_terms = get_the_terms( $post->ID, 'clients-category' );
+                                            if ( $cur_terms ) : ?>
+                                                <ul>
+                                                    <?php
+                                                    foreach( $cur_terms as $cur_term ): ?>
+                                                        <li><?php echo $cur_term->name; ?></li>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            <?php endif; ?>
+
 										</div>
 									</div><!-- END Clients Lightbox -->
 
