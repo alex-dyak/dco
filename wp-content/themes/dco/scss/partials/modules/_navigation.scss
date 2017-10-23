@@ -321,7 +321,7 @@ $linksFont: $FuturaPT;
   &-nextPosts {
     right: 25px;
     @media #{$tablet-up} {
-      right: 50px;
+      right: 80px;
     }
   }
   &-prevPosts {
@@ -329,7 +329,7 @@ $linksFont: $FuturaPT;
     opacity: 0;
     transition: opacity .3s;
     @media #{$tablet-up} {
-      left: 50px;
+      left: 80px;
     }
   }
 }

@@ -13,11 +13,11 @@ $gotTopColor--hover: $gray-ship;
   text-align: center;
   background: $white;
   .single-project & {
-    margin-top: 135px;
-    padding-top: 151px;
+    margin-top: 40px;
+    padding-top: 62px;
     @media #{$tablet-up} {
-      margin-top: 157px;
-      padding-top: 157px;
+      margin-top: 50px;
+      padding-top: 72px;
     }
   }
   &-inner {
