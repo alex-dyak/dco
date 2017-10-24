@@ -19,30 +19,36 @@ get_header(); ?>
             <div class="imageClientPage-slider-holder">
                 <div class="imageClientPage-slider js-client-slider" data-speed="<?php echo $speed; ?>">
                     <!-- W3TC_DYNAMIC_SECURITY mfunc -->
-					<?php
-					$repeater = get_field( 'page_banner' );
-					$random_rows = array_rand( $repeater, ( count( $repeater ) ) );
-					shuffle( $random_rows );
-					?>
+	                <?php
+	                $repeater = get_field( 'page_banner' );
+	                $random_element = array_rand( $repeater );
+	                $size = 'full';
+	                ?>
                     <!--/mfunc W3TC_DYNAMIC_SECURITY -->
-                    <?php
-					foreach( $random_rows as $random_row ){
+                    <div>
+		                <?php echo wp_get_attachment_image( $repeater[$random_element]['image']['id'], $size ); ?>
+		                <?php if ( $repeater[$random_element]['image_title'] ) : ?>
+                            <div class="imageClientPage-title"><?php echo $repeater[$random_element]['image_title']; ?></div>
+		                <?php endif; ?>
+                    </div>
+	                <?php
+	                for( $i = 0; $i < count($repeater); $i++ ){
+		                if ( $random_element != $i ) {
+			                $title = $repeater[$i]['image_title'];
+			                $image = $repeater[$i]['image'];
 
-						$title = $repeater[$random_row]['image_title'];
-						$image = $repeater[$random_row]['image'];
-						$size = 'full';
-
-						if ( ! empty ( $image ) ): ?>
-							<?php if ( ! empty( $image ) ) : ?>
-                                <div>
-									<?php echo wp_get_attachment_image( $image['id'], $size ); ?>
-									<?php if ( $title ) : ?>
-                                        <div class="imageClientPage-title"><?php echo $title; ?></div>
-									<?php endif; ?>
-                                </div>
-							<?php endif; ?>
-						<?php endif;
-					}
+			                if ( ! empty ( $image ) ): ?>
+				                <?php if ( ! empty( $image ) ) : ?>
+                                    <div>
+						                <?php echo wp_get_attachment_image( $image['id'], $size ); ?>
+						                <?php if ( $title ) : ?>
+                                            <div class="imageClientPage-title"><?php echo $title; ?></div>
+						                <?php endif; ?>
+                                    </div>
+				                <?php endif; ?>
+			                <?php endif;
+		                }
+	                }
 					?>
                 </div>
             </div>
