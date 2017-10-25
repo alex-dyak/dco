@@ -16,6 +16,10 @@
     var clientSlider = $('.js-client-slider'),
         clientSliderSpeed = clientSlider.data('speed');
         clientSliderSpeed = clientSliderSpeed % 1 == 0 ? clientSliderSpeed : 3000;
+    clientSlider.on('init', function(event, slick){
+        console.log('init')
+    });
+
     clientSlider.slick({
       autoplay: true,
       autoplaySpeed: clientSliderSpeed,
@@ -25,6 +29,13 @@
       arrows: false,
       fade: true
     });
+
+    var total = $('.js-client-slider img').length,
+      rand = Math.floor( Math.random() * total );
+    console.log(total)
+    console.log(rand)
+
+    clientSlider.slick('slickGoTo', rand);
 
     function sliderHeight() {
       var tablet = window.matchMedia("only screen and (max-width: 48em)"),

@@ -25,29 +25,23 @@ get_header(); ?>
 	                $size = 'full';
 	                ?>
                     <!--/mfunc W3TC_DYNAMIC_SECURITY -->
-                    <div>
-		                <?php echo wp_get_attachment_image( $repeater[$random_element]['image']['id'], $size ); ?>
-		                <?php if ( $repeater[$random_element]['image_title'] ) : ?>
-                            <div class="imageClientPage-title"><?php echo $repeater[$random_element]['image_title']; ?></div>
-		                <?php endif; ?>
-                    </div>
 	                <?php
 	                for( $i = 0; $i < count($repeater); $i++ ){
-		                if ( $random_element != $i ) {
-			                $title = $repeater[$i]['image_title'];
-			                $image = $repeater[$i]['image'];
 
-			                if ( ! empty ( $image ) ): ?>
-				                <?php if ( ! empty( $image ) ) : ?>
-                                    <div>
-						                <?php echo wp_get_attachment_image( $image['id'], $size ); ?>
-						                <?php if ( $title ) : ?>
-                                            <div class="imageClientPage-title"><?php echo $title; ?></div>
-						                <?php endif; ?>
-                                    </div>
-				                <?php endif; ?>
-			                <?php endif;
-		                }
+                        $title = $repeater[$i]['image_title'];
+                        $image = $repeater[$i]['image'];
+
+                        if ( ! empty ( $image ) ): ?>
+                            <?php if ( ! empty( $image ) ) : ?>
+                                <div>
+                                    <?php echo wp_get_attachment_image( $image['id'], $size ); ?>
+                                    <?php if ( $title ) : ?>
+                                        <div class="imageClientPage-title"><?php echo $title; ?></div>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
+                        <?php endif;
+
 	                }
 					?>
                 </div>
