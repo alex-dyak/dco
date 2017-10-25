@@ -259,7 +259,6 @@ $homePageSlider-btnBackground--hover: $nevada;
   }
 
   &-fullList {
-    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -275,8 +274,7 @@ $homePageSlider-btnBackground--hover: $nevada;
     }
     ul {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 17px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -284,13 +282,17 @@ $homePageSlider-btnBackground--hover: $nevada;
       margin: 0;
       padding: 0;
       list-style: none;
+      @media #{$tablet-up} {
+        top: 50%;
+        transform: translateY(-50%);
+      }
       > li {
         font-family: $FuturaPT;
         font-weight: 300;
-        font-size: 3rem;
+        font-size: 23px;
         line-height: 1;
         text-transform: uppercase;
-        padding: 5px 0;
+        padding: 10px 0;
         color: $nevada--most;
         transform: translateY(-30px);
         transition: all .2s;
@@ -299,28 +301,57 @@ $homePageSlider-btnBackground--hover: $nevada;
           padding: 10px 0;
         }
         @media screen and ( min-height: 800px ){
+          padding: 10px 0;
+        }
+        @media #{$tablet-up} {
+          font-size: 3rem;
           padding: 15px 0;
         }
         &.is-active {
           transform: translateY(0px);
           &:nth-child(1),
-          &:nth-child(9) {
-            opacity: .2;
+          &:nth-child(5) {
+            opacity: .6;
           }
           &:nth-child(2),
-          &:nth-child(8) {
-            opacity: .3;
+          &:nth-child(4) {
+            opacity: .8;
           }
-          &:nth-child(3),
-          &:nth-child(7) {
-            opacity: .4;
+          &:nth-child(3) {
+            opacity: 1;
           }
-          &:nth-child(4),
           &:nth-child(6) {
             opacity: .5;
           }
-          &:nth-child(5) {
-            opacity: 1;
+          &:nth-child(7) {
+            opacity: .4;
+          }
+          &:nth-child(8) {
+            opacity: .3;
+          }
+          &:nth-child(9) {
+            opacity: .2;
+          }
+          @media #{$tablet-up} {
+            &:nth-child(1),
+            &:nth-child(9) {
+              opacity: .2;
+            }
+            &:nth-child(2),
+            &:nth-child(8) {
+              opacity: .3;
+            }
+            &:nth-child(3),
+            &:nth-child(7) {
+              opacity: .4;
+            }
+            &:nth-child(4),
+            &:nth-child(6) {
+              opacity: .5;
+            }
+            &:nth-child(5) {
+              opacity: 1;
+            }
           }
         }
       }
