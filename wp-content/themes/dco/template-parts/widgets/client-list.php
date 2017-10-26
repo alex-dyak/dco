@@ -116,11 +116,15 @@
 												</div>
 											<?php endif; ?>
 
+
                                             <?php
                                             // Display clients categories in the lightbox.
                                             $cur_terms = get_the_terms( $post->ID, 'clients-category' );
                                             if ( $cur_terms ) : ?>
                                                 <div class="clientPopup-body">
+                                                    <?php if ( get_field( 'title', $post->ID ) ): ?>
+                                                        <h2 class="clientPopup-title"><?php echo the_field( 'title', $post->ID ); ?></h2>
+                                                    <?php endif; ?>
                                                     <ul class="u-clearfix">
                                                         <?php
                                                         foreach( $cur_terms as $cur_term ): ?>
