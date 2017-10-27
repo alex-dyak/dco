@@ -116,6 +116,7 @@
 												</div>
 											<?php endif; ?>
 
+
                                             <?php
                                             // Display clients categories in the lightbox.
                                             $cur_terms = get_the_terms( $post->ID, 'clients-category' );
