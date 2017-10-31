@@ -94,7 +94,9 @@ if ( ! empty( $image ) && is_int( $image ) ) : ?>
                 <?php if ( $full_height ): ?>
                     <div class="lazyload defaultFullHeightImage js-fullHeightDefault"
                          data-bgset="<?php echo wp_get_attachment_image_url($image, 'full_height_img_desktop_large'); ?> 1900w"
-                         data-sizes="auto"></div>
+                         data-sizes="auto"
+                         data-stellar-background-ratio="0.5"
+                         data-stellar-vertical-offset="100"></div>
                 <?php else: ?>
                     <img data-src="<?php echo wp_get_attachment_image_url($image, 'full_default_img_desktop_large'); ?>" class="lazyload defaultImage" alt="<?php echo $quote_title; ?>"
                         data-srcset="<?php echo wp_get_attachment_image_url($image, 'full_default_img_desktop_mobile_small'); ?> 480w,
