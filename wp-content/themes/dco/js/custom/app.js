@@ -148,6 +148,11 @@
           setTimeout(function () {
               pageArrows();
           }, 500);
+          $(window).stellar({
+              horizontalScrolling: false,
+              verticalOffset: 0,
+              responsive: true
+          });
           $('.js-videoBox').videoPlayer({
               'poster': $('.js-videoPoster'),
               'video': $('.js-video video'),
