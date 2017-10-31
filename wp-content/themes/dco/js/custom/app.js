@@ -126,7 +126,7 @@
           }
       });
     }
-    //check_if_in_view();
+    check_if_in_view();
 
       var moduleSlider = $('.js-moduleSlider'),
           moduleSliderSpeed = profileSlider.data('speed');
@@ -162,7 +162,7 @@
           });
       });
       $(window).scroll(function () {
-          //check_if_in_view();
+          check_if_in_view();
       });
   });
 
