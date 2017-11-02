@@ -23,7 +23,7 @@
                     <div class="siteFooter-preFooter">
                         <div class="siteFooter-preFooter-body">
                             <div class="footerConnect">
-                                <a href="mailto:<?php echo get_option( 'info_email_address' ); ?>" class="btn btn--blue btn--connect"><?php echo sprintf( '<span>%s</span><span>%s</span><span>%s</span>', __( 'D', 'text_domain' ), __( '&CO', 'text_domain') , __( 'NNECT', 'text_domain' )  ); ?></a>
+                                <a href="<?php echo get_field( 'connect_page', 'option' ); ?>" class="btn btn--blue btn--connect"><?php echo sprintf( '<span>%s</span><span>%s</span><span>%s</span>', __( 'D', 'text_domain' ), __( '&CO', 'text_domain') , __( 'NNECT', 'text_domain' )  ); ?></a>
                             </div>
                             <div class="footerDescription"><?php echo get_field( 'footer_description', 'option' ); ?></div>
                         </div>
