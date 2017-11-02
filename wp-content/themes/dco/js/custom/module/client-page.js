@@ -126,7 +126,7 @@
                                 {
                                     breakpoint: 769,
                                     settings: {
-                                        dots: false
+                                        //dots: false
                                     }
                                 }
                             ]

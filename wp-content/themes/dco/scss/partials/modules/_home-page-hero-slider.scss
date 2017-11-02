@@ -213,9 +213,8 @@ $homePageSlider-btnBackground--hover: $nevada;
       overflow: hidden;
       visibility: hidden;
       opacity: 0;
-      //font-size: 3rem;
       font-size: 23px;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
       font-family: $FuturaPT;
       font-weight: 300;
       line-height: 1;
@@ -223,6 +222,7 @@ $homePageSlider-btnBackground--hover: $nevada;
       transition: opacity .5s ease-in .7s;
       @media #{$tablet-up} {
         font-size: 3rem;
+        letter-spacing: 4px;
       }
     }
 

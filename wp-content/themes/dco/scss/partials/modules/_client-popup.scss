@@ -13,6 +13,12 @@
     top: 8px;
     right: 8px;
   }
+  &-title {
+    margin-bottom: 20px;
+    font-family: $Avenir-heavy;
+    font-size: 22px;
+    line-height: 26px;
+  }
   &-body {
     min-height: 145px;
     padding: 10px 15px;
@@ -20,12 +26,6 @@
     @media #{$tablet-up} {
       padding: 10px 50px;
       //min-height: 357px;
-    }
-    &-title {
-      margin-bottom: 20px;
-      font-family: $Avenir-heavy;
-      font-size: 22px;
-      line-height: 26px;
     }
     &-inner {
       display: flex;
@@ -77,15 +77,28 @@
     padding: 0;
     margin: 0;
     position: absolute;
-    right: 20px;
-    height: 100%;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    bottom: 20px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    @media #{$tablet-up} {
+      top: 0;
+      right: 20px;
+      bottom: auto;
+      width: auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
     > li {
+      display: inline-block;
       height: 10px;
-      margin: 8px 0;
+      margin: 0 8px;
+      @media #{$tablet-up} {
+        display: block;
+        margin: 8px 0;
+      }
       &.slick-active {
         > button {
           background: $dotsColor--active;
@@ -94,8 +107,8 @@
       > button {
         text-indent: -9999px;
         background: $white;
-        width: 10px;
-        height: 10px;
+        width: 11px;
+        height: 11px;
         border-radius: 50%;
         padding: 0;
         border: 0;
