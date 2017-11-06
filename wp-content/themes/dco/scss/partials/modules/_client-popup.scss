@@ -14,12 +14,15 @@
     right: 8px;
   }
   &-title {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     font-family: $Avenir-heavy;
     font-size: 22px;
     line-height: 26px;
   }
   &-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     min-height: 145px;
     padding: 10px 15px;
     text-align: left;
@@ -54,7 +57,7 @@
         justify-content: flex-start;
         align-content: stretch;
         align-items: flex-start;
-        height: 80px;
+        max-height: 64px;
       }
       li {
         list-style: none;

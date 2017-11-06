@@ -33,7 +33,6 @@ $clientSliderDesktopHeight: 509px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 10%;
     background-color: rgba($white, .9);
     position: absolute;
     bottom: 0;
@@ -45,6 +44,7 @@ $clientSliderDesktopHeight: 509px;
     text-align: right;
     @media #{$tablet-up} {
       justify-content: flex-end;
+      padding-right: 10%;
     }
   }
   &-slider {
