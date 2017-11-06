@@ -93,12 +93,11 @@ $homePageSlider-btnBackground--hover: $nevada;
       //right: 50%;
       right: 66.25%;
       z-index: 1;
-      //transform: translate(50%, -50%);
       transform: translate(0, -50%);
       color: $white;
       //font-size: 3rem;
       font-size: 23px;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
       font-family: $FuturaPT;
       font-weight: 300;
       line-height: 1;
@@ -108,6 +107,7 @@ $homePageSlider-btnBackground--hover: $nevada;
       @media #{$tablet-up} {
         top: 50%;
         font-size: 3rem;
+        letter-spacing: 4px;
         transform: translate(0, -50%);
         padding-right: 5px;
       }
