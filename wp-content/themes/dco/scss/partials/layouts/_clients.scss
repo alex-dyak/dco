@@ -101,10 +101,14 @@ $clientSliderDesktopHeight: 509px;
           border-radius: 50%;
           outline: 0;
           padding: 0;
-          width: 15px;
-          height: 15px;
+          width: 11px;
+          height: 11px;
           display: block;
           background: rgba($white, .5);
+          @media #{$tablet-up} {
+            width: 15px;
+            height: 15px;
+          }
         }
       }
     }
@@ -260,4 +264,3 @@ $clientSliderDesktopHeight: 509px;
     }
   }
 }
-
