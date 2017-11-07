@@ -16,7 +16,9 @@ get_header(); ?>
         }
 		?>
 		<div class="page-connected" style="background-image: <?php echo 'url(' .  $post_image_url . ')'; ?>">
-            <?php the_content(); ?>
+            <div class="page-connected-inner">
+                <?php the_content(); ?>
+            </div>
 		</div>
 	<?php endwhile;
 endif; ?>
