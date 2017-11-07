@@ -11,7 +11,7 @@
 
 ?>
 
-<footer id="footer" class="siteFooter" role="contentinfo">
+<footer id="footer" class="siteFooter siteFooter--connectPage" role="contentinfo">
     <div class="siteFooter-inner">
         <div class="siteFooter-body">
             <div class="siteFooter-body-copyright">

@@ -1,0 +1,46 @@
+.page-template-page-connect {
+    #wrapper {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+}
+.page-connected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 auto;
+    .userAgent-ie & {
+        min-height: 100vh;
+    }
+    .page-connected-inner {
+        padding: 40px 15px;
+        max-width: 500px;
+        font-size: 1rem;
+        line-height: 2;
+        font-family: $SourceSansPro-regular;
+        color: $white;
+        h1 {
+            text-transform: uppercase;
+            font-family: $Avenir-heavy;
+            font-size: 1.25rem;
+            margin-bottom: 50px;
+        }
+        a {
+            font-family: $SourceSansPro-semibold;
+            color: $white;
+        }
+        h4 {
+            margin-top: 57px;
+            margin-bottom: 0;
+            font-family: $Avenir-heavy;
+            font-size: 1.1875rem;
+        }
+    }
+}
+.siteFooter--connectPage {
+    .siteFooter-body {
+        border-top: none;
+        padding-bottom: 17px;
+    }
+}
