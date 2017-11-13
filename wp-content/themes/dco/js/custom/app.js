@@ -128,6 +128,24 @@
     }
     check_if_in_view();
 
+    function matchIE() {
+        var ms_ie = false;
+        var ua = window.navigator.userAgent;
+        var old_ie = ua.indexOf('MSIE ');
+        var new_ie = ua.indexOf('Trident/');
+
+        if ((old_ie > -1) || (new_ie > -1)) {
+            ms_ie = true;
+        }
+
+        if ( ms_ie ) {
+            //IE specific code goes here
+            $('body').addClass('userAgent-ie')
+        }
+    }
+
+      matchIE();
+
       var moduleSlider = $('.js-moduleSlider'),
           moduleSliderSpeed = profileSlider.data('speed');
       moduleSliderSpeed = moduleSliderSpeed % 1 == 0 ? moduleSliderSpeed : 3000;
