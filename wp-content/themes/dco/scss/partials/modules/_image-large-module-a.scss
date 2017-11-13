@@ -145,8 +145,11 @@ $quoteBlock-color: #696A6D;
   background-position: 50% 80%;
   background-repeat: no-repeat;
   background-size: cover;
-  @media #{$tablet-up} {
-
+  @media only screen and (min-width: 0em) and (max-width: 47.937em) {
+    background-position: 50% 50% !important;
+  }
+  @media only screen and (min-width: 0em) and (max-width: 47.937em) {
+    background-position: 50% 50% !important;
   }
   @media #{$desktop-up} {
     min-height: 509px;
