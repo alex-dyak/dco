@@ -3,9 +3,9 @@
 $speed = get_sub_field( 'slider_speed' ) ? get_sub_field( 'slider_speed' ) : 6000;
 ?>
 
-<div class="profile-slider-holder">
+<div class="forestPage-slider-holder">
 
-    <div class="profile-slider js-profile-slider" data-speed="<?php echo $speed; ?>">
+    <div class="forestPage-slider js-client-slider" data-speed="<?php echo $speed; ?>">
 
         <!-- W3TC_DYNAMIC_SECURITY mfunc -->
 		<?php
@@ -30,7 +30,7 @@ $speed = get_sub_field( 'slider_speed' ) ? get_sub_field( 'slider_speed' ) : 600
 
     </div>
 
-    <div class="forestImageStudiesPage-bar ">
+    <div class="forestPage-sliderBar">
 
 		<?php
 		$forest_bar_image = get_sub_field( 'forest_bar' );

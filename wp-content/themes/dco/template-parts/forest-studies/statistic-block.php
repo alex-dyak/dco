@@ -2,13 +2,13 @@
 
 	<?php if ( get_sub_field( 'header' ) && get_sub_field( 'body' ) ): ?>
 
+        <?php if ( get_sub_field( 'header' ) ): ?>
+
+            <h1 class="statisticBlock-title"><?php the_sub_field( 'header' ); ?></h1>
+
+        <?php endif; ?>
+
 		<div class="statisticBlock-body">
-
-			<?php if ( get_sub_field( 'header' ) ): ?>
-
-				<h2 class="statisticBlock-body-title"><?php the_sub_field( 'header' ); ?></h2>
-
-			<?php endif; ?>
 
 			<?php if ( get_sub_field( 'body' ) ): ?>
 
@@ -35,19 +35,19 @@
 					$number_color = '';
 				}
 				?>
+                <div class="statisticBlock-stats-item">
+                    <?php if ( get_sub_field( 'number' ) ): ?>
 
-				<?php if ( get_sub_field( 'number' ) ): ?>
+                        <div class="statisticBlock-stats-number" style="color: <?php echo $number_color; ?>"><?php the_sub_field( 'number' ); ?></div>
 
-					<div class="statisticBlock-stats-number" style="color: <?php echo $number_color; ?>"><?php the_sub_field( 'number' ); ?></div>
+                    <?php endif; ?>
 
-				<?php endif; ?>
+                    <?php if ( get_sub_field( 'text' ) ): ?>
 
-			<?php if ( get_sub_field( 'text' ) ): ?>
+                            <div class="statisticBlock-stats-text"><?php the_sub_field( 'text' ); ?></div>
 
-					<div class="statisticBlock-stats-text"><?php the_sub_field( 'text' ); ?></div>
-
-			<?php endif; ?>
-
+                    <?php endif; ?>
+                </div>
 			<?php endwhile; ?>
 
 		</div>

@@ -7,38 +7,41 @@ $background_color = get_sub_field( 'background_color' );
 $size             = 'full';
 ?>
 
-<div class="imageQuote container">
+<div class="imageLargeModuleA imageQuote js-fullHeight fullHeight js-hasSticky">
 
 	<?php if ( ! empty( $image ) && is_int( $image ) ) : ?>
 
-        <div class="imageSmallModuleA-image">
-
-            <img src="<?php echo wp_get_attachment_image_url( $image, $size ); ?>" alt="">
-
+        <div class="imageLargeModuleA-image imageLargeModuleA-image--parallax">
+            <div class="lazyload parallaxImg"
+                 data-bgset="<?php echo wp_get_attachment_image_url($image, 'full_height_img_desktop_large'); ?> 1900w"
+                 data-sizes="auto"
+                 data-stellar-background-ratio="0.5"></div>
         </div>
 
 	<?php endif; ?>
 
 	<?php if ( get_sub_field( 'quote_body' ) ): ?>
 
-        <div class="quote" style="background-color: <?php echo $background_color; ?>">
+        <div class="imageLargeModuleA-quote imageQuote-quote">
 
-            <div class="quote-body">
+            <div class="js-hasSticky-item imageLargeModuleA-quote-inner imageLargeModuleA-quote-inner--large quoteItem"
+                 style="background: <?php echo $background_color; ?>">
+                <div class="imageLargeModuleA-quote-body quoteItem-body">
 
-				<?php the_sub_field( 'quote_body' ); ?>
-
-            </div>
-
-			<?php if ( get_sub_field( 'author_of_quote' ) ): ?>
-
-                <div class="quoteAuthor">
-
-					<?php the_sub_field( 'author_of_quote' ); ?>
+                    <?php the_sub_field( 'quote_body' ); ?>
 
                 </div>
 
-			<?php endif; ?>
+                <?php if ( get_sub_field( 'author_of_quote' ) ): ?>
 
+                    <div class="quoteItem-author">
+
+                        <?php the_sub_field( 'author_of_quote' ); ?>
+
+                    </div>
+
+                <?php endif; ?>
+            </div>
         </div>
 
 	<?php endif; ?>
