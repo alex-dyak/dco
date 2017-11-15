@@ -112,16 +112,18 @@
 															// display a sub field value
 															$image = get_sub_field( 'lightbox_image', $post->ID );
 															$url = get_sub_field( 'image_link', $post->ID );
+															if ( $url ) {
+															    echo '<a href="' . $url . '" target="_blank">';
+															}
 															?>
-
-                                                            <a href="<?php echo $url; ?>" target="_blank">
                                                                 <div>
 																	<?php echo wp_get_attachment_image( $image['id'],
 																		$image['sizes']['client_image'] ); ?>
                                                                 </div>
-                                                            </a>
-
 															<?php
+															if ( $url ) {
+																echo '</a>';
+															}
 
 														endwhile;
 
