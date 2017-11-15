@@ -102,19 +102,34 @@
 										?>
 
 										<div class="clientPopup"> <!-- Slider -->
-											<?php $images = get_field( 'slider', $post->ID );
-											if ( $images ): ?>
-												<div class="clientPopup-slider">
-													<div class="clientSlider js-clientSlider">
-														<?php foreach ( $images as $image ): ?>
-															<div>
-																<img src="<?php echo $image['sizes']['client_image']; ?>"
-																     alt="<?php echo $image['alt']; ?>"/>
-															</div>
-														<?php endforeach; ?>
-													</div>
-												</div>
-											<?php endif; ?>
+                                            <div class="clientPopup-slider">
+                                                <div class="clientSlider js-clientSlider">
+													<?php
+													// check if the repeater field has rows of data
+													if ( have_rows( 'slider', $post->ID ) ):
+														// loop through the rows of data
+														while ( have_rows( 'slider', $post->ID ) ) : the_row();
+															// display a sub field value
+															$image = get_sub_field( 'lightbox_image', $post->ID );
+															$url = get_sub_field( 'image_link', $post->ID );
+															?>
+
+                                                            <a href="<?php echo $url; ?>" target="_blank">
+                                                                <div>
+																	<?php echo wp_get_attachment_image( $image['id'],
+																		$image['sizes']['client_image'] ); ?>
+                                                                </div>
+                                                            </a>
+
+															<?php
+
+														endwhile;
+
+													endif;
+
+													?>
+                                                </div>
+                                            </div>
 
 
                                             <?php
