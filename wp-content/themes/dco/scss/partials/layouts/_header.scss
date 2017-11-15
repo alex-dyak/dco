@@ -2,7 +2,7 @@
 $bgMenu: $white;
 $menuBtnFont: $SourceSansPro-regular;
 $menuBtnColor: $nevada;
-$menuBtnColor--hover: $gray-ship;
+$menuBtnColor--hover: $blue--light;
 /*===========================*/
 
 
@@ -34,6 +34,9 @@ $menuBtnColor--hover: $gray-ship;
     }
   }
   &-menu {
+    width: 100%;
+    text-align: right;
+    line-height: 1;
     margin-top: 5px;
     @media #{$tablet-up} {
       margin-top: 1px;
@@ -57,7 +60,7 @@ $menuBtnColor--hover: $gray-ship;
 }
 
 .menuBtn {
-  display: block;
+  display: inline-block;
   margin: 0;
   padding: 0;
   outline: 0;
@@ -73,6 +76,14 @@ $menuBtnColor--hover: $gray-ship;
   &:hover,
   &:focus {
     color: $menuBtnColor--hover;
+    > i {
+      &:before,
+      &:after,
+      span {
+        background: $menuBtnColor--hover;
+        color: $menuBtnColor--hover;
+      }
+    }
   }
   > i {
     display: inline-block;
@@ -95,6 +106,7 @@ $menuBtnColor--hover: $gray-ship;
       transition-property: transform, top, bottom, left, opacity;
       background: $menuBtnColor;
       color: $menuBtnColor;
+      transition: all .3s;
     }
     &:before {
       top: 0;

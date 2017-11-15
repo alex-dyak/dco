@@ -80,8 +80,8 @@ if ( is_front_page() ) {
             <?php } endif; /* End check for header image. */ ?>
 
         </div>
-        <div class="siteHeader-menu">
-            <button type="button" class="menuBtn js-menuTrigger">
+        <div class="siteHeader-menu js-menuTrigger">
+            <button type="button" class="menuBtn">
                 <span><?php _e('menu'); ?></span>
                 <i>
                     <span></span>
