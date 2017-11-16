@@ -258,8 +258,13 @@ $clientSliderDesktopHeight: 509px;
     }
     > a[href*="#client-popup-"] {
       color: #7cbae8 !important;
+      outline: none;
       &:hover {
         color: #3a5968 !important;
+        outline: none;
+      }
+      &:focus {
+        outline: none;
       }
     }
   }
