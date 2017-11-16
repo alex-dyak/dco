@@ -117,7 +117,7 @@
                     if(thisSlider.length && !thisSlider.hasClass('slick-initialized')) {
                         thisSlider.slick({
                             autoplay: true,
-                            autoplaySpeed: 4000,
+                            autoplaySpeed: 3000,
                             slidesToShow: 1,
                             slidesToScroll: 1,
                             arrows: false,
