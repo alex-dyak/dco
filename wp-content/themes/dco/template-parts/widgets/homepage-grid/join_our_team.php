@@ -3,6 +3,10 @@
         <?php if ( get_sub_field( 'join_our_team_title' ) && get_sub_field( 'join_our_team_body' ) ): ?>
             <div class="joinOurTeam-body">
                 <div class="joinOurTeam-body-inner">
+	                <?php if ( get_sub_field( 'join_our_team_pretitle' ) ): ?>
+                        <span class="joinOurTeam-body-pretitle"><?php echo strtoupper( get_sub_field( 'join_our_team_pretitle' ) ); ?></span>
+	                <?php endif; ?>
+
                     <?php if ( get_sub_field( 'join_our_team_title' ) ): ?>
                         <h2 class="joinOurTeam-body-title"><?php the_sub_field( 'join_our_team_title' ); ?></h2>
                     <?php endif; ?>

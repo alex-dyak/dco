@@ -10,6 +10,10 @@
 	<?php if ( get_sub_field( 'two_story_title' ) && get_sub_field( 'two_story_body' ) ): ?>
 		<a href="<?php echo get_home_url() . '/profile'; ?>">
 			<div class="twoStoryImage-body">
+				<?php if ( get_sub_field( 'two_story_pretitle' ) ): ?>
+                    <span class="twoStoryImage-body-pretitle"><?php echo strtoupper( get_sub_field( 'two_story_pretitle' ) ); ?></span>
+				<?php endif; ?>
+
 				<?php if ( get_sub_field( 'two_story_title' ) ): ?>
 					<h2 class="twoStoryImage-body-title"><?php the_sub_field( 'two_story_title' ); ?></h2>
 				<?php endif; ?>

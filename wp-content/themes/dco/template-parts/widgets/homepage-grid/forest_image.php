@@ -10,7 +10,7 @@ if ( ! $forest_image_page_link ) {
             <?php $image = get_sub_field( 'forest_image' );
             if ( ! empty( $image ) && is_int( $image ) ) : ?>
                 <div class="forestImage-image">
-                    <img src="<?php echo wp_get_attachment_image_url( $image, 'homepage_grid_small_image' )?>" alt="<?php echo the_sub_field( 'forest_title' ); ?>">
+                    <img src="<?php echo wp_get_attachment_image_url( $image, 'homepage_grid_small_image' )?>" alt="<?php the_sub_field( 'forest_title' ); ?>">
                 </div>
             <?php endif; ?>
 
@@ -23,8 +23,12 @@ if ( ! $forest_image_page_link ) {
                     $back_img = '';
                 } ?>
                 <div class="forestImage-body" style="background-image: url(<?php echo $back_img; ?>)">
+	                <?php if ( get_sub_field( 'forest_pretitle' ) ): ?>
+                        <span class="forestImage-body-pretitle"><?php echo strtoupper( get_sub_field( 'forest_pretitle' ) ); ?></span>
+	                <?php endif; ?>
+
                     <?php if ( get_sub_field( 'forest_title' ) ): ?>
-                        <h2 class="forestImage-body-title"><?php echo the_sub_field( 'forest_title' ); ?></h2>
+                        <h2 class="forestImage-body-title"><?php the_sub_field( 'forest_title' ); ?></h2>
                     <?php endif; ?>
 
                     <?php if ( get_sub_field( 'forest_body' ) ): ?>

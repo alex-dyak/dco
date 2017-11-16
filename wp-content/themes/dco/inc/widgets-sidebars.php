@@ -663,10 +663,6 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
 
 		echo $before_widget;
 
-		if ( $title ) {
-			echo $before_title . $title . $after_title;
-		}
-
 		$args = array(
 			'posts_per_page' => 1,
 			'orderby'        => 'post_date',
@@ -689,6 +685,11 @@ class W4P_Homepage_Grid_Widget extends WP_Widget {
                 <div class="grid-sizer"></div>
                 <div class="newsBox gridItem">
                     <span class="newsBox-inner">
+                        <?php
+                        if ( $title ) {
+	                        echo '<span class="newsBox-title">' . strtoupper( $title ) . '</span>';
+                        }
+                        ?>
                         <span class="newsBox-date"><?php echo $date; ?></span>
                         <span
                                 class="newsBox-description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></span>
