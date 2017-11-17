@@ -35,7 +35,7 @@
                             <div class="project-body"
                                  style="background-color: <?php echo $background_color; ?>">
 	                            <?php if ( $pre_title ) : ?>
-                                    <span class="project-body-pretitle"><?php echo strtoupper( $pre_title ); ?></span>
+                                    <span class="project-body-pretitle" style=" color: <?php echo $body_color; ?>"><?php echo strtoupper( $pre_title ); ?></span>
 	                            <?php endif; ?>
 
                                 <?php if ( get_sub_field( 'project_title' ) ) : ?>

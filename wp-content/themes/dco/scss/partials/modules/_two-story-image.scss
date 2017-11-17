@@ -51,11 +51,17 @@
       min-height: auto;
       height: 50%;
     }
+    &-pretitle {
+      display: block;
+      margin-bottom: 14px;
+      font-family: $ProximaNova;
+      text-transform: uppercase;
+      font-size: 1.083vw;
+      color: $black;
+    }
     &-title {
       margin-bottom: 0;
       font-family: $Avenir-medium;
-      //font-size: 1.156rem;
-      //line-height: 1.65rem;
       font-size: 7.8vw;
       line-height: 1.2;
       letter-spacing: 1.8px;
