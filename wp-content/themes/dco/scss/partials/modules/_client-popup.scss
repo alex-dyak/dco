@@ -10,8 +10,15 @@
   }
   .mfp-close {
     font-size: 40px;
-    top: 8px;
-    right: 8px;
+    top: 0;
+    right: 0;
+    transform: translate(0, -100%);
+    color: #cecece;
+    @media screen and (min-width: 1024px) {
+      top: 8px;
+      right: -16px;
+      transform: translate(100%, 0);
+    }
   }
   &-title {
     margin-bottom: 12px;

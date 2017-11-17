@@ -38,6 +38,7 @@ $menuBtnColor--hover: $blue--light;
     text-align: right;
     line-height: 1;
     margin-top: 5px;
+    cursor: pointer;
     @media #{$tablet-up} {
       margin-top: 1px;
     }

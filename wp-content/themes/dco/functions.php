@@ -491,3 +491,6 @@ function thumbnail_upscale(
 	$s_y = floor( ( $orig_h - $crop_h ) / 2 );
 	return array( 0, 0, (int) $s_x, (int) $s_y, (int) $new_w, (int) $new_h, (int) $crop_w, (int) $crop_h );
 }
+
+
+add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );

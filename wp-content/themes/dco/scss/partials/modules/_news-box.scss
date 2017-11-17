@@ -52,7 +52,14 @@
       min-height: inherit;
     }
   }
-
+  &-title {
+    display: block;
+    margin-bottom: 14px;
+    font-family: $ProximaNova;
+    text-transform: uppercase;
+    font-size: 1.083vw;
+    color: $black;
+  }
   &-date {
     display: block;
     margin-bottom: 10px;
