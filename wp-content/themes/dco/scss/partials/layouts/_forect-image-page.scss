@@ -174,7 +174,8 @@
             }
             @media #{$desktop-up} {
                 font-size: 1.25rem;
-                line-height: 2rem;
+                line-height: 1rem;
+                margin-top: -5px;
             }
         }
     }
