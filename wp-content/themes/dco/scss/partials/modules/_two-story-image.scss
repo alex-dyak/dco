@@ -56,8 +56,12 @@
       margin-bottom: 14px;
       font-family: $ProximaNova;
       text-transform: uppercase;
-      font-size: 1.083vw;
+      font-size: 15px;
+      line-height: 1;
       color: $black;
+      @media #{$tablet-up} {
+        font-size: 0.9vw;
+      }
     }
     &-title {
       margin-bottom: 0;

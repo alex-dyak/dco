@@ -113,7 +113,8 @@
             vertical: true,
             adaptiveHeight: true,
             slidesToShow: 1,
-            //fade: true
+            fade: true,
+            cssEase: 'ease-in-out'
         })
         .on('init', function (event, slick) {
             //console.log('init slider');

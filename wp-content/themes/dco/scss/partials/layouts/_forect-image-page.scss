@@ -202,15 +202,16 @@
 .quoteItem {
     width: 100% !important;
     @media #{$tablet-up} {
-        width: 390px !important;
+        width: 360px !important;
     }
 }
 .quoteItem-body {
-    font-size: 1.41rem;
+    font-size: 1.75rem;
     line-height: 2.10rem;
 }
 .quoteItem-author {
-    font-size: .8125rem;
+    padding-top: 20px;
+    font-size: 1rem;
     line-height: 1.20rem;
     color: $black;
 }

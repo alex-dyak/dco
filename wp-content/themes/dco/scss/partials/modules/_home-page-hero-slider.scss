@@ -38,9 +38,12 @@ $homePageSlider-btnBackground--hover: $nevada;
   }
   &-slide {
     outline: 0;
-    position: relative;
+    //position: relative;
     border: 0 !important;
     overflow: hidden;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
     &.is-active {
       .homepageSliderCaption {
         right: 0;
