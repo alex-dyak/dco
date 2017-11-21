@@ -5,6 +5,9 @@
  * WP is hardcoded to look in its own directory or one directory up for wp-config.php.
  */
 
+/** Enable Core Update */
+define('WP_AUTO_UPDATE_CORE', true);
+
 /** Enable W3 Total Cache */
 define( 'WP_CACHE', true ); // Added by W3 Total Cache
 define( 'W3TC_DYNAMIC_SECURITY', md5( rand( 0, 999999 ) ) );
