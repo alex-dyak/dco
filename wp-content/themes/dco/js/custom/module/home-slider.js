@@ -27,10 +27,10 @@
         sliderHeight();
 
         function timeout (slick) {
-            console.log('timeout fun');
+            //console.log('timeout fun');
             if (navigator.userAgent.match(/msie/i) || navigator.userAgent.match(/trident/i) ){
                 $("html").addClass("ie");
-                console.log('play slider');
+                //console.log('play slider');
                 setTimeout(function () {
                     slick.slickSetOption("autoplay", true, true);
                     //console.log('play slider');
@@ -64,7 +64,7 @@
                 }, 2000);
             }
             $(window).on('load', function(){
-                console.log('window load');
+                //console.log('window load');
                 setTimeout(function () {
                     slick.slickSetOption("autoplay", true, true);
                     //console.log('play slider');
@@ -100,7 +100,7 @@
         }
 
         $homePageSlider.on('init', function (event, slick) {
-            console.log('init slider');
+            //console.log('init slider');
             timeout(slick);
         })
         $homePageSlider.slick({

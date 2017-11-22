@@ -17,7 +17,7 @@
         clientSliderSpeed = clientSlider.data('speed');
         clientSliderSpeed = clientSliderSpeed % 1 == 0 ? clientSliderSpeed : 3000;
     clientSlider.on('init', function(event, slick){
-        console.log('init')
+        //console.log('init')
     });
 
     clientSlider.slick({
@@ -32,8 +32,8 @@
 
     var total = $('.js-client-slider img').length,
       rand = Math.floor( Math.random() * total );
-    console.log(total)
-    console.log(rand)
+    //console.log(total)
+    //console.log(rand)
 
     clientSlider.slick('slickGoTo', rand);
 
