@@ -11,11 +11,10 @@ $size             = 'full';
 
 	<?php if ( ! empty( $image ) && is_int( $image ) ) : ?>
 
-        <div class="imageLargeModuleA-image imageLargeModuleA-image--parallax">
-            <div class="lazyload parallaxImg"
+        <div class="imageLargeModuleA-image">
+            <div class="lazyload defaultFullHeightImage js-fullHeightDefault"
                  data-bgset="<?php echo wp_get_attachment_image_url($image, 'full_height_img_desktop_large'); ?> 1900w"
-                 data-sizes="auto"
-                 data-stellar-background-ratio="0.5"></div>
+                 data-sizes="auto"></div>
         </div>
 
 	<?php endif; ?>
@@ -24,7 +23,7 @@ $size             = 'full';
 
         <div class="imageLargeModuleA-quote imageQuote-quote">
 
-            <div class="js-hasSticky-item imageLargeModuleA-quote-inner imageLargeModuleA-quote-inner--large quoteItem"
+            <div class="imageLargeModuleA-quote-inner imageLargeModuleA-quote-inner--large quoteItem"
                  style="background: <?php echo $background_color; ?>">
                 <div class="imageLargeModuleA-quote-body quoteItem-body">
 
