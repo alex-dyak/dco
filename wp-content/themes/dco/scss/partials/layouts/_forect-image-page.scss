@@ -201,6 +201,7 @@
     }
 }
 .quoteItem {
+    top: 29px;
     width: 100% !important;
     @media #{$tablet-up} {
         width: 360px !important;
