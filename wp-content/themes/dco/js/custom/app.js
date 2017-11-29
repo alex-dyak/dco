@@ -25,6 +25,8 @@
       autoplaySpeed: clientSliderSpeed,
       slidesToShow: 1,
       slidesToScroll: 1,
+      pauseOnFocus: false,
+      pauseOnHover: false,
       dots: true,
       arrows: false,
       fade: true

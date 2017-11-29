@@ -18,6 +18,13 @@ $descriptionSubTitleFontFamily: $Avenir-book;
       font-family: $descriptionTitleFontFamily;
       margin-bottom: 16px;
       font-weight: normal;
+      padding-right: 60px;
+      @media #{$tablet-up} {
+        padding-right: 75px;
+      }
+      @media #{$desktop-up} {
+        padding-right: 0;
+      }
     }
     &-subtitle {
       font-family: $descriptionSubTitleFontFamily;

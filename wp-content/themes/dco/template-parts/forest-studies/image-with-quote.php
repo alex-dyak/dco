@@ -23,7 +23,7 @@ $size             = 'full';
 
         <div class="imageLargeModuleA-quote imageQuote-quote">
 
-            <div class="imageLargeModuleA-quote-inner imageLargeModuleA-quote-inner--large quoteItem"
+            <div class="js-hasSticky-item imageLargeModuleA-quote-inner imageLargeModuleA-quote-inner--large quoteItem"
                  style="background: <?php echo $background_color; ?>">
                 <div class="imageLargeModuleA-quote-body quoteItem-body">
 
