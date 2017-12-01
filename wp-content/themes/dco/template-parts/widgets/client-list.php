@@ -81,7 +81,7 @@
 								$data_category = 'all, ' . implode( ", ", $terms_name );
 								?>
 								<li>
-									<?php if( ! empty( get_field( 'slider', $post->ID ) ) ||
+									<?php if( ! empty( get_field( 'slider1', $post->ID ) ) ||
 									          ! empty( get_field( 'title', $post->ID ) ) ||
 									          ! empty( get_field( 'text_first_column', $post->ID ) ) ||
 									          ! empty( get_field( 'text_second_column', $post->ID ) ) ||
@@ -106,9 +106,9 @@
                                                 <div class="clientSlider js-clientSlider">
 													<?php
 													// check if the repeater field has rows of data
-													if ( have_rows( 'slider', $post->ID ) ):
+													if ( have_rows( 'slider1', $post->ID ) ):
 														// loop through the rows of data
-														while ( have_rows( 'slider', $post->ID ) ) : the_row();
+														while ( have_rows( 'slider1', $post->ID ) ) : the_row();
 															// display a sub field value
 															$image = get_sub_field( 'lightbox_image', $post->ID );
 															$url = get_sub_field( 'image_link', $post->ID );
