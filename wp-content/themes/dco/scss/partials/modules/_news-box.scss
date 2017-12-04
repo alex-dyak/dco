@@ -24,15 +24,20 @@
     //background: $blue;
   }
   &:before {
-    content: '';
-    display: block;
-    padding-bottom: 62.5%;
+    //content: '';
+    //display: block;
+    //padding-bottom: 62.5%;
+    @media #{$mobile-up} {
+      content: '';
+      display: block;
+      padding-bottom: 62.5%;
+    }
     @media #{$tablet-up} {
       padding-bottom: 90%;
     }
   }
   &-inner {
-    position: absolute;
+    //position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -42,6 +47,9 @@
     flex-direction: column;
     //justify-content: center;
     //min-height: 200px;
+    @media #{$mobile-up} {
+      position: absolute;
+    }
     @media #{$tablet-up} {
       position: absolute;
       top: 0;
