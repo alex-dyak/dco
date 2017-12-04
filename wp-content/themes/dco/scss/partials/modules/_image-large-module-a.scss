@@ -12,6 +12,15 @@ $quoteBlock-color: #696A6D;
   &-quote {
     position: relative;
     z-index: 1;
+    @media (width: 768px) {
+      position: static !important;
+      transform: none !important;
+      &-inner {
+        transform: none !important;
+        position: static !important;
+        width: 100% !important;
+      }
+    }
     @media #{$tablet-up} {
       position: absolute;
       left: 50%;
@@ -115,7 +124,8 @@ $quoteBlock-color: #696A6D;
   }
 
   &-image {
-    margin-bottom: 30px;
+    //margin-bottom: 30px;
+    margin-bottom: 0;
     @media #{$tablet-up} {
       margin-bottom: 0;
     }
