@@ -67,7 +67,7 @@
         //align-content: stretch;
         align-content: start;
         align-items: flex-start;
-        max-height: 64px;
+        max-height: 84px;
       }
       li {
         list-style: none;
@@ -79,8 +79,8 @@
           //float: left;
           //padding: 0 10px;
           //width: 33.333%;
-          &:first-child:nth-last-child(n + 10),
-          &:first-child:nth-last-child(n + 10) ~ li{
+          &:first-child:nth-last-child(n + 13),
+          &:first-child:nth-last-child(n + 13) ~ li{
             padding-right: 50px;
           }
         }
