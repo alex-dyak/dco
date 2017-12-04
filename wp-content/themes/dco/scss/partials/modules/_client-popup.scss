@@ -64,7 +64,8 @@
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: flex-start;
-        align-content: stretch;
+        //align-content: stretch;
+        align-content: start;
         align-items: flex-start;
         max-height: 64px;
       }
@@ -74,9 +75,14 @@
         font-size: 13px;
         line-height: 20px;
         @media #{$tablet-up} {
+          padding-right: 136px;
           //float: left;
           //padding: 0 10px;
           //width: 33.333%;
+          &:first-child:nth-last-child(n + 10),
+          &:first-child:nth-last-child(n + 10) ~ li{
+            padding-right: 50px;
+          }
         }
       }
     }
