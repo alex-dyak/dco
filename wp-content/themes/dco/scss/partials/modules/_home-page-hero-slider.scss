@@ -16,21 +16,21 @@ $homePageSlider-btnBackground--hover: $nevada;
 
 .admin-bar {
   .homepageSlider {
-    //top: 61px;
+    top: 61px;
   }
 }
 
 .homepageSlider {
   height: $heroBannerHeight--mobile;
   overflow: hidden;
-  position: relative;
-  //left: 0;
-  //right: 0;
-  //top: 54px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 54px;
   @media #{$tablet-up} {
-    //left: $whiteSpace--large;
-    //right: $whiteSpace--large;
-    //top: $whiteSpace--large;
+    left: $whiteSpace--large;
+    right: $whiteSpace--large;
+    top: $whiteSpace--large;
     height: $heroBannerHeight--desktop;
   }
   &.slick-initialized {
@@ -93,7 +93,6 @@ $homePageSlider-btnBackground--hover: $nevada;
       position: absolute;
       //top: 50%;
       top: 124px;
-      //right: 50%;
       right: 66.25%;
       z-index: 1;
       transform: translate(0, -50%);
