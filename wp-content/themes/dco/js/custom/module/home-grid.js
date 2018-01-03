@@ -14,8 +14,9 @@
             pauseOnHover: false,
             autoplay: true,
             autoplaySpeed: 3000,
-            speed: 800,
-            fade: true
+            fade: true,
+            cssEase: 'ease-in-out',
+            speed: 1000
         });
 
         if($(window).width() < 960) {

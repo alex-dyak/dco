@@ -122,6 +122,8 @@
                             slidesToScroll: 1,
                             arrows: false,
                             dots: true,
+                            cssEase: 'ease-in-out',
+                            speed: 1000,
                             responsive: [
                                 {
                                     breakpoint: 769,
