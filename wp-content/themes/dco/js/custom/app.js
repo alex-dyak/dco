@@ -10,7 +10,9 @@
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
-      fade: true
+      fade: true,
+      cssEase: 'ease-in-out',
+      speed: 1000
     });
 
     var clientSlider = $('.js-client-slider'),
@@ -29,7 +31,9 @@
       pauseOnHover: false,
       dots: true,
       arrows: false,
-      fade: true
+      fade: true,
+      cssEase: 'ease-in-out',
+      speed: 1000
     });
 
     var total = $('.js-client-slider img').length,
@@ -157,7 +161,9 @@
           slidesToShow: 1,
           slidesToScroll: 1,
           arrows: false,
-          dots: true
+          dots: true,
+          cssEase: 'ease-in-out',
+          speed: 1000
       });
 
 
