@@ -17,7 +17,7 @@
             <div class="siteFooter-body-copyright">
                 <ul>
 					<?php if ( get_field( 'copyright_1_part', 'option' ) ) : ?>
-                        <li><?php echo get_field( 'copyright_1_part', 'option' ); ?></li>
+						<li><?php echo "&copy;" . date("Y") . ' ' . get_field( 'copyright_1_part', 'option' ); ?></li>
 					<?php endif; ?>
 					<?php if ( get_field( 'copyright_2_part', 'option' ) ) : ?>
                         <li><?php echo get_field( 'copyright_2_part', 'option' ); ?></li>
