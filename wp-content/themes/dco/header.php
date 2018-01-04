@@ -36,7 +36,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
+<!--	<title>--><?php //wp_title( '|', true, 'right' ); ?><!--</title>-->
 
 	<meta name="title" content="<?php wp_title( '|', true, 'right' ); ?>">
 
@@ -67,16 +67,11 @@ if ( is_front_page() ) {
             <?php
             if ( get_header_image() && ! display_header_text() ) : /* If there's a header image but no header text. */ { ?>
                 <a href="<?php echo esc_url( home_url() ); ?>"
-                   title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home" class="logo"><img
-                        src="<?php header_image(); ?>"
-                        width="<?php echo esc_attr( get_custom_header()->width ); ?>"
-                        height="<?php echo esc_attr( get_custom_header()->height ); ?>"
-                        alt=""/></a>
+                   title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home" class="logo">
+                    <img src="<?php header_image(); ?>"alt="Logotype"/>
+                </a>
             <?php } elseif ( get_header_image() ) : /* If there's a header image. */ { ?>
-                <img src="<?php header_image(); ?>"
-                     width="<?php echo absint( get_custom_header()->width ); ?>"
-                     height="<?php echo absint( get_custom_header()->height ); ?>"
-                     alt=""/>
+                <img src="<?php header_image(); ?>" alt="Logotype"/>
             <?php } endif; /* End check for header image. */ ?>
 
         </div>
@@ -102,9 +97,7 @@ if ( is_front_page() ) {
                        title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home" class="logo">
                         <img
                                 src="<?php header_image(); ?>"
-                                width="<?php echo esc_attr( get_custom_header()->width ); ?>"
-                                height="<?php echo esc_attr( get_custom_header()->height ); ?>"
-                                alt=""/>
+                                alt="Logotype"/>
                     </a>
                 </div>
 
@@ -112,7 +105,7 @@ if ( is_front_page() ) {
                     <div class="menuBoxWrap-inner">
                         <div class="menuBox">
                         <div class="menuBox-left">
-                            <nav id="nav" class="siteNavigation" role="navigation">
+                            <nav id="nav" class="siteNavigation">
                               <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
                             </nav>
 
