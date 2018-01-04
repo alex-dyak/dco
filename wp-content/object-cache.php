@@ -1,5 +1,5 @@
 <?php
-ObjectCache Version: 1.4
+//ObjectCache Version: 1.4
 /**
  * W3 Total Cache Object Cache
  */
