@@ -18,7 +18,7 @@
                 };
             ?>
 
-			<footer id="footer" class="siteFooter <?php echo $homePageFooter; ?>" role="contentinfo">
+			<footer id="footer" class="siteFooter <?php echo $homePageFooter; ?>">
                 <div class="siteFooter-inner">
                     <div class="siteFooter-preFooter">
                         <div class="siteFooter-preFooter-body">

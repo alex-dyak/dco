@@ -12,8 +12,8 @@ get_header(); ?>
 <?php if ( have_posts() ) :
 	while ( have_posts() ) : the_post(); ?>
 
-		<div class="page-404" style="background-image: url(<?php echo $background_image; ?>); color: #ffffff">
-			<div class="page-404-container">
+		<div class="page-singleClient" style="background-image: url(<?php echo $background_image; ?>); color: #ffffff">
+			<div class="page-singleClient-inner">
 
 				<h2 class="entry-title"><?php the_title(); ?></h2>
 
