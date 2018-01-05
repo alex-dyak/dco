@@ -36,7 +36,7 @@
                       <?php if ( get_field( 'footer_logo', 'option' ) ) : ?>
                           <div class="siteFooter-body-logo">
                               <a href="<?php echo esc_url( home_url() ); ?>">
-                                <img src="<?php echo get_field( 'footer_logo', 'option' ); ?>"/>
+                                <img src="<?php echo get_field( 'footer_logo', 'option' ); ?>" alt="footerLogo"/>
                               </a>
                           </div>
                       <?php endif; ?>
