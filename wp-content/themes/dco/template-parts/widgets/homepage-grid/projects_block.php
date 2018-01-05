@@ -39,7 +39,7 @@
 	                            <?php endif; ?>
 
                                 <?php if ( get_sub_field( 'project_title' ) ) : ?>
-                                    <h2 class="project-body-title" style=" color: <?php echo $title_color; ?>"><?php the_sub_field( 'project_title' ); ?></h2>
+                                    <h2 class="project-body-title" style=" color: <?php echo $title_color; ?>"><?php echo strip_tags( get_sub_field( 'project_title' ), '<br>' ); ?></h2>
                                 <?php endif; ?>
 
                                 <?php if ( get_sub_field( 'project_body' ) ) : ?>
