@@ -68,7 +68,7 @@ if ( is_front_page() ) {
             if ( get_header_image() && ! display_header_text() ) : /* If there's a header image but no header text. */ { ?>
                 <a href="<?php echo esc_url( home_url() ); ?>"
                    title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home" class="logo">
-                    <img src="<?php header_image(); ?>"alt="Logotype"/>
+                    <img src="<?php header_image(); ?>" alt="Logotype"/>
                 </a>
             <?php } elseif ( get_header_image() ) : /* If there's a header image. */ { ?>
                 <img src="<?php header_image(); ?>" alt="Logotype"/>
