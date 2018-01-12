@@ -1,13 +1,10 @@
 <?php
 /**
- * The template for displaying front page
- *
- * @package WordPress
- * @subpackage W4P-Theme
- * @since W4P Theme 1.0
+ * Template Name: Page - Front Alternative
+ * The template for displaying Front Alternative page
  */
 
-get_header_alternative(); ?>
+get_header('alternative'); ?>
 
 <?php if ( have_posts() ) :
 	while ( have_posts() ) : the_post(); ?>

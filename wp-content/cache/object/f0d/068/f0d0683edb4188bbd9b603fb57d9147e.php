@@ -1,1 +1,0 @@
-$©åY<?php exit; ?>a:1:{s:7:"content";s:42:"a:2:{s:7:"plugins";a:0:{}s:5:"count";i:0;}";}

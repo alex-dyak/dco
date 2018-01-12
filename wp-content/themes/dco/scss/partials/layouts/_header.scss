@@ -148,3 +148,58 @@ $menuBtnColor--hover: $blue--light;
     }
   }
 }
+
+.homePage--alternative {
+  padding-top: 40px;
+  .siteHeader-logo {
+    height: 25px !important;
+  }
+  .siteHeader {
+    height: 40px;
+    padding: 7px 30px;
+  }
+  .homepageSlider {
+    top: 40px;
+  }
+  .menuBtn {
+    font-size: 10px !important;
+  }
+  .menuBtn {
+    > i {
+      width: 26px;
+      height: 26px;
+      span,
+      &::before,
+      &::after {
+        width: 26px;
+      }
+      span {
+        top: 8px;
+        &::after {
+          top: 8px;
+          position: absolute;
+          width: 26px;
+          height: 2px;
+          left: 0;
+          content: "";
+          opacity: 1;
+          transition-property: -webkit-transform, top, bottom, left, opacity;
+          transition-property: transform, top, bottom, left, opacity;
+          background: #696a6c;
+          color: #696a6c;
+          transition: all .3s;
+        }
+      }
+      &::after {
+        top: 24px;
+      }
+    }
+    &:focus,
+    &:hover {
+      > i span::after {
+        background: #8ab8d2;
+        color: #8ab8d2;
+      }
+    }
+  }
+}

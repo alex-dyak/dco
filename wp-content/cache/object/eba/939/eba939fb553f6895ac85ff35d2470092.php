@@ -1,1 +1,0 @@
-¶ÂY<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"11690";s:7:"post_id";s:3:"356";s:8:"meta_key";s:38:"slider_block_0_slider_content_4_teaser";s:10:"meta_value";s:117:"Some designs are so engaging and memorable that action is required; not because you have to, but because you want to.";}}}

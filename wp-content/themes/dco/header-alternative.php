@@ -54,7 +54,7 @@
     </div>
 </div>
 
-<div id="wrapper" class="wrapper">
+<div id="wrapper" class="wrapper homePage--alternative">
 <?php
 $homePage = "";
 if ( is_front_page() ) {
@@ -73,7 +73,6 @@ if ( is_front_page() ) {
             <?php } elseif ( get_header_image() ) : /* If there's a header image. */ { ?>
                 <img src="<?php header_image(); ?>" alt="Logotype"/>
             <?php } endif; /* End check for header image. */ ?>
-
         </div>
         <div class="siteHeader-menu js-menuTrigger">
             <button type="button" class="menuBtn">
