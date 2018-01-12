@@ -33,7 +33,8 @@
     "wpackagist-plugin/wp-mail-smtp": ">=0.10.1",
     "wpackagist-plugin/cf7-database": ">=1.3",
     "wpackagist-plugin/akismet": ">4.0",
-    "wpackagist-plugin/easy-wp-smtp": ">1.3.0"
+    "wpackagist-plugin/easy-wp-smtp": ">1.3.0",
+    "wpackagist-plugin/duplicate-page": ">=2.4"
   },
   "extra": {
     "installer-paths": {
