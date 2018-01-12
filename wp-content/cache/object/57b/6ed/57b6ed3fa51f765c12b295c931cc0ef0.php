@@ -1,1 +1,0 @@
-≤®ÂY<?php exit; ?>a:1:{s:7:"content";a:6:{s:6:"WPLANG";b:1;s:19:"bodhi_svgs_settings";b:1;s:23:"types-site-kind-disable";b:1;s:15:"toolset_options";b:1;s:23:"wpcf_dismissed_messages";b:1;s:12:"wpseo_onpage";b:1;}}

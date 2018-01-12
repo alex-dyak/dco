@@ -1,3 +1,0 @@
-¶ÂY<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"17073";s:7:"post_id";s:3:"356";s:8:"meta_key";s:34:"homepage_grid_3_join_our_team_body";s:10:"meta_value";s:271:"We are always seeking new talent for our studio. D&amp;CO the place for you?
-<a href="http://server3.designcostaging.com/DCO/profile/">learn more</a>
-<div class="itanywhere-activator" style="left: 0px; top: 9px; display: none;" title="Google Translator Anywhere"></div>";}}}

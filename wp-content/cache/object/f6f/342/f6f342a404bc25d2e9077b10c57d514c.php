@@ -1,1 +1,0 @@
-$©ÂY<?php exit; ?>a:1:{s:7:"content";s:257:"a:3:{s:27:"svg-support/svg-support.php";s:22:"bodhi_svgs_deactivated";s:53:"simple-custom-post-order/simple-custom-post-order.php";s:18:"scporder_uninstall";s:33:"theme-my-login/theme-my-login.php";a:2:{i:0;s:20:"Theme_My_Login_Admin";i:1;s:9:"uninstall";}}";}
