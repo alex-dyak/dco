@@ -63,7 +63,7 @@
                           if ( get_field('social_network', 'option') ) {
                             $social_links = get_field('social_network', 'option');
                             foreach ( $social_links as $social_link ) {
-                              if( ! $social_link['hide_in_the_footer'] ) { ?>
+                              if( $social_link['display_in_the_footer'] ) { ?>
 								  <a href="<?php echo $social_link['social_link']; ?>"
 									  target="_blank">
 									  <i class="fa fa-<?php echo $social_link['social_icon']; ?>"
