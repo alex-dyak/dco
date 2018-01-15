@@ -113,12 +113,14 @@ if ( is_front_page() ) {
                               <?php
                               if ( get_field('social_network', 'option') ) {
                                 $social_links = get_field('social_network', 'option');
-                                foreach ( $social_links as $social_link ) { ?>
-                                    <a href="<?php echo $social_link['social_link']; ?>" target="_blank">
-                                        <i class="fa fa-<?php echo $social_link['social_icon']; ?>" aria-hidden="true"></i>
-                                    </a>
-                                  <?php
-                                }
+	                              foreach ( $social_links as $social_link ) {
+		                              if ( $social_link['display_in_the_menu'] ) { ?>
+										  <a href="<?php echo $social_link['social_link']; ?>" target="_blank">
+											  <i class="fa fa-<?php echo $social_link['social_icon']; ?>" aria-hidden="true"></i>
+										  </a>
+			                              <?php
+		                              }
+	                              }
                               } ?>
                             </div>
                         </div>
