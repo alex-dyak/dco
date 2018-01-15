@@ -5,7 +5,10 @@
 	</div>
 
 	<div class="instagram-content">
-		<?php echo do_shortcode( '[easy-instagram user_id="1070527289" author_text="" time_text="" thumb_size="465"]' ); ?>
+		<?php
+
+		$instagram_user_id = get_option('easy_instagram_user_id');
+		echo do_shortcode( "[easy-instagram user_id=$instagram_user_id author_text='' time_text='' thumb_size='465']" ); ?>
 	</div>
 
 	<div class="grid-body-socials siteSocials">

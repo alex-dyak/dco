@@ -27,7 +27,13 @@
 			  </div>
 
 			  <div class="linkedin-content">
-				  <?php echo do_shortcode( '[li-company-updates limit="1" company="18428591"]' ); ?>
+				  <?php
+
+				  $linkedin_options = get_option('linkedin_company_updates');
+				  $limit = $linkedin_options['limit'];
+				  $company_id = $linkedin_options['company-id'];
+
+				  echo do_shortcode( "[li-company-updates limit=$limit company=$company_id]" ); ?>
 			  </div>
 
 			  <div class="grid-body-socials siteSocials">
