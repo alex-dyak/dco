@@ -36,7 +36,8 @@
     "wpackagist-plugin/easy-wp-smtp": ">1.3.0",
     "wpackagist-plugin/duplicate-page": ">=2.4",
     "wpackagist-plugin/easy-instagram": ">=3.3",
-    "wpackagist-plugin/company-updates-for-linkedin": ">=1.5.3"
+    "wpackagist-plugin/company-updates-for-linkedin": ">=1.5.3",
+    "wpackagist-plugin/leadin": ">=6.1.4"
   },
   "extra": {
     "installer-paths": {
