@@ -19,11 +19,39 @@
                 </div>
             </div>
         <?php endif; ?>
-        <?php $image = get_sub_field( 'join_our_team_image' );
-            if ( ! empty( $image ) && is_int( $image ) ) : ?>
-              <div class="joinOurTeam-image">
-                  <img src="<?php echo wp_get_attachment_image_url( $image, 'homepage_grid_small_image' ); ?>" alt="<?php the_sub_field( 'join_our_team_title' ); ?>">
-              </div>
-        <?php endif; ?>
+
+		  <div class="linkedin-title">
+
+			  <div class="linkedin-title">
+				  <?php _e( 'Linkedin', 'dco' ); ?>
+			  </div>
+
+			  <div class="linkedin-content">
+				  <?php
+
+				  $linkedin_options = get_option('linkedin_company_updates');
+				  $limit = $linkedin_options['limit'];
+				  $company_id = $linkedin_options['company-id'];
+
+				  echo do_shortcode( "[li-company-updates limit=$limit company=$company_id]" ); ?>
+			  </div>
+
+			  <div class="grid-body-socials siteSocials">
+				  <?php
+				  if ( get_field( 'social_network', 'option' ) ) {
+					  $social_links = get_field( 'social_network', 'option' );
+					  foreach ( $social_links as $social_link ) {
+						  if( $social_link['social_icon'] == 'linkedin' ) { ?>
+							  <a href="<?php echo get_field( 'connect_page', 'option' ); ?>" target="_blank">
+								  <i class="fa fa-<?php echo $social_link['social_icon']; ?>" aria-hidden="true"></i>
+							  </a>
+							  <?php
+						  }
+					  }
+				  } ?>
+			  </div>
+
+		  </div>
+
     </div>
 </div>

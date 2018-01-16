@@ -169,6 +169,7 @@ require_once( get_template_directory() . '/inc/widgets-sidebars.php' );
 // Custom post types & Taxonomies.
 require_once( get_template_directory() . '/inc/custom-post-types.php' );
 require_once( get_template_directory() . '/inc/custom-taxonomies.php' );
+require_once( get_template_directory() . '/inc/custom-linkedin-company-updates.php' );
 
 // Filters and functions to manipulate content.
 require_once( get_template_directory() . '/inc/filters.php' );
