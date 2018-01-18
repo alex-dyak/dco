@@ -10,7 +10,7 @@
 <?php if ( $slider ): ?>
     <div class="homepageSliderWrap js-homepage-sliderWrapp">
         <div class="homepageSlider js-homepage-slider"
-             data-speed="<?php echo $speed; ?>">
+             data-speed="<?php echo $speed; ?>" data-heght="<?php echo $height; ?>">
 
 			<?php foreach ($slider as $item ) : ?>
                 <div class="homepageSlider-slide">

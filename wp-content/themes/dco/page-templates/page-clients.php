@@ -13,11 +13,12 @@ get_header(); ?>
 
 			<?php
 			// Slider speed value. Could be changed from admin panel.
-			$speed = get_field( 'slider_speed' ) ? get_field( 'slider_speed' ) : 6000;
+			$speed  = get_field( 'slider_speed' ) ? get_field( 'slider_speed' ) : 6000;
+			$height = get_field( 'slider_height' ) ? get_field( 'slider_height' ) : 100;
 			?>
 
             <div class="imageClientPage-slider-holder">
-                <div class="imageClientPage-slider js-client-slider" data-speed="<?php echo $speed; ?>">
+                <div class="imageClientPage-slider js-client-slider" data-speed="<?php echo $speed; ?>" data-heght="<?php echo $height; ?>">
                     <!-- W3TC_DYNAMIC_SECURITY mfunc -->
 	                <?php
 	                $repeater = get_field( 'page_banner' );

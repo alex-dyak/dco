@@ -6,12 +6,13 @@
 
 <?php
 // Slider speed value. Could be changed from admin panel.
-$speed = get_sub_field( 'slider_speed' ) ? get_sub_field( 'slider_speed' ) : 6000;
+$speed  = get_sub_field( 'slider_speed' ) ? get_sub_field( 'slider_speed' ) : 6000;
+$height = get_sub_field( 'slider_height' ) ? get_sub_field( 'slider_height' ) : 100;
 ?>
 
 <?php if ( have_rows( 'slider' ) ): ?>
 	<div class="profile-slider-holder">
-		<div class="profile-slider js-profile-slider" data-speed="<?php echo $speed; ?>">
+		<div class="profile-slider js-profile-slider" data-speed="<?php echo $speed; ?>" data-heght="<?php echo $height; ?>">
 
 			<?php while ( have_rows( 'slider' ) ) : the_row(); ?>
 				<?php
