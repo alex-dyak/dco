@@ -814,8 +814,9 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 
 		dco_locate_template( 'widgets/homepage-slider/content-banner-slider', array(
 			'slider' => $slider_items,
-			'title' => $slider_data['title'],
-			'speed' => $slider_data['speed'],
+			'title'  => $slider_data['title'],
+			'speed'  => $slider_data['speed'],
+			'height' => $slider_data['height'],
 		) );
 
 		/**
@@ -863,10 +864,11 @@ class W4P_Homepage_Slider_Widget extends WP_Widget {
 		$slider_array = $first_slider_array = array();
 		if ( have_rows( 'slider_block' ) ) {
 			while (have_rows('slider_block')) { the_row();
-				$slider_data['speed'] = get_sub_field( 'slider_speed' ) ? get_sub_field( 'slider_speed' )
-					: 6000;
+				$slider_data['speed']  = get_sub_field( 'slider_speed' ) ? get_sub_field( 'slider_speed' ) : 6000;
 
-				$slider_data['title'] = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
+				$slider_data['height'] = get_sub_field( 'slider_height' ) ? get_sub_field( 'slider_height' ) : 100;
+
+				$slider_data['title']  = get_sub_field( 'title' ) ? get_sub_field( 'title' ) : '';
 
 				if (get_row_layout() == 'slider') {
 
