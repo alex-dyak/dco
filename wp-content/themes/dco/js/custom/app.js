@@ -43,26 +43,28 @@
 
     clientSlider.slick('slickGoTo', rand);
 
-    function sliderHeight() {
+    function sliderHeight(sliderItem) {
       var tablet = window.matchMedia("only screen and (max-width: 48em)"),
           sliderHeightV = 0,
           itemHeight = 0,
           headerHeight = $('.js-siteHeader').outerHeight(),
-          $slides = profileSlider.find('.slick-slide'),
-          $clientSlides = clientSlider.find('.slick-slide');
+          $slides = sliderItem.find('.slick-slide'),
+          //$clientSlides = clientSlider.find('.slick-slide'),
+          $dataHeight = sliderItem.attr('data-heght') / 100;
       if( !tablet.matches ) {
-          itemHeight = ( $(window).height() * .8 ) - (headerHeight * 2);
+          itemHeight = ( $(window).height() * $dataHeight ) - (headerHeight * 2);
           sliderHeightV = itemHeight.toFixed();
       } else {
           sliderHeightV = 365;
       }
       //profileSlider.height(sliderHeightV);
       $slides.height(sliderHeightV);
-      $clientSlides.height(sliderHeightV);
+      //$clientSlides.height(sliderHeightV);
     }
 
-    sliderHeight();
-    
+    sliderHeight(profileSlider);
+    sliderHeight(clientSlider);
+
     function pageArrows() {
         if (!!$('#sticky').length) { // make sure "#sticky" element exists
             var el = $('#sticky');
@@ -168,7 +170,8 @@
 
 
       $(window).on('resize', function(){
-          sliderHeight();
+          sliderHeight(profileSlider);
+          sliderHeight(clientSlider);
       });
       $(window).on('load', function(){
           setTimeout(function () {
