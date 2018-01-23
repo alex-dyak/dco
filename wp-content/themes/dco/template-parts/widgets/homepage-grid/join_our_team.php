@@ -20,8 +20,8 @@
             </div>
         <?php endif; ?>
 
-		  <div class="linkedin-title">
-
+		  <div class="joinOurTeam-linkedinBox js-needToTrim">
+              <a href="<?php echo get_field( 'connect_page', 'option' ); ?>" target="_blank" class="joinOurTeam-linkedinBox-linkOverflow"></a>
 			  <div class="linkedin-title">
 				  <?php _e( 'Linkedin', 'dco' ); ?>
 			  </div>
@@ -36,20 +36,7 @@
 				  echo do_shortcode( "[li-company-updates limit=$limit company=$company_id]" ); ?>
 			  </div>
 
-			  <div class="grid-body-socials siteSocials">
-				  <?php
-				  if ( get_field( 'social_network', 'option' ) ) {
-					  $social_links = get_field( 'social_network', 'option' );
-					  foreach ( $social_links as $social_link ) {
-						  if( $social_link['social_icon'] == 'linkedin' ) { ?>
-							  <a href="<?php echo get_field( 'connect_page', 'option' ); ?>" target="_blank">
-								  <i class="fa fa-<?php echo $social_link['social_icon']; ?>" aria-hidden="true"></i>
-							  </a>
-							  <?php
-						  }
-					  }
-				  } ?>
-			  </div>
+                  <i class="fa fa-linkedin-square socialIcon" aria-hidden="true"></i>
 
 		  </div>
 
