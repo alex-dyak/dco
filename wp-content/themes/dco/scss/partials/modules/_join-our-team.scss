@@ -132,6 +132,103 @@
       }
     }
   }
+  &-linkedinBox {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    &-linkOverflow {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      z-index: 200;
+    }
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      z-index: 102;
+      content: '';
+      background: rgba(0, 119, 181, 0.85);
+    }
+    &::before {
+      display: block;
+      padding-bottom: 62.5%;
+      width: 100%;
+      height: auto;
+      content: '';
+      @media #{$tablet-up} {
+        padding-bottom: 90%;
+      }
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      h2 {
+        display: none;
+      }
+    }
+    img {
+      display: none;
+    }
+    .linkedin-update-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block !important;
+      z-index: 100;
+      min-height: 100%;
+      max-width: 160%;
+    }
+    .linkedin-title {
+      position: absolute;
+      top: 40px;
+      left: 34px;
+      right: 34px;
+      z-index: 103;
+      color: #fff;
+      font-family: $ProximaNova;
+      text-transform: uppercase;
+      font-size: 15px;
+      line-height: 1;
+      @media #{$tablet-up} {
+        font-size: 0.9vw;
+      }
+    }
+    .socialIcon {
+      position: absolute;
+      bottom: 40px;
+      right: 34px;
+      z-index: 103;
+      font-size: 30px;
+      color: #fff;
+    }
+    p {
+      display: none;
+    }
+    p.is-visible {
+      display: block;
+      position: absolute;
+      top: 25%;
+      left: 34px;
+      right: 34px;
+      z-index: 103;
+      color: #fff;
+      font-size: 5.5vw;
+      line-height: 1.2;
+      @media #{$tablet-up} {
+        font-size: 1.5vw;
+        line-height: 1.9vw;
+      }
+    }
+  }
 }
 
 .reedHimage {
@@ -159,5 +256,110 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+  }
+}
+
+.instagramBox {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  @media #{$tablet-up} {
+    width: 33.3333%;
+  }
+  @media #{$desktop-up} {
+    width: 25%;
+  }
+  &-linkOverflow {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+  }
+  &::before {
+    display: block;
+    width: 100%;
+    padding-bottom: 62.5%;
+    height: auto;
+    content: '';
+    @media #{$tablet-up} {
+      padding-bottom: 90%;
+    }
+  }
+  &::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 102;
+    content: '';
+    background: rgba(76, 104, 215, 0.85);
+  }
+  &-title {
+    position: absolute;
+    top: 40px;
+    left: 34px;
+    right: 34px;
+    z-index: 103;
+    color: #fff;
+    font-family: $ProximaNova;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 1;
+    @media #{$tablet-up} {
+      font-size: 0.9vw;
+    }
+  }
+  &-icon {
+    position: absolute;
+    bottom: 40px;
+    right: 34px;
+    z-index: 103;
+    font-size: 30px;
+    color: #fff;
+  }
+  .easy-instagram-container {
+    > * {
+      display: none;
+    }
+    > .easy-instagram-thumbnail-wrapper {
+      display: block;
+    }
+  }
+  .easy-instagram-thumbnail-wrapper {
+    position: static;
+    overflow: visible;
+    text-align: left;
+  }
+  .easy-instagram-thumbnail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block !important;
+    z-index: 100;
+    min-height: 100%;
+    max-width: 160%;
+  }
+  .easy-instagram-thumbnail-caption,
+  .easy-instagram-error {
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 34px;
+    right: 34px;
+    z-index: 103;
+    color: #fff;
+    font-size: 5.5vw;
+    line-height: 1.2;
+    font-weight: normal;
+    @media #{$tablet-up} {
+      font-size: 1.5vw;
+      line-height: 1.9vw;
+    }
   }
 }

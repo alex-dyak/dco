@@ -200,10 +200,21 @@
       });
   });
 
+  function needToTrim() {
+      var $block = $('.js-needToTrim'),
+          $paragraph = $block.find('p'),
+          oldString = $paragraph.text(),
+          newSring = oldString.substring(0, 90);
+      console.log('here');
+      console.log($paragraph);
+      $paragraph.empty().addClass('is-visible').text(newSring + '...');
+  }
+
   $(window).on('load', function(){
       $('.js-preloader').fadeOut();
       if (navigator.userAgent.match(/(\(iPod|\(iPhone|\(iPad)/)) {
           $('html').addClass('ios')
       }
+      needToTrim();
   });
 })(jQuery);
