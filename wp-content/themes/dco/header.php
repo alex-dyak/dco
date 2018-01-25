@@ -54,7 +54,7 @@
     </div>
 </div>
 
-<div id="wrapper" class="wrapper">
+<div id="wrapper" class="wrapper homePage--alternative">
 <?php
 $homePage = "";
 if ( is_front_page() ) {
