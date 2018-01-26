@@ -20,8 +20,19 @@
             </div>
         <?php endif; ?>
 
+	    <?php
+		$linkedin_link = get_field( 'connect_page', 'option' );
+	    if ( get_field( 'social_network', 'option' ) ) {
+		    $social_links = get_field( 'social_network', 'option' );
+		    foreach ( $social_links as $social_link ) {
+			    if( $social_link['social_icon'] == 'linkedin' ) {
+				    $linkedin_link = $social_link['social_link'];
+			    }
+		    }
+	    } ?>
+
 		  <div class="joinOurTeam-linkedinBox js-needToTrim">
-              <a href="<?php echo get_field( 'connect_page', 'option' ); ?>" target="_blank" class="joinOurTeam-linkedinBox-linkOverflow"></a>
+              <a href="<?php echo $linkedin_link; ?>" target="_blank" class="joinOurTeam-linkedinBox-linkOverflow"></a>
 			  <div class="linkedin-title">
 				  <?php _e( 'Linkedin', 'dco' ); ?>
 			  </div>

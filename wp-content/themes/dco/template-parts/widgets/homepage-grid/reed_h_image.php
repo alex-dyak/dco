@@ -1,5 +1,16 @@
+<?php
+$instagram_link = get_field( 'connect_page', 'option' );
+if ( get_field( 'social_network', 'option' ) ) {
+	$social_links = get_field( 'social_network', 'option' );
+	foreach ( $social_links as $social_link ) {
+		if( $social_link['social_icon'] == 'instagram' ) {
+			$instagram_link = $social_link['social_link'];
+		}
+	}
+} ?>
+
 <div class="instagramBox gridItem">
-    <a href="<?php echo get_field( 'connect_page', 'option' ); ?>" class="instagramBox-linkOverflow" target="_blank"></a>
+    <a href="<?php echo $instagram_link; ?>" class="instagramBox-linkOverflow" target="_blank"></a>
 
 	<div class="instagramBox-title">
 		<?php _e( 'Instagram', 'dco' ); ?>
