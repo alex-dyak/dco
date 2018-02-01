@@ -154,7 +154,8 @@
       display: block;
       z-index: 102;
       content: '';
-      background: rgba(0, 119, 181, 0.85);
+      background: rgba(30, 131, 185, 0.85);
+      transition: background .3s;
     }
     &::before {
       display: block;
@@ -228,6 +229,11 @@
         line-height: 1.9vw;
       }
     }
+    &:hover {
+      &::after {
+        background: rgba(0, 119, 181, 0.85);
+      }
+    }
   }
 }
 
@@ -297,7 +303,8 @@
     left: 0;
     z-index: 102;
     content: '';
-    background: rgba(76, 104, 215, 0.85);
+    background: rgba(94, 115, 180, 0.85);
+    transition: background .3s;
   }
   &-title {
     position: absolute;
@@ -360,6 +367,11 @@
     @media #{$tablet-up} {
       font-size: 1.5vw;
       line-height: 1.9vw;
+    }
+  }
+  &:hover {
+    &::after {
+      background: rgba(76, 104, 215, 0.85);
     }
   }
 }
