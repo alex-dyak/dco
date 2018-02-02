@@ -9,8 +9,13 @@ $homePageSlider-btnBackground--hover: $nevada;
 
 .homepageSliderWrap {
   height: $heroBannerHeight--mobile;
+  transition: opacity, visibility .3s;
   @media #{$tablet-up} {
     height: $heroBannerHeight--desktop;
+  }
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 

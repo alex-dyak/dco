@@ -18,8 +18,8 @@ $linksFont: $FuturaPT;
   background: $bgOverviewMenu;
   &-close {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 10px;
+    right: 30px;
     width: 20px;
     height: 20px;
     border: 0;
@@ -74,15 +74,15 @@ $linksFont: $FuturaPT;
 
   &-logo {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 9px;
+    left: 30px;
     @media #{$tablet-up} {
       position: static;
       margin-bottom: 27px;
     }
     > .logo {
       display: block;
-      width: 70px;
+      width: 78.33px;
       height: auto;
       margin: 0 auto;
       @media #{$tablet-up} {
