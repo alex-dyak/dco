@@ -23,6 +23,17 @@
             $('.homepageSlider-slide').height(sliderHeightV);
             $('.heroVideo').height(sliderHeightV);
         }
+        
+        function checkInView() {
+            var scrollTop = $(window).scrollTop(),
+                sliderBottomPosition = $sliderWrapp.offset().top + $sliderWrapp.height();
+            console.log(sliderBottomPosition);
+            if ( scrollTop >= sliderBottomPosition) {
+                $sliderWrapp.addClass('is-hidden');
+            } else {
+                $sliderWrapp.removeClass('is-hidden');
+            }
+        }
 
         sliderHeight();
 
@@ -233,6 +244,12 @@
        }
 
         heroVideo();
+
+        checkInView();
+
+        $(window).scroll(function () {
+            checkInView();
+        });
 
         $(window).on('resize', function(){
             sliderHeight();

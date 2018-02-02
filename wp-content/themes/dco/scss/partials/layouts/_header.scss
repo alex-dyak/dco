@@ -37,7 +37,6 @@ $menuBtnColor--hover: $blue--light;
     width: 100%;
     text-align: right;
     line-height: 1;
-    margin-top: 5px;
     cursor: pointer;
     @media #{$tablet-up} {
       margin-top: 1px;
@@ -88,10 +87,10 @@ $menuBtnColor--hover: $blue--light;
   }
   > i {
     display: inline-block;
+    vertical-align: middle;
     position: relative;
     width: 17px;
     height: 17px;
-    //font-size: 0.9375rem;
     margin-left: 4px;
 
     &:before,
